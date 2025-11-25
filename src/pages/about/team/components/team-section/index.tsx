@@ -1,16 +1,51 @@
 import PageHeading from "../../../../../components/page-heading";
 
+
 const teamMembers = [
-	{ role: "Leader", title: "Chief Executive Officer", name: "Alex Carter", img: "/team/placeholder.png" },
-	{ role: "Innovator", title: "Chief Technology Officer", name: "Jordan Lee", img: "/team/placeholder.png" },
-	{ role: "Strategic", title: "Application Architect", name: "Morgan Diaz", img: "/team/placeholder.png" },
-	{ role: "Visionary", title: "Designer & Developer", name: "Riley Brooks", img: "/team/placeholder.png" },
-	{ role: "Engaging", title: "Quality Assurance Lead", name: "Taylor Singh", img: "/team/placeholder.png" },
-	{ role: "Reliable", title: "DevOps Lead", name: "Casey Morgan", img: "/team/placeholder.png" },
-	{ role: "Intelligent", title: "AI Team Lead", name: "Avery Chen", img: "/team/placeholder.png" },
-	{ role: "Experienced", title: "Senior Principal Engineer", name: "Sam Patterson", img: "/team/placeholder.png" },
-	{ role: "Logical", title: "Backend Developer", name: "Jamie Park", img: "/team/placeholder.png" },
+	{
+		role: "Leader",
+		title: "CEO and Engineer Head",
+		name: "Priyanshu Dwivedi",
+		// img: "/team/priyanshu.png",
+		img: '/team/placeholder.png'
+	},
+	{
+		role: "Strategic",
+		title: "Marketing Head",
+		name: "Rohan Sharma",
+		// img: "/team/rohan.png",
+		img: '/team/placeholder.png'
+	},
+	{
+		role: "Visionary",
+		title: "Senior Developer",
+		name: "Aman",
+		// img: "/team/aman.png",
+		img: '/team/placeholder.png'
+	},
+	{
+		role: "Intelligence",
+		title: "AI Head",
+		name: "Ritilk Raushan",
+		// img: "/team/ritilk.png",
+		img: '/team/placeholder.png'
+	},
+	{
+		role: "Engaging",
+		title: "QA Head",
+		name: "Munesh Kushwah",
+		// img: "/team/munesh.png",
+		img: '/team/placeholder.png'
+	},
+	{
+		role: "Reliable",
+		title: "DevOps Head",
+		name: "Prashant Yadav",
+		// img: "/team/prashant.png",
+		img: '/team/placeholder.png'
+	},
 ];
+
 
 export default function TeamSection() {
 	return (

@@ -1,9 +1,9 @@
-import { Box, Figma, GitBranch, MessageSquare, Slack } from "lucide-react";
 import PageTitle from "../../../components/page-title";
 import OtherServices from "../components/other-services";
 import ToolsWeUse from "../components/tools-we-use";
 import ServiceDetailsWeServe from "../components/we-serve";
 import WorkingStep from "../components/working-step";
+import { faAws, faDocker, faFigma, faGitAlt, faOpenai, faSlack } from "@fortawesome/free-brands-svg-icons";
 
 
 const webAppItems = [
@@ -64,12 +64,12 @@ const steps = [
 ];
 
 const tools = [
-	{ icon: GitBranch, name: "Git" },
-	{ icon: Figma, name: "Figma" },
-	{ icon: Box, name: "Jira" },
-	{ icon: Box, name: "Docker" },
-	{ icon: MessageSquare, name: "Twilio" },
-	{ icon: Slack, name: "Slack" },
+	{ icon: faGitAlt, name: "Git" },
+	{ icon: faFigma, name: "Figma" },
+	{ icon: faOpenai, name: "OpenAI" },
+	{ icon: faDocker, name: "Docker" },
+	{ icon: faAws, name: "AWS" },
+	{ icon: faSlack, name: "Slack" },
 ];
 
 const otherServices = [

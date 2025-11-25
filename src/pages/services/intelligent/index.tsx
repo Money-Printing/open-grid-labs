@@ -1,9 +1,10 @@
-import { Box, Figma, GitBranch, MessageSquare, Slack } from "lucide-react";
 import PageTitle from "../../../components/page-title";
 import OtherServices from "../components/other-services";
 import ToolsWeUse from "../components/tools-we-use";
 import ServiceDetailsWeServe from "../components/we-serve";
 import WorkingStep from "../components/working-step";
+import { faOpenai, faPython } from "@fortawesome/free-brands-svg-icons";
+import { Anaconda, Jupyter, PyTorch, Tensorflow } from "../../../icons/tools";
 
 const services = {
   "Artificial Intelligence": [
@@ -103,12 +104,12 @@ const steps = [
 
 
 const tools = [
-	{ icon: GitBranch, name: "Git" },
-	{ icon: Figma, name: "Figma" },
-	{ icon: Box, name: "Jira" },
-	{ icon: Box, name: "Docker" },
-	{ icon: MessageSquare, name: "Twilio" },
-	{ icon: Slack, name: "Slack" },
+  { icon: faPython, name: "Python" },
+  { icon: <Tensorflow className="text-primary group-hover:scale-110 transition-transform duration-300" />, name: "Tensorflow" },
+  { icon: <PyTorch className="text-primary group-hover:scale-110 transition-transform duration-300" />, name: "PyTorch" },
+  { icon: <Jupyter className="text-primary group-hover:scale-110 transition-transform duration-300" />, name: "Jupyter" },
+  { icon: faOpenai, name: "OpenAI" },
+  { icon: <Anaconda className="text-primary group-hover:scale-110 transition-transform duration-300" />, name: "Anaconda" },
 ];
 
 const otherServices = [

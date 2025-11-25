@@ -3,20 +3,49 @@ import PageHeading2 from "../../../../components/page-heading-2";
 
 const reviews = [
   {
-    name: "Olivia Martinez",
-    role: "Customer Manager at SupportEase",
-    image: "/founders/img1.jpg",
+    name: "Rohit Hiwale",
+    role: "CEO at Morphle Labs",
+    image: "/founders/rohit-hiwale.jpeg",
     rating: 5,
-    comment: "The new UI design cut our customer support tickets in half. It's been a game-changer for us.",
+    comment: "The frontend microscopic scanner is incredibly intuitive. It has streamlined our workflow and improved accuracy tremendously.",
   },
   {
-    name: "John Doe",
-    role: "Product Lead at TechCorp",
-    image: "/founders/img2.jpg",
+    name: "Chris DuPont",
+    role: "CEO at Galen Data",
+    image: "/founders/chris-dupont.jpeg",
+    rating: 5,
+    comment: "The cloud platform for medical devices is seamless and reliable. It has transformed how our team manages and analyzes device data.",
+  },
+  {
+    name: "Abbas Dhilawala",
+    role: "CTO at Matrix One",
+    image: "/founders/abbas-dhilawala.avif",
     rating: 4,
-    comment: "Impressive improvements in UX. Our team loves the new interface.",
+    comment: "The tools are well-designed and effective. The overall experience has been positive and productive.",
+  },
+  {
+    name: "Salim Boutaleb",
+    role: "Head Of Quants at ETG",
+    image: "/founders/placeholder.png",
+    rating: 5,
+    comment: "The 'AirTrader' trading simulator application is robust and user-friendly. It has improved our strategy testing and decision-making processes.",
+  },
+  {
+    name: "Benjamin Zeimis",
+    role: "Founder at Jlabs Digital",
+    image: "/founders/placeholder.png",
+    rating: 5,
+    comment: "The crypto analytical tools are comprehensive and insightful. They provide valuable data for smarter investment decisions.",
+  },
+  {
+    name: "Rahul Pandey",
+    role: "Associate Vice President at SG Analytics",
+    image: "/founders/rahul-pandey.jpeg",
+    rating: 5,
+    comment: "The tread pattern monitoring system POC and analytical dashboard are extremely useful. They simplify complex analysis and enhance our operational efficiency.",
   },
 ];
+
 
 
 type ReviewCardProps = {
@@ -62,8 +91,8 @@ function ReviewCard({ review }: ReviewCardProps) {
 
 
 export default function HomeTestimonials({
-  preTitle = 'Hear From What Our',
-  mainTitle = 'Client Have To Say.'
+  preTitle = 'Hear What Our',
+  mainTitle = 'Clients Have To Say.'
 }: { preTitle?: string, mainTitle?: string }) {
   return (
     <section id="home-testimonials" className="w-full flex flex-col relative justify-center">

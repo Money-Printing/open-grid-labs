@@ -1,4 +1,5 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 
@@ -21,19 +22,17 @@ const footerLinks = {
   Other: [
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms of Use", href: "/terms-of-use" },
-    { name: "Site Map", href: "/site-map" },
+    { name: "Site Map", href: "/sitemap.xml" },
   ],
 };
 
+export const socialLinks = [
+  { icon: <FontAwesomeIcon icon={faLinkedin} className="w-4 h-4" />, href: "https://www.linkedin.com/in/priyanshud", label: "LinkedIn" },
+  { icon: <FontAwesomeIcon icon={faXTwitter} className="w-4 h-4" />, href: "#", label: "Twitter" },
+];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-  ];
 
   return (
     <footer className="border-t border-border">
@@ -46,7 +45,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-xl font-display font-bold mb-4">Logo</h3>
+              <h3 className="text-xl font-display font-bold mb-4">PDX Work</h3>
               <p className="text-muted-foreground mb-6 max-w-xs">
                 Empowering businesses with innovative IT solutions.
               </p>
@@ -55,10 +54,11 @@ const Footer = () => {
                   <a
                     key={index}
                     href={social.href}
+                    target="_blank"
                     aria-label={social.label}
                     className="w-9 h-9 border border-border rounded-lg flex items-center justify-center hover:border-foreground transition-colors"
                   >
-                    <social.icon className="w-4 h-4" />
+                    {social.icon}
                   </a>
                 ))}
               </div>
@@ -77,12 +77,23 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.name}
-                    </Link>
+                    {
+                      link.href === '/sitemap.xml' ? (
+                        <a
+                          href={link.href}
+                          className="text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          {link.name}
+                        </a>
+                      ) : (
+                        <Link
+                          to={link.href}
+                          className="text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          {link.name}
+                        </Link>
+                      )
+                    }
                   </li>
                 ))}
               </ul>
@@ -97,7 +108,7 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="pt-8 border-t border-border text-center text-muted-foreground"
         >
-          <p>© {currentYear} Name Solutions. All rights reserved.</p>
+          <p>© {currentYear} PDX Work. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

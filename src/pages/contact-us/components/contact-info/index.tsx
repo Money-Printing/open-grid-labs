@@ -1,12 +1,9 @@
-import { Dribbble, Facebook, Grid2X2, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Grid2X2, Mail, MapPin } from "lucide-react";
 import type { ReactNode } from "react";
+import { socialLinks } from "../../../../components/footer";
 
-const socialLinks = [
-	{ href: "https://www.facebook.com", svg: Facebook },
-	{ href: "https://www.instagram.com", svg: Instagram },
-	{ href: "https://www.youtube.com", svg: Youtube },
-	{ href: "https://www.dribbble.com", svg: Dribbble },
-];
 
 type ContactCardProps = {
 	icon: ReactNode
@@ -44,19 +41,25 @@ export default function ContactInfo() {
 			<ContactCard
 				icon={<MapPin className="text-background" size={28} />}
 				label="Our Location"
-				items={['New Delhi, India', 'USA Office: California']}
-			/>
-
-			<ContactCard
-				icon={<Phone className="text-background" size={28} />}
-				label="Phone"
-				items={['+91 123 456 7890']}
+				items={[
+					"New Delhi, India",
+					"New York, USA",
+					"Alberta, Canada",
+					"London, UK",
+					"Munich, Germany"
+				]}
 			/>
 
 			<ContactCard
 				icon={<Mail className="text-background" size={28} />}
 				label="Email"
 				items={['Reach us via email for inquiries', 'contact@company.com']}
+			/>
+
+			<ContactCard
+				icon={<FontAwesomeIcon icon={faWhatsapp} className="text-background" size={'xl'} />}
+				label="WhatsApp"
+				items={['+1 315 908 7303']}
 			/>
 
 			<ContactCard
@@ -67,7 +70,7 @@ export default function ContactInfo() {
 				<div className="flex items-center gap-4 mt-2">
 					{socialLinks.map((link, i) => (
 						<a key={i} href={link.href} target="_blank" rel="noreferrer" className="text-secondary hover:scale-110 transition bg-foreground rounded-full p-2">
-							<link.svg size={20} />
+							{link.icon}
 						</a>
 					))}
 				</div>

@@ -4,14 +4,16 @@ import ButtonLink from '../ui/button-link.tsx';
 
 
 export const brands = [
-	'/images/jayate-logo.svg',
-	'/images/jayate-logo.svg',
-	'/images/jayate-logo.svg',
-	'/images/jayate-logo.svg',
-	'/images/jayate-logo.svg',
-	'/images/jayate-logo.svg',
-	'/images/jayate-logo.svg',
-	'/images/jayate-logo.svg',
+	{href: '/clients/morphlelabs.png', alt: 'Morphle Labs'},
+	{href: '/clients/galen-data.png', alt: 'Galen Data'},
+	{href: '/clients/matrix-one-health.svg', alt: 'Matrix One Health'},
+	{href: '/clients/ETG-commodities.png', alt: 'ETG Commodities'},
+	{href: '/clients/jlabs-digital.png', alt: 'JLabs Digital'},
+	{href: '/clients/roni-analytics.png', alt: 'Roni Analytics'},
+	{href: '/clients/sg-analytics.svg', alt: 'SG Analytics'},
+	{href: '/clients/npci.png', alt: 'NPCI'},
+	{href: '/clients/ambassade-de-france.png', alt: 'Ambassade De France'},
+	{href: '/clients/united-health-group.png', alt: 'United Health Group'},
 ]
 
 const Hero = () => {
@@ -70,16 +72,16 @@ const Hero = () => {
 						</ButtonLink>
 					</motion.div>
 
-					<motion.div 
-					whileInView={{ opacity: 1, y: 0 }}
-				initial={{ opacity: 0, y: 50 }}
-				transition={{ duration: 0.3, delay: 0.6 }}
-				viewport={{ once: true }}
-					className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-16 max-w-3xl mx-auto'>
+					<motion.div
+						whileInView={{ opacity: 1, y: 0 }}
+						initial={{ opacity: 0, y: 50 }}
+						transition={{ duration: 0.3, delay: 0.6 }}
+						viewport={{ once: true }}
+						className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-16 max-w-3xl mx-auto'>
 						{
-							brands.map((b, i) => (
+							brands.slice(0, 8).map((b, i) => (
 								<div key={i} className='bg-foreground/5 border border-border rounded-2xl px-6 py-3 flex items-center justify-center'>
-									<img src={b} alt="logo" className='w-auto h-12 grayscale object-contain ' />
+									<img src={b.href} alt={b.alt} className='w-auto h-12 grayscale object-contain ' />
 								</div>
 							))
 						}

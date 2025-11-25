@@ -3,7 +3,7 @@ import HomeFaq from "../../home/components/faq";
 import About from "./components/about";
 import AboutHistory from "./components/about-history";
 import CoreValues from "./components/core-values";
-import FounderSection from "./components/founder-section";
+
 
 const faqs = [
   {
@@ -49,8 +49,6 @@ export default function AboutUs() {
 			<AboutHistory />
 
 			<CoreValues />
-
-			<FounderSection />
 
 			<HomeFaq faqs={faqs} />
 

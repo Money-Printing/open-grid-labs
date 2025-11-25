@@ -26,7 +26,7 @@ export default function Clients() {
 					{
 						brands.map((b, i) => (
 							<div key={i} className='bg-foreground/5 border border-border rounded-2xl px-6 py-8 flex items-center justify-center'>
-								<img src={b} alt="logo" className='w-auto h-18 grayscale object-contain ' />
+								<img src={b.href} alt={b.alt} className='w-auto h-18 grayscale object-contain ' />
 							</div>
 						))
 					}
@@ -34,7 +34,7 @@ export default function Clients() {
 			</div>
 
 			<HomeTestimonials
-				preTitle="Happy Client With 500+"
+				preTitle="Happy Clients With 50+"
 				mainTitle="Successful Projects."
 			/>
 

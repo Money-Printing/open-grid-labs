@@ -3,6 +3,7 @@ import Footer from "../../components/footer";
 import Nav from "../../components/nav";
 import { Outlet } from "react-router";
 import Spacer from "../../components/spacer";
+import { ToastContainer } from 'react-toastify';
 
 export default function MainLayout() {
 	return (
@@ -14,6 +15,8 @@ export default function MainLayout() {
 				<Contact />
 			</div>
 			<Footer />
+
+			<ToastContainer />
 		</div>
 	)
 }

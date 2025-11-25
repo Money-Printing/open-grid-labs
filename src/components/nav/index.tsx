@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AnimatePresence } from "motion/react";
 import ButtonLink from "../ui/button-link.tsx";
 import ServiceCard from "../service-card/index.tsx";
+import Logo from "../../icons/logo/index.tsx";
 
 export type NavItemDropdownType = {
 	title: string
@@ -101,7 +102,7 @@ const Nav = () => {
 								className="text-2xl font-display font-bold tracking-tight"
 							>
 								<Link to={'/'}>
-									Logo
+									<Logo />
 								</Link>
 							</motion.div>
 

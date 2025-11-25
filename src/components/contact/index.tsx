@@ -3,7 +3,7 @@ import ButtonLink from "../ui/button-link.tsx";
 
 export default function Contact() {
 	return (
-		<div className="w-full bg-foreground/2 rounded-2xl border border-border my-10 px-8 py-16 grid md:grid-cols-2 gap-10 items-center">
+		<div className="w-full bg-foreground/2 rounded-2xl border border-border my-10 px-8 py-16 grid lg:grid-cols-2 justify-center gap-10 items-center">
 
 			<div className="space-y-6">
 				<h2 className="text-3xl md:text-5xl font-bold leading-tight text-muted-foreground uppercase">
@@ -21,9 +21,9 @@ export default function Contact() {
 				</ButtonLink>
 			</div>
 
-			<div className="hidden md:block">
-				<div className="flex justify-center items-center w-full h-64 bg-foreground/3 rounded-xl">
-					logo
+			<div className="hidden lg:block">
+				<div className="flex justify-center items-center w-full h-64 rounded-xl">
+					<img src="/logo.svg" width={'50%'} className="rounded-full" />
 				</div>
 			</div>
 

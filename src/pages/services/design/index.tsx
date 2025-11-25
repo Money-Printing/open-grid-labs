@@ -1,9 +1,10 @@
-import { Box, Figma, GitBranch, MessageSquare, Slack } from "lucide-react";
 import PageTitle from "../../../components/page-title";
 import OtherServices from "../components/other-services";
 import ToolsWeUse from "../components/tools-we-use";
 import ServiceDetailsWeServe from "../components/we-serve";
 import WorkingStep from "../components/working-step";
+import { faFigma } from "@fortawesome/free-brands-svg-icons";
+import { Blender, Canva, Framer, FreePik, Sketch } from "../../../icons/tools";
 
 const services = {
   "UI/UX Design": [
@@ -88,12 +89,12 @@ const steps = [
 
 
 const tools = [
-	{ icon: GitBranch, name: "Git" },
-	{ icon: Figma, name: "Figma" },
-	{ icon: Box, name: "Jira" },
-	{ icon: Box, name: "Docker" },
-	{ icon: MessageSquare, name: "Twilio" },
-	{ icon: Slack, name: "Slack" },
+  { icon: faFigma, name: "Figma" },
+  { icon: <Sketch className="text-primary group-hover:scale-110 transition-transform duration-300" />, name: "Sketch" },
+  { icon: <Framer className="text-primary group-hover:scale-110 transition-transform duration-300" />, name: "Framer" },
+  { icon: <Blender className="text-primary group-hover:scale-110 transition-transform duration-300" />, name: "Blender" },
+  { icon: <Canva className="text-primary group-hover:scale-110 transition-transform duration-300" />, name: "Canva" },
+  { icon: <FreePik className="text-primary group-hover:scale-110 transition-transform duration-300" />, name: "FreePik" },
 ];
 
 const otherServices = [

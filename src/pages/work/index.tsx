@@ -4,28 +4,34 @@ import { ProjectsGrid } from "./components/projects-grid";
 
 const projects = [
 	{
-		title: "Project Alpha – Enterprise Management System",
+		title: "Frontend Microscopic Scanner",
 		description:
-			"Project Alpha is a robust IT solution for managing business operations, including workflow automation, reporting, and team collaboration for enhanced productivity.",
-		href: "/work/project-alpha",
+			"A highly intuitive frontend microscopic scanner that streamlines workflows and improves accuracy.",
+		href: "/work/frontend-microscopic-scanner",
 	},
 	{
-		title: "Project Beta – Cloud Integration Platform",
+		title: "Cloud Frontend/Backend for Medical Devices",
 		description:
-			"Project Beta provides seamless cloud services integration, enabling secure data transfer, scalable storage, and real-time synchronization across multiple applications.",
-		href: "/work/project-beta",
+			"A reliable cloud platform for managing and analyzing medical device data efficiently.",
+		href: "/work/cloud-medical-devices",
 	},
 	{
-		title: "Project Gamma – E-Learning Portal",
+		title: "AirTrader – Trading Simulator Application",
 		description:
-			"Project Gamma is a versatile educational platform offering online courses, interactive learning tools, and collaborative study environments for diverse audiences.",
-		href: "/work/project-gamma",
+			"A robust and user-friendly trading simulator for strategy testing and decision-making.",
+		href: "/work/airtrader-trading-simulator",
 	},
 	{
-		title: "Project Delta – Financial Analytics Dashboard",
+		title: "Crypto Analytical Tools",
 		description:
-			"Project Delta delivers advanced analytics and visualization tools for tracking financial data, generating reports, and providing actionable insights for decision-making.",
-		href: "/work/project-delta",
+			"Comprehensive crypto analysis tools providing actionable insights for investments.",
+		href: "/work/crypto-analytical-tools",
+	},
+	{
+		title: "Tread Pattern Monitoring System POC & Analytical Dashboard",
+		description:
+			"Advanced monitoring system and analytics dashboard to simplify complex data and enhance efficiency.",
+		href: "/work/tread-pattern-dashboard",
 	},
 ];
 

@@ -10,6 +10,9 @@ import AboutUs from "./pages/about/about-us"
 import Team from "./pages/about/team"
 import Career from "./pages/about/career"
 import ContactUs from "./pages/contact-us"
+import NotFound from "./pages/NotFound"
+import PrivacyPolicy from "./pages/privacy-policy"
+import TermsOfUse from "./pages/terms-of-use"
 
 function App() {
 	return (
@@ -32,6 +35,9 @@ function App() {
 						<Route index path="career" element={<Career />} />
 					</Route>
 					<Route path="contact-us" element={<ContactUs />} />
+					<Route path="privacy-policy" element={<PrivacyPolicy />} />
+					<Route path="terms-of-use" element={<TermsOfUse />} />
+					<Route path="*" element={<NotFound />} />
 				</Route>
 			</Routes>
 		</div>

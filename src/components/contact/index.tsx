@@ -23,7 +23,7 @@ export default function Contact() {
 
 			<div className="hidden lg:block">
 				<div className="flex justify-center items-center w-full h-64 rounded-xl">
-					<img src="/logo.svg" width={'50%'} className="rounded-full" />
+					<img src="logo.svg" width={'50%'} className="rounded-full" />
 				</div>
 			</div>
 

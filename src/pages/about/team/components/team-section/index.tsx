@@ -6,43 +6,43 @@ const teamMembers = [
 		role: "Leader",
 		title: "CEO and Engineer Head",
 		name: "Priyanshu Dwivedi",
-		// img: "/team/priyanshu.png",
-		img: '/team/placeholder.png'
+		// img: "team/priyanshu.png",
+		img: 'team/placeholder.png'
 	},
 	{
 		role: "Strategic",
 		title: "Marketing Head",
 		name: "Rohan Sharma",
-		// img: "/team/rohan.png",
-		img: '/team/placeholder.png'
+		// img: "team/rohan.png",
+		img: 'team/placeholder.png'
 	},
 	{
 		role: "Visionary",
 		title: "Senior Developer",
 		name: "Aman",
-		// img: "/team/aman.png",
-		img: '/team/placeholder.png'
+		// img: "team/aman.png",
+		img: 'team/placeholder.png'
 	},
 	{
 		role: "Intelligence",
 		title: "AI Head",
 		name: "Ritilk Raushan",
-		// img: "/team/ritilk.png",
-		img: '/team/placeholder.png'
+		// img: "team/ritilk.png",
+		img: 'team/placeholder.png'
 	},
 	{
 		role: "Engaging",
 		title: "QA Head",
 		name: "Munesh Kushwah",
-		// img: "/team/munesh.png",
-		img: '/team/placeholder.png'
+		// img: "team/munesh.png",
+		img: 'team/placeholder.png'
 	},
 	{
 		role: "Reliable",
 		title: "DevOps Head",
 		name: "Prashant Yadav",
-		// img: "/team/prashant.png",
-		img: '/team/placeholder.png'
+		// img: "team/prashant.png",
+		img: 'team/placeholder.png'
 	},
 ];
 

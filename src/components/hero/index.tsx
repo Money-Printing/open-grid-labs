@@ -4,16 +4,16 @@ import ButtonLink from '../ui/button-link.tsx';
 
 
 export const brands = [
-	{href: '/clients/morphlelabs.png', alt: 'Morphle Labs'},
-	{href: '/clients/galen-data.png', alt: 'Galen Data'},
-	{href: '/clients/matrix-one-health.svg', alt: 'Matrix One Health'},
-	{href: '/clients/ETG-commodities.png', alt: 'ETG Commodities'},
-	{href: '/clients/jlabs-digital.png', alt: 'JLabs Digital'},
-	{href: '/clients/roni-analytics.png', alt: 'Roni Analytics'},
-	{href: '/clients/sg-analytics.svg', alt: 'SG Analytics'},
-	{href: '/clients/npci.png', alt: 'NPCI'},
-	{href: '/clients/ambassade-de-france.png', alt: 'Ambassade De France'},
-	{href: '/clients/united-health-group.png', alt: 'United Health Group'},
+	{href: 'clients/morphlelabs.png', alt: 'Morphle Labs'},
+	{href: 'clients/galen-data.png', alt: 'Galen Data'},
+	{href: 'clients/matrix-one-health.svg', alt: 'Matrix One Health'},
+	{href: 'clients/ETG-commodities.png', alt: 'ETG Commodities'},
+	{href: 'clients/jlabs-digital.png', alt: 'JLabs Digital'},
+	{href: 'clients/roni-analytics.png', alt: 'Roni Analytics'},
+	{href: 'clients/sg-analytics.svg', alt: 'SG Analytics'},
+	{href: 'clients/npci.png', alt: 'NPCI'},
+	{href: 'clients/ambassade-de-france.png', alt: 'Ambassade De France'},
+	{href: 'clients/united-health-group.png', alt: 'United Health Group'},
 ]
 
 const Hero = () => {

@@ -53,7 +53,7 @@ const HomeMetric = () => {
 				>
 					<svg className="w-full h-full" viewBox="0 0 100 80" preserveAspectRatio="xMidYMid meet">
 						<image
-							href="/images/world.svg"
+							href="images/world.svg"
 							x="0"
 							y="15"
 							width="100"

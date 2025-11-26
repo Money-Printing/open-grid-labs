@@ -22,7 +22,7 @@ const footerLinks = {
   Other: [
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms of Use", href: "/terms-of-use" },
-    { name: "Site Map", href: "/sitemap.xml" },
+    { name: "Site Map", href: "https://money-printing.github.io/AgencyWebsite/sitemap.xml" },
   ],
 };
 

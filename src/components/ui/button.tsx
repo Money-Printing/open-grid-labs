@@ -1,7 +1,7 @@
 import type { ReactNode } from "react"
 
 const variants = {
-	default: 'bg-primary text-secondary hover:bg-primary/90',
+	default: 'animated-gradient-bg',
 	outline: 'hover:bg-primary hover:text-secondary border-border'
 }
 

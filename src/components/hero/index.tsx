@@ -27,7 +27,7 @@ const Hero = () => {
 						transition={{ duration: 0.3 }}
 						className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full mb-8"
 					>
-						<span className="text-xs font-medium uppercase tracking-wider">Next-Gen IT Solutions</span>
+						<span className="text-xs font-medium uppercase tracking-wider animated-gradient-text">Next-Gen IT Solutions</span>
 					</motion.div>
 
 					<motion.h1

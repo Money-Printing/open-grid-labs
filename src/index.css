@@ -141,3 +141,67 @@ body {
 .animated-gradient-bg:hover {
 	opacity: 0.9;
 }
+
+/* Animated Gradient Background on Hover for Outline Buttons */
+.animated-gradient-bg-hover {
+	transition: all 0.3s ease;
+}
+
+.animated-gradient-bg-hover:hover {
+	background: linear-gradient(
+		90deg,
+		#6366f1,
+		#8b5cf6,
+		#ec4899,
+		#f59e0b,
+		#10b981,
+		#06b6d4,
+		#6366f1
+	);
+	background-size: 300% 300%;
+	animation: gradient-animation 8s ease infinite;
+	color: white;
+	border-color: transparent;
+}
+
+/* Animated Gradient Text on Hover */
+.hover\:animated-gradient-text:hover {
+	background: linear-gradient(
+		90deg,
+		#6366f1,
+		#8b5cf6,
+		#ec4899,
+		#f59e0b,
+		#10b981,
+		#06b6d4,
+		#6366f1
+	);
+	background-size: 300% 300%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradient-animation 8s ease infinite;
+}
+
+/* Group hover animated gradient text */
+.group-hover\:animated-gradient-text {
+	transition: all 0.3s ease;
+}
+
+.group:hover .group-hover\:animated-gradient-text {
+	background: linear-gradient(
+		90deg,
+		#6366f1,
+		#8b5cf6,
+		#ec4899,
+		#f59e0b,
+		#10b981,
+		#06b6d4,
+		#6366f1
+	);
+	background-size: 300% 300%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradient-animation 8s ease infinite;
+}

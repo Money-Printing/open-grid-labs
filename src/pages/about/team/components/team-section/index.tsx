@@ -6,7 +6,7 @@ const teamMembers = [
 		role: "Leader",
 		title: "CEO and Engineer Head",
 		name: "Priyanshu Dwivedi",
-		img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Priyanshu&backgroundColor=b6e3f4',
+		img: '/team/priyanshu.jpg',
 		department: "Leadership",
 		location: "India",
 		expertise: ["Engineering", "Strategy", "Innovation"]
@@ -15,7 +15,7 @@ const teamMembers = [
 		role: "Strategic",
 		title: "Marketing Head",
 		name: "Rohan Sharma",
-		img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Rohan&backgroundColor=c0aede',
+		img: '/team/rohan.jpg',
 		department: "Marketing",
 		location: "India",
 		expertise: ["Digital Marketing", "Brand Strategy", "Growth"]
@@ -24,7 +24,7 @@ const teamMembers = [
 		role: "Visionary",
 		title: "Senior Developer",
 		name: "Aman",
-		img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Aman&backgroundColor=d1d4f9',
+		img: '/team/aman.jpg',
 		department: "Engineering",
 		location: "India",
 		expertise: ["Full Stack", "Architecture", "Development"]
@@ -33,7 +33,7 @@ const teamMembers = [
 		role: "Intelligence",
 		title: "AI Head",
 		name: "Ritilk Raushan",
-		img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ritilk&backgroundColor=ffd5dc',
+		img: '/team/ritilk.jpg',
 		department: "AI & Research",
 		location: "India",
 		expertise: ["Machine Learning", "AI", "Data Science"]
@@ -42,7 +42,7 @@ const teamMembers = [
 		role: "Engaging",
 		title: "QA Head",
 		name: "Munesh Kushwah",
-		img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Munesh&backgroundColor=ffdfbf',
+		img: '/team/munesh.jpg',
 		department: "Quality Assurance",
 		location: "India",
 		expertise: ["Testing", "Automation", "Quality Control"]
@@ -51,7 +51,7 @@ const teamMembers = [
 		role: "Reliable",
 		title: "DevOps Head",
 		name: "Prashant Yadav",
-		img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Prashant&backgroundColor=c9e4de',
+		img: '/team/prashant.jpg',
 		department: "DevOps",
 		location: "India",
 		expertise: ["Cloud", "CI/CD", "Infrastructure"]

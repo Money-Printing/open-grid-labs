@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router"
 import Home from "./pages/home"
 import Work from "./pages/work"
+import ProjectDetails from "./pages/work/project-details"
 import MainLayout from "./layouts/main"
 import Clients from "./pages/clients"
 import ServicesSoftware from "./pages/services/software"
@@ -20,7 +21,10 @@ function App() {
 			<Routes>
 				<Route path="/" element={<MainLayout />}>
 					<Route index element={<Home />} />
-					<Route path="work" element={<Work />} />
+					<Route path="work">
+						<Route index element={<Work />} />
+						<Route path=":projectId" element={<ProjectDetails />} />
+					</Route>
 					<Route path="clients" element={<Clients />} />
 					<Route path="services">
 						<Route index element={<Navigate to="/services/software" replace />} />

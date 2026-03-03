@@ -28,13 +28,13 @@
         "contactType": "customer service",
         "url": "https://opengridlabs.com/contact-us"
       },
-      "serviceType": [
-        "Software Development",
-        "AI & Machine Learning Solutions",
-        "UI/UX Design",
-        "Mobile App Development",
-        "Cloud Solutions",
-        "Web Application Development"
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Machine Learning Solutions" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX Design" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Solutions" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application Development" } }
       ]
     }
   </script>
@@ -55,6 +55,7 @@
   </script>
 
   <!-- Calendly widget styles -->
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>

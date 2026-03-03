@@ -46,10 +46,10 @@ const ServiceCategory = ({ title, items }: { title: string, items: string[] }) =
 
 	return (
 		<div className="w-full flex flex-col gap-8">
-			<h1 className="text-4xl md:text-5xl font-extrabold tracking-wide flex flex-wrap">
+			<h2 className="text-4xl md:text-5xl font-extrabold tracking-wide flex flex-wrap">
 				<span className="text-primary">{part1}</span>
 				<span className="text-muted-foreground ml-2">{part2}</span>
-			</h1>
+			</h2>
 
 			<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
 				{items.map((item, index) => (

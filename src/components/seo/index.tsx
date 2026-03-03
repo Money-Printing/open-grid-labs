@@ -39,11 +39,13 @@ export default function SEO({
 			{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
 			{/* Open Graph Meta Tags */}
+			<meta property="og:locale" content="en_US" />
 			<meta property="og:title" content={fullTitle} />
 			<meta property="og:description" content={description} />
 			<meta property="og:type" content={ogType} />
 			<meta property="og:site_name" content={SITE_NAME} />
 			<meta property="og:image" content={image} />
+			<meta property="og:image:alt" content={fullTitle} />
 			{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
 
 			{/* Twitter Card Meta Tags */}
@@ -51,6 +53,7 @@ export default function SEO({
 			<meta name="twitter:title" content={fullTitle} />
 			<meta name="twitter:description" content={description} />
 			<meta name="twitter:image" content={image} />
+			<meta name="twitter:image:alt" content={fullTitle} />
 		</Helmet>
 	);
 }

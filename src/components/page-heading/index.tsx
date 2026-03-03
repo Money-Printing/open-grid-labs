@@ -26,7 +26,7 @@ export default function PageHeading({
 		<div className="relative mx-auto text-center px-4 flex flex-col items-center gap-3">
 
 			<div className="flex flex-col items-center gap-3">
-				<h1 className="font-bold text-foreground uppercase tracking-tight flex flex-col md:flex-row items-center gap-2 md:gap-3 text-3xl md:text-6xl text-center md:text-left">
+				<h2 className="font-bold text-foreground uppercase tracking-tight flex flex-col md:flex-row items-center gap-2 md:gap-3 text-3xl md:text-6xl text-center md:text-left">
 					{preTitle && <span className="break-words">{preTitle}</span>}
 
 					{!hideIcon && (
@@ -48,13 +48,13 @@ export default function PageHeading({
 					)}
 
 					<span className="break-words">{mainTitle}</span>
-				</h1>
+				</h2>
 
 
 				{postTitle && (
-					<h2 className="font-semibold text-foreground text-2xl md:text-4xl uppercase opacity-90">
+					<h3 className="font-semibold text-foreground text-2xl md:text-4xl uppercase opacity-90">
 						{postTitle}
-					</h2>
+					</h3>
 				)}
 			</div>
 		</div>

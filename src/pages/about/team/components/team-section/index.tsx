@@ -6,7 +6,7 @@ const teamMembers = [
 		role: "Leader",
 		title: "Co-Founder & CTO",
 		name: "Priyanshu Dwivedi",
-		img: '/team/priyanshu.jpg',
+		img: 'dist/team/priyanshu.jpg',
 		department: "Leadership",
 		location: "India",
 		expertise: ["Engineering", "Strategy", "Innovation"]
@@ -15,7 +15,7 @@ const teamMembers = [
 		role: "Strategic",
 		title: "Co-Founder & CMO",
 		name: "Rohan Sharma",
-		img: '/team/rohan.jpg',
+		img: 'dist/team/rohan.jpg',
 		department: "Marketing",
 		location: "India",
 		expertise: ["Digital Marketing", "Brand Strategy", "Growth"]
@@ -24,7 +24,7 @@ const teamMembers = [
 		role: "Visionary",
 		title: "Founding Team · Senior Developer",
 		name: "Aman",
-		img: '/team/aman.jpg',
+		img: 'dist/team/aman.jpg',
 		department: "Engineering",
 		location: "India",
 		expertise: ["Full Stack", "Architecture", "Development"]
@@ -33,7 +33,7 @@ const teamMembers = [
 		role: "Intelligence",
 		title: "Founding Team · AI Head",
 		name: "Ritilk Raushan",
-		img: '/team/ritilk.jpg',
+		img: 'dist/team/ritilk.jpg',
 		department: "AI & Research",
 		location: "India",
 		expertise: ["Machine Learning", "AI", "Data Science"]
@@ -42,17 +42,17 @@ const teamMembers = [
 		role: "Engaging",
 		title: "Founding Team · SDET Lead",
 		name: "Munesh Kushwah",
-		img: '/team/munesh.jpg',
+		img: 'dist/team/munesh.jpg',
 		department: "Quality Assurance",
 		location: "India",
 		expertise: ["Testing", "Automation", "Quality Control"]
 	},
 	{
 		role: "Reliable",
-		title: "Founding Team · DevOps Head",
-		name: "Prashant Yadav",
-		img: '/team/prashant.jpg',
-		department: "DevOps",
+		title: "Founding Team · Sells Head",
+		name: "Abhinav",
+		img: 'dist/team/Abhinav.jpg',
+		department: "Sells",
 		location: "India",
 		expertise: ["Cloud", "CI/CD", "Infrastructure"]
 	},

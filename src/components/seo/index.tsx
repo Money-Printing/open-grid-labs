@@ -12,7 +12,7 @@ interface SEOProps {
 
 const SITE_NAME = "OpenGridLabs";
 const SITE_URL = "https://opengridlabs.com";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/images/logo_light.svg`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.png`;
 
 export default function SEO({
 	title,

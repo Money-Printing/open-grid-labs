@@ -6,7 +6,8 @@ const teamMembers = [
 		role: "Leader",
 		title: "Co-Founder & CTO",
 		name: "Priyanshu Dwivedi",
-		img: 'dist/team/priyanshu.jpg',
+		img: '/team/Priyanshu_crop.jpg',
+		imgPosition: "object-top",
 		department: "Leadership",
 		location: "India",
 		expertise: ["Engineering", "Strategy", "Innovation"]
@@ -15,7 +16,8 @@ const teamMembers = [
 		role: "Strategic",
 		title: "Co-Founder & CMO",
 		name: "Rohan Sharma",
-		img: 'dist/team/rohan.jpg',
+		img: '/team/rohan.jpg',
+		imgPosition: "object-top",
 		department: "Marketing",
 		location: "India",
 		expertise: ["Digital Marketing", "Brand Strategy", "Growth"]
@@ -24,7 +26,8 @@ const teamMembers = [
 		role: "Visionary",
 		title: "Founding Team · Senior Developer",
 		name: "Aman",
-		img: 'dist/team/aman.jpg',
+		img: '/team/aman.webp',
+		imgPosition: "object-top",
 		department: "Engineering",
 		location: "India",
 		expertise: ["Full Stack", "Architecture", "Development"]
@@ -33,7 +36,8 @@ const teamMembers = [
 		role: "Intelligence",
 		title: "Founding Team · AI Head",
 		name: "Ritilk Raushan",
-		img: 'dist/team/ritilk.jpg',
+		img: '/team/ritilk.jpg',
+		imgPosition: "object-top",
 		department: "AI & Research",
 		location: "India",
 		expertise: ["Machine Learning", "AI", "Data Science"]
@@ -42,23 +46,25 @@ const teamMembers = [
 		role: "Engaging",
 		title: "Founding Team · SDET Lead",
 		name: "Munesh Kushwah",
-		img: 'dist/team/munesh.jpg',
+		img: '/team/Munesh_pro_pic.png',
+		imgPosition: "object-top",
 		department: "Quality Assurance",
 		location: "India",
 		expertise: ["Testing", "Automation", "Quality Control"]
 	},
 	{
 		role: "Reliable",
-		title: "Founding Team · Sells Head",
+		title: "Founding Team · Sales Head",
 		name: "Abhinav",
-		img: 'dist/team/Abhinav.jpg',
-		department: "Sells",
+		img: '/team/Abhinav.webp',
+		imgPosition: "object-top",
+		department: "Sales",
 		location: "India",
-		expertise: ["Cloud", "CI/CD", "Infrastructure"]
+		expertise: ["Sales", "Business Development", "Client Relations"]
 	},
 ];
 
-const departments = ["All", "Leadership", "Engineering", "Marketing", "AI & Research", "Quality Assurance", "DevOps"];
+const departments = ["All", "Leadership", "Engineering", "Marketing", "AI & Research", "Quality Assurance", "Sales"];
 
 export default function TeamSection() {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -137,7 +143,7 @@ export default function TeamSection() {
 							<img
 								alt={member.name}
 								src={member.img}
-								className="object-cover w-full h-full transition duration-500 group-hover:scale-110"
+								className={`object-cover w-full h-full transition duration-500 group-hover:scale-110 ${member.imgPosition}`}
 							/>
 						</div>
 

@@ -37,24 +37,24 @@ function StyledPhoneInput({
 	error,
 }: StyledPhoneInputProps) {
 	return (
-		<div className="flex flex-col gap-2">
-			<label className="text-foreground font-semibold text-lg md:text-xl">
+		<div className="flex flex-col gap-3">
+			<label className="text-white/80 font-semibold text-lg md:text-xl tracking-wide">
 				{label}
 			</label>
 
-			<div className="border border-border rounded-xl px-2 py-[0.4rem] flex items-center gap-2">
+			<div className="border border-white/10 rounded-xl px-2 py-2 bg-black/40 focus-within:border-primary/50 focus-within:ring-1 focus-within:ring-primary transition-all flex items-center gap-2">
 				<PhoneInput
 					country="in"
 					value={value}
 					onChange={onChange}
 					containerClass="!w-full"
-					inputClass="!w-full !text-base !bg-transparent !border-none !outline-none !shadow-none text-foreground placeholder:text-muted-foreground"
+					inputClass="!w-full !text-base !bg-transparent !border-none !outline-none !shadow-none text-white placeholder:text-muted-foreground pl-12"
 					buttonClass="!bg-transparent !border-none !outline-none"
-					dropdownClass="!bg-card !text-foreground"
+					dropdownClass="!bg-gray-900 !text-white !border-white/10"
 				/>
 			</div>
 
-			{error && <p className="text-red-600">{error}</p>}
+			{error && <p className="text-red-500 text-sm mt-1">{error}</p>}
 		</div>
 	);
 }
@@ -62,12 +62,14 @@ function StyledPhoneInput({
 
 function RadioPills({ options, name, value, setValue }: { options: string[]; name: string; value: string; setValue: (val: string) => void }) {
 	return (
-		<div className="flex flex-wrap gap-4">
+		<div className="flex flex-wrap gap-4 mt-2">
 			{options.map((option) => (
 				<label
 					key={option}
-					className={`px-4 py-2 border rounded-xl text-sm md:text-base cursor-pointer transition 
-						${value === option ? "bg-foreground text-background border-foreground" : "border-border text-foreground hover:bg-foreground/10"}`}
+					className={`px-5 py-3 rounded-full text-sm md:text-base cursor-pointer transition-all duration-300 font-medium tracking-wide border
+						${value === option 
+                            ? "bg-primary text-white border-primary shadow-[0_0_15px_hsla(210,100%,50%,0.3)]" 
+                            : "bg-white/5 border-white/5 text-muted-foreground hover:bg-white/10 hover:text-white"}`}
 				>
 					<input
 						type="radio"
@@ -156,11 +158,11 @@ export default function ContactForm() {
 
 
 	return (
-		<section id="contact-us-contact-form" className="w-full flex flex-col">
+		<section id="contact-us-contact-form" className="w-full flex flex-col relative z-20">
 			<PageHeading2 mainTitle="Let's Talk!" />
 
-			<form className="w-full flex flex-col gap-10 mt-8">
-				<div className="grid md:grid-cols-2 gap-8">
+			<form className="w-full flex flex-col gap-12 mt-12 glass-panel p-8 md:p-12 rounded-3xl border border-white/5">
+				<div className="grid md:grid-cols-2 gap-10">
 					<InputField value={formData.name}
 						onChange={(v) => {
 							setFormData({ ...formData, name: v })
@@ -177,7 +179,7 @@ export default function ContactForm() {
 						label="Reach me at" placeholder="hello@gmail.com" type="email" />
 				</div>
 
-				<div className="grid md:grid-cols-2 gap-8">
+				<div className="grid md:grid-cols-2 gap-10">
 					<StyledPhoneInput value={formData.phoneNumber}
 						onChange={(v) => {
 							setFormData({ ...formData, phoneNumber: v })
@@ -193,11 +195,11 @@ export default function ContactForm() {
 							if (errors.company) setErrors({ ...errors, company: "" });
 						}}
 						error={errors.company}
-						label="Company Name" placeholder="Company Name" />
+						label="Company Name" placeholder="Your Company" />
 				</div>
 
-				<div className="flex flex-col gap-2">
-					<h2 className="text-foreground font-semibold text-lg md:text-xl">Domain</h2>
+				<div className="flex flex-col gap-3">
+					<h2 className="text-white/80 font-semibold text-lg md:text-xl tracking-wide">Domain <span className="text-red-500 text-base">*</span></h2>
 					<RadioPills name="domain" options={domains} value={formData.domain}
 						setValue={(v) => {
 							setFormData({ ...formData, domain: v })
@@ -206,13 +208,13 @@ export default function ContactForm() {
 					/>
 					{
 						errors.domain && (
-							<p className="text-red-600">{errors.domain}</p>
+							<p className="text-red-500 text-sm mt-1">{errors.domain}</p>
 						)
 					}
 				</div>
 
-				<div className="flex flex-col gap-2">
-					<h2 className="text-foreground font-semibold text-lg md:text-xl">Services</h2>
+				<div className="flex flex-col gap-3">
+					<h2 className="text-white/80 font-semibold text-lg md:text-xl tracking-wide">Services <span className="text-red-500 text-base">*</span></h2>
 					<RadioPills name="service" options={services} value={formData.services}
 						setValue={(v) => {
 							setFormData({ ...formData, services: v })
@@ -221,13 +223,13 @@ export default function ContactForm() {
 					/>
 					{
 						errors.services && (
-							<p className="text-red-600">{errors.services}</p>
+							<p className="text-red-500 text-sm mt-1">{errors.services}</p>
 						)
 					}
 				</div>
 
-				<div className="flex flex-col gap-2">
-					<h2 className="text-foreground font-semibold text-lg md:text-xl">Budget In USD</h2>
+				<div className="flex flex-col gap-3">
+					<h2 className="text-white/80 font-semibold text-lg md:text-xl tracking-wide">Budget In USD <span className="text-red-500 text-base">*</span></h2>
 					<RadioPills name="budget" options={budgets} value={formData.budget}
 						setValue={(v) => {
 							setFormData({ ...formData, budget: v })
@@ -236,7 +238,7 @@ export default function ContactForm() {
 					/>
 					{
 						errors.budget && (
-							<p className="text-red-600">{errors.budget}</p>
+							<p className="text-red-500 text-sm mt-1">{errors.budget}</p>
 						)
 					}
 				</div>
@@ -247,19 +249,19 @@ export default function ContactForm() {
 						if (errors.comments) setErrors({ ...errors, comments: "" });
 					}}
 					error={errors.comments}
-					label="Comments" placeholder="Write your message here..." type="textarea" rows={4} />
+					label="Comments" placeholder="Tell us about your project requirements..." type="textarea" rows={5} />
 
 				<button
 					type="button"
 					onClick={handleSubmit}
 					disabled={loading}
-					className={`w-28 justify-center text-xl overflow-hidden inline-flex shrink-0 items-center font-semibold transition-colors relative select-none cursor-pointer h-12 px-6 bg-foreground text-background hover:bg-foreground/85 rounded-[15px]`}
+					className={`md:w-48 w-full justify-center text-xl overflow-hidden inline-flex items-center gap-2 font-bold transition-all relative select-none cursor-pointer h-14 px-8 bg-gradient-to-r from-primary to-accent text-white rounded-xl shadow-[0_0_20px_hsla(210,100%,50%,0.3)] hover:shadow-[0_0_30px_hsla(210,100%,50%,0.5)] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed`}
 				>
 					{
 						loading ? (
-							<span className="w-6 h-6 border-2 border-gray-300 border-t-transparent rounded-full animate-spin inline-block"></span>
+							<span className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin inline-block"></span>
 						) : (
-							<span>Send</span>
+							<span>Send Message</span>
 						)
 					}
 				</button>

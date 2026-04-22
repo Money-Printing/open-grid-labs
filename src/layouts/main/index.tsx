@@ -1,21 +1,31 @@
 import Contact from "../../components/contact";
 import Footer from "../../components/footer";
 import Nav from "../../components/nav";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import Spacer from "../../components/spacer";
 import { ToastContainer } from 'react-toastify';
 
 export default function MainLayout() {
-	return (
-		<div className="min-h-screen bg-background">
-			<Nav />
-			<Spacer />
-			<div className="max-w-6xl mx-auto px-4 flex flex-col gap-24 pt-4">
-				<Outlet />
-				<Contact />
-			</div>
-			<Footer />
+	const { pathname } = useLocation();
+	const isHome = pathname === "/";
 
+	return (
+		<div className="min-h-screen bg-background text-foreground flex flex-col items-center">
+			<Nav />
+			<div className="w-full">
+				<Spacer />
+				<div className={`mx-auto flex flex-col gap-24 pt-4 ${isHome ? 'w-full' : 'w-[90%] max-w-[1400px] px-4'}`}>
+					<Outlet />
+					<div className="w-[90%] max-w-[1600px] mx-auto">
+						<Contact />
+					</div>
+				</div>
+			</div>
+			<div className="w-full md:border-t mt-12 md:mt-24 border-border">
+				<div className="w-[90%] max-w-[1600px] mx-auto">
+					<Footer />
+				</div>
+			</div>
 			<ToastContainer />
 		</div>
 	)

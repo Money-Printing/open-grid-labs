@@ -1,8 +1,9 @@
 import type { ReactNode } from "react"
 
 const variants = {
-	default: 'bg-primary text-secondary hover:bg-primary/90',
-	outline: 'hover:bg-primary hover:text-secondary border-border'
+	default: 'bg-primary text-white shadow-glow hover:bg-primary/90 hover:shadow-[0_0_30px_hsla(210,100%,50%,0.6)]',
+	outline: 'border border-primary text-primary bg-transparent hover:bg-primary/10 shadow-[inset_0_0_10px_hsla(210,100%,50%,0.2)]',
+    ghost: 'hover:bg-primary/10 text-muted-foreground hover:text-primary',
 }
 
 type ButtonProps = {
@@ -22,7 +23,7 @@ export default function Button({
 		<button
 			type="button"
 			onClick={onClick}
-			className={`px-4 py-2 rounded-xl cursor-pointer transition ${className} ${variants[variant]} inline-flex items-center justify-center`}
+			className={`px-6 py-3 rounded-xl font-medium tracking-wide cursor-pointer transition-all duration-300 ${variants[variant]} ${className} inline-flex items-center justify-center`}
 		>
 			{children}
 		</button>

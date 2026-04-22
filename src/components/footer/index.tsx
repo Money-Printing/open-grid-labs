@@ -23,7 +23,7 @@ const footerLinks = {
   Other: [
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms of Use", href: "/terms-of-use" },
-    { name: "Site Map", href: "https://money-printing.github.io/AgencyWebsite/sitemap.xml" },
+    { name: "Site Map", href: "https://opengridlabs.com/sitemap.xml" },
   ],
 };
 
@@ -35,7 +35,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border" role="contentinfo" aria-label="Site footer">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           <div className="col-span-2">
@@ -58,7 +58,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     aria-label={social.label}
-                    className="w-9 h-9 border border-border rounded-lg flex items-center justify-center hover:border-foreground transition-colors"
+                    className="w-10 h-10 border border-white/10 bg-white/5 rounded-full flex items-center justify-center hover:border-primary hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_15px_hsla(210,100%,50%,0.3)] transition-all duration-300"
                   >
                     {social.icon}
                   </a>

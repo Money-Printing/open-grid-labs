@@ -38,26 +38,30 @@ export default function CoreValues() {
 	return (
 		<section
 			id="about-us-core-value"
-			className="w-full flex flex-col items-center relative justify-center text-center"
+			className="w-full flex flex-col items-center relative justify-center text-center py-20 mt-10"
 		>
 			<StickyTextSection
 				heading={
-					<PageHeading2
-						preTitle="Our Core"
-						mainTitle="Values"
-					/>
+                    <div className="relative">
+                        <div className="absolute -top-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+					    <PageHeading2
+					    	preTitle="Our Core"
+					    	mainTitle="Values"
+					    />
+                    </div>
 				}
 				description="we understand that software is a multifaceted challenge that requires a holistic approach."
 			>
 				{coreValues.map((value, idx) => (
-					<div key={idx}>
-						<div className="flex flex-col gap-4">
-							<h3 className="text-3xl w-full font-medium text-foreground">
+					<div key={idx} className="group relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -left-4 -right-4 top-0 bottom-4" />
+						<div className="flex flex-col gap-4 relative z-10 px-4 py-2">
+							<h3 className="text-3xl w-full font-display font-semibold transition-colors duration-300 group-hover:text-primary text-white">
 								{value.title}
 							</h3>
-							<p className="text-muted-foreground font-normal text-lg">{value.description}</p>
+							<p className="text-muted-foreground font-normal text-lg leading-relaxed group-hover:text-white/80 transition-colors duration-300">{value.description}</p>
 						</div>
-						{idx !== coreValues.length - 1 && <div className="w-full h-[1px] bg-border my-4"></div>}
+						{idx !== coreValues.length - 1 && <div className="w-full h-[1px] bg-white/10 my-6 group-hover:bg-primary/20 transition-colors duration-300"></div>}
 					</div>
 				))}
 			</StickyTextSection>

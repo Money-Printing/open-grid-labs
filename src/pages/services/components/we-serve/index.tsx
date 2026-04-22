@@ -6,7 +6,7 @@ const ServiceSectionLayout = ({ children }: { children: ReactNode }) => {
 	return (
 		<section
 			id="service-details-we-serve"
-			className="w-full flex flex-col gap-6 relative max"
+			className="w-full flex flex-col gap-12 relative max mt-20"
 		>
 			{children}
 		</section>
@@ -15,7 +15,8 @@ const ServiceSectionLayout = ({ children }: { children: ReactNode }) => {
 
 const ServiceHero = ({ title, description }: { title: Record<string, string>, description: string }) => {
 	return (
-		<div className="col-span-1 w-full flex flex-col gap-6">
+		<div className="col-span-1 w-full flex flex-col gap-8 relative z-10">
+			<div className="absolute -left-10 top-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
 			<div className="w-full flex flex-col md:gap-7 gap-6">
 				<PageHeading2
 					preTitle={title.part1}
@@ -23,7 +24,7 @@ const ServiceHero = ({ title, description }: { title: Record<string, string>, de
 				/>
 			</div>
 
-			<p className="text-muted-foreground text-2xl leading-relaxed">
+			<p className="text-muted-foreground text-xl md:text-2xl leading-relaxed">
 				{description}
 			</p>
 		</div>
@@ -32,9 +33,10 @@ const ServiceHero = ({ title, description }: { title: Record<string, string>, de
 
 const ServiceDiagram = () => {
 	return (
-		<div className="col-span-1 w-full flex md:justify-end justify-center">
-			<div className="relative h-[340px] justify-center flex w-[400px] items-center">
-				<Monitor size={200} />
+		<div className="col-span-1 w-full flex md:justify-end justify-center relative">
+			<div className="absolute right-10 top-10 w-48 h-48 bg-accent/20 rounded-full blur-[80px] pointer-events-none" />
+			<div className="relative h-[340px] justify-center flex w-[400px] items-center text-primary drop-shadow-[0_0_20px_hsla(210,100%,50%,0.3)]">
+				<Monitor size={200} className="relative z-10 font-thin" strokeWidth={1} />
 			</div>
 		</div>
 	);
@@ -45,19 +47,20 @@ const ServiceCategory = ({ title, items }: { title: string, items: string[] }) =
 	const [part1, part2] = title.split(' ');
 
 	return (
-		<div className="w-full flex flex-col gap-8">
-			<h1 className="text-4xl md:text-5xl font-extrabold tracking-wide flex flex-wrap">
-				<span className="text-primary">{part1}</span>
-				<span className="text-muted-foreground ml-2">{part2}</span>
+		<div className="w-full flex flex-col gap-8 mt-10">
+			<h1 className="text-4xl md:text-5xl font-display font-bold tracking-wide flex flex-wrap">
+				<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent drop-shadow-md">{part1}</span>
+				<span className="text-white ml-3">{part2}</span>
 			</h1>
 
 			<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
 				{items.map((item, index) => (
 					<div
 						key={index}
-						className="p-6 rounded-xl bg-secondary"
+						className="p-8 rounded-2xl glass-panel border border-white/5 hover:border-primary/40 hover:shadow-[0_0_20px_hsla(210,100%,50%,0.15)] group transition-all duration-300 relative overflow-hidden"
 					>
-						<h3 className="text-xl md:text-2xl font-semibold">
+						<div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+						<h3 className="text-xl md:text-2xl font-semibold text-white/90 group-hover:text-white transition-colors relative z-10">
 							{item}
 						</h3>
 					</div>
@@ -77,7 +80,7 @@ type ServiceDetailsWeServeProps = {
 const ServiceDetailsWeServe = ({ description, services }: ServiceDetailsWeServeProps) => {
 	return (
 		<ServiceSectionLayout>
-			<div className="w-full grid md:grid-cols-2 grid-cols-1 gap-6 relative">
+			<div className="w-full grid md:grid-cols-2 grid-cols-1 gap-10 relative">
 				<ServiceHero
 					title={{ part1: "What Do", part2: "We Serve?" }}
 					description={description}
@@ -85,7 +88,7 @@ const ServiceDetailsWeServe = ({ description, services }: ServiceDetailsWeServeP
 				<ServiceDiagram />
 			</div>
 
-			<div className="w-full mt-10 flex flex-col gap-16">
+			<div className="w-full mt-16 flex flex-col gap-24">
 				{
 					Object.keys(services).map((k, i) => (
 						<ServiceCategory

@@ -2,47 +2,23 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import PageHeading from "../../../../components/page-heading/index.tsx";
 import ButtonLink from "../../../../components/ui/button-link.tsx";
-import { Code2, Brain, Palette, ArrowUpRight } from "lucide-react";
+import { Code2, Brain, Palette, ArrowUpRight, Cloud, RefreshCw } from "lucide-react";
 
 // ── Service Data ──────────────────────────────────────────────
 const categories = [
   {
-    id: "software",
-    label: "Engineering",
-    icon: Code2,
-    color: "from-blue-500 to-cyan-400",
-    glowColor: "hsla(210, 100%, 50%, 0.15)",
-    accentClass: "text-blue-400",
-    borderAccent: "border-blue-500/30",
-    bgAccent: "bg-blue-500/10",
-    heading: "Software Systems",
-    tagline: "Scalable architectures. Pixel-perfect execution.",
-    description:
-      "We engineer production-grade platforms that handle millions of users — from blazing-fast web apps to bulletproof cloud infrastructure. Every line of code ships with purpose.",
-    link: "/services/software",
-    cta: "Explore Engineering",
-    capabilities: [
-      { name: "Web Platforms", detail: "React, Next.js, high-performance SPAs" },
-      { name: "Mobile Engineering", detail: "Cross-platform native experiences" },
-      { name: "Cloud & DevOps", detail: "AWS, GCP, CI/CD, containerized deploys" },
-      { name: "API Architecture", detail: "RESTful, GraphQL, real-time systems" },
-      { name: "Security Hardening", detail: "Zero-trust, encryption, compliance" },
-    ],
-  },
-  {
-    id: "intelligent",
-    label: "Intelligence",
+    id: "ai-data",
+    label: "AI & Data",
     icon: Brain,
     color: "from-violet-500 to-fuchsia-400",
     glowColor: "hsla(280, 100%, 60%, 0.15)",
     accentClass: "text-violet-400",
     borderAccent: "border-violet-500/30",
     bgAccent: "bg-violet-500/10",
-    heading: "AI & Data Systems",
+    heading: "AI & Data Intelligence",
     tagline: "Machines that think. Data that speaks.",
-    description:
-      "We build intelligent systems that learn, predict, and adapt — from conversational AI agents to deep learning pipelines that turn raw data into decisive business advantage.",
-    link: "/services/intelligent",
+    description: "We build intelligent systems that learn, predict, and adapt — from conversational AI agents to deep learning pipelines that turn raw data into decisive business advantage.",
+    link: "/services/ai-data",
     cta: "Discover AI",
     capabilities: [
       { name: "Predictive Analytics", detail: "Forecast trends & behaviors" },
@@ -53,24 +29,89 @@ const categories = [
     ],
   },
   {
-    id: "design",
-    label: "Design",
+    id: "product-engineering",
+    label: "Product Engineering",
+    icon: Code2,
+    color: "from-blue-500 to-cyan-400",
+    glowColor: "hsla(210, 100%, 50%, 0.15)",
+    accentClass: "text-blue-400",
+    borderAccent: "border-blue-500/30",
+    bgAccent: "bg-blue-500/10",
+    heading: "Product Engineering",
+    tagline: "Scalable architectures. Rapid iteration.",
+    description: "We engineer production-grade platforms that handle millions of users — blazing-fast SaaS products, seamless mobile experiences, and secure APIs.",
+    link: "/services/product-engineering",
+    cta: "Build Your Product",
+    capabilities: [
+      { name: "SaaS Platforms", detail: "Multi-tenant architectures" },
+      { name: "Mobile Engineering", detail: "Cross-platform native experiences" },
+      { name: "API Architecture", detail: "RESTful, GraphQL, real-time systems" },
+      { name: "Frontend Ecosystems", detail: "React, Next.js, high-performance SPAs" },
+      { name: "Security Hardening", detail: "Zero-trust, encryption, compliance" },
+    ],
+  },
+  {
+    id: "cloud-platform",
+    label: "Cloud & Platform",
+    icon: Cloud,
+    color: "from-orange-500 to-amber-400",
+    glowColor: "hsla(30, 100%, 50%, 0.15)",
+    accentClass: "text-orange-400",
+    borderAccent: "border-orange-500/30",
+    bgAccent: "bg-orange-500/10",
+    heading: "Cloud & Platform",
+    tagline: "Infinite scale. Zero downtime.",
+    description: "Robust cloud-native architectures that ensure high availability, security, and elasticity for your most critical enterprise workloads.",
+    link: "/services/cloud-platform",
+    cta: "Scale Your Cloud",
+    capabilities: [
+      { name: "Cloud Migration", detail: "Seamless transitions to AWS/Azure/GCP" },
+      { name: "DevOps & CI/CD", detail: "Automated delivery pipelines" },
+      { name: "Microservices", detail: "Kubernetes, Docker, Serverless" },
+      { name: "Infrastructure as Code", detail: "Terraform, Ansible provisioning" },
+      { name: "Performance Optimization", detail: "Latency reduction & cost control" },
+    ],
+  },
+  {
+    id: "legacy-modernization",
+    label: "Modernization",
+    icon: RefreshCw,
+    color: "from-rose-500 to-pink-400",
+    glowColor: "hsla(330, 100%, 60%, 0.15)",
+    accentClass: "text-rose-400",
+    borderAccent: "border-rose-500/30",
+    bgAccent: "bg-rose-500/10",
+    heading: "Legacy Modernization",
+    tagline: "Evolve. Upgrade. Future-proof.",
+    description: "We help enterprises resolve tech debt, migrate from monolithic systems to microservices, and prepare outdated codebases for the AI era.",
+    link: "/services/legacy-modernization",
+    cta: "Upgrade Systems",
+    capabilities: [
+      { name: "Tech Debt Resolution", detail: "Refactoring & architecture audits" },
+      { name: "Monolith to Microservices", detail: "Decoupled scalable systems" },
+      { name: "Database Migration", detail: "NoSQL transitions & data lakes" },
+      { name: "API Enablement", detail: "Exposing legacy functions securely" },
+      { name: "AI-Readiness", detail: "Structuring data for machine learning" },
+    ],
+  },
+  {
+    id: "digital-experience",
+    label: "Digital Experience",
     icon: Palette,
     color: "from-emerald-400 to-teal-400",
     glowColor: "hsla(160, 80%, 50%, 0.15)",
     accentClass: "text-emerald-400",
     borderAccent: "border-emerald-500/30",
     bgAccent: "bg-emerald-500/10",
-    heading: "Visual & UX Design",
-    tagline: "Interfaces that convert. Brands that resonate.",
-    description:
-      "We craft pixel-perfect interfaces and immersive brand identities that don't just look stunning — they drive measurable engagement, retention, and conversion.",
-    link: "/services/design",
-    cta: "View Design Work",
+    heading: "Digital Experience",
+    tagline: "Interfaces that convert. Experiences that wow.",
+    description: "We craft pixel-perfect interfaces, immersive 3D web experiences, and brand identities that drive measurable engagement and retention.",
+    link: "/services/digital-experience",
+    cta: "View Experiences",
     capabilities: [
       { name: "UI Engineering", detail: "Design systems, component libraries" },
+      { name: "3D Web & WebGL", detail: "Interactive immersive experiences" },
       { name: "UX Strategy", detail: "Research-driven user journeys" },
-      { name: "Brand Identity", detail: "Logos, typography, visual language" },
       { name: "Motion Design", detail: "Micro-interactions & animation" },
       { name: "Conversion Design", detail: "A/B-tested, data-informed layouts" },
     ],
@@ -130,8 +171,8 @@ export default function HomeServices() {
                   border backdrop-blur-md
                   ${
                     isActive
-                      ? `${cat.borderAccent} ${cat.bgAccent} text-white shadow-lg`
-                      : "border-white/10 bg-white/5 text-white/50 hover:text-white/80 hover:border-white/20"
+                      ? `${cat.borderAccent} ${cat.bgAccent} text-foreground shadow-lg`
+                      : "border-black/10 dark:border-transparent bg-white/50 dark:bg-foreground/5 text-foreground/70 dark:text-foreground/50 hover:text-foreground/80 hover:border-black/20 dark:border-transparent"
                   }
                 `}
               >
@@ -159,12 +200,12 @@ export default function HomeServices() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="w-full"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 glass-panel rounded-[40px] border border-white/5 overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 glass-panel rounded-[40px] border border-black/5 dark:border-transparent overflow-hidden shadow-lg dark:shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
               
               {/* ── Left: Hero Content ──────────────────────── */}
               <div className="lg:col-span-5 p-10 md:p-14 lg:p-16 flex flex-col justify-between relative">
                 {/* Top accent line */}
-                <div className={`absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent`} />
+                <div className={`absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent`} />
                 
                 <div>
                   <motion.div
@@ -180,7 +221,7 @@ export default function HomeServices() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.15, duration: 0.5 }}
-                    className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white tracking-tight leading-[1.1] mb-8"
+                    className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground tracking-tight leading-[1.1] mb-8"
                   >
                     {active.heading.split(" ").map((word, i) => (
                       <span key={i}>
@@ -199,7 +240,7 @@ export default function HomeServices() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25, duration: 0.5 }}
-                    className="text-lg text-white/60 font-light leading-relaxed mb-12"
+                    className="text-lg text-foreground/80 dark:text-foreground/60 font-light leading-relaxed mb-12"
                   >
                     {active.description}
                   </motion.p>
@@ -217,7 +258,7 @@ export default function HomeServices() {
               </div>
 
               {/* ── Right: Capabilities List ────────────────── */}
-              <div className="lg:col-span-7 p-10 md:p-14 lg:p-16 lg:border-l border-t lg:border-t-0 border-white/5 bg-white/[0.02] relative">
+              <div className="lg:col-span-7 p-10 md:p-14 lg:p-16 lg:border-l border-t lg:border-t-0 border-black/5 dark:border-transparent bg-foreground/[0.02] relative">
                 <div className="space-y-0">
                   {active.capabilities.map((cap, i) => (
                     <motion.div
@@ -229,7 +270,7 @@ export default function HomeServices() {
                         duration: 0.5,
                         ease: [0.22, 1, 0.36, 1],
                       }}
-                      className="group/row flex items-center justify-between py-6 border-b border-white/5 last:border-b-0 cursor-default"
+                      className="group/row flex items-center justify-between py-6 border-b border-black/5 dark:border-transparent last:border-b-0 cursor-default"
                     >
                       <div className="flex items-center gap-6">
                         {/* Animated index number */}
@@ -238,13 +279,13 @@ export default function HomeServices() {
                         </span>
                         
                         <div>
-                          <h4 className="text-xl md:text-2xl font-semibold text-white group-hover/row:text-transparent group-hover/row:bg-clip-text group-hover/row:bg-gradient-to-r transition-all duration-300" 
+                          <h4 className="text-xl md:text-2xl font-semibold text-foreground group-hover/row:text-transparent group-hover/row:bg-clip-text group-hover/row:bg-gradient-to-r transition-all duration-300" 
                               style={{ '--tw-gradient-from': 'white', '--tw-gradient-to': 'white' } as React.CSSProperties}>
                             <span className={`group-hover/row:text-transparent group-hover/row:bg-clip-text group-hover/row:bg-gradient-to-r ${active.color}`}>
                               {cap.name}
                             </span>
                           </h4>
-                          <p className="text-sm text-white/40 group-hover/row:text-white/60 transition-colors mt-1">
+                          <p className="text-sm text-foreground/80 dark:text-foreground/60 dark:text-foreground/40 group-hover/row:text-foreground/80 dark:text-foreground/60 transition-colors mt-1">
                             {cap.detail}
                           </p>
                         </div>

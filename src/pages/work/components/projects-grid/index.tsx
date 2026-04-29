@@ -30,8 +30,7 @@ function HoloCard({
 	index: number;
 }) {
 	const cardRef = useRef<HTMLDivElement>(null);
-	const glowRef = useRef<HTMLDivElement>(null);
-	const [isHovered, setIsHovered] = useState(false);
+		const [isHovered, setIsHovered] = useState(false);
 	const [tilt, setTilt] = useState({ x: 0, y: 0 });
 	const [glowPos, setGlowPos] = useState({ x: 50, y: 50 });
 	const [shimmerPos, setShimmerPos] = useState({ x: -100, y: -100 });
@@ -270,7 +269,6 @@ function HoloCard({
 							color: isHovered
 								? "rgba(255,255,255,0.75)"
 								: "rgba(255,255,255,0.4)",
-							transition: "color 0.4s ease",
 							maxHeight: isHovered ? "120px" : "60px",
 							overflow: "hidden",
 							transition: "color 0.4s ease, max-height 0.4s ease",

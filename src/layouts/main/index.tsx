@@ -14,7 +14,7 @@ export default function MainLayout() {
 			<Nav />
 			<div className="w-full">
 				<Spacer />
-				<div className={`mx-auto flex flex-col gap-24 pt-4 ${isHome ? 'w-full' : 'w-[90%] max-w-[1400px] px-4'}`}>
+				<div className={`mx-auto flex flex-col gap-24 pt-4 ${isHome ? 'w-full' : 'w-[90%] max-w-[1600px] px-4'}`}>
 					<Outlet />
 					<div className="w-[90%] max-w-[1600px] mx-auto">
 						<Contact />

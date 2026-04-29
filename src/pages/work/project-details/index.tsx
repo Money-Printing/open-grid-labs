@@ -519,15 +519,15 @@ export default function ProjectDetails() {
 						</p>
 
 						<div className="grid md:grid-cols-3 grid-cols-1 gap-6 mt-8">
-							<div className="bg-foreground/5 border border-border rounded-xl p-6">
+							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
 								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Client</h3>
 								<p className="text-xl font-semibold text-foreground">{project.client}</p>
 							</div>
-							<div className="bg-foreground/5 border border-border rounded-xl p-6">
+							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
 								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Duration</h3>
 								<p className="text-xl font-semibold text-foreground">{project.duration}</p>
 							</div>
-							<div className="bg-foreground/5 border border-border rounded-xl p-6">
+							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
 								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Category</h3>
 								<p className="text-xl font-semibold text-foreground">{project.category}</p>
 							</div>
@@ -546,7 +546,7 @@ export default function ProjectDetails() {
 									mainTitle="Video"
 									postTitle="Demo"
 								/>
-								<div className="mt-8 rounded-xl border border-border bg-foreground/5 min-h-[500px] flex items-center justify-center">
+								<div className="mt-8 rounded-xl border border-border bg-white/50 dark:bg-foreground/5 min-h-[500px] flex items-center justify-center">
 									<video
 										src={project.videoUrl}
 										controls
@@ -599,7 +599,7 @@ export default function ProjectDetails() {
 						{project.technologies.map((tech, idx) => (
 							<div
 								key={idx}
-								className="bg-foreground/10 border border-border rounded-lg px-4 py-2 text-foreground font-medium"
+								className="bg-white/50 dark:bg-foreground/10 border border-border rounded-lg px-4 py-2 text-foreground font-medium"
 							>
 								{tech}
 							</div>
@@ -653,7 +653,7 @@ export default function ProjectDetails() {
 						{project.features.map((feature, idx) => (
 							<div
 								key={idx}
-								className="bg-foreground/5 border border-border rounded-lg p-4 flex items-start gap-3"
+								className="bg-white/50 dark:bg-foreground/5 border border-border rounded-lg p-4 flex items-start gap-3"
 							>
 								<CheckCircle2 className="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" />
 								<p className="text-foreground">{feature}</p>
@@ -675,7 +675,7 @@ export default function ProjectDetails() {
 								key={idx}
 								className="relative bg-gradient-to-br from-foreground/10 to-foreground/5 border border-border rounded-xl p-6 overflow-hidden"
 							>
-								<div className="absolute -top-4 -right-4 w-20 h-20 bg-foreground/5 rounded-full"></div>
+								<div className="absolute -top-4 -right-4 w-20 h-20 bg-white/50 dark:bg-foreground/5 rounded-full"></div>
 								<div className="relative z-10">
 									<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">
 										{result.metric}

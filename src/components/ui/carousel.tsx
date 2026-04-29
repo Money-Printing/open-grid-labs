@@ -44,7 +44,7 @@ export default function Carousel({ items, className = "" }: CarouselProps) {
 					{items.map((item, index) => (
 						<motion.div
 							key={index}
-							className={`relative shrink-0 w-[85%] aspect-[16/10] rounded-3xl overflow-hidden bg-foreground/5 flex items-center justify-center`}
+							className={`relative shrink-0 w-[85%] aspect-[16/10] rounded-3xl overflow-hidden bg-white/50 dark:bg-foreground/5 flex items-center justify-center`}
 							initial={{ opacity: 0.5, scale: 0.9 }}
 							animate={{
 								opacity: index === currentIndex ? 1 : 0.5,
@@ -73,7 +73,7 @@ export default function Carousel({ items, className = "" }: CarouselProps) {
 						<button
 							key={index}
 							onClick={() => setCurrentIndex(index)}
-							className={`h-2 rounded-full transition-all duration-300 ${currentIndex === index ? "w-8 bg-primary" : "w-2 bg-foreground/20"
+							className={`h-2 rounded-full transition-all duration-300 ${currentIndex === index ? "w-8 bg-primary" : "w-2 bg-white/50 dark:bg-foreground/20"
 								}`}
 							aria-label={`Go to slide ${index + 1}`}
 						/>
@@ -82,14 +82,14 @@ export default function Carousel({ items, className = "" }: CarouselProps) {
 
 				<div className="flex gap-3">
 					<button
-						className="p-3 rounded-full bg-foreground/5 hover:bg-foreground/10 transition-colors text-foreground disabled:opacity-50"
+						className="p-3 rounded-full bg-white/50 dark:bg-foreground/5 hover:bg-white/50 dark:bg-foreground/10 transition-colors text-foreground disabled:opacity-50"
 						onClick={handlePrevious}
 						aria-label="Previous slide"
 					>
 						<ChevronLeft size={20} />
 					</button>
 					<button
-						className="p-3 rounded-full bg-foreground/5 hover:bg-foreground/10 transition-colors text-foreground disabled:opacity-50"
+						className="p-3 rounded-full bg-white/50 dark:bg-foreground/5 hover:bg-white/50 dark:bg-foreground/10 transition-colors text-foreground disabled:opacity-50"
 						onClick={handleNext}
 						aria-label="Next slide"
 					>
@@ -109,12 +109,12 @@ function CarouselImage({ src, alt }: { src: string; alt: string }) {
 	return (
 		<div className="w-full h-full relative">
 			{isLoading && (
-				<div className="absolute inset-0 flex items-center justify-center bg-foreground/5 z-0">
+				<div className="absolute inset-0 flex items-center justify-center bg-white/50 dark:bg-foreground/5 z-0">
 					<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
 				</div>
 			)}
 			{hasError ? (
-				<div className="h-full w-full flex flex-col items-center justify-center bg-foreground/5 text-muted-foreground p-4 text-center">
+				<div className="h-full w-full flex flex-col items-center justify-center bg-white/50 dark:bg-foreground/5 text-muted-foreground p-4 text-center">
 					<p>Failed to load media</p>
 				</div>
 			) : (

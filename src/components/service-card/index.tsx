@@ -24,7 +24,7 @@ export default function ServiceCard({ link, name, description }: ServiceCardProp
 				</div>
 
 				<div className="flex flex-col gap-2 mt-8 z-10">
-					<h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{name}</h3>
+					<h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">{name}</h3>
 					{description && (
 						<p className="text-muted-foreground line-clamp-3">
 							{description}

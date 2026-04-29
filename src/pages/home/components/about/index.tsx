@@ -89,7 +89,7 @@ export default function HomeAbout() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6 leading-[1.1] tracking-tight"
+              className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-foreground mb-6 leading-[1.1] tracking-tight"
            >
               Architecting the <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Digital Future.</span>
@@ -100,7 +100,7 @@ export default function HomeAbout() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-lg md:text-2xl text-white/70 leading-relaxed font-light max-w-3xl"
+              className="text-lg md:text-2xl text-foreground/70 leading-relaxed font-light max-w-3xl"
            >
               We merge human-centric design with bleeding-edge technology to craft intelligent platforms that empower visionary brands to scale without limits.
            </motion.p>
@@ -110,11 +110,11 @@ export default function HomeAbout() {
        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
            
            {/* Main Vision Card */}
-           <TiltCard className="md:col-span-2 glass-panel p-8 md:p-10 rounded-[32px] border border-white/5 bg-gradient-to-br from-white/5 to-black/60 shadow-xl overflow-hidden group">
+           <TiltCard className="md:col-span-2 glass-panel p-8 md:p-10 rounded-[32px] border border-black/5 dark:border-transparent bg-gradient-to-br from-black/5 dark:from-white/5 to-black/60 shadow-xl overflow-hidden group">
                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                <div className="relative z-10 max-w-lg">
-                   <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-3">Unconstrained Innovation</h3>
-                   <p className="text-white/60 text-lg leading-relaxed">Our mission is to eliminate barriers. We ensure that raw information flows freely, and your product ideas reach their absolute limit smoothly.</p>
+                   <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">Unconstrained Innovation</h3>
+                   <p className="text-foreground/80 dark:text-foreground/60 text-lg leading-relaxed">Our mission is to eliminate barriers. We ensure that raw information flows freely, and your product ideas reach their absolute limit smoothly.</p>
                </div>
                
                {/* Decorative structural grid in background */}
@@ -122,26 +122,26 @@ export default function HomeAbout() {
            </TiltCard>
 
            {/* Stat Card 1 */}
-           <TiltCard className="glass-panel p-8 rounded-[32px] border border-white/5 bg-gradient-to-t from-primary/5 to-black/40 shadow-xl overflow-hidden">
+           <TiltCard className="glass-panel p-8 rounded-[32px] border border-black/5 dark:border-transparent bg-gradient-to-t from-primary/5 to-black/40 shadow-xl overflow-hidden">
                <div className="flex flex-col h-full justify-end relative z-10">
                    <h3 className="text-5xl font-display font-bold text-primary mb-2">1M+</h3>
-                   <p className="text-white/80 font-medium uppercase tracking-widest text-sm">Global Network</p>
+                   <p className="text-foreground/80 font-medium uppercase tracking-widest text-sm">Global Network</p>
                </div>
            </TiltCard>
            
            {/* Stat Card 2 */}
-           <TiltCard className="glass-panel p-8 rounded-[32px] border border-white/5 bg-gradient-to-t from-accent/5 to-black/40 shadow-xl overflow-hidden">
+           <TiltCard className="glass-panel p-8 rounded-[32px] border border-black/5 dark:border-transparent bg-gradient-to-t from-accent/5 to-black/40 shadow-xl overflow-hidden">
                <div className="flex flex-col h-full justify-end relative z-10">
                    <h3 className="text-5xl font-display font-bold text-accent mb-2">99.9%</h3>
-                   <p className="text-white/80 font-medium uppercase tracking-widest text-sm">System Uptime</p>
+                   <p className="text-foreground/80 font-medium uppercase tracking-widest text-sm">System Uptime</p>
                </div>
            </TiltCard>
 
            {/* Contact/CTA Card */}
-           <TiltCard className="md:col-span-2 glass-panel p-8 md:p-10 rounded-[32px] border border-white/5 bg-gradient-to-tr from-white/5 via-black/40 to-black/80 shadow-xl overflow-hidden group">
+           <TiltCard className="md:col-span-2 glass-panel p-8 md:p-10 rounded-[32px] border border-black/5 dark:border-transparent bg-gradient-to-tr from-black/5 dark:from-white/5 via-black/40 to-black/80 shadow-xl overflow-hidden group">
                <div className="flex flex-col h-full justify-end relative z-10">
-                   <h3 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-primary transition-colors">Built for Scale</h3>
-                   <p className="text-white/60 text-lg">Deployed across 10+ regions globally with military-grade redundancy.</p>
+                   <h3 className="text-3xl font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Built for Scale</h3>
+                   <p className="text-foreground/80 dark:text-foreground/60 text-lg">Deployed across 10+ regions globally with military-grade redundancy.</p>
                </div>
                {/* Abstract geometric mesh */}
                <div className="absolute right-[-10%] top-[-10%] w-[300px] h-[300px] rounded-full border border-primary/20 blur-[2px] opacity-30 group-hover:scale-110 transition-transform duration-700" />

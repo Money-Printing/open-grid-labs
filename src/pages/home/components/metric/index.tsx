@@ -198,7 +198,7 @@ const HomeMetric = () => {
 						initial={{ opacity: 0, y: 10 }}
 						animate={isInView ? { opacity: 1, y: 0 } : {}}
 						transition={{ delay: 0.8, duration: 0.6 }}
-						className="text-sm md:text-base tracking-[0.35em] uppercase text-white/30 font-light mt-3"
+						className="text-sm md:text-base tracking-[0.35em] uppercase text-foreground/70 dark:text-foreground/50 dark:text-foreground/30 font-light mt-3"
 					>
 						Digital Products Engineered
 					</motion.p>
@@ -211,14 +211,14 @@ const HomeMetric = () => {
 					transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
 					className="mt-14 md:mt-16 flex flex-col items-center gap-4 px-4"
 				>
-					<h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white tracking-tight leading-tight text-center">
+					<h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-foreground tracking-tight leading-tight text-center">
 						We Don't Build Websites.
 						<br />
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent">
 							We Engineer Experiences.
 						</span>
 					</h2>
-					<p className="text-base md:text-lg text-white/35 max-w-lg font-light text-center leading-relaxed mt-2">
+					<p className="text-base md:text-lg text-foreground/60 dark:text-foreground/35 max-w-lg font-light text-center leading-relaxed mt-2">
 						Every pixel, every interaction, every deployment — obsessively crafted to perform at scale.
 					</p>
 				</motion.div>
@@ -244,7 +244,7 @@ const HomeMetric = () => {
 					initial={{ opacity: 0 }}
 					animate={isInView ? { opacity: 1 } : {}}
 					transition={{ delay: 1.8, duration: 0.6 }}
-					className="mt-6 text-white/20 text-xs tracking-[0.3em] uppercase font-light"
+					className="mt-6 text-foreground/50 dark:text-foreground/20 text-xs tracking-[0.3em] uppercase font-light"
 				>
 					Trusted by founders who refuse to settle
 				</motion.p>
@@ -297,7 +297,7 @@ function BigCounter({ inView }: { inView: boolean }) {
 				{count}+
 			</span>
 			{/* Main number */}
-			<span className="relative text-[120px] md:text-[180px] lg:text-[220px] font-display font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-white/40">
+			<span className="relative text-[120px] md:text-[180px] lg:text-[220px] font-display font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-black/95 dark:via-white/95 to-black/40 dark:to-white/40">
 				{count}
 			</span>
 			<span className="relative text-[50px] md:text-[70px] lg:text-[90px] font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-primary to-accent leading-none mb-4">
@@ -341,9 +341,8 @@ function MetricCard({ metric, index, inView }: {
 			/>
 
 			{/* Card body */}
-			<div className="relative rounded-[22px] border border-white/[0.06] overflow-hidden transition-all duration-500 group-hover:border-white/[0.12] group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.5)]"
+			<div className="relative rounded-[22px] border border-black/5 dark:border-transparent overflow-hidden transition-all duration-500 group-hover:border-black/5 dark:border-transparent group-hover:shadow-lg dark:shadow-[0_25px_50px_rgba(0,0,0,0.5)] bg-white/50 dark:bg-card/80"
 				style={{
-					background: "linear-gradient(165deg, rgba(25,25,35,0.7) 0%, rgba(15,15,22,0.8) 100%)",
 					backdropFilter: "blur(20px)",
 					boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.04)",
 				}}
@@ -372,12 +371,12 @@ function MetricCard({ metric, index, inView }: {
 						className={`w-11 h-11 rounded-xl bg-gradient-to-br ${metric.accent} flex items-center justify-center shadow-lg`}
 						style={{ transform: "translateZ(30px)" }}
 					>
-						<Icon size={20} className="text-white drop-shadow-sm" />
+						<Icon size={20} className="text-foreground drop-shadow-sm" />
 					</motion.div>
 
 					{/* Number */}
 					<div className="flex items-baseline gap-0.5 mt-1">
-						<span className="text-3xl md:text-4xl font-display font-bold text-white tracking-tight">
+						<span className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
 							{display}
 						</span>
 						<span className={`text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${metric.accent}`}>
@@ -386,12 +385,12 @@ function MetricCard({ metric, index, inView }: {
 					</div>
 
 					{/* Label */}
-					<h4 className="text-sm md:text-base font-display font-semibold text-white/80 tracking-wide">
+					<h4 className="text-sm md:text-base font-display font-semibold text-foreground/80 tracking-wide">
 						{metric.label}
 					</h4>
 
 					{/* Sub text */}
-					<p className="text-xs text-white/30 group-hover:text-white/50 transition-colors duration-500 font-light leading-relaxed">
+					<p className="text-xs text-foreground/70 dark:text-foreground/50 dark:text-foreground/30 group-hover:text-foreground/70 dark:text-foreground/50 transition-colors duration-500 font-light leading-relaxed">
 						{metric.sub}
 					</p>
 

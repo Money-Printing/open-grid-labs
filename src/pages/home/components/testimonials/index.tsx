@@ -107,18 +107,18 @@ export default function HomeTestimonials() {
 				>
 					<div className="absolute inset-0 bg-accent/20 blur-2xl rounded-full scale-150" />
 					<div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-[0_0_30px_hsla(280,100%,60%,0.3)]">
-						<MessageSquareQuote size={24} className="text-white" />
+						<MessageSquareQuote size={24} className="text-foreground" />
 					</div>
 				</motion.div>
 
 				<div className="flex flex-col items-center gap-3">
-					<h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white tracking-tight text-center leading-tight">
+					<h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-foreground tracking-tight text-center leading-tight">
 						Voices That{" "}
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent">
 							Validate.
 						</span>
 					</h2>
-					<p className="text-base md:text-lg text-white/35 max-w-lg font-light text-center leading-relaxed">
+					<p className="text-base md:text-lg text-foreground/60 dark:text-foreground/35 max-w-lg font-light text-center leading-relaxed">
 						Real results from real partnerships — hear it straight from the people who trusted us with their vision.
 					</p>
 				</div>
@@ -146,7 +146,7 @@ export default function HomeTestimonials() {
 
 						{/* Card */}
 						<div
-							className="relative rounded-[32px] border border-white/[0.06] overflow-hidden"
+							className="relative rounded-[32px] border border-black/5 dark:border-transparent overflow-hidden"
 							style={{
 								background: "linear-gradient(165deg, rgba(25,25,35,0.75) 0%, rgba(12,12,18,0.85) 100%)",
 								backdropFilter: "blur(24px)",
@@ -205,7 +205,7 @@ export default function HomeTestimonials() {
 										initial={{ opacity: 0, y: 15 }}
 										animate={{ opacity: 1, y: 0 }}
 										transition={{ delay: 0.35, duration: 0.6 }}
-										className="text-lg md:text-xl lg:text-2xl text-white/85 font-light leading-relaxed mb-8 italic"
+										className="text-lg md:text-xl lg:text-2xl text-foreground font-light leading-relaxed mb-8 italic"
 									>
 										"{reviews[active].comment}"
 									</motion.blockquote>
@@ -221,7 +221,7 @@ export default function HomeTestimonials() {
 											<div
 												className={`absolute -inset-1 rounded-full bg-gradient-to-r ${reviews[active].accent} opacity-50 blur-sm`}
 											/>
-											<div className="relative w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center p-2 overflow-hidden">
+											<div className="relative w-12 h-12 rounded-full border border-black/10 dark:border-transparent bg-white/50 dark:bg-foreground/5 flex items-center justify-center p-2 overflow-hidden">
 												<img
 													alt={reviews[active].name}
 													loading="lazy"
@@ -234,13 +234,13 @@ export default function HomeTestimonials() {
 											<p className={`font-display font-semibold text-base text-transparent bg-clip-text bg-gradient-to-r ${reviews[active].accent}`}>
 												{reviews[active].name}
 											</p>
-											<p className="text-sm text-white/40 font-light">
+											<p className="text-sm text-foreground/80 dark:text-foreground/60 dark:text-foreground/40 font-light">
 												{reviews[active].role}
 											</p>
 										</div>
 										{/* Tag */}
 										<span
-											className={`ml-auto hidden md:inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide border border-white/[0.06]`}
+											className={`ml-auto hidden md:inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide border border-black/5 dark:border-transparent`}
 											style={{
 												background: `linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))`,
 											}}
@@ -289,7 +289,7 @@ export default function HomeTestimonials() {
 
 									{/* Decorative ring */}
 									<motion.div
-										className="absolute w-[220px] h-[220px] rounded-full border border-white/[0.03]"
+										className="absolute w-[220px] h-[220px] rounded-full border border-black/5 dark:border-transparent"
 										animate={{ rotate: 360 }}
 										transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
 									>
@@ -334,14 +334,14 @@ export default function HomeTestimonials() {
 					<div className="flex items-center gap-3">
 						<button
 							onClick={goPrev}
-							className="w-10 h-10 rounded-full border border-white/[0.06] bg-white/[0.03] flex items-center justify-center text-white/40 hover:text-white hover:border-primary/30 hover:bg-primary/5 hover:shadow-[0_0_20px_hsla(210,100%,50%,0.15)] transition-all duration-300"
+							className="w-10 h-10 rounded-full border border-black/5 dark:border-transparent bg-foreground/[0.03] flex items-center justify-center text-foreground/80 dark:text-foreground/60 dark:text-foreground/40 hover:text-foreground hover:border-primary/30 hover:bg-primary/5 hover:shadow-[0_0_20px_hsla(210,100%,50%,0.15)] transition-all duration-300"
 							aria-label="Previous testimonial"
 						>
 							<ChevronLeft size={18} />
 						</button>
 						<button
 							onClick={goNext}
-							className="w-10 h-10 rounded-full border border-white/[0.06] bg-white/[0.03] flex items-center justify-center text-white/40 hover:text-white hover:border-primary/30 hover:bg-primary/5 hover:shadow-[0_0_20px_hsla(210,100%,50%,0.15)] transition-all duration-300"
+							className="w-10 h-10 rounded-full border border-black/5 dark:border-transparent bg-foreground/[0.03] flex items-center justify-center text-foreground/80 dark:text-foreground/60 dark:text-foreground/40 hover:text-foreground hover:border-primary/30 hover:bg-primary/5 hover:shadow-[0_0_20px_hsla(210,100%,50%,0.15)] transition-all duration-300"
 							aria-label="Next testimonial"
 						>
 							<ChevronRight size={18} />
@@ -369,7 +369,7 @@ export default function HomeTestimonials() {
 						className={`group/card relative text-left rounded-[18px] border overflow-hidden transition-all duration-500 cursor-pointer ${
 							i === active
 								? "border-primary/20 shadow-[0_0_30px_hsla(210,100%,50%,0.1)]"
-								: "border-white/[0.04] hover:border-white/[0.08]"
+								: "border-black/5 dark:border-transparent hover:border-black/5 dark:border-transparent"
 						}`}
 						style={{
 							transformStyle: "preserve-3d",
@@ -392,8 +392,8 @@ export default function HomeTestimonials() {
 						<div className="relative z-10 p-5 flex flex-col gap-3">
 							<div className="flex items-center gap-3">
 								<div
-									className={`w-9 h-9 rounded-lg flex items-center justify-center p-1.5 border border-white/[0.06] overflow-hidden ${
-										i === active ? "bg-white/10" : "bg-white/[0.03]"
+									className={`w-9 h-9 rounded-lg flex items-center justify-center p-1.5 border border-black/5 dark:border-transparent overflow-hidden ${
+										i === active ? "bg-white/50 dark:bg-foreground/10" : "bg-foreground/[0.03]"
 									}`}
 								>
 									<img
@@ -406,12 +406,12 @@ export default function HomeTestimonials() {
 								<div className="min-w-0">
 									<p
 										className={`font-display font-semibold text-sm truncate transition-colors duration-300 ${
-											i === active ? "text-white" : "text-white/50"
+											i === active ? "text-foreground" : "text-foreground/70 dark:text-foreground/50"
 										}`}
 									>
 										{review.name}
 									</p>
-									<p className="text-xs text-white/25 truncate">{review.role}</p>
+									<p className="text-xs text-foreground/50 dark:text-foreground/25 truncate">{review.role}</p>
 								</div>
 							</div>
 
@@ -424,7 +424,7 @@ export default function HomeTestimonials() {
 										className={`transition-colors duration-300 ${
 											i === active
 												? "fill-amber-400 text-amber-400"
-												: "fill-white/15 text-white/15"
+												: "fill-white/15 text-foreground/40 dark:text-foreground/15"
 										}`}
 									/>
 								))}
@@ -432,7 +432,7 @@ export default function HomeTestimonials() {
 
 							<p
 								className={`text-xs leading-relaxed line-clamp-2 transition-colors duration-300 ${
-									i === active ? "text-white/50" : "text-white/25"
+									i === active ? "text-foreground/70 dark:text-foreground/50" : "text-foreground/50 dark:text-foreground/25"
 								}`}
 							>
 								{review.comment}

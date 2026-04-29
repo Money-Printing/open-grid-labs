@@ -50,17 +50,17 @@ const ServiceCategory = ({ title, items }: { title: string, items: string[] }) =
 		<div className="w-full flex flex-col gap-8 mt-10">
 			<h1 className="text-4xl md:text-5xl font-display font-bold tracking-wide flex flex-wrap">
 				<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent drop-shadow-md">{part1}</span>
-				<span className="text-white ml-3">{part2}</span>
+				<span className="text-foreground ml-3">{part2}</span>
 			</h1>
 
 			<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
 				{items.map((item, index) => (
 					<div
 						key={index}
-						className="p-8 rounded-2xl glass-panel border border-white/5 hover:border-primary/40 hover:shadow-[0_0_20px_hsla(210,100%,50%,0.15)] group transition-all duration-300 relative overflow-hidden"
+						className="p-8 rounded-2xl glass-panel border border-black/5 dark:border-transparent hover:border-primary/40 hover:shadow-[0_0_20px_hsla(210,100%,50%,0.15)] group transition-all duration-300 relative overflow-hidden"
 					>
 						<div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-						<h3 className="text-xl md:text-2xl font-semibold text-white/90 group-hover:text-white transition-colors relative z-10">
+						<h3 className="text-xl md:text-2xl font-semibold text-foreground/90 group-hover:text-foreground transition-colors relative z-10">
 							{item}
 						</h3>
 					</div>

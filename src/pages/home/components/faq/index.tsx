@@ -106,12 +106,12 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 				>
 					<div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-150" />
 					<div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-[0_0_30px_hsla(210,100%,50%,0.35)]">
-						<HelpCircle size={24} className="text-white" />
+						<HelpCircle size={24} className="text-foreground" />
 					</div>
 				</motion.div>
 
 				<div className="flex flex-col items-center gap-3">
-					<h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white tracking-tight text-center leading-tight">
+					<h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-foreground tracking-tight text-center leading-tight">
 						Got{" "}
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent">
 							Questions?
@@ -119,7 +119,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 						<br />
 						We've Got Answers.
 					</h2>
-					<p className="text-base md:text-lg text-white/35 max-w-lg font-light text-center leading-relaxed">
+					<p className="text-base md:text-lg text-foreground/60 dark:text-foreground/35 max-w-lg font-light text-center leading-relaxed">
 						Everything you need to know before we start building together.
 					</p>
 				</div>
@@ -151,8 +151,8 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 									transition={{ duration: 0.3, ease: "easeOut" }}
 									className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${
 										isOpen
-											? "shadow-[0_20px_50px_rgba(0,0,0,0.4),0_0_0_1px_hsla(210,100%,50%,0.15)]"
-											: "shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+											? "shadow-lg dark:shadow-[0_20px_50px_rgba(0,0,0,0.4),0_0_0_1px_hsla(210,100%,50%,0.15)]"
+											: "shadow-lg dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
 									}`}
 									style={{
 										background: isOpen
@@ -197,7 +197,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 											{/* Number */}
 											<span
 												className={`font-mono text-sm font-semibold transition-colors duration-300 shrink-0 ${
-													isOpen ? "text-primary" : "text-white/20"
+													isOpen ? "text-primary" : "text-foreground/50 dark:text-foreground/20"
 												}`}
 											>
 												{String(i + 1).padStart(2, "0")}
@@ -206,8 +206,8 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 											<span
 												className={`text-base md:text-lg font-medium transition-colors duration-300 ${
 													isOpen
-														? "text-white"
-														: "text-white/65 group-hover:text-white/90"
+														? "text-foreground"
+														: "text-foreground/65 group-hover:text-foreground/90"
 												}`}
 											>
 												{faq.question}
@@ -234,9 +234,9 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 											}
 										>
 											{isOpen ? (
-												<Minus size={14} className="text-white" />
+												<Minus size={14} className="text-foreground" />
 											) : (
-												<Plus size={14} className="text-white/50 group-hover:text-primary transition-colors" />
+												<Plus size={14} className="text-foreground/70 dark:text-foreground/50 group-hover:text-primary transition-colors" />
 											)}
 										</motion.div>
 									</button>
@@ -254,7 +254,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 											>
 												<div className="px-6 pb-6 ml-10">
 													<div className="h-[1px] bg-gradient-to-r from-white/[0.06] to-transparent mb-5" />
-													<p className="text-base text-white/50 leading-relaxed font-light">
+													<p className="text-base text-foreground/70 dark:text-foreground/50 leading-relaxed font-light">
 														{faq.answer}
 													</p>
 												</div>
@@ -305,7 +305,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 
 						{/* Rotating ring decoration */}
 						<motion.div
-							className="absolute top-6 right-6 w-24 h-24 rounded-full border border-white/[0.04]"
+							className="absolute top-6 right-6 w-24 h-24 rounded-full border border-black/5 dark:border-transparent"
 							animate={{ rotate: 360 }}
 							transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
 						>
@@ -326,7 +326,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 										Free 30-min session
 									</span>
 								</div>
-								<h3 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight">
+								<h3 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-tight">
 									Still Have{" "}
 									<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
 										Doubts?
@@ -334,7 +334,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 									<br />
 									Let's Talk.
 								</h3>
-								<p className="text-sm md:text-base text-white/35 font-light leading-relaxed">
+								<p className="text-sm md:text-base text-foreground/60 dark:text-foreground/35 font-light leading-relaxed">
 									Jump on a no-pressure call and we'll map out exactly how we can move your vision forward — no fluff, no sales pitch.
 								</p>
 							</div>
@@ -351,10 +351,10 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 										initial={{ opacity: 0, x: -10 }}
 										animate={isInView ? { opacity: 1, x: 0 } : {}}
 										transition={{ delay: 0.9 + i * 0.1 }}
-										className="flex items-center gap-3 text-sm text-white/45"
+										className="flex items-center gap-3 text-sm text-foreground/45"
 									>
 										<div className="w-4 h-4 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center shrink-0">
-											<div className="w-1.5 h-1.5 rounded-full bg-white" />
+											<div className="w-1.5 h-1.5 rounded-full bg-foreground" />
 										</div>
 										{item}
 									</motion.li>

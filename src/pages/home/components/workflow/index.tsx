@@ -73,7 +73,7 @@ export default function HomeWorkflow() {
         {/* ── VERTICAL SPINE (Desktop) ──────────────────────── */}
         <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px]">
           {/* Base line */}
-          <div className="absolute inset-0 bg-white/5" />
+          <div className="absolute inset-0 bg-white/50 dark:bg-foreground/5" />
           {/* Animated pulse traveling down */}
           <motion.div
             className="absolute left-0 w-full bg-gradient-to-b from-primary via-primary to-transparent"
@@ -114,7 +114,7 @@ export default function HomeWorkflow() {
                       transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
                       viewport={{ once: true }}
                     />
-                    <div className="w-14 h-14 rounded-full bg-background border-2 border-white/10 flex items-center justify-center relative z-10 shadow-lg">
+                    <div className="w-14 h-14 rounded-full bg-background border-2 border-black/10 dark:border-transparent flex items-center justify-center relative z-10 shadow-lg">
                       <span className={`font-display font-bold text-lg bg-gradient-to-r ${step.accent} text-transparent bg-clip-text`}>
                         {String(step.id).padStart(2, "0")}
                       </span>
@@ -128,7 +128,7 @@ export default function HomeWorkflow() {
                     isLeft ? "md:pr-0 md:mr-auto" : "md:pl-0 md:ml-auto"
                   }`}
                 >
-                  <div className="group relative glass-panel rounded-[32px] border border-white/5 p-8 md:p-10 overflow-hidden transition-all duration-500 hover:border-white/10 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+                  <div className="group relative glass-panel rounded-[32px] border border-black/5 dark:border-transparent p-8 md:p-10 overflow-hidden transition-all duration-500 hover:border-black/10 dark:border-transparent hover:shadow-lg dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
                     {/* Hover glow */}
                     <div
                       className="absolute inset-0 rounded-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
@@ -148,11 +148,11 @@ export default function HomeWorkflow() {
                     {/* Mobile step number */}
                     <div className="md:hidden flex items-center gap-3 mb-5">
                       <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${step.accent} flex items-center justify-center shadow-lg`}>
-                        <span className="text-white font-bold text-sm">
+                        <span className="text-foreground font-bold text-sm">
                           {String(step.id).padStart(2, "0")}
                         </span>
                       </div>
-                      <div className="h-[1px] flex-1 bg-gradient-to-r from-white/10 to-transparent" />
+                      <div className="h-[1px] flex-1 bg-gradient-to-r from-black/10 dark:from-white/10 to-transparent" />
                     </div>
 
                     <div className="relative z-10">
@@ -162,7 +162,7 @@ export default function HomeWorkflow() {
                              style={{ background: `linear-gradient(135deg, ${step.glowColor}, transparent)` }}>
                           <Icon size={22} className={step.accentText} />
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-display font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r transition-all duration-500"
+                        <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r transition-all duration-500"
                             style={{ "--tw-gradient-from": "white", "--tw-gradient-to": "white" } as React.CSSProperties}>
                           <span className={`group-hover:bg-gradient-to-r group-hover:${step.accent} group-hover:text-transparent group-hover:bg-clip-text`}>
                             {step.title}
@@ -170,7 +170,7 @@ export default function HomeWorkflow() {
                         </h3>
                       </div>
 
-                      <p className="text-base md:text-lg text-white/50 group-hover:text-white/70 transition-colors duration-500 leading-relaxed font-light">
+                      <p className="text-base md:text-lg text-foreground/70 dark:text-foreground/50 group-hover:text-foreground/70 transition-colors duration-500 leading-relaxed font-light">
                         {step.desc}
                       </p>
                     </div>

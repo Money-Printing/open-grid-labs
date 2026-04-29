@@ -18,7 +18,7 @@ export default function FounderSection() {
 	return (
 		<section
 			id="about-us-founder"
-			className="relative my-20 bg-foreground/2 border border-border rounded-2xl overflow-hidden"
+			className="relative my-20 bg-white/50 dark:bg-foreground/2 border border-border rounded-2xl overflow-hidden"
 		>
 			<Quote
 				className="absolute -top-6 md:left-10 left-5 rotate-180 opacity-20"
@@ -77,7 +77,7 @@ export default function FounderSection() {
 				</div>
 			</div>
 
-			<div className="absolute -bottom-20 -right-20 w-48 h-48 bg-foreground/10 rounded-full rotate-12 hidden md:block"></div>
+			<div className="absolute -bottom-20 -right-20 w-48 h-48 bg-white/50 dark:bg-foreground/10 rounded-full rotate-12 hidden md:block"></div>
 		</section>
 	);
 }

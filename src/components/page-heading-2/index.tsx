@@ -18,7 +18,7 @@ export default function PageHeading2({ preTitle, mainTitle }: PageHeading2Props)
 					</span>
 				)}
 
-				<h1 className="font-bold md:text-5xl text-4xl leading-tight text-white drop-shadow-md">
+				<h1 className="font-bold md:text-5xl text-4xl leading-tight text-foreground drop-shadow-md">
 					{mainTitle}
 				</h1>
 			</div>

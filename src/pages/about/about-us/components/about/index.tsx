@@ -40,7 +40,7 @@ const AboutParagraph = ({ parts }: AboutText) => {
 			{parts.map((part, idx) => (
 				<span
 					key={idx}
-					className={part.bold ? "font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" : "font-medium text-muted-foreground"}
+					className={part.bold ? "font-bold text-foreground drop-shadow-lg dark:shadow-[0_0_10px_rgba(255,255,255,0.3)]" : "font-medium text-muted-foreground"}
 				>
 					{part.text}
 				</span>
@@ -53,11 +53,11 @@ const About = () => {
 	return (
 		<section
 			id="about-us-about"
-			className="w-full flex flex-col relative py-20 px-4 md:px-10 glass-panel rounded-3xl mt-12 overflow-hidden border border-white/5"
+			className="w-full flex flex-col relative py-20 px-4 md:px-10 glass-panel rounded-3xl mt-12 overflow-hidden border border-black/5 dark:border-transparent"
 		>
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] pointer-events-none" />
 			<PageHeading2 mainTitle="About" />
-            <div className="relative z-10 w-[90%] max-w-[1200px]">
+            <div className="relative z-10 w-[90%] max-w-[1600px]">
                 {aboutData.map((para, idx) => (
                     <AboutParagraph key={idx} parts={para.parts} />
                 ))}

@@ -6,9 +6,11 @@ import Logo from "../../icons/logo/index.tsx";
 
 const footerLinks = {
   Services: [
-    { name: "Software", href: "/services/software" },
-    { name: "Intelligent", href: "/services/intelligent" },
-    { name: "Design", href: "/services/design" },
+    { name: "Product Engineering", href: "/services/product-engineering" },
+    { name: "AI & Data", href: "/services/ai-data" },
+    { name: "Cloud & Platform", href: "/services/cloud-platform" },
+    { name: "Modernization", href: "/services/legacy-modernization" },
+    { name: "Digital Experience", href: "/services/digital-experience" },
   ],
   About: [
     { name: "About Us", href: "/about/about-us" },
@@ -36,7 +38,7 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-border" role="contentinfo" aria-label="Site footer">
-      <div className="container mx-auto px-4 py-16">
+      <div className="w-[90%] max-w-[1600px] mx-auto px-4 py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           <div className="col-span-2">
             <motion.div
@@ -49,7 +51,7 @@ const Footer = () => {
                 <Logo />
               </div>
               <p className="text-muted-foreground mb-6 max-w-xs">
-                Empowering businesses with innovative IT solutions.
+                AI-First Product &amp; Platform Engineering.
               </p>
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
@@ -58,7 +60,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     aria-label={social.label}
-                    className="w-10 h-10 border border-white/10 bg-white/5 rounded-full flex items-center justify-center hover:border-primary hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_15px_hsla(210,100%,50%,0.3)] transition-all duration-300"
+                    className="w-10 h-10 border border-black/10 dark:border-transparent bg-white/50 dark:bg-foreground/5 rounded-full flex items-center justify-center hover:border-primary hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_15px_hsla(210,100%,50%,0.3)] transition-all duration-300"
                   >
                     {social.icon}
                   </a>

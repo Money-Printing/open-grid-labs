@@ -20,16 +20,21 @@ export default function ContactUs() {
 				description="Get in touch with us for project inquiries, support, or collaboration our team is here to help and respond quickly"
 			/>
 
-			<ContactForm />
+            <div className="w-[90%] max-w-[1600px] mx-auto px-4 py-20 relative space-y-32">
+                {/* Background Glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/5 blur-[150px] pointer-events-none" />
+			    
+                <ContactForm />
 
-			<div>
-				<PageHeading
-					preTitle="Our"
-					mainTitle="Contact"
-					postTitle="Information"
-				/>
-				<ContactInfo />
-			</div>
+			    <div className="relative z-10 w-full flex flex-col items-center">
+			    	<PageHeading
+			    		preTitle="Our"
+			    		mainTitle="Contact"
+			    		postTitle="Information"
+			    	/>
+			    	<ContactInfo />
+			    </div>
+            </div>
 		</>
 	)
 }

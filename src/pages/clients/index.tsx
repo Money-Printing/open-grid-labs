@@ -1,58 +1,49 @@
-import { brands } from "../../components/hero";
-import PageHeading from "../../components/page-heading";
-import PageHeading2 from "../../components/page-heading-2";
-import PageTitle from "../../components/page-title";
+import { motion } from "motion/react";
 import SEO from "../../components/seo";
+import PageHeading2 from "../../components/page-heading-2";
 import HomeTestimonials from "../home/components/testimonials";
 import ClientsExpertise from "./components/clients-expertise";
+import ClientsHero from "./components/clients-hero";
 
 export default function Clients() {
 	return (
-		<>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			transition={{ duration: 0.5 }}
+			className="min-h-screen bg-background overflow-hidden"
+		>
 			<SEO
-				title="Our Clients - Trusted Partners & Testimonials"
-				description="OpenGridLabs proudly partners with leading brands like Morphle Labs, Galen Data, ETG Commodities, NPCI, and United Health Group. See our client success stories and testimonials."
+				title="Our Clients - Trusted Partners & Testimonials | OpenGridLabs"
+				description="OpenGridLabs proudly partners with leading brands worldwide. Explore our immersive network of clients, success stories, and testimonials."
 				canonical="/clients"
-				keywords="OpenGridLabs clients, technology partners, client testimonials, healthcare clients, fintech clients, enterprise clients"
-			/>
-			<PageTitle
-				label="Our Clients"
-				mainTitle="Trusted"
-				subTitle="Partners"
-				description="We proudly collaborate with diverse clients worldwide, delivering tailored digital solutions that foster trust, long-term partnerships, and measurable business success."
+				keywords="OpenGridLabs clients, technology partners, client testimonials, 3D agency clients, software agency partners"
 			/>
 
-			<div>
-				<PageHeading
-					preTitle="Trusted"
-					mainTitle="Leading"
-					postTitle="Brands"
-				/>
+			<ClientsHero />
 
-				<div className='w-full grid grid-cols-2 md:grid-cols-3 gap-5 mt-8 mx-auto'>
-					{
-						brands.map((b, i) => (
-							<div key={i} className='bg-foreground/5 border border-border rounded-2xl px-6 py-8 flex items-center justify-center'>
-								<img src={b.href} alt={b.alt} className='w-auto h-18 grayscale object-contain ' />
-							</div>
-						))
-					}
-				</div>
+			{/* Testimonials Section */}
+			<div className="relative z-10 w-[90%] max-w-[1600px] mx-auto mt-20">
+				<HomeTestimonials />
 			</div>
 
-			<HomeTestimonials
-				preTitle="Happy Clients With 50+"
-				mainTitle="Successful Projects."
-			/>
-
-			<div>
-				<PageHeading2
-					preTitle="Industries We Have"
-					mainTitle="Successfully Worked In"
-				/>
+			{/* Industries Expertise Section */}
+			<div className="relative z-10 w-[90%] max-w-[1600px] mx-auto px-4 py-32">
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-100px" }}
+					transition={{ duration: 0.8, ease: "easeOut" }}
+				>
+					<PageHeading2
+						preTitle="Domain Expertise"
+						mainTitle="Industries We Transform"
+					/>
+				</motion.div>
 
 				<ClientsExpertise />
 			</div>
-		</>
-	)
+		</motion.div>
+	);
 }

@@ -36,11 +36,11 @@ type AboutText = {
 
 const AboutParagraph = ({ parts }: AboutText) => {
 	return (
-		<p className="md:text-2xl text-lg leading-relaxed mt-8">
+		<p className="md:text-3xl text-xl leading-relaxed mt-10">
 			{parts.map((part, idx) => (
 				<span
 					key={idx}
-					className={part.bold ? "font-extrabold text-primary" : "font-medium text-muted-foreground"}
+					className={part.bold ? "font-bold text-foreground drop-shadow-lg dark:shadow-[0_0_10px_rgba(255,255,255,0.3)]" : "font-medium text-muted-foreground"}
 				>
 					{part.text}
 				</span>
@@ -53,12 +53,15 @@ const About = () => {
 	return (
 		<section
 			id="about-us-about"
-			className="w-full flex flex-col relative"
+			className="w-full flex flex-col relative py-20 px-4 md:px-10 glass-panel rounded-3xl mt-12 overflow-hidden border border-black/5 dark:border-transparent"
 		>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] pointer-events-none" />
 			<PageHeading2 mainTitle="About" />
-			{aboutData.map((para, idx) => (
-				<AboutParagraph key={idx} parts={para.parts} />
-			))}
+            <div className="relative z-10 w-[90%] max-w-[1600px]">
+                {aboutData.map((para, idx) => (
+                    <AboutParagraph key={idx} parts={para.parts} />
+                ))}
+            </div>
 		</section>
 	);
 };

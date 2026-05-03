@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { motion, useMotionValueEvent, useScroll } from "motion/react"
+import { ChevronDown, Menu, X, Moon, Sun } from "lucide-react";
+import { motion } from "motion/react"
 import Button from "../ui/button";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AnimatePresence } from "motion/react";
-import ButtonLink from "../ui/button-link.tsx";
 import ServiceCard from "../service-card/index.tsx";
 import Logo from "../../icons/logo/index.tsx";
+import { useTheme } from "../../context/theme-provider";
 
 export type NavItemDropdownType = {
 	title: string
@@ -16,18 +16,17 @@ export type NavItemDropdownType = {
 
 const navItems = [
 	{ name: "Work", href: "/work" },
-
 	{
 		name: "Services", href: "/services",
 		dropdown: [
-			{ title: "Software", desc: "Modern web apps", href: '/services/software' },
-			{ title: "Intelligent", desc: "Design & prototyping", href: '/services/intelligent' },
-			{ title: "Design", desc: "Visual identity", href: '/services/design' },
+			{ title: "Product Engineering", desc: "Scalable SaaS & Platforms", href: '/services/product-engineering' },
+			{ title: "AI & Data Intelligence", desc: "GenAI & Predictive Models", href: '/services/ai-data' },
+			{ title: "Cloud & Platform", desc: "AWS, Azure & DevOps", href: '/services/cloud-platform' },
+			{ title: "Legacy Modernization", desc: "Tech Debt & Migration", href: '/services/legacy-modernization' },
+			{ title: "Digital Experience", desc: "Modern UI & Performance", href: '/services/digital-experience' },
 		],
 	},
-
 	{ name: "Clients", href: "/clients" },
-
 	{
 		name: "About", href: "/about",
 		dropdown: [
@@ -36,9 +35,23 @@ const navItems = [
 			{ title: "Career", desc: "Values & vision", href: '/about/career' },
 		],
 	},
-
 ];
 
+const ThemeToggle = () => {
+    const { theme, setTheme } = useTheme();
+    const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    return (
+        <button
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            className="relative p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors mr-2 md:mr-0 flex items-center justify-center text-foreground cursor-pointer"
+            aria-label="Toggle Theme"
+        >
+            <Sun className={`w-5 h-5 transition-all duration-300 ${isDark ? 'scale-0 -rotate-90 opacity-0 absolute' : 'scale-100 rotate-0 opacity-100'}`} />
+            <Moon className={`w-5 h-5 transition-all duration-300 ${isDark ? 'scale-100 rotate-0 opacity-100' : 'scale-0 rotate-90 opacity-0 absolute'}`} />
+        </button>
+    );
+};
 
 const Nav = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -47,13 +60,6 @@ const Nav = () => {
 	const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
-	const { scrollY } = useScroll()
-	const [hidden, setHidden] = useState(false)
-
-	useMotionValueEvent(scrollY, 'change', (latest) => {
-		const prev = scrollY.getPrevious() || 0
-		setHidden(latest > prev && latest > 150)
-	})
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -79,35 +85,28 @@ const Nav = () => {
 		<header>
 			<motion.nav
 				aria-label="Main navigation"
-				variants={{
-					visible: { y: 0 },
-					hidden: { y: '-150%' }
-				}}
-				initial={'hidden'}
-				animate={hidden ? 'hidden' : 'visible'}
-				transition={{ duration: 0.3 }}
-				className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl"
+				className="fixed top-0 left-0 z-50 w-full"
 			>
 				<div
-					className={`relative rounded-full border transition shadow-md ${isScrolled
-						? "bg-background/95 backdrop-blur-xl border-border"
-						: "bg-background/50 backdrop-blur-md border-border/50"
+					className={`relative transition-all duration-500 shadow-lg ${isScrolled
+						? "glass-panel bg-card/80 border-b border-white/10 dark:border-transparent backdrop-blur-xl"
+						: "bg-background/20 backdrop-blur-md border-b border-black/5 dark:border-transparent"
 						}`}
 				>
-					<div className="px-6 py-4">
+					<div className="px-6 py-4 w-[90%] max-w-[1600px] mx-auto">
 						<div className="flex items-center justify-between">
 							<motion.div
 								initial={{ opacity: 0, x: -20 }}
 								animate={{ opacity: 1, x: 0 }}
 								transition={{ delay: 0.2 }}
-								className="text-2xl font-display font-bold tracking-tight"
+								className="text-2xl font-display font-bold tracking-tight z-50"
 							>
-								<Link to={'/'}>
+								<Link to={'/'} className="hover:opacity-80 transition-opacity">
 									<Logo />
 								</Link>
 							</motion.div>
 
-							<div className="hidden md:flex items-center gap-8 relative">
+							<div className="hidden md:flex items-center gap-6 relative">
 								{navItems.map((item, index) => (
 									<motion.div
 										key={item.name}
@@ -117,7 +116,7 @@ const Nav = () => {
 											initial={{ opacity: 0, y: -20 }}
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ delay: 0.3 + index * 0.1 }}
-											className={`flex gap-1 items-center text-muted-foreground hover:text-foreground font-medium cursor-pointer transition-all ${pathname.startsWith(item.href ?? 'none') ? 'text-primary bg-primary/10 px-4 py-2 rounded-full' : 'px-4 py-2'}`}
+											className={`flex gap-1 items-center text-muted-foreground hover:text-foreground hover:text-shadow-glow font-medium cursor-pointer transition-all ${pathname.startsWith(item.href ?? 'none') ? 'text-primary bg-primary/10 px-4 py-2 rounded-full shadow-[inset_0_0_10px_hsla(210,100%,50%,0.2)]' : 'px-4 py-2'}`}
 										>
 											{
 												item.dropdown ? (<span>{item.name}</span>) : (
@@ -128,29 +127,33 @@ const Nav = () => {
 											}
 											{
 												item.dropdown && (
-													<ChevronDown size={20} className={`${openMenu === item.name ? 'rotate-180' : ''} transition`} />
+													<ChevronDown size={20} className={`${openMenu === item.name ? 'rotate-180' : ''} transition-transform duration-300`} />
 												)
 											}
 										</motion.button>
-
-
 									</motion.div>
 								))}
-
-								<ButtonLink
-									to="/contact-us"
-								>
-									Contact
-								</ButtonLink>
+								
+								<div className="ml-4 flex items-center gap-4">
+                                    <ThemeToggle />
+									<Button
+										onClick={() => handleNavigate('/contact-us')}
+										className="h-10 px-6 rounded-full"
+									>
+										Contact
+									</Button>
+								</div>
 							</div>
 
-
-							<button
-								className="md:hidden text-foreground cursor-pointer"
-								onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-							>
-								{isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-							</button>
+                            <div className="flex items-center md:hidden z-50">
+                                <ThemeToggle />
+                                <button
+                                    className="text-foreground cursor-pointer p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors"
+                                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                >
+                                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                                </button>
+                            </div>
 						</div>
 					</div>
 
@@ -160,14 +163,14 @@ const Nav = () => {
 			<AnimatePresence>
 				{openMenu && (
 					<motion.div
-						initial={{ opacity: 0, y: -10 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -10 }}
-						transition={{ duration: 0.2 }}
+						initial={{ opacity: 0, y: -10, scale: 0.95 }}
+						animate={{ opacity: 1, y: 0, scale: 1 }}
+						exit={{ opacity: 0, y: -10, scale: 0.95 }}
+						transition={{ duration: 0.2, ease: "easeOut" }}
 						className="fixed left-1/2 -translate-x-1/2 top-[106px]
-                   w-[95%] max-w-5xl z-40
-                   flex gap-6 bg-background p-6
-                   rounded-2xl border border-border"
+                   w-[95%] w-[90%] max-w-[1200px] z-40
+                   flex gap-6 glass-panel p-6
+                   rounded-2xl border border-black/10 dark:border-transparent shadow-2xl"
 						onMouseLeave={() => setOpenMenu(null)}
 					>
 						{navItems.find(n => n.name === openMenu)?.dropdown?.map(card => (
@@ -182,9 +185,9 @@ const Nav = () => {
 						<motion.div
 							key="backdrop"
 							initial={{ opacity: 0 }}
-							animate={{ opacity: 0.4 }}
+							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
-							className="fixed inset-0 bg-black/50 md:hidden"
+							className="fixed inset-0 bg-background/80 backdrop-blur-xl md:hidden z-40"
 							onClick={() => setIsMobileMenuOpen(false)}
 						/>
 
@@ -193,23 +196,23 @@ const Nav = () => {
 							initial={{ x: "100%" }}
 							animate={{ x: 0 }}
 							exit={{ x: "100%" }}
-							transition={{ duration: 0.3 }}
-							className="fixed top-0 right-0 h-full w-full bg-background p-5 z-50 md:hidden overflow-y-auto"
+							transition={{ duration: 0.4, type: "spring", damping: 25, stiffness: 200 }}
+							className="fixed top-0 right-0 h-full w-[85%] max-w-sm glass-panel border-l border-black/10 dark:border-transparent p-6 z-50 md:hidden overflow-y-auto shadow-2xl"
 						>
-							<div className="flex justify-end mt-7">
-								<button
-									className="text-foreground cursor-pointer ml-auto pr-4"
-									onClick={() => setIsMobileMenuOpen(false)}
-								>
-									<X size={24} />
-								</button>
+							<div className="flex justify-end mt-4 mb-8">
 							</div>
 
-							<div className="flex flex-col gap-2 mt-4">
-								{navItems.map((item) => (
-									<div key={item.name} className="flex flex-col">
+							<div className="flex flex-col gap-4 mt-8">
+								{navItems.map((item, i) => (
+									<motion.div 
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.1 + i * 0.1 }}
+                                        key={item.name} 
+                                        className="flex flex-col border-b border-black/5 dark:border-transparent pb-4 last:border-0"
+                                    >
 										<button
-											className={`text-muted-foreground hover:text-foreground text-left font-medium flex justify-between items-center w-full text-2xl py-2 cursor-pointer transition-all ${pathname.startsWith(item.href ?? 'none') ? 'text-primary bg-primary/10 px-4 rounded-lg' : ''}`}
+											className={`text-muted-foreground hover:text-foreground text-left font-display text-2xl font-semibold flex justify-between items-center w-full py-2 cursor-pointer transition-all ${pathname.startsWith(item.href ?? 'none') ? 'text-primary' : ''}`}
 											onClick={() =>
 												item.dropdown
 													? setOpenAccordion(openAccordion === item.name ? null : item.name)
@@ -217,7 +220,7 @@ const Nav = () => {
 											}
 										>
 											{item.name}
-											{item.dropdown && <ChevronDown size={20} className={`${openAccordion === item.name ? 'rotate-360' : 'rotate-270'} transition`} />}
+											{item.dropdown && <ChevronDown size={24} className={`${openAccordion === item.name ? 'rotate-180 text-primary' : ''} transition-all duration-300`} />}
 										</button>
 
 										<AnimatePresence>
@@ -226,8 +229,8 @@ const Nav = () => {
 													initial={{ height: 0, opacity: 0 }}
 													animate={{ height: "auto", opacity: 1 }}
 													exit={{ height: 0, opacity: 0 }}
-													transition={{ duration: 0.2 }}
-													className="flex flex-col ml-4 mt-2 gap-2"
+													transition={{ duration: 0.3, ease: "easeInOut" }}
+													className="flex flex-col ml-4 mt-4 gap-4 overflow-hidden"
 												>
 													{item.dropdown.map((sub) => (
 														<ServiceCard key={sub.href} link={sub.href} name={sub.title} description={sub.desc} />
@@ -235,15 +238,22 @@ const Nav = () => {
 												</motion.div>
 											)}
 										</AnimatePresence>
-									</div>
+									</motion.div>
 								))}
 
-								<Button
-									onClick={() => handleNavigate('/contact-us')}
-									className="rounded-full bg-foreground text-background hover:bg-foreground/90 mt-4 py-3 justify-center mt-16"
-								>
-									Contact
-								</Button>
+								<motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.6 }}
+                                    className="mt-12"
+                                >
+                                    <Button
+                                        onClick={() => handleNavigate('/contact-us')}
+                                        className="w-full text-lg py-6"
+                                    >
+                                        Get in Touch
+                                    </Button>
+                                </motion.div>
 							</div>
 						</motion.div>
 					</>

@@ -101,8 +101,8 @@ function WorkHero() {
 	return (
 		<section
 			ref={heroRef}
-			className="relative w-full overflow-hidden flex flex-col items-center justify-center"
-			style={{ minHeight: "80vh", background: "hsl(240,10%,4%)" }}
+			className="relative w-full overflow-hidden flex flex-col items-center justify-center bg-background"
+			style={{ minHeight: "80vh" }}
 		>
 			{/* ── Layered 3D grid floor ── */}
 			<div
@@ -138,7 +138,7 @@ function WorkHero() {
 				className="absolute inset-0 pointer-events-none"
 				style={{
 					backgroundImage:
-						"repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.013) 3px, rgba(255,255,255,0.013) 4px)",
+						"repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(128,128,128,0.05) 3px, rgba(128,128,128,0.05) 4px)",
 				}}
 			/>
 
@@ -188,12 +188,7 @@ function WorkHero() {
 						style={{ background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.8))" }}
 					/>
 					<span
-						className="text-xs font-bold tracking-[0.35em] uppercase px-4 py-1.5 rounded-full"
-						style={{
-							color: "hsl(210,100%,70%)",
-							background: "rgba(59,130,246,0.1)",
-							border: "1px solid rgba(59,130,246,0.25)",
-						}}
+						className="text-xs font-bold tracking-[0.35em] uppercase px-4 py-1.5 rounded-full text-primary bg-primary/10 border border-primary/25"
 					>
 						OpenGridLabs · Selected Works
 					</span>
@@ -230,14 +225,11 @@ function WorkHero() {
 					</h1>
 
 					<h1
-						className="relative font-bold uppercase tracking-tight leading-none"
+						className="relative font-bold uppercase tracking-tight leading-none text-transparent bg-clip-text"
 						style={{
 							fontSize: "clamp(3.5rem, 12vw, 11rem)",
-							background:
-								"linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.85) 40%, hsl(210,100%,70%) 70%, hsl(280,100%,70%) 100%)",
-							WebkitBackgroundClip: "text",
-							WebkitTextFillColor: "transparent",
-							backgroundClip: "text",
+							backgroundImage:
+								"linear-gradient(135deg, currentColor 0%, currentColor 40%, hsl(210,100%,60%) 70%, hsl(280,100%,60%) 100%)",
 							textShadow: "none",
 							filter: "drop-shadow(0 0 60px rgba(59,130,246,0.35))",
 						}}
@@ -271,16 +263,15 @@ function WorkHero() {
 
 				{/* Sub-description */}
 				<p
-					className="mt-8 text-base md:text-xl font-light leading-relaxed max-w-2xl"
+					className="mt-8 text-base md:text-xl font-light leading-relaxed max-w-2xl text-foreground/50 dark:text-foreground/50"
 					style={{
-						color: "rgba(255,255,255,0.5)",
 						opacity: mounted ? 1 : 0,
 						transform: mounted ? "translateY(0)" : "translateY(20px)",
 						transition: "opacity 0.7s ease 0.35s, transform 0.7s ease 0.35s",
 					}}
 				>
 					A curated archive of{" "}
-					<span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 500 }}>
+					<span className="text-foreground/85 font-medium">
 						high-performance digital products
 					</span>{" "}
 					built for visionary teams — from medtech to fintech, AI to EdTech.
@@ -301,24 +292,19 @@ function WorkHero() {
 
 			{/* ── Stats Bar ── */}
 			<div
-				className="relative z-10 w-full"
+				className="relative z-10 w-full border-t border-black/5 dark:border-white/5 bg-foreground/[0.02] backdrop-blur-md"
 				style={{
 					opacity: mounted ? 1 : 0,
 					transform: mounted ? "translateY(0)" : "translateY(30px)",
 					transition: "opacity 0.7s ease 0.5s, transform 0.7s ease 0.5s",
-					borderTop: "1px solid rgba(255,255,255,0.05)",
-					background: "rgba(255,255,255,0.02)",
-					backdropFilter: "blur(12px)",
 				}}
 			>
 				<div className="w-[90%] max-w-[1600px] mx-auto grid grid-cols-2 md:grid-cols-4">
 					{STATS.map((stat, i) => (
 						<div
 							key={i}
-							className="flex flex-col items-center justify-center py-7 group cursor-default"
+							className={`flex flex-col items-center justify-center py-7 group cursor-default ${i < STATS.length - 1 ? "border-r border-black/5 dark:border-white/5" : ""}`}
 							style={{
-								borderRight:
-									i < STATS.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
 								transition: "background 0.3s ease",
 							}}
 						>
@@ -336,8 +322,7 @@ function WorkHero() {
 								{stat.value}
 							</span>
 							<span
-								className="text-xs font-semibold tracking-[0.2em] uppercase mt-1"
-								style={{ color: "rgba(255,255,255,0.35)" }}
+								className="text-xs font-semibold tracking-[0.2em] uppercase mt-1 text-foreground/35"
 							>
 								{stat.label}
 							</span>
@@ -348,10 +333,7 @@ function WorkHero() {
 
 			{/* ── Bottom fade-out ── */}
 			<div
-				className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-				style={{
-					background: "linear-gradient(to bottom, transparent, hsl(240,10%,4%))",
-				}}
+				className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none bg-gradient-to-b from-transparent to-background"
 			/>
 		</section>
 	);

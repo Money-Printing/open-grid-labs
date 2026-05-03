@@ -92,13 +92,11 @@ function HoloCard({
 			>
 				{/* --- Base Layer: dark glass body --- */}
 				<div
-					className="absolute inset-0 rounded-[28px]"
+					className="absolute inset-0 rounded-[28px] transition-all duration-300 border border-black/5 dark:border-white/5 bg-white/90 dark:bg-[#0c0d16f5]"
 					style={{
-						background: isHovered
-							? `radial-gradient(ellipse at ${glowPos.x}% ${glowPos.y}%, rgba(30,35,55,0.98) 0%, rgba(10,11,18,0.98) 100%)`
-							: "rgba(12, 13, 22, 0.96)",
-						border: `1px solid rgba(255,255,255,${isHovered ? "0.10" : "0.04"})`,
-						transition: "background 0.3s ease, border 0.3s ease",
+						backgroundImage: isHovered
+							? `radial-gradient(ellipse at ${glowPos.x}% ${glowPos.y}%, rgba(120,130,255,0.1) 0%, transparent 70%)`
+							: "none",
 					}}
 				/>
 
@@ -107,8 +105,8 @@ function HoloCard({
 					className="absolute inset-0 pointer-events-none"
 					style={{
 						background: `radial-gradient(circle 300px at ${shimmerPos.x}px ${shimmerPos.y}px,
-							rgba(255,255,255,0.06) 0%,
-							rgba(255,255,255,0.02) 30%,
+							rgba(120,120,120,0.06) 0%,
+							rgba(120,120,120,0.02) 30%,
 							transparent 70%)`,
 						transition: "opacity 0.2s ease",
 						opacity: isHovered ? 1 : 0,
@@ -169,7 +167,7 @@ function HoloCard({
 					className="absolute inset-0 pointer-events-none"
 					style={{
 						backgroundImage:
-							"repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 4px)",
+							"repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(128,128,128,0.012) 3px, rgba(128,128,128,0.012) 4px)",
 						opacity: isHovered ? 1 : 0,
 						transition: "opacity 0.3s ease",
 					}}
@@ -221,10 +219,9 @@ function HoloCard({
 						}}
 					>
 						<ArrowUpRight
-							className="w-5 h-5"
+							className="w-5 h-5 transition-colors duration-300"
 							style={{
-								color: isHovered ? "#000" : "rgba(255,255,255,0.5)",
-								transition: "color 0.3s ease",
+								color: isHovered ? "var(--color-background)" : "currentColor",
 							}}
 						/>
 					</div>
@@ -251,27 +248,21 @@ function HoloCard({
 					/>
 
 					<h2
-						className="text-2xl md:text-3xl font-bold leading-tight tracking-tight mb-4"
+						className="text-2xl md:text-3xl font-bold leading-tight tracking-tight mb-4 transition-all duration-300 text-foreground/90 group-hover:text-foreground"
 						style={{
-							color: isHovered ? "#fff" : "rgba(255,255,255,0.9)",
 							textShadow: isHovered
 								? `0 0 30px ${color.from}50`
 								: "none",
-							transition: "color 0.3s ease, text-shadow 0.3s ease",
 						}}
 					>
 						{project.title}
 					</h2>
 
 					<p
-						className="text-sm md:text-base leading-relaxed"
+						className="text-sm md:text-base leading-relaxed transition-all duration-400 text-foreground/60 group-hover:text-foreground/80"
 						style={{
-							color: isHovered
-								? "rgba(255,255,255,0.75)"
-								: "rgba(255,255,255,0.4)",
 							maxHeight: isHovered ? "120px" : "60px",
 							overflow: "hidden",
-							transition: "color 0.4s ease, max-height 0.4s ease",
 						}}
 					>
 						{project.description}

@@ -82,10 +82,10 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 				<div className="absolute bottom-[10%] left-[5%] w-[300px] h-[300px] bg-primary/4 rounded-full blur-[160px]" />
 				{/* Subtle dot grid */}
 				<div
-					className="absolute inset-0 opacity-[0.025]"
+					className="absolute inset-0 opacity-5 dark:opacity-[0.025] pointer-events-none text-foreground"
 					style={{
 						backgroundImage:
-							"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)",
+							"radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
 						backgroundSize: "40px 40px",
 					}}
 				/>
@@ -149,20 +149,11 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 										y: isOpen ? -2 : 0,
 									}}
 									transition={{ duration: 0.3, ease: "easeOut" }}
-									className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${
+									className={`relative rounded-2xl overflow-hidden transition-all duration-500 backdrop-blur-xl border ${
 										isOpen
-											? "shadow-lg dark:shadow-[0_20px_50px_rgba(0,0,0,0.4),0_0_0_1px_hsla(210,100%,50%,0.15)]"
-											: "shadow-lg dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+											? "bg-white/90 dark:bg-[#151522e6] border-primary/20 shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4),0_0_0_1px_hsla(210,100%,50%,0.15)]"
+											: "bg-white/50 dark:bg-[#14141e99] border-black/5 dark:border-white/5 hover:bg-white/70 dark:hover:bg-[#14141ecc] shadow-md dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
 									}`}
-									style={{
-										background: isOpen
-											? "linear-gradient(165deg, rgba(28,28,42,0.9) 0%, rgba(16,16,26,0.95) 100%)"
-											: "linear-gradient(165deg, rgba(20,20,30,0.6) 0%, rgba(12,12,20,0.7) 100%)",
-										backdropFilter: "blur(20px)",
-										border: isOpen
-											? "1px solid hsla(210,100%,50%,0.12)"
-											: "1px solid rgba(255,255,255,0.04)",
-									}}
 								>
 									{/* Top accent line — only visible when open */}
 									<AnimatePresence>
@@ -216,27 +207,18 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 
 										{/* Icon toggle */}
 										<motion.div
-											animate={{
-												rotate: isOpen ? 180 : 0,
-												backgroundColor: isOpen
-													? "hsl(210, 100%, 50%)"
-													: "rgba(255,255,255,0.04)",
-												borderColor: isOpen
-													? "hsl(210, 100%, 50%)"
-													: "rgba(255,255,255,0.08)",
-											}}
+											animate={{ rotate: isOpen ? 180 : 0 }}
 											transition={{ duration: 0.3 }}
-											className="shrink-0 w-8 h-8 rounded-full border flex items-center justify-center shadow-sm"
-											style={
-												isOpen
-													? { boxShadow: "0 0 16px hsla(210,100%,50%,0.45)" }
-													: {}
-											}
+											className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center shadow-sm transition-colors duration-300 ${
+												isOpen 
+													? "bg-primary border-primary shadow-[0_0_16px_hsla(210,100%,50%,0.45)] text-foreground" 
+													: "bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 text-foreground/70 dark:text-foreground/50 group-hover:text-primary group-hover:dark:text-primary group-hover:border-primary/50 group-hover:bg-primary/10"
+											}`}
 										>
 											{isOpen ? (
 												<Minus size={14} className="text-foreground" />
 											) : (
-												<Plus size={14} className="text-foreground/70 dark:text-foreground/50 group-hover:text-primary transition-colors" />
+												<Plus size={14} className="currentColor" />
 											)}
 										</motion.div>
 									</button>
@@ -253,7 +235,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 												className="overflow-hidden"
 											>
 												<div className="px-6 pb-6 ml-10">
-													<div className="h-[1px] bg-gradient-to-r from-white/[0.06] to-transparent mb-5" />
+													<div className="h-[1px] bg-gradient-to-r from-black/10 dark:from-white/10 to-transparent mb-5" />
 													<p className="text-base text-foreground/70 dark:text-foreground/50 leading-relaxed font-light">
 														{faq.answer}
 													</p>
@@ -276,15 +258,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 					style={{ transformStyle: "preserve-3d" }}
 				>
 					<div
-						className="relative rounded-[28px] overflow-hidden h-full"
-						style={{
-							background:
-								"linear-gradient(165deg, rgba(22,22,36,0.9) 0%, rgba(12,12,20,0.95) 100%)",
-							backdropFilter: "blur(24px)",
-							border: "1px solid rgba(255,255,255,0.06)",
-							boxShadow:
-								"inset 0 1px 0 0 rgba(255,255,255,0.05), 0 30px 80px rgba(0,0,0,0.4)",
-						}}
+						className="relative rounded-[28px] overflow-hidden h-full bg-white/90 dark:bg-[#161624e6] backdrop-blur-xl border border-black/5 dark:border-white/5 shadow-xl dark:shadow-[0_30px_80px_rgba(0,0,0,0.4),inset_0_1px_0_0_rgba(255,255,255,0.05)]"
 					>
 						{/* Top gradient line */}
 						<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-accent opacity-60" />
@@ -295,10 +269,10 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 
 						{/* Dot grid overlay */}
 						<div
-							className="absolute inset-0 opacity-[0.03]"
+							className="absolute inset-0 opacity-5 dark:opacity-[0.03] text-foreground pointer-events-none"
 							style={{
 								backgroundImage:
-									"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)",
+									"radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
 								backgroundSize: "24px 24px",
 							}}
 						/>

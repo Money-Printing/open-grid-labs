@@ -12,9 +12,9 @@ const categories = [
     icon: Brain,
     color: "from-violet-500 to-fuchsia-400",
     glowColor: "hsla(280, 100%, 60%, 0.15)",
-    accentClass: "text-violet-400",
-    borderAccent: "border-violet-500/30",
-    bgAccent: "bg-violet-500/10",
+    accentClass: "text-violet-600 dark:text-violet-400",
+    borderAccent: "border-violet-600/30 dark:border-violet-400/30",
+    bgAccent: "bg-violet-600/10 dark:bg-violet-400/10",
     heading: "AI & Data Intelligence",
     tagline: "Machines that think. Data that speaks.",
     description: "We build intelligent systems that learn, predict, and adapt — from conversational AI agents to deep learning pipelines that turn raw data into decisive business advantage.",
@@ -34,9 +34,9 @@ const categories = [
     icon: Code2,
     color: "from-blue-500 to-cyan-400",
     glowColor: "hsla(210, 100%, 50%, 0.15)",
-    accentClass: "text-blue-400",
-    borderAccent: "border-blue-500/30",
-    bgAccent: "bg-blue-500/10",
+    accentClass: "text-blue-600 dark:text-blue-400",
+    borderAccent: "border-blue-600/30 dark:border-blue-400/30",
+    bgAccent: "bg-blue-600/10 dark:bg-blue-400/10",
     heading: "Product Engineering",
     tagline: "Scalable architectures. Rapid iteration.",
     description: "We engineer production-grade platforms that handle millions of users — blazing-fast SaaS products, seamless mobile experiences, and secure APIs.",
@@ -56,9 +56,9 @@ const categories = [
     icon: Cloud,
     color: "from-orange-500 to-amber-400",
     glowColor: "hsla(30, 100%, 50%, 0.15)",
-    accentClass: "text-orange-400",
-    borderAccent: "border-orange-500/30",
-    bgAccent: "bg-orange-500/10",
+    accentClass: "text-orange-600 dark:text-orange-400",
+    borderAccent: "border-orange-600/30 dark:border-orange-400/30",
+    bgAccent: "bg-orange-600/10 dark:bg-orange-400/10",
     heading: "Cloud & Platform",
     tagline: "Infinite scale. Zero downtime.",
     description: "Robust cloud-native architectures that ensure high availability, security, and elasticity for your most critical enterprise workloads.",
@@ -78,9 +78,9 @@ const categories = [
     icon: RefreshCw,
     color: "from-rose-500 to-pink-400",
     glowColor: "hsla(330, 100%, 60%, 0.15)",
-    accentClass: "text-rose-400",
-    borderAccent: "border-rose-500/30",
-    bgAccent: "bg-rose-500/10",
+    accentClass: "text-rose-600 dark:text-rose-400",
+    borderAccent: "border-rose-600/30 dark:border-rose-400/30",
+    bgAccent: "bg-rose-600/10 dark:bg-rose-400/10",
     heading: "Legacy Modernization",
     tagline: "Evolve. Upgrade. Future-proof.",
     description: "We help enterprises resolve tech debt, migrate from monolithic systems to microservices, and prepare outdated codebases for the AI era.",
@@ -100,9 +100,9 @@ const categories = [
     icon: Palette,
     color: "from-emerald-400 to-teal-400",
     glowColor: "hsla(160, 80%, 50%, 0.15)",
-    accentClass: "text-emerald-400",
-    borderAccent: "border-emerald-500/30",
-    bgAccent: "bg-emerald-500/10",
+    accentClass: "text-emerald-600 dark:text-emerald-400",
+    borderAccent: "border-emerald-600/30 dark:border-emerald-400/30",
+    bgAccent: "bg-emerald-600/10 dark:bg-emerald-400/10",
     heading: "Digital Experience",
     tagline: "Interfaces that convert. Experiences that wow.",
     description: "We craft pixel-perfect interfaces, immersive 3D web experiences, and brand identities that drive measurable engagement and retention.",
@@ -280,7 +280,7 @@ export default function HomeServices() {
                         
                         <div>
                           <h4 className="text-xl md:text-2xl font-semibold text-foreground group-hover/row:text-transparent group-hover/row:bg-clip-text group-hover/row:bg-gradient-to-r transition-all duration-300" 
-                              style={{ '--tw-gradient-from': 'white', '--tw-gradient-to': 'white' } as React.CSSProperties}>
+                              style={{ '--tw-gradient-from': 'transparent', '--tw-gradient-to': 'transparent' } as React.CSSProperties}>
                             <span className={`group-hover/row:text-transparent group-hover/row:bg-clip-text group-hover/row:bg-gradient-to-r ${active.color}`}>
                               {cap.name}
                             </span>

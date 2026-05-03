@@ -146,11 +146,9 @@ export default function HomeTestimonials() {
 
 						{/* Card */}
 						<div
-							className="relative rounded-[32px] border border-black/5 dark:border-transparent overflow-hidden"
+							className="relative rounded-[32px] border border-black/5 dark:border-white/5 overflow-hidden bg-white/90 dark:bg-[#191923cc] shadow-xl dark:shadow-[0_30px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl"
 							style={{
-								background: "linear-gradient(165deg, rgba(25,25,35,0.75) 0%, rgba(12,12,18,0.85) 100%)",
-								backdropFilter: "blur(24px)",
-								boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.05), 0 30px 80px rgba(0,0,0,0.5)",
+								boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.05)",
 							}}
 						>
 							{/* Shine sweep */}
@@ -366,18 +364,13 @@ export default function HomeTestimonials() {
 						animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
 						transition={{ delay: 0.8 + i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
 						whileHover={{ y: -5, rotateX: -2, transition: { duration: 0.3 } }}
-						className={`group/card relative text-left rounded-[18px] border overflow-hidden transition-all duration-500 cursor-pointer ${
+						className={`group/card relative text-left rounded-[18px] border overflow-hidden transition-all duration-500 cursor-pointer backdrop-blur-md ${
 							i === active
-								? "border-primary/20 shadow-[0_0_30px_hsla(210,100%,50%,0.1)]"
-								: "border-black/5 dark:border-transparent hover:border-black/5 dark:border-transparent"
+								? "border-primary/20 shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_0_30px_hsla(210,100%,50%,0.1)] bg-white/90 dark:bg-[#1e1e2dcc]"
+								: "border-black/5 dark:border-white/5 bg-white/50 dark:bg-[#14141ccc] hover:bg-white/70 dark:hover:bg-[#1e1e2d80]"
 						}`}
 						style={{
 							transformStyle: "preserve-3d",
-							background:
-								i === active
-									? "linear-gradient(165deg, rgba(30,30,45,0.8) 0%, rgba(15,15,22,0.9) 100%)"
-									: "linear-gradient(165deg, rgba(20,20,28,0.5) 0%, rgba(12,12,18,0.6) 100%)",
-							backdropFilter: "blur(16px)",
 						}}
 					>
 						{/* Active indicator line */}
@@ -392,7 +385,7 @@ export default function HomeTestimonials() {
 						<div className="relative z-10 p-5 flex flex-col gap-3">
 							<div className="flex items-center gap-3">
 								<div
-									className={`w-9 h-9 rounded-lg flex items-center justify-center p-1.5 border border-black/5 dark:border-transparent overflow-hidden ${
+									className={`w-9 h-9 rounded-lg flex items-center justify-center p-1.5 border border-black/5 dark:border-white/5 overflow-hidden ${
 										i === active ? "bg-white/50 dark:bg-foreground/10" : "bg-foreground/[0.03]"
 									}`}
 								>

@@ -118,9 +118,9 @@ export default function PageTitle({
 						transition={{ duration: 0.8, delay: 0.1 }}
 						className="font-display font-black text-5xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[1.1]"
 					>
-						{mainTitle && <span className="text-foreground drop-shadow-md mr-4">{mainTitle}</span>}
+						{mainTitle && <span className="text-foreground mr-4">{mainTitle}</span>}
 						{subTitle && (
-							<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent drop-shadow-[0_0_30px_hsla(280,100%,60%,0.3)]">
+							<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent dark:drop-shadow-[0_0_30px_hsla(280,100%,60%,0.3)]">
 								{subTitle}
 							</span>
 						)}

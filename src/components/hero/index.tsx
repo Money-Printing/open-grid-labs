@@ -167,21 +167,21 @@ const Hero = () => {
 						<motion.div
 							animate={{ y: [-10, 10, -10] }}
 							transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-							className="absolute top-10 -left-4 md:left-10 glass-panel rounded-2xl p-4 shadow-[0_10px_30px_hsla(0,0%,0%,0.5)] preserve-3d"
+							className="absolute top-10 -left-4 md:left-10 glass-panel rounded-2xl p-4 shadow-xl dark:shadow-[0_10px_30px_hsla(0,0%,0%,0.5)] preserve-3d"
 							style={{ transform: "translateZ(50px)" }}
 						>
 							<div className="text-sm font-semibold text-foreground mb-1">Global Scale</div>
-							<div className="text-xs text-primary/80">Deployed across 10+ regions</div>
+							<div className="text-xs text-primary/80 dark:text-primary">Deployed across 10+ regions</div>
 						</motion.div>
 
 						<motion.div
 							animate={{ y: [10, -10, 10] }}
 							transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-							className="absolute bottom-10 -right-4 md:right-10 glass-panel rounded-2xl p-4 shadow-[0_10px_30px_hsla(0,0%,0%,0.5)] preserve-3d"
+							className="absolute bottom-10 -right-4 md:right-10 glass-panel rounded-2xl p-4 shadow-xl dark:shadow-[0_10px_30px_hsla(0,0%,0%,0.5)] preserve-3d"
 							style={{ transform: "translateZ(80px)" }}
 						>
 							<div className="text-sm font-semibold text-foreground mb-1">99.99%</div>
-							<div className="text-xs text-primary/80">System Uptime</div>
+							<div className="text-xs text-primary/80 dark:text-primary">System Uptime</div>
 						</motion.div>
 					</motion.div>
 				</div>
@@ -211,7 +211,7 @@ const Hero = () => {
 									key={i} 
 									className='group relative px-6 py-4 flex items-center justify-center shrink-0 transition-all duration-500 rounded-2xl hover:-translate-y-2 hover:shadow-[0_10px_30px_hsla(210,100%,50%,0.2)] bg-white/50 dark:bg-foreground/5 border border-black/5 dark:border-transparent backdrop-blur-sm shadow-lg dark:shadow-[0_0_15px_rgba(0,0,0,0.5)] w-[260px] h-[90px]'
 								>
-									<img src={b.href} alt={b.alt} className='w-full h-full invert grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 object-contain relative z-10' />
+									<img src={b.href} alt={b.alt} className='w-full h-full dark:invert grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 object-contain relative z-10' />
 								</div>
 							))}
 						</motion.div>

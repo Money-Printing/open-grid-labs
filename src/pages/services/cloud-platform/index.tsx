@@ -89,7 +89,7 @@ function SoftwareHero() {
 			ref={containerRef}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
-			className="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex flex-col items-center justify-center bg-[#030303] perspective-[1500px]"
+			className="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex flex-col items-center justify-center bg-background perspective-[1500px]"
 		>
 			{/* Ambient Deep Space Glow */}
 			<div className="absolute inset-0 dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(29,78,216,0.15)_0%,_transparent_60%)]" />
@@ -125,7 +125,7 @@ function SoftwareHero() {
 			{Array.from({ length: 20 }).map((_, i) => (
 				<motion.div
 					key={i}
-					className="absolute w-2 h-2 rounded-full bg-white/50 dark:bg-foreground/20 blur-[1px]"
+					className="absolute w-2 h-2 rounded-full bg-foreground/30 blur-[1px]"
 					style={{
 						left: `${Math.random() * 100}%`,
 						top: `${Math.random() * 100}%`,
@@ -176,7 +176,7 @@ function SoftwareHero() {
 					transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
 					style={{ transformStyle: "preserve-3d" }}
 				>
-					<h1 className="text-transparent bg-clip-text bg-gradient-to-b from-white to-black/50 dark:to-white/50 font-black uppercase tracking-tighter leading-none drop-shadow-lg dark:shadow-[0_20px_40px_rgba(0,0,0,0.5)]" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(80px)" }}>
+					<h1 className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/50 font-black uppercase tracking-tighter leading-none" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(80px)" }}>
 						Digital
 					</h1>
 					<h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-black uppercase tracking-tighter leading-none drop-shadow-lg dark:shadow-[0_0_60px_rgba(59,130,246,0.3)] mt-2" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(100px)" }}>
@@ -261,7 +261,7 @@ function SoftwareServicesGrid() {
 					>
 						<div className="flex items-center gap-8">
 							<div className="h-[2px] flex-1 bg-gradient-to-r from-transparent" style={{ backgroundImage: `linear-gradient(to right, transparent, ${category.highlight}60)` }} />
-							<h3 className="text-4xl md:text-6xl font-display font-bold tracking-wide text-transparent bg-clip-text drop-shadow-2xl" style={{ backgroundImage: `linear-gradient(to right, #fff, ${category.highlight})` }}>
+							<h3 className="text-4xl md:text-6xl font-display font-bold tracking-wide text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(to right, var(--color-foreground), ${category.highlight})` }}>
 								{category.title}
 							</h3>
 							<div className="h-[2px] flex-1 bg-gradient-to-l from-transparent" style={{ backgroundImage: `linear-gradient(to left, transparent, ${category.highlight}60)` }} />
@@ -294,7 +294,7 @@ function SoftwareProcess() {
 			<div className="text-center mb-32 relative z-10">
 				<motion.h2 
 					initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-					className="text-5xl md:text-8xl font-bold uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-black/30 dark:to-white/30 drop-shadow-2xl"
+					className="text-5xl md:text-8xl font-bold uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/40"
 				>
 					The Engineering Pipeline
 				</motion.h2>
@@ -305,7 +305,7 @@ function SoftwareProcess() {
 
 			<div className="relative w-[90%] max-w-[1600px] mx-auto perspective-[1500px]">
 				{/* 3D Vertical Spine */}
-				<div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-white/50 dark:bg-foreground/5" style={{ transform: "translateZ(-50px)" }}>
+				<div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-black/10 dark:bg-foreground/5" style={{ transform: "translateZ(-50px)" }}>
 					<motion.div className="absolute top-0 w-full bg-gradient-to-b from-blue-500 via-purple-500 to-transparent" style={{ height: spineHeight, boxShadow: "0 0 20px 2px rgba(59,130,246,0.5)" }} />
 				</div>
 
@@ -338,7 +338,7 @@ function SoftwareProcess() {
 								<div className={`w-[calc(50%-60px)] ${isLeft ? "pr-10" : "pl-10 text-right"}`}>
 									<div className="group relative p-10 glass-panel rounded-3xl border border-black/10 dark:border-transparent hover:border-black/30 dark:border-transparent transition-all duration-500 hover:shadow-lg dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
 										<div className={`absolute inset-0 bg-gradient-to-br ${step.accent} opacity-0 group-hover:opacity-[0.05] transition-opacity duration-500 rounded-3xl pointer-events-none`} />
-										<h3 className="text-3xl font-bold text-foreground mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-black/50 dark:to-white/50 transition-all">
+										<h3 className="text-3xl font-bold text-foreground mb-4 transition-all">
 											{step.title}
 										</h3>
 										<p className="text-lg text-foreground/80 dark:text-foreground/60 leading-relaxed group-hover:text-foreground/80 transition-colors">
@@ -364,7 +364,7 @@ function SoftwareTechStack() {
 			<div className="text-center mb-32 relative z-10">
 				<motion.h2 
 					initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-					className="text-5xl md:text-8xl font-bold uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-black/30 dark:to-white/30 drop-shadow-2xl"
+					className="text-5xl md:text-8xl font-bold uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/40"
 				>
 					Technology Matrix
 				</motion.h2>

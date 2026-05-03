@@ -21,7 +21,7 @@ const navItems = [
 		dropdown: [
 			{ title: "Product Engineering", desc: "Scalable SaaS & Platforms", href: '/services/product-engineering' },
 			{ title: "AI & Data Intelligence", desc: "GenAI & Predictive Models", href: '/services/ai-data' },
-			{ title: "Cloud & Platform", desc: "AWS, Azure & DevOps", href: '/services/cloud-platform' },
+			{ title: "Cloud Platform & Services", desc: "AWS, Azure , DevOps & CI CD", href: '/services/cloud-platform' },
 			{ title: "Legacy Modernization", desc: "Tech Debt & Migration", href: '/services/legacy-modernization' },
 			{ title: "Digital Experience", desc: "Modern UI & Performance", href: '/services/digital-experience' },
 		],

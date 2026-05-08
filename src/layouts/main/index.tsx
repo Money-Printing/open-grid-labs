@@ -10,11 +10,11 @@ export default function MainLayout() {
 	const isHome = pathname === "/";
 
 	return (
-		<div className="min-h-screen bg-background text-foreground flex flex-col items-center">
+		<div className="min-h-screen bg-background text-foreground flex flex-col items-center overflow-x-clip">
 			<Nav />
 			<div className="w-full">
 				<Spacer />
-				<div className={`mx-auto flex flex-col gap-24 pt-4 ${isHome ? 'w-full' : 'w-[90%] max-w-[1600px] px-4'}`}>
+				<div className="mx-auto flex flex-col gap-24 pt-4 w-full">
 					<Outlet />
 					<div className="w-[90%] max-w-[1600px] mx-auto">
 						<Contact />

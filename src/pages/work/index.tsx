@@ -101,7 +101,7 @@ function WorkHero() {
 	return (
 		<section
 			ref={heroRef}
-			className="relative w-full overflow-hidden flex flex-col items-center justify-center bg-background"
+			className="relative w-[90%] max-w-[1600px] mx-auto overflow-hidden flex flex-col items-center justify-center mt-24 mb-16"
 			style={{ minHeight: "80vh" }}
 		>
 			{/* ── Layered 3D grid floor ── */}
@@ -229,7 +229,7 @@ function WorkHero() {
 						style={{
 							fontSize: "clamp(3.5rem, 12vw, 11rem)",
 							backgroundImage:
-								"linear-gradient(135deg, currentColor 0%, currentColor 40%, hsl(210,100%,60%) 70%, hsl(280,100%,60%) 100%)",
+								"linear-gradient(135deg, var(--color-foreground) 0%, var(--color-foreground) 40%, hsl(210,100%,60%) 70%, hsl(280,100%,60%) 100%)",
 							textShadow: "none",
 							filter: "drop-shadow(0 0 60px rgba(59,130,246,0.35))",
 						}}
@@ -351,7 +351,7 @@ export default function Work() {
 
 			<WorkHero />
 
-			<div className="w-full">
+			<div className="w-[90%] max-w-[1600px] mx-auto">
 				<PageHeading
 					preTitle="Selected"
 					mainTitle="Case"

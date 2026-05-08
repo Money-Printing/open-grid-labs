@@ -1,7 +1,17 @@
 import { motion } from "motion/react";
 import { brands } from "../../../components/hero";
 
-const FloatingNode = ({ delay, duration, size, x, y, z, color }: any) => (
+interface FloatingNodeProps {
+	delay: number;
+	duration: number;
+	size: number;
+	x: string | number;
+	y: string | number;
+	z: number;
+	color: string;
+}
+
+const FloatingNode = ({ delay, duration, size, x, y, z, color }: FloatingNodeProps) => (
 	<motion.div
 		className="absolute rounded-full shadow-[0_0_15px_currentColor]"
 		style={{
@@ -45,7 +55,7 @@ export default function ClientsHero() {
 				/>
 			</div>
 
-			<div className="w-[90%] max-w-[1600px] mx-auto relative z-10">
+			<div className="w-full relative z-10">
 				<div className="flex flex-col items-center text-center mb-20">
 					<motion.div
 						initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -89,7 +99,7 @@ export default function ClientsHero() {
 					/>
 
 					{/* 3D Network nodes */}
-					<div className="absolute inset-0 pointer-events-none transform-style-3d">
+					<div className="absolute inset-0 pointer-events-none preserve-3d">
 						<FloatingNode delay={0} duration={6} size={8} x="20%" y="30%" z={100} color="hsl(210, 100%, 60%)" />
 						<FloatingNode delay={1} duration={7} size={12} x="80%" y="20%" z={-50} color="hsl(280, 100%, 60%)" />
 						<FloatingNode delay={2} duration={5} size={6} x="70%" y="70%" z={150} color="hsl(210, 100%, 50%)" />
@@ -120,7 +130,7 @@ export default function ClientsHero() {
 										rotateY: -10,
 										transition: { duration: 0.3 } 
 									}}
-									className="group relative flex items-center justify-center p-6 md:p-8 rounded-[24px] border border-black/5 dark:border-transparent bg-foreground/[0.02] backdrop-blur-md hover:bg-foreground/[0.05] hover:border-primary/30 transition-all duration-500 overflow-hidden w-[220px] md:w-[280px] h-[90px] md:h-[110px] shrink-0"
+									className="group relative flex items-center justify-center p-6 md:p-8 rounded-[24px] border border-black/5 dark:border-white/5 bg-white/60 dark:bg-foreground/5 backdrop-blur-md hover:bg-white/90 dark:hover:bg-foreground/10 hover:border-primary/30 transition-all duration-500 overflow-hidden w-[220px] md:w-[280px] h-[90px] md:h-[110px] shrink-0 shadow-sm"
 									style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
 								>
 									{/* Hover Glow */}
@@ -129,7 +139,7 @@ export default function ClientsHero() {
 									<img
 										src={brand.href}
 										alt={brand.alt}
-										className="w-auto h-10 md:h-14 object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+										className="w-auto h-10 md:h-14 object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 dark:invert transition-all duration-500 relative z-10"
 										style={{ transform: "translateZ(30px)" }}
 									/>
 								</motion.div>

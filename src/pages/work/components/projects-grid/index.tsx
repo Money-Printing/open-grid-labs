@@ -1,6 +1,6 @@
 import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router";
+import React, { useRef, useState, useEffect } from "react";
 
 interface ProjectCardProps {
 	title: string;
@@ -196,8 +196,7 @@ function HoloCard({
 				</div>
 
 				{/* --- Arrow button (top right) --- */}
-				<Link
-					to={project.href}
+				<div
 					className="absolute top-6 right-6 z-20"
 					style={{
 						transform: isHovered
@@ -205,7 +204,6 @@ function HoloCard({
 							: "translateZ(0) rotate(0deg)",
 						transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1)",
 					}}
-					onClick={(e) => e.stopPropagation()}
 				>
 					<div
 						className="w-12 h-12 rounded-full flex items-center justify-center"
@@ -225,7 +223,7 @@ function HoloCard({
 							}}
 						/>
 					</div>
-				</Link>
+				</div>
 
 				{/* --- Main Content --- */}
 				<div

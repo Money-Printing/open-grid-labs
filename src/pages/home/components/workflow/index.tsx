@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "motion/react";
 import { Search, Map, Layers, Code2, Rocket } from "lucide-react";
 import PageHeading from "../../../../components/page-heading";

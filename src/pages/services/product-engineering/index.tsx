@@ -305,43 +305,43 @@ function SoftwareProcess() {
 
 			<div className="relative w-[90%] max-w-[1600px] mx-auto perspective-[1500px]">
 				{/* 3D Vertical Spine */}
-				<div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-black/10 dark:bg-foreground/5" style={{ transform: "translateZ(-50px)" }}>
+				<div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-black/10 dark:bg-foreground/5" style={{ transform: "translateZ(-50px)" }}>
 					<motion.div className="absolute top-0 w-full bg-gradient-to-b from-blue-500 via-purple-500 to-transparent" style={{ height: spineHeight, boxShadow: "0 0 20px 2px rgba(59,130,246,0.5)" }} />
 				</div>
 
-				<div className="flex flex-col gap-24 relative">
+				<div className="flex flex-col gap-12 md:gap-24 relative">
 					{steps.map((step, i) => {
 						const isLeft = i % 2 === 0;
 						return (
 							<motion.div
 								key={i}
-								initial={{ opacity: 0, x: isLeft ? -100 : 100, rotateY: isLeft ? 15 : -15 }}
+								initial={{ opacity: 0, x: isLeft ? -50 : 50, rotateY: isLeft ? 15 : -15 }}
 								whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
 								viewport={{ once: true, margin: "-100px" }}
 								transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-								className={`flex items-center w-full ${isLeft ? "flex-row" : "flex-row-reverse"}`}
+								className={`flex items-center w-full justify-end ${isLeft ? "md:justify-start" : "md:justify-end"}`}
 								style={{ transformStyle: "preserve-3d" }}
 							>
 								{/* Center Node */}
-								<div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-20">
+								<div className="absolute left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center z-20">
 									<motion.div 
-										className={`w-16 h-16 rounded-full bg-background border-4 border-background flex items-center justify-center shadow-lg dark:shadow-[0_0_30px_rgba(255,255,255,0.1)] bg-gradient-to-br ${step.accent}`}
+										className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-background border-4 border-background flex items-center justify-center shadow-lg dark:shadow-[0_0_30px_rgba(255,255,255,0.1)] bg-gradient-to-br ${step.accent}`}
 										whileInView={{ scale: [0.8, 1.2, 1] }}
 										transition={{ duration: 0.5 }}
 										viewport={{ once: true, margin: "-100px" }}
 									>
-										<span className="text-foreground font-bold text-xl drop-shadow-md">{step.number}</span>
+										<span className="text-foreground font-bold text-base md:text-xl drop-shadow-md">{step.number}</span>
 									</motion.div>
 								</div>
 
 								{/* Content Card */}
-								<div className={`w-[calc(50%-60px)] ${isLeft ? "pr-10" : "pl-10 text-right"}`}>
-									<div className="group relative p-10 glass-panel rounded-3xl border border-black/10 dark:border-transparent hover:border-black/30 dark:border-transparent transition-all duration-500 hover:shadow-lg dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-										<div className={`absolute inset-0 bg-gradient-to-br ${step.accent} opacity-0 group-hover:opacity-[0.05] transition-opacity duration-500 rounded-3xl pointer-events-none`} />
-										<h3 className="text-3xl font-bold text-foreground mb-4 transition-all">
+								<div className={`w-[calc(100%-4rem)] md:w-[calc(50%-60px)] pl-2 md:pl-0 ${isLeft ? "md:pr-10 text-left" : "md:pl-10 text-left md:text-right"}`}>
+									<div className="group relative p-6 md:p-10 glass-panel rounded-[24px] md:rounded-[32px] border border-black/10 dark:border-transparent hover:border-black/30 dark:border-transparent transition-all duration-500 hover:shadow-lg dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+										<div className={`absolute inset-0 bg-gradient-to-br ${step.accent} opacity-0 group-hover:opacity-[0.05] transition-opacity duration-500 rounded-[24px] md:rounded-[32px] pointer-events-none`} />
+										<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 md:mb-4 transition-all">
 											{step.title}
 										</h3>
-										<p className="text-lg text-foreground/80 dark:text-foreground/60 leading-relaxed group-hover:text-foreground/80 transition-colors">
+										<p className="text-base md:text-lg text-foreground/80 dark:text-foreground/60 leading-relaxed group-hover:text-foreground/80 transition-colors">
 											{step.desc}
 										</p>
 									</div>

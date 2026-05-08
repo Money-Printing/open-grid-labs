@@ -8,7 +8,7 @@ import { ThemeProvider } from './context/theme-provider'
 
 createRoot(document.getElementById('root')!).render(
 	<HelmetProvider>
-		<ThemeProvider defaultTheme="dark" storageKey="opengridlabs-theme">
+		<ThemeProvider defaultTheme="system" storageKey="opengridlabs-theme">
 			<BrowserRouter>
 				<ScrollToTop />
 				<App />

@@ -8,11 +8,7 @@ import ServiceCard from "../service-card/index.tsx";
 import Logo from "../../icons/logo/index.tsx";
 import { useTheme } from "../../context/theme-provider";
 
-export type NavItemDropdownType = {
-	title: string
-	desc: string
-	href: string
-}
+
 
 const navItems = [
 	{ name: "Work", href: "/work" },
@@ -23,7 +19,13 @@ const navItems = [
 			{ title: "AI & Data Intelligence", desc: "GenAI & Predictive Models", href: '/services/ai-data' },
 			{ title: "Cloud Platform & Services", desc: "AWS, Azure , DevOps & CI CD", href: '/services/cloud-platform' },
 			{ title: "Legacy Modernization", desc: "Tech Debt & Migration", href: '/services/legacy-modernization' },
-			{ title: "Digital Experience", desc: "Modern UI & Performance", href: '/services/digital-experience' },
+			{
+				title: "More Services", desc: "Explore more services like Fintech experience", href: '/services#more', subDropdown: [
+					{ title: "Digital Experience", desc: "Modern UI & Performance", href: '/services/digital-experience' },
+					{ isHeading: true, title: "Industry" },
+					{ title: "BFSI & Fintech", desc: "Banking, Financial Services & Insurance", href: '/industry/bfsi' }
+				]
+			},
 		],
 	},
 	{ name: "Clients", href: "/clients" },
@@ -38,19 +40,19 @@ const navItems = [
 ];
 
 const ThemeToggle = () => {
-    const { theme, setTheme } = useTheme();
-    const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+	const { theme, setTheme } = useTheme();
+	const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
 
-    return (
-        <button
-            onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="relative p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors mr-2 md:mr-0 flex items-center justify-center text-foreground cursor-pointer"
-            aria-label="Toggle Theme"
-        >
-            <Sun className={`w-5 h-5 transition-all duration-300 ${isDark ? 'scale-0 -rotate-90 opacity-0 absolute' : 'scale-100 rotate-0 opacity-100'}`} />
-            <Moon className={`w-5 h-5 transition-all duration-300 ${isDark ? 'scale-100 rotate-0 opacity-100' : 'scale-0 rotate-90 opacity-0 absolute'}`} />
-        </button>
-    );
+	return (
+		<button
+			onClick={() => setTheme(isDark ? "light" : "dark")}
+			className="relative p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors mr-2 md:mr-0 flex items-center justify-center text-foreground cursor-pointer"
+			aria-label="Toggle Theme"
+		>
+			<Sun className={`w-5 h-5 transition-all duration-300 ${isDark ? 'scale-0 -rotate-90 opacity-0 absolute' : 'scale-100 rotate-0 opacity-100'}`} />
+			<Moon className={`w-5 h-5 transition-all duration-300 ${isDark ? 'scale-100 rotate-0 opacity-100' : 'scale-0 rotate-90 opacity-0 absolute'}`} />
+		</button>
+	);
 };
 
 const Nav = () => {
@@ -58,6 +60,7 @@ const Nav = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [openMenu, setOpenMenu] = useState<string | null>(null);
 	const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+	const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
 
@@ -93,7 +96,7 @@ const Nav = () => {
 						: "bg-background/20 backdrop-blur-md border-b border-black/5 dark:border-transparent"
 						}`}
 				>
-					<div className="px-6 py-4 w-[90%] max-w-[1600px] mx-auto">
+					<div className="py-4 w-[90%] max-w-[1600px] mx-auto">
 						<div className="flex items-center justify-between">
 							<motion.div
 								initial={{ opacity: 0, x: -20 }}
@@ -106,7 +109,7 @@ const Nav = () => {
 								</Link>
 							</motion.div>
 
-							<div className="hidden md:flex items-center gap-6 relative">
+							<div className="hidden lg:flex items-center gap-6 relative">
 								{navItems.map((item, index) => (
 									<motion.div
 										key={item.name}
@@ -133,9 +136,9 @@ const Nav = () => {
 										</motion.button>
 									</motion.div>
 								))}
-								
+
 								<div className="ml-4 flex items-center gap-4">
-                                    <ThemeToggle />
+									<ThemeToggle />
 									<Button
 										onClick={() => handleNavigate('/contact-us')}
 										className="h-10 px-6 rounded-full"
@@ -145,15 +148,15 @@ const Nav = () => {
 								</div>
 							</div>
 
-                            <div className="flex items-center md:hidden z-50">
-                                <ThemeToggle />
-                                <button
-                                    className="text-foreground cursor-pointer p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors"
-                                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                >
-                                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                                </button>
-                            </div>
+							<div className="flex items-center lg:hidden z-50">
+								<ThemeToggle />
+								<button
+									className="text-foreground cursor-pointer p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors"
+									onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+								>
+									{isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+								</button>
+							</div>
 						</div>
 					</div>
 
@@ -174,7 +177,35 @@ const Nav = () => {
 						onMouseLeave={() => setOpenMenu(null)}
 					>
 						{navItems.find(n => n.name === openMenu)?.dropdown?.map(card => (
-							<ServiceCard key={card.href} link={card.href} name={card.title} description={card.desc} />
+							<div key={card.title} className="flex-1 relative flex flex-col" onMouseEnter={() => setOpenSubMenu(card.title)} onMouseLeave={() => setOpenSubMenu(null)}>
+								<ServiceCard link={card.href} name={card.title} description={card.desc} />
+								<AnimatePresence>
+									{card.subDropdown && openSubMenu === card.title && (
+										<motion.div
+											initial={{ opacity: 0, y: 10 }}
+											animate={{ opacity: 1, y: 0 }}
+											exit={{ opacity: 0, y: 10 }}
+											transition={{ duration: 0.2 }}
+											className="absolute top-[calc(100%+1rem)] left-0 min-w-[280px] glass-panel bg-card/95 backdrop-blur-xl p-4 rounded-xl flex flex-col gap-2 border border-black/10 dark:border-white/10 shadow-2xl z-50"
+										>
+											{card.subDropdown.map(sub => (
+												sub.isHeading ? (
+													<div key={sub.title} className="px-3 pt-4 pb-1">
+														<span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{sub.title}</span>
+													</div>
+												) : (
+													<Link key={sub.href} to={sub.href!} className="p-3 hover:bg-primary/10 rounded-lg transition-colors flex flex-col gap-1 group/item w-full" onClick={() => setOpenMenu(null)}>
+														<span className="font-bold text-foreground group-hover/item:text-primary transition-colors flex justify-between items-center">
+															{sub.title}
+														</span>
+														{sub.desc && <span className="text-sm text-muted-foreground">{sub.desc}</span>}
+													</Link>
+												)
+											))}
+										</motion.div>
+									)}
+								</AnimatePresence>
+							</div>
 						))}
 					</motion.div>
 				)}
@@ -187,7 +218,7 @@ const Nav = () => {
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
-							className="fixed inset-0 bg-background/80 backdrop-blur-xl md:hidden z-40"
+							className="fixed inset-0 bg-background/80 backdrop-blur-xl lg:hidden z-40"
 							onClick={() => setIsMobileMenuOpen(false)}
 						/>
 
@@ -197,20 +228,20 @@ const Nav = () => {
 							animate={{ x: 0 }}
 							exit={{ x: "100%" }}
 							transition={{ duration: 0.4, type: "spring", damping: 25, stiffness: 200 }}
-							className="fixed top-0 right-0 h-full w-[85%] max-w-sm glass-panel border-l border-black/10 dark:border-transparent p-6 z-50 md:hidden overflow-y-auto shadow-2xl"
+							className="fixed top-0 right-0 h-full w-[85%] max-w-sm glass-panel border-l border-black/10 dark:border-transparent p-6 z-50 lg:hidden overflow-y-auto shadow-2xl"
 						>
 							<div className="flex justify-end mt-4 mb-8">
 							</div>
 
 							<div className="flex flex-col gap-4 mt-8">
 								{navItems.map((item, i) => (
-									<motion.div 
-                                        initial={{ opacity: 0, x: 20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.1 + i * 0.1 }}
-                                        key={item.name} 
-                                        className="flex flex-col border-b border-black/5 dark:border-transparent pb-4 last:border-0"
-                                    >
+									<motion.div
+										initial={{ opacity: 0, x: 20 }}
+										animate={{ opacity: 1, x: 0 }}
+										transition={{ delay: 0.1 + i * 0.1 }}
+										key={item.name}
+										className="flex flex-col border-b border-black/5 dark:border-transparent pb-4 last:border-0"
+									>
 										<button
 											className={`text-muted-foreground hover:text-foreground text-left font-display text-2xl font-semibold flex justify-between items-center w-full py-2 cursor-pointer transition-all ${pathname.startsWith(item.href ?? 'none') ? 'text-primary' : ''}`}
 											onClick={() =>
@@ -233,7 +264,20 @@ const Nav = () => {
 													className="flex flex-col ml-4 mt-4 gap-4 overflow-hidden"
 												>
 													{item.dropdown.map((sub) => (
-														<ServiceCard key={sub.href} link={sub.href} name={sub.title} description={sub.desc} />
+														<div key={sub.title} className="flex flex-col gap-3">
+															<ServiceCard link={sub.href} name={sub.title} description={sub.desc} />
+															{sub.subDropdown && (
+																<div className="flex flex-col gap-3 ml-6 pl-4 border-l border-primary/20">
+																	{sub.subDropdown.map(nested => (
+																		nested.isHeading ? (
+																			<div key={nested.title} className="text-xs font-bold uppercase tracking-wider text-muted-foreground mt-2 mb-1">{nested.title}</div>
+																		) : (
+																			<ServiceCard key={nested.href} link={nested.href!} name={nested.title} description={nested.desc!} />
+																		)
+																	))}
+																</div>
+															)}
+														</div>
 													))}
 												</motion.div>
 											)}
@@ -242,18 +286,18 @@ const Nav = () => {
 								))}
 
 								<motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.6 }}
-                                    className="mt-12"
-                                >
-                                    <Button
-                                        onClick={() => handleNavigate('/contact-us')}
-                                        className="w-full text-lg py-6"
-                                    >
-                                        Get in Touch
-                                    </Button>
-                                </motion.div>
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ delay: 0.6 }}
+									className="mt-12"
+								>
+									<Button
+										onClick={() => handleNavigate('/contact-us')}
+										className="w-full text-lg py-6"
+									>
+										Get in Touch
+									</Button>
+								</motion.div>
 							</div>
 						</motion.div>
 					</>

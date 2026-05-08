@@ -19,7 +19,7 @@ import TermsOfUse from "./pages/terms-of-use"
 
 function App() {
 	return (
-		<div className="bg-background text-foreground font-poppins min-h-screen">
+		<div className="bg-background text-foreground min-h-screen">
 			<Routes>
 				<Route path="/" element={<MainLayout />}>
 					<Route index element={<Home />} />

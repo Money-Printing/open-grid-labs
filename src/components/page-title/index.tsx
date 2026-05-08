@@ -116,11 +116,11 @@ export default function PageTitle({
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.1 }}
-						className="font-display font-black text-5xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[1.1]"
+						className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight uppercase leading-[1.1] break-words hyphens-auto"
 					>
-						{mainTitle && <span className="text-foreground mr-4">{mainTitle}</span>}
+						{mainTitle && <span className="text-foreground mr-4 block md:inline">{mainTitle}</span>}
 						{subTitle && (
-							<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent dark:drop-shadow-[0_0_30px_hsla(280,100%,60%,0.3)]">
+							<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent dark:drop-shadow-[0_0_30px_hsla(280,100%,60%,0.3)] block mt-2 md:mt-0 md:inline">
 								{subTitle}
 							</span>
 						)}

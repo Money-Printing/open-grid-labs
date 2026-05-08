@@ -85,7 +85,7 @@ const Hero = () => {
 	};
 
 	return (
-		<section id='home-hero' aria-label="Hero - Transform Your Digital Future" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background px-4 pt-24 pb-12">
+		<section id='home-hero' aria-label="Hero - Transform Your Digital Future" className="relative min-h-[85vh] w-[95%] max-w-[1600px] mx-auto  flex items-center justify-center overflow-hidden bg-background px-4 pt-24 pb-12 mt-24 mb-16">
 			{/* Dynamic Background */}
 			<div className="absolute inset-0 overflow-hidden pointer-events-none">
 				<div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full"/>
@@ -93,7 +93,7 @@ const Hero = () => {
 			</div>
 
 			<div className="container mx-auto z-10 relative">
-				<div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-[90%] max-w-[1600px] mx-auto">
+				<div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full md:w-[90%] max-w-[1600px] mx-auto">
 
 					{/* Text Content Container */}
 					<div className="flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -111,7 +111,7 @@ const Hero = () => {
 							initial={{ opacity: 0, y: 30 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-							className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-[1.1] tracking-tight text-gradient block drop-shadow-sm"
+							className="text-4xl md:text-6xl lg:text-8xl font-display font-bold mb-6 leading-[1.1] tracking-tight text-gradient block drop-shadow-sm break-words w-full"
 						>
 							AI &amp; Automation
 							<br className="hidden sm:block" />

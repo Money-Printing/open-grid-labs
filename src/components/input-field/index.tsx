@@ -21,7 +21,7 @@ export function InputField({ label, placeholder, value, onChange, type = "text",
 					value={value}
 					rows={rows || 4}
 					placeholder={placeholder}
-					className="relative w-full text-foreground placeholder:text-foreground/70 dark:text-foreground/50 dark:text-foreground/30 bg-background/40 border border-black/10 dark:border-transparent rounded-2xl px-5 py-4 focus:border-primary/50 focus:ring-1 focus:ring-primary outline-none transition-all resize-none shadow-lg dark:shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+					className="relative w-full text-foreground placeholder:text-foreground/70 dark:placeholder:text-foreground/30 bg-background/40 border border-black/10 dark:border-transparent rounded-2xl px-5 py-4 focus:border-primary/50 focus:ring-1 focus:ring-primary outline-none transition-all resize-none shadow-lg dark:shadow-[0_0_15px_rgba(0,0,0,0.5)]"
 				/>
 				{
 					error && (
@@ -43,7 +43,7 @@ export function InputField({ label, placeholder, value, onChange, type = "text",
 					value={value}
 					type={type}
 					placeholder={placeholder}
-					className={`relative w-full ${prefix ? "bg-transparent" : "bg-background/40 border border-black/10 dark:border-transparent rounded-2xl px-5 py-4 focus:border-primary/50 focus:ring-1 focus:ring-primary shadow-lg dark:shadow-[0_0_15px_rgba(0,0,0,0.5)]"} text-foreground placeholder:text-foreground/70 dark:text-foreground/50 dark:text-foreground/30 outline-none transition-all`}
+					className={`relative w-full ${prefix ? "bg-transparent" : "bg-background/40 border border-black/10 dark:border-transparent rounded-2xl px-5 py-4 focus:border-primary/50 focus:ring-1 focus:ring-primary shadow-lg dark:shadow-[0_0_15px_rgba(0,0,0,0.5)]"} text-foreground placeholder:text-foreground/70 dark:placeholder:text-foreground/30 outline-none transition-all`}
 					pattern={pattern}
 				/>
 

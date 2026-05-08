@@ -33,7 +33,7 @@ function StyledPhoneInput({
 				{label} <span className="text-primary">*</span>
 			</label>
 
-			<div className="border border-black/10 dark:border-transparent rounded-2xl px-2 py-2 bg-background/40 focus-within:border-primary/50 focus-within:ring-1 focus-within:ring-primary focus-within:shadow-[0_0_20px_hsla(210,100%,50%,0.2)] transition-all flex items-center gap-2 relative overflow-hidden">
+			<div className="border border-black/10 dark:border-transparent rounded-2xl px-2 py-2 bg-background/40 focus-within:border-primary/50 focus-within:ring-1 focus-within:ring-primary focus-within:shadow-[0_0_20px_hsla(210,100%,50%,0.2)] transition-all flex items-center gap-2 relative overflow-visible">
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none" />
 				<PhoneInput
 					country="in"
@@ -42,7 +42,7 @@ function StyledPhoneInput({
 					containerClass="!w-full relative z-10"
 					inputClass="!w-full !text-base !bg-transparent !border-none !outline-none !shadow-none text-foreground placeholder:text-muted-foreground pl-12"
 					buttonClass="!bg-transparent !border-none !outline-none"
-					dropdownClass="!bg-gray-900 !text-foreground !border-black/10 dark:border-transparent custom-scrollbar"
+					dropdownClass="!bg-background !text-foreground !border-black/10 dark:!border-transparent custom-scrollbar !max-h-64"
 				/>
 			</div>
 
@@ -154,7 +154,10 @@ export default function ContactForm() {
 	};
 
 	return (
-		<section id="contact-us-contact-form" className="w-full flex flex-col relative z-20 perspective-[1000px]">
+		<section id="contact-us-contact-form" className="w-full flex flex-col relative z-20 overflow-x-clip" style={{ perspective: "1000px" }}>
+			<style>{`
+                .react-tel-input .country-list .country:hover { background-color: var(--color-primary); color: white; }
+            `}</style>
 			<div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
 			
             <PageHeading2 mainTitle="Initialize Protocol" />
@@ -170,7 +173,7 @@ export default function ContactForm() {
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(to_bottom,white,transparent)] opacity-20 pointer-events-none rounded-3xl" />
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 rounded-3xl pointer-events-none" />
                 
-                <form className="w-full flex flex-col gap-12 glass-panel p-8 md:p-14 rounded-3xl border border-black/10 dark:border-transparent relative overflow-hidden shadow-lg dark:shadow-[0_30px_60px_rgba(0,0,0,0.5)] transform-style-3d backdrop-blur-xl">
+                <form className="w-full flex flex-col gap-12 glass-panel p-8 md:p-14 rounded-3xl border border-black/10 dark:border-transparent relative overflow-hidden shadow-lg dark:shadow-[0_30px_60px_rgba(0,0,0,0.5)] preserve-3d backdrop-blur-xl">
                     
                     {/* Decorative Header */}
                     <div className="flex items-center gap-4 border-b border-black/10 dark:border-transparent pb-6 mb-2">

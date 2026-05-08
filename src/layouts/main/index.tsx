@@ -1,13 +1,13 @@
 import Contact from "../../components/contact";
 import Footer from "../../components/footer";
 import Nav from "../../components/nav";
-import { Outlet, useLocation } from "react-router";
+import { Outlet } from "react-router";
 import Spacer from "../../components/spacer";
 import { ToastContainer } from 'react-toastify';
 
 export default function MainLayout() {
-	const { pathname } = useLocation();
-	const isHome = pathname === "/";
+	//const { pathname } = useLocation();
+	//const isHome = pathname === "/";
 
 	return (
 		<div className="min-h-screen bg-background text-foreground flex flex-col items-center overflow-x-clip">

@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import SEO from "../../../components/seo";
-import { faAws, faDocker, faJava, faJs, faLinux, faPython, faReact, faStripe } from "@fortawesome/free-brands-svg-icons";
+import { faAws, faDocker, faJava, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { BarChart, Brain, Code, Database, FileCode, FileSpreadsheet, LineChart, Network, PieChart, Radio, Server, Terminal, Webhook, ArrowRight } from "lucide-react";
+import { Brain, Code, Database, FileCode, LineChart, Network, PieChart, Server, Webhook, ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 
 const webAppItems = [
@@ -40,31 +40,23 @@ const steps = [
 
 const tools = [
 	{ icon: faReact, name: "React" },
-	{ icon: faJs, name: "JavaScript" },
 	{ icon: <FileCode className="w-8 h-8" />, name: "TypeScript" },
 	{ icon: faPython, name: "Python" },
 	{ icon: <FileCode className="w-8 h-8" />, name: "Django" },
 	{ icon: faJava, name: "Java" },
 	{ icon: <Code className="w-8 h-8" />, name: "C++" },
-	{ icon: <Database className="w-8 h-8" />, name: "MySQL" },
 	{ icon: <Database className="w-8 h-8" />, name: "PostgreSQL" },
 	{ icon: <Database className="w-8 h-8" />, name: "MongoDB" },
 	{ icon: <Database className="w-8 h-8" />, name: "Redis" },
 	{ icon: faAws, name: "AWS" },
 	{ icon: faDocker, name: "Docker" },
 	{ icon: <Server className="w-8 h-8" />, name: "Kubernetes" },
-	{ icon: faLinux, name: "Linux" },
 	{ icon: <Server className="w-8 h-8" />, name: "Nginx" },
-	{ icon: faStripe, name: "Stripe" },
 	{ icon: <Network className="w-8 h-8" />, name: "WebSocket" },
-	{ icon: <BarChart className="w-8 h-8" />, name: "D3.js" },
 	{ icon: <LineChart className="w-8 h-8" />, name: "ChartIQ" },
 	{ icon: <Brain className="w-8 h-8" />, name: "TensorFlow" },
-	{ icon: <Radio className="w-8 h-8" />, name: "MQTT" },
 	{ icon: <PieChart className="w-8 h-8" />, name: "Grafana" },
-	{ icon: <Terminal className="w-8 h-8" />, name: "Deribit API" },
 	{ icon: <Webhook className="w-8 h-8" />, name: "REST APIs" },
-	{ icon: <FileSpreadsheet className="w-8 h-8" />, name: "Excel" },
 ];
 
 // --- Simple Immersive 3D Hero ---

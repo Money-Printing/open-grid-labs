@@ -85,7 +85,7 @@ const Hero = () => {
 	};
 
 	return (
-		<section id='home-hero' aria-label="Hero - Transform Your Digital Future" className="relative min-h-[85vh] w-[95%] max-w-[1600px] mx-auto  flex items-center justify-center overflow-hidden bg-background px-4 pt-24 pb-12 mt-24 mb-16">
+		<section id='home-hero' aria-label="Hero - Transform Your Digital Future" className="relative min-h-[85vh] w-[95%] max-w-[1600px] mx-auto  flex items-center justify-center overflow-hidden bg-background px-4 pt-4 pb-12 mt-16 mb-16">
 			{/* Dynamic Background */}
 			<div className="absolute inset-0 overflow-hidden pointer-events-none">
 				<div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full"/>

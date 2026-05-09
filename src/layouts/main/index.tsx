@@ -1,7 +1,7 @@
 import Contact from "../../components/contact";
 import Footer from "../../components/footer";
 import Nav from "../../components/nav";
-import { Outlet, useLocation } from "react-router";
+import { Outlet } from "react-router";
 import Spacer from "../../components/spacer";
 import { ToastContainer } from 'react-toastify';
 

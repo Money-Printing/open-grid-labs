@@ -1,9 +1,10 @@
+import React from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Grid2X2, Mail, MapPin } from "lucide-react";
 import type { ReactNode } from "react";
 import { socialLinks } from "../../../../components/footer";
-
 
 type ContactCardProps = {
 	icon: ReactNode
@@ -12,6 +13,7 @@ type ContactCardProps = {
 	items: string[]
 	href?: string
 	hrefItemIdx?: number
+	delay?: number
 }
 
 function ContactCard({
@@ -20,38 +22,74 @@ function ContactCard({
 	children,
 	items,
 	href,
-	hrefItemIdx
+	hrefItemIdx,
+	delay = 0
 }: ContactCardProps) {
+	const x = useMotionValue(0.5);
+	const y = useMotionValue(0.5);
+
+	const smoothX = useSpring(x, { stiffness: 300, damping: 30 });
+	const smoothY = useSpring(y, { stiffness: 300, damping: 30 });
+
+	const rotateX = useTransform(smoothY, [0, 1], [10, -10]);
+	const rotateY = useTransform(smoothX, [0, 1], [-10, 10]);
+
+	function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+		const rect = e.currentTarget.getBoundingClientRect();
+		x.set((e.clientX - rect.left) / rect.width);
+		y.set((e.clientY - rect.top) / rect.height);
+	}
+
+	function handleMouseLeave() {
+		x.set(0.5);
+		y.set(0.5);
+	}
+
 	return (
-		<div className="flex flex-col gap-4 p-6 bg-foreground/5 rounded-2xl">
-			<div className="p-3 rounded-lg bg-foreground w-fit">
-				{icon}
+		<motion.div
+			initial={{ opacity: 0, y: 30 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, margin: "-50px" }}
+			transition={{ duration: 0.6, delay }}
+			onMouseMove={handleMouseMove}
+			onMouseLeave={handleMouseLeave}
+			style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: "1000px" }}
+			className="group relative flex flex-col gap-6 p-8 glass-panel border border-black/5 dark:border-transparent rounded-3xl hover:border-primary/40 hover:shadow-lg dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-colors duration-500 overflow-hidden"
+		>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+			
+			<div style={{ transform: "translateZ(30px)" }} className="relative flex flex-col h-full z-10">
+				<div className="p-4 rounded-2xl bg-white/50 dark:bg-foreground/5 border border-black/10 dark:border-transparent w-fit text-primary group-hover:bg-primary/20 group-hover:border-primary/50 transition-colors shadow-inner mb-2">
+					{icon}
+				</div>
+				<h3 className="text-2xl md:text-3xl font-display font-semibold text-foreground group-hover:text-primary transition-colors">{label}</h3>
+				<div className="flex flex-col gap-3 mt-2">
+					{
+						items.map((item, i) => (
+							(href && hrefItemIdx == i) ? (
+								<div key={i}>
+									<a href={href} target="_blank" rel="noopener noreferrer" className="inline-block text-lg md:text-xl text-primary/80 font-mono hover:text-primary transition-colors hover:translate-x-1 transform duration-300">{item}</a>
+								</div>
+							) : (
+								<p key={i} className={`text-lg md:text-xl text-muted-foreground font-medium ${!href && 'group-hover:text-foreground/90'} transition-colors`}>{item}</p>
+							)
+						))
+					}
+				</div>
+				<div className="mt-auto pt-6">
+					{children}
+				</div>
 			</div>
-			<h3 className="text-2xl md:text-3xl font-semibold text-foreground">{label}</h3>
-			<div className="flex flex-col gap-2">
-				{
-					items.map((item, i) => (
-						(href && hrefItemIdx == i) ? (
-							<div>
-								<a key={i} href={href} target="_blank" rel="noopener noreferrer" className="inline text-lg md:text-xl text-muted-foreground font-medium hover:underline">{item}</a>
-							</div>
-						) : (
-							<p key={i} className="text-lg md:text-xl text-muted-foreground font-medium">{item}</p>
-						)
-					))
-				}
-			</div>
-			{children}
-		</div>
+		</motion.div>
 	)
 }
 
 export default function ContactInfo() {
 	return (
-		<div className="w-full grid md:grid-cols-2 gap-8 mt-12 text-left">
-
+		<div className="w-full grid md:grid-cols-2 gap-8 mt-16 text-left relative z-10">
 			<ContactCard
-				icon={<MapPin className="text-background" size={28} />}
+				delay={0.1}
+				icon={<MapPin size={28} />}
 				label="Our Location"
 				items={[
 					"New Delhi, India",
@@ -63,7 +101,8 @@ export default function ContactInfo() {
 			/>
 
 			<ContactCard
-				icon={<Mail className="text-background" size={28} />}
+				delay={0.2}
+				icon={<Mail size={28} />}
 				label="Email"
 				items={['Reach us via email for inquiries', 'priyanshu@opengridlabs.com']}
 				href="mailto:priyanshu@opengridlabs.com"
@@ -71,7 +110,8 @@ export default function ContactInfo() {
 			/>
 
 			<ContactCard
-				icon={<FontAwesomeIcon icon={faWhatsapp} className="text-background" size={'xl'} />}
+				delay={0.3}
+				icon={<FontAwesomeIcon icon={faWhatsapp} size={'xl'} />}
 				label="WhatsApp"
 				items={['+1 315 908 7303']}
 				href={'https://wa.me/13159087303'}
@@ -79,13 +119,14 @@ export default function ContactInfo() {
 			/>
 
 			<ContactCard
-				icon={<Grid2X2 className="text-background" size={28} />}
+				delay={0.4}
+				icon={<Grid2X2 size={28} />}
 				label="Social Media"
 				items={['Connect with us']}
 			>
 				<div className="flex items-center gap-4 mt-2">
 					{socialLinks.map((link, i) => (
-						<a key={i} href={link.href} target="_blank" rel="noreferrer" className="text-secondary hover:scale-110 transition bg-foreground rounded-full p-2">
+						<a key={i} href={link.href} target="_blank" rel="noreferrer" className="text-foreground hover:text-primary border border-black/10 dark:border-transparent hover:border-primary/50 transition-all duration-300 bg-white/50 dark:bg-foreground/5 hover:bg-primary/20 rounded-full p-4 shadow-inner hover:-translate-y-1">
 							{link.icon}
 						</a>
 					))}

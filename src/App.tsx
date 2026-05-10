@@ -4,9 +4,12 @@ import Work from "./pages/work"
 import ProjectDetails from "./pages/work/project-details"
 import MainLayout from "./layouts/main"
 import Clients from "./pages/clients"
-import ServicesSoftware from "./pages/services/software"
-import ServicesIntelligent from "./pages/services/intelligent"
-import ServicesDesign from "./pages/services/design"
+import ServicesProductEngineering from "./pages/services/product-engineering"
+import ServicesAIData from "./pages/services/ai-data"
+import ServicesCloudPlatform from "./pages/services/cloud-platform"
+import ServicesLegacyModernization from "./pages/services/legacy-modernization"
+import ServicesDigitalExperience from "./pages/services/digital-experience"
+import ServicesBFSIFintech from "./pages/services/bfsi-fintech"
 import AboutUs from "./pages/about/about-us"
 import Team from "./pages/about/team"
 import Career from "./pages/about/career"
@@ -17,7 +20,7 @@ import TermsOfUse from "./pages/terms-of-use"
 
 function App() {
 	return (
-		<div className="bg-background text-text3 font-poppins min-h-screen">
+		<div className="bg-background text-foreground min-h-screen">
 			<Routes>
 				<Route path="/" element={<MainLayout />}>
 					<Route index element={<Home />} />
@@ -27,10 +30,13 @@ function App() {
 					</Route>
 					<Route path="clients" element={<Clients />} />
 					<Route path="services">
-						<Route index element={<Navigate to="/services/software" replace />} />
-						<Route index path="software" element={<ServicesSoftware />} />
-						<Route index path="intelligent" element={<ServicesIntelligent />} />
-						<Route index path="design" element={<ServicesDesign />} />
+						<Route index element={<Navigate to="/services/ai-data" replace />} />
+						<Route index path="product-engineering" element={<ServicesProductEngineering />} />
+						<Route index path="ai-data" element={<ServicesAIData />} />
+						<Route index path="cloud-platform" element={<ServicesCloudPlatform />} />
+						<Route index path="legacy-modernization" element={<ServicesLegacyModernization />} />
+						<Route index path="digital-experience" element={<ServicesDigitalExperience />} />
+						<Route index path="bfsi-fintech" element={<ServicesBFSIFintech />} />
 					</Route>
 					<Route path="about">
 						<Route index element={<Navigate to="/about/about-us" replace />} />

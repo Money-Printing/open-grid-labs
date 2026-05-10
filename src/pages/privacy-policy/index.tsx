@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
 				description="This Privacy Policy explains how we collect, use, and protect the personal information you provide when using our website and services."
 			/>
 
-			<div className="flex flex-col gap-6">
+			<div className="w-[90%] max-w-[1600px] mx-auto flex flex-col gap-6 pb-24">
 				<Card title="Information We Collect">
 					We only collect information that you voluntarily provide, such as when you fill out a contact form. This may include:
 					<ul className="list-disc ml-6">

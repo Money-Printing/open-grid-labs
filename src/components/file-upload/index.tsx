@@ -48,7 +48,7 @@ export default function FileUpload({ file: externalFile, onChange, label }: File
         <h2 className="text-foreground font-semibold text-lg md:text-xl">{label}</h2>
       )}
       <div
-        className="flex flex-col items-center justify-center w-full h-48 bg-foreground/5 text-foreground border border-dashed border-border rounded-xl cursor-pointer hover:bg-foreground/10 transition-colors"
+        className="flex flex-col items-center justify-center w-full h-48 bg-white/50 dark:bg-foreground/5 text-foreground border border-dashed border-border rounded-xl cursor-pointer hover:bg-white/50 dark:hover:bg-foreground/10 transition-colors"
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
         onClick={handleClick}
@@ -93,7 +93,7 @@ export default function FileUpload({ file: externalFile, onChange, label }: File
               <button
                 type="button"
                 onClick={handleClick}
-                className="inline-flex items-center bg-foreground text-background hover:bg-foreground/85 font-medium rounded-lg px-4 py-2 text-sm transition-colors"
+                className="inline-flex items-center bg-foreground text-background hover:bg-white/50 dark:bg-foreground/85 dark:hover:bg-foreground/70 font-medium rounded-lg px-4 py-2 text-sm transition-colors"
               >
                 <svg
                   className="w-4 h-4 me-1.5"

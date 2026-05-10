@@ -9,6 +9,7 @@ import ServicesAIData from "./pages/services/ai-data"
 import ServicesCloudPlatform from "./pages/services/cloud-platform"
 import ServicesLegacyModernization from "./pages/services/legacy-modernization"
 import ServicesDigitalExperience from "./pages/services/digital-experience"
+import ServicesBFSIFintech from "./pages/services/bfsi-fintech"
 import AboutUs from "./pages/about/about-us"
 import Team from "./pages/about/team"
 import Career from "./pages/about/career"
@@ -35,6 +36,7 @@ function App() {
 						<Route index path="cloud-platform" element={<ServicesCloudPlatform />} />
 						<Route index path="legacy-modernization" element={<ServicesLegacyModernization />} />
 						<Route index path="digital-experience" element={<ServicesDigitalExperience />} />
+						<Route index path="bfsi-fintech" element={<ServicesBFSIFintech />} />
 					</Route>
 					<Route path="about">
 						<Route index element={<Navigate to="/about/about-us" replace />} />

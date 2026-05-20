@@ -6,6 +6,12 @@ import { CheckCircle2 } from "lucide-react";
 import Indicator from "../../../components/ui/indicator";
 import Carousel from "../../../components/ui/carousel";
 
+interface ArchitectureLayer {
+	title: string;
+	connector?: string;
+	items: { name: string; detail?: string }[];
+}
+
 interface ProjectDetail {
 	id: string;
 	title: string;
@@ -24,51 +30,251 @@ interface ProjectDetail {
 	}[];
 	videoUrl?: string;
 	galleryImages?: string[];
+	galleryImageCaptions?: string[];
 	galleryGifs?: string[];
+	architecture?: {
+		description: string;
+		layers: ArchitectureLayer[];
+	};
 }
 
 const projectsData: Record<string, ProjectDetail> = {
 	"frontend-microscopic-scanner": {
 		id: "frontend-microscopic-scanner",
-		title: "Web application for microscopic scanner",
-		description: "A highly intuitive web application for microscopic scanner that streamlines workflows and improves accuracy.",
+		title: "Morphle Cloud & Scanners",
+		description: "A cloud-connected whole-slide imaging platform — renders 100+ GB microscopic scans in-browser, controls robotic scanners, and delivers AI-assisted diagnostic reporting.",
 		category: "Medical Technology",
 		client: "Morphle Labs",
-		duration: "1 year",
-		technologies: ["React", "javascript", "python", "django", "java", "c++", "mysql", "nginx", "linux"],
-		overview: "Developed a cutting-edge web application for microscopic scanner that enables medical professionals to analyze microscopic images with enhanced precision. The application features real-time image processing, advanced zoom capabilities, and automated detection algorithms.",
+		duration: "2 Engineers",
+		technologies: ["React", "Django", "OpenLayers", "Redux", "OpenCV", "Docker", "WebSocket", "Redis", "MySQL", "AWS", "GCS"],
+		overview: "Built a cloud-connected whole-slide imaging platform for Morphle Labs — a 2D map-based viewer that renders 100+ GB microscopic scans in-browser using OpenLayers pyramid tiling, paired with full robotic scanner hardware control, a real-time collaborative annotation system, an AI-assisted analysis pipeline, and CAP-compliant diagnostic reporting.",
 		challenges: [
-			"Processing high-resolution medical images in real-time without performance degradation",
-			"Creating an intuitive interface for complex medical image analysis",
-			"Implementing accurate automated detection algorithms",
-			"Ensuring HIPAA compliance and data security"
+			"Rendering 100+ GB whole-slide scans in-browser — standard image loading would crash the browser; required pyramid tiling with viewport-aware lazy loading",
+			"Building a hardware abstraction layer for robotic scanners — motor stage (X/Y, homing), objective switching (4x–40x), autofocus, Z-stack acquisition, and specimen loader all proxied through Django to Scano's local REST API",
+			"Real-time collaborative annotation sync across concurrent users while keeping per-annotation metadata (area, perimeter, bounds, Z-level) consistent",
+			"Image stitching pipeline — SURF feature matching between adjacent tiles with CLAHE preprocessing, displacement vector computation, and quality-visualization disagreement heatmaps"
 		],
 		solutions: [
-			"Implemented WebGL-based rendering for smooth, high-performance image processing",
-			"Designed a user-centric interface with customizable workflows",
-			"Integrated machine learning models for automated detection and analysis",
-			"Built a secure backend with encryption and access controls"
+			"OpenLayers pyramid tiling (256×256 tiles, multi-zoom levels) — only fetches tiles visible in the current viewport, enabling sub-second pan/zoom on 100+ GB scans",
+			"Django REST API (150+ endpoints) as central proxy — hardware commands routed to Scano, slide lifecycle managed centrally, low network footprint via relay server pattern with Redis caching",
+			"Django Channels + Redis for WebSocket-based collaborative annotation sync, live camera preview polling, scan progress updates, and multi-user display settings sync",
+			"SURF feature matching with CLAHE preprocessing → displacement vector computation → recursive pyramid builder with Redis progress tracking and BigTIFF export",
+			"Flask relay microservice bridging on-premise scanners to Morphle Cloud (GCS / AWS) — async TIFF conversion, object-hash upload deduplication, and configurable quotas"
 		],
 		features: [
-			"Real-time image processing and analysis",
-			"Advanced zoom and pan controls",
-			"Automated cell detection and counting",
-			"Annotation and measurement tools",
-			"Report generation and export",
-			"Multi-user collaboration features",
-			"Cloud-based image storage and retrieval"
+			"2D map-based whole-slide viewer — OpenLayers pyramid rendering (256×256 tiles) with pan, zoom, rotate, and micron-space measurement grids",
+			"GammaViewer (tissue pathology), BloodViewer (hematology + grid-based RBC/platelet analysis), LiveMode (real-time camera preview during scanning)",
+			"Full annotation system — polygon, circle, rectangle, freehand, and magic tool on vector layers with area, perimeter, bounds, and Z-level metadata",
+			"Hardware interface — motor stage control (X/Y, homing), objective switching (4x–40x), autofocus, Z-stack acquisition, and automated specimen loader management",
+			"Image stitching pipeline — SURF feature matching, CLAHE preprocessing, displacement vectors, and disagreement heatmaps for quality visualization",
+			"Multi-zoom pyramid tiling engine — recursive downsampling into 256×256 tiles, Redis progress tracking, and BigTIFF export for interoperability",
+			"Real-time AI — blur detection (5-grid CLAHE + SURF), blood cell CNN classification, urine sediment analysis, tissue segmentation QC, and DeepBio IHC relay",
+			"Cloud integration — Flask relay microservice (async TIFF conversion, object-hash deduplication) bridging on-premise scanners to GCS / AWS S3",
+			"CAP-compliant diagnostic reporting — breast cancer protocol templates (DCIS, invasive carcinoma), PDF generation, and case-level access control",
+			"Dockerized full stack — Django, MySQL, Redis, custom OpenCV 3.2 build from source; offline (local scanner) and cloud deployment modes"
 		],
 		results: [
-			{ metric: "Processing Speed", value: "10x faster" },
-			{ metric: "User Satisfaction", value: "100%" },
-			{ metric: "Time Saved", value: "500%" }
+			{ metric: "Revenue Milestone", value: "$1M+" },
+			{ metric: "API Endpoints", value: "150+" },
+			{ metric: "Scans Managed", value: "14,711+" },
+			{ metric: "Zoom Range", value: "4x – 40x" }
 		],
 		videoUrl: "/videos/microscopic-scanner/scanner.mp4",
 		galleryImages: [
 			"/images/microscopic-scanner/scannerimage1.png",
 			"/images/microscopic-scanner/scannerimage2.png"
 		],
-		galleryGifs: []
+		galleryImageCaptions: [
+			"Slide Management Dashboard — 14,711 scans browsable by case name, tag, and scan date with thumbnail previews and MFA access controls",
+			"Whole-Slide Viewer at 10X — OpenLayers pyramid tile renderer displaying tissue pathology with annotation tools, DeepBio IHC analysis, and measurement panel"
+		],
+		galleryGifs: [],
+		architecture: {
+			description: "Multi-tier system: robotic scanners run Scano (Java REST server) on local IP; Django backend proxies all hardware commands and manages slide lifecycle; React SPA renders scans via OpenLayers pyramid tile layers. Image processing pipeline runs server-side — SURF-based stitching computes displacement vectors between adjacent tiles, then the tiling engine builds multi-zoom pyramids (256×256 tiles). Django Channels + Redis handle real-time WebSocket sync for annotations and scan progress. A Flask relay server bridges on-premise scanners to Morphle Cloud (Google Cloud Run gateway) with async TIFF conversion and upload deduplication. AI services run as separate Flask microservices. MySQL stores all metadata, Redis handles caching and task queues, S3/GCS for image storage.",
+			layers: [
+				{
+					title: "Scanner Hardware",
+					items: [
+						{ name: "Camera", detail: "Exposure · Focus" },
+						{ name: "Stage Motors", detail: "X/Y · Homing" },
+						{ name: "Objectives", detail: "4x–40x Turret" },
+						{ name: "Loader", detail: "Auto Cassette" }
+					]
+				},
+				{
+					title: "Scanner Software",
+					connector: "HTTP proxy",
+					items: [
+						{ name: "Scano", detail: "Java REST Server on Local IP" },
+						{ name: "Hardware Abstraction", detail: "All commands via HTTP" }
+					]
+				},
+				{
+					title: "Django Backend — 150+ Endpoints",
+					connector: "raw tiles",
+					items: [
+						{ name: "Device API", detail: "Proxy to Scano" },
+						{ name: "Slide API", detail: "Lifecycle · Status" },
+						{ name: "Annotation API", detail: "CRUD · Sync" },
+						{ name: "Cloud API", detail: "Upload · Bridge" }
+					]
+				},
+				{
+					title: "Image Processing Pipeline",
+					items: [
+						{ name: "SURF Stitching", detail: "Feature Match · CLAHE" },
+						{ name: "Pyramid Tiling", detail: "256×256 · Multi-zoom" },
+						{ name: "Z-Stack Merge", detail: "Focus Selection" },
+						{ name: "BigTIFF Export", detail: "Interop Format" }
+					]
+				},
+				{
+					title: "Real-time & Storage",
+					connector: "tile pyramid",
+					items: [
+						{ name: "Django Channels", detail: "WebSocket · Collab" },
+						{ name: "Redis", detail: "Cache · Queue" },
+						{ name: "MySQL", detail: "Metadata" },
+						{ name: "S3 / GCS", detail: "Image Storage" }
+					]
+				},
+				{
+					title: "Frontend",
+					items: [
+						{ name: "React + Redux + OpenLayers", detail: "SPA · Pyramid Viewer" },
+						{ name: "GammaViewer", detail: "Tissue Pathology" },
+						{ name: "BloodViewer", detail: "Hematology · RBC/WBC" },
+						{ name: "LiveMode", detail: "Real-time Camera Preview" }
+					]
+				},
+				{
+					title: "AI Services",
+					items: [
+						{ name: "Blur Detection", detail: "5-grid CLAHE + SURF" },
+						{ name: "Blood Cell CNN", detail: "RBC · WBC · Platelet" },
+						{ name: "Tissue Segmentation", detail: "Binary Morphology" },
+						{ name: "DeepBio / IHC Relay", detail: "External API Gateway" }
+					]
+				},
+				{
+					title: "Cloud Integration",
+					connector: "bridge",
+					items: [
+						{ name: "Relay Server", detail: "Flask · TIFF Convert · Upload" },
+						{ name: "Morphle Cloud", detail: "Google Cloud Run Gateway" }
+					]
+				},
+				{
+					title: "Reporting",
+					items: [
+						{ name: "CAP Reports", detail: "DCIS · Invasive · PDF Export" }
+					]
+				}
+			]
+		}
+	},
+	"whale-wallet-tracker": {
+		id: "whale-wallet-tracker",
+		title: "Jarvis Labs — Whale Wallet Tracker",
+		description: "A multi-chain whale wallet tracker covering Bitcoin (top 50), Ethereum (top 100), USDT ERC-20 (top 50), and Bitfinex cold wallets — interactive dashboard with copy-trade P&L and price impact analysis.",
+		category: "Blockchain / Analytics",
+		client: "Jarvis Labs LLC",
+		duration: "Jun 2021 — Dec 2021 · Solo",
+		technologies: ["Python", "Streamlit", "Plotly", "Pandas", "Selenium", "Heroku", "Blockchair API", "Etherscan API", "Santiment API"],
+		overview: "Built a multi-chain whale wallet tracker covering Bitcoin (top 50), Ethereum (top 100), USDT ERC-20 (top 50), and Bitfinex cold storage wallets — all in a single interactive Streamlit dashboard. Integrates three blockchain data APIs with anti-detection scraping to extract top wallet lists, then overlays whale transactions on price history with copy-trade P&L analysis and multi-interval price impact calculations.",
+		challenges: [
+			"Aggregating and normalising on-chain transaction data across three blockchains (BTC, ETH, USDT ERC-20) with different APIs, data formats, and time resolutions",
+			"Anti-detection scraping — top wallet lists on btc.com, etherscan.io, and tether.to all require JavaScript rendering and actively block bots",
+			"Inverse deposit/withdrawal logic for stablecoins — USDT buy/sell interpretation is the opposite of native coins, requiring separate classification pathways",
+			"Copy-trade P&L calculation with different logic for native coins (entry/exit timing from transaction history) vs. stablecoins (HODL + trade return split)"
+		],
+		solutions: [
+			"Unified Pandas pipeline normalising all three chains to hour-boundary timestamps for consistent time-series alignment and price correlation",
+			"Selenium + undetected-chromedriver to bypass JavaScript rendering and bot detection; results stored as CSVs in Bitbucket and loaded at runtime via environment variable URLs",
+			"Threshold-based transaction filter and inverse mode toggle — users set minimum transaction size and flip deposit/withdrawal logic per coin type",
+			"Separate P&L calculation branches — native-coin wallets use entry/exit timing, stablecoin wallets use HODL-first then trade return logic",
+			"Stateless Heroku deployment with Bitbucket Pipelines CI/CD — no database, all data fetched and transformed on-demand at runtime"
+		],
+		features: [
+			"Multi-chain coverage — Bitcoin (top 50), Ethereum (top 100), USDT ERC-20 (top 50), and Bitfinex cold storage wallets in one dashboard",
+			"Interactive Plotly chart overlaying whale transaction markers on price history — deposits and withdrawals color-coded and sized by amount",
+			"Price impact analysis — 1h / 4h / 12h / 1d price changes shown after each whale transaction via hover tooltip",
+			"Copy-trading P&L calculator — HODL returns and actual trading P&L based on wallet entry/exit timing",
+			"Threshold-based transaction filtering — set minimum size to focus on significant whale movements and cut through dust",
+			"Inverse mode toggle for USDT — flips deposit/withdrawal interpretation for stablecoin analysis",
+			"Bitfinex cold wallet aggregation — tracks multiple known cold storage addresses with live balances via Blockchair",
+			"Ad-hoc wallet analysis — enter any public address for on-demand transaction and performance analysis",
+			"Anti-detection scraping pipeline — Selenium + undetected-chromedriver extracting top wallet lists from btc.com, etherscan.io, and tether.to",
+			"CI/CD with Bitbucket Pipelines — automated testing, build artifact creation, and Heroku deployment on push to master"
+		],
+		results: [
+			{ metric: "Chains Covered", value: "4" },
+			{ metric: "Wallets Tracked", value: "200+" },
+			{ metric: "Price Intervals", value: "4 (1h–1d)" },
+			{ metric: "P&L Modes", value: "HODL + Trade" }
+		],
+		videoUrl: "",
+		galleryImages: [],
+		galleryGifs: [],
+		architecture: {
+			description: "Stateless API aggregation architecture — no database, all data fetched on-demand. Streamlit app queries Blockchair (BTC), Etherscan (ETH/ERC-20), and Santiment (price history) APIs at runtime. Top wallet lists scraped periodically via Jupyter notebooks using Selenium with undetected-chromedriver, stored as CSVs in Bitbucket, and loaded by the app via environment variable URLs. Pandas DataFrames handle all data transformation — transaction classification, threshold filtering, time normalisation to hour boundaries, and profit calculation. Plotly renders interactive time-series charts with transaction overlays. Deployed on Heroku single dyno with Bitbucket Pipelines CI/CD.",
+			layers: [
+				{
+					title: "Data Sources",
+					items: [
+						{ name: "Blockchair API", detail: "BTC Transactions" },
+						{ name: "Etherscan API", detail: "ETH + ERC-20" },
+						{ name: "Santiment API", detail: "Hourly Prices" }
+					]
+				},
+				{
+					title: "Scraping",
+					connector: "store",
+					items: [
+						{ name: "Selenium + Undetected", detail: "btc.com · etherscan · tether.to" },
+						{ name: "Bitbucket CSVs", detail: "Top Wallet Lists" }
+					]
+				},
+				{
+					title: "Processing Layer",
+					connector: "wallet lists",
+					items: [
+						{ name: "Pandas", detail: "DataFrames · Transforms" },
+						{ name: "Transaction Filter", detail: "Threshold · Inverse Mode" },
+						{ name: "Price Correlation", detail: "1h · 4h · 12h · 1d Δ" }
+					]
+				},
+				{
+					title: "Analytics Engine",
+					items: [
+						{ name: "Copy-Trade P&L", detail: "Entry / Exit Timing" },
+						{ name: "HODL Returns", detail: "First → Last Price" },
+						{ name: "Deposit / Withdrawal", detail: "Classification Engine" }
+					]
+				},
+				{
+					title: "Visualization",
+					items: [
+						{ name: "Plotly Interactive Chart", detail: "Price + Tx Markers · Range Slider" },
+						{ name: "Wallet Tables", detail: "Top 50–100 Wallets" },
+						{ name: "Metrics Panel", detail: "P&L · HODL · Trade %" }
+					]
+				},
+				{
+					title: "Dashboard",
+					items: [
+						{ name: "Streamlit App", detail: "Wide Layout · Sidebar Selector" }
+					]
+				},
+				{
+					title: "Deployment",
+					items: [
+						{ name: "Heroku", detail: "Single Dyno · Headless Chrome" },
+						{ name: "Bitbucket Pipelines", detail: "Test → Build → Deploy" }
+					]
+				}
+			]
+		}
 	},
 	"cloud-medical-devices": {
 		id: "cloud-medical-devices",
@@ -119,38 +325,43 @@ const projectsData: Record<string, ProjectDetail> = {
 	},
 	"airtrader-trading-simulator": {
 		id: "airtrader-trading-simulator",
-		title: "AirTrader – Trading Simulator Application",
-		description: "A robust and user-friendly trading simulator for strategy testing and decision-making.",
-		category: "Fintech",
-		client: "ETG commodities",
-		duration: "6 months",
-		technologies: ["React", "typescript", "python", "django", "postgresql", "redis", "ChartIQ", "mongodb", "excel", "nginx", "linux"],
-		overview: "Developed a comprehensive trading simulator that allows users to practice trading strategies with real-time market data without risking real money. Features include portfolio management, technical analysis tools, and performance analytics.",
+		title: "AirTrader – Trader Training Simulator",
+		description: "A full-stack trading simulation platform to train commodity traders through historical market scenarios with realistic order execution, risk management, and post-game analytics.",
+		category: "Fintech / Trading Education",
+		client: "ETG Commodities",
+		duration: "Solo Build",
+		technologies: ["React", "Vite", "Django", "ChartIQ", "Redux Toolkit", "PostgreSQL", "AWS EB", "S3", "ECharts"],
+		overview: "Built a full-stack trading simulation platform to train commodity traders — traders play through historical market scenarios without seeing future prices, placing orders and managing risk under realistic constraints. Core game loop: admin creates a simulation with a date range and products, trader starts the game, places trades on a ChartIQ chart, advances time day-by-day, and finishes when done — all positions auto-close at game end and performance stats are calculated.",
 		challenges: [
-			"Simulating realistic market conditions and order execution",
-			"Handling real-time market data feeds efficiently",
-			"Creating accurate backtesting capabilities",
-			"Building intuitive charting and analysis tools"
+			"Strictly hiding future price data while serving a full charting experience — all API queries must filter by the trader's current progress date with no leakage",
+			"Building a realistic order execution engine supporting multiple order types, bracket orders (OTO/OCO), randomized slippage, and commission costs",
+			"Enforcing dynamic risk limits — $1M VAR and $1M notional exposure — recalculated live, with auto-liquidation when capital reaches zero",
+			"Integrating ChartIQ 9.4 with a custom QuoteFeed adapter that caches fetched ranges per symbol and never reveals bars beyond the trader's current date"
 		],
 		solutions: [
-			"Integrated real-time market data APIs with caching mechanisms",
-			"Implemented realistic order matching engine",
-			"Built comprehensive backtesting framework with historical data",
-			"Developed interactive charts with technical indicators"
+			"Custom QuoteFeed adapter — lazy-loads OHLCV from the backend, caches fetched ranges per symbol, and only reveals new bars as the trader progresses forward in time",
+			"Batch order execution on date progression — all pending orders execute against the new day's High/Low data with randomized slippage and fixed commission costs",
+			"VAR calculated using 20-day historical volatility at 95% confidence; capital-zero event auto-cancels all orders and liquidates all open positions",
+			"ChartIQ TFC plugin for visual order placement directly on charts, multi-chart grid layouts for cross-product analysis, and fundamental data report overlays on the timeline",
+			"Deployed to AWS Elastic Beanstalk with Nginx reverse proxy — React SPA served from dist, Django API proxied on /server, /auth, /data, /trader; GitHub Actions CI/CD on push to master"
 		],
 		features: [
-			"Real-time market data simulation",
-			"Portfolio management and tracking",
-			"Technical analysis tools and indicators",
-			"Backtesting capabilities",
-			"Performance analytics and reports",
-			"Risk management tools",
-			"Educational resources and tutorials"
+			"Day-by-day time progression — traders advance through historical scenarios without ever seeing future prices",
+			"ChartIQ 9.4 with TFC plugin — visual order placement on chart with multi-chart grid for cross-product analysis",
+			"Complete order engine — market, limit, stop, and MIT orders with bracket orders (OTO / OCO)",
+			"Risk management — $1M VAR (20-day historical, 95% confidence) and $1M notional exposure limits enforced in real time",
+			"Auto-liquidation — capital-zero event cancels all pending orders and closes all open positions immediately",
+			"Post-game analytics — Sharpe, Sortino, and Calmar ratios, max drawdown, hit ratio, profit ratio, and per-product P&L breakdowns",
+			"Real-time stats — live P&L (realized + unrealized), available VAR, available notional, open positions, and full trade history",
+			"Multi-product futures trading with contract expiry management — auto-close on expiry, per-contract pip values and tick sizes",
+			"Custom QuoteFeed with range caching — lazy-loads OHLCV per symbol, prevents future data leakage as trader progresses",
+			"AWS Elastic Beanstalk + Nginx deployment with S3 for report storage and chart view persistence; GitHub Actions CI/CD"
 		],
 		results: [
-			{ metric: "Active Users", value: "1000" },
-			{ metric: "Trades Simulated", value: "1m+" },
-			{ metric: "Skill Improvement", value: "200%" }
+			{ metric: "Order Types", value: "6+" },
+			{ metric: "Post-game Analytics", value: "8 ratios" },
+			{ metric: "VAR Confidence", value: "95%" },
+			{ metric: "Future Data Leakage", value: "0%" }
 		],
 		videoUrl: "/videos/airtrader-trading-simulator/airtraderdemo.mp4",
 		galleryImages: [
@@ -165,7 +376,117 @@ const projectsData: Record<string, ProjectDetail> = {
 			"/images/airtrader-trading-simulator/airtraderimage9.png",
 			"/images/airtrader-trading-simulator/airtraderimage10.png"
 		],
+		galleryImageCaptions: [
+			"Single-chart view — Corn H2005 candlestick chart with the product panel on the left and a live trade log showing all executed buy/sell orders",
+			"Multi-chart grid — Corn H2005 and K2005 futures alongside CORN fundamental reports (Brazil Beginning Stocks, Argentina Ending Stocks) for cross-product analysis",
+			"Trade From Chart (TFC) — order placement panel overlaid directly on the C H2005 chart, allowing traders to set side, quantity, and order type without leaving the chart",
+			"Order entry modal — entering a limit order for C H2005 with quantity, price, and bracket fields triggered from the TFC plugin on the live candlestick chart",
+			"Bracket order configuration — setting up OTO/OCO bracket parameters (take-profit and stop-loss levels) for an open C H2005 position via the TFC overlay",
+			"Symbol lookup — searchable contract browser listing futures products by category, exchange, and country (Corn, Soybean, Brazil, Argentina) for adding instruments to the simulation",
+			"Drawing tools — rectangle annotation active on C H2005 showing price range and bar count measurements (78.75 pts / 98 bars) for manual technical analysis",
+			"Chart type switcher — changing from candlestick to bar, OHLC, mountain, or baseline view via the studies panel while the simulation is in progress",
+			"Live position view — C H2005 candlestick chart with an open-position price marker showing the trader's current entry level during day-by-day time progression",
+			"Fundamental data overlay — Argentina Corn Ending Stocks report pinned directly onto the C H2005 price timeline for in-context analysis as the trader advances through the scenario"
+		],
 		galleryGifs: []
+	},
+	"widget-plugin-framework": {
+		id: "widget-plugin-framework",
+		title: "Matrix One — Widget Plug-in Framework",
+		description: "A scalable widget plug-in framework letting third-party developers create and integrate custom widgets into a cloud product — ecosystem-grade extensibility built solo.",
+		category: "Platform / Developer Tools",
+		client: "Matrix One",
+		duration: "Feb 2023 — Current · Solo",
+		technologies: ["Angular", "Spring", "TypeScript"],
+		overview: "Built a scalable widget plug-in framework at Matrix One that lets third-party developers create and integrate custom widgets into the cloud product — accelerating feature expansion without requiring core-team involvement for every new capability. The framework defines a versioned plugin contract, handles dynamic widget registration and lifecycle management, and provides a Spring-backed registry for widget metadata, versioning, and per-instance configuration.",
+		challenges: [
+			"Designing a plugin API stable enough for third-party developers to build against while the core product continues to evolve rapidly",
+			"Sandboxing third-party widgets to prevent a misbehaving plugin from breaking the host Angular application's state or layout",
+			"Dynamic widget loading at runtime — Angular's compilation model requires careful lazy-module architecture to instantiate plugins on demand without full app restarts",
+			"Type-safe contracts across the Angular frontend and Spring backend so plugin metadata, configuration schemas, and lifecycle events stay consistent end-to-end"
+		],
+		solutions: [
+			"Defined a versioned TypeScript plugin API with strict lifecycle interfaces (register, mount, update, destroy) — core API surface is additive-only to avoid breaking third-party plugins",
+			"Angular component isolation using independently compiled modules per widget with encapsulated CSS and scoped event boundaries to contain plugin side-effects",
+			"Spring plugin registry managing widget catalogue, semantic versioning, runtime configuration, and provisioning — plugins are registered once and resolved dynamically at runtime",
+			"Lazy-loaded Angular modules for on-demand widget instantiation — only the active widgets in the user's layout are fetched and compiled, keeping initial load unaffected",
+			"Shared TypeScript interface package consumed by both the Angular host and plugin SDK, ensuring compile-time type safety across the plugin boundary"
+		],
+		features: [
+			"Versioned plugin SDK — TypeScript lifecycle interfaces and event hooks for third-party widget developers",
+			"Dynamic widget loading — Angular lazy modules instantiated on demand at runtime with zero impact on initial load",
+			"Spring plugin registry — catalogue of available widgets with semantic versioning, metadata, and runtime config management",
+			"Widget isolation — scoped CSS, encapsulated Angular modules, and event boundary enforcement per plugin",
+			"Configuration API — per-widget settings managed through the host cloud platform UI",
+			"Shared type package — TypeScript interfaces consumed by both the host app and plugin SDK for compile-time safety",
+			"Plugin lifecycle management — controlled mount, update, and destroy hooks with cleanup guarantees",
+			"Third-party developer workflow — SDK, documentation, and scaffolding tooling for external contributors"
+		],
+		results: [
+			{ metric: "Client", value: "Matrix One" },
+			{ metric: "Status", value: "Active · 2023–" },
+			{ metric: "Team Size", value: "Solo" },
+			{ metric: "Extensibility", value: "3rd-party SDK" }
+		],
+		videoUrl: "",
+		galleryImages: [],
+		galleryGifs: [],
+		architecture: {
+			description: "Plugin-host architecture: the Angular cloud application acts as the host, dynamically loading independently compiled widget modules at runtime via Angular's lazy-loading mechanism. The Spring backend serves as a plugin registry — storing widget metadata, versioning, and per-instance configuration, and exposing provisioning APIs to the host. A shared TypeScript interface package defines the plugin contract consumed by both sides. Widgets are sandboxed within Angular module boundaries with encapsulated CSS and scoped events.",
+			layers: [
+				{
+					title: "Plugin SDK",
+					items: [
+						{ name: "TypeScript Interfaces", detail: "Lifecycle · Event Hooks" },
+						{ name: "Widget Contract", detail: "Versioned API Surface" },
+						{ name: "Scaffolding Tooling", detail: "3rd-party Dev Workflow" }
+					]
+				},
+				{
+					title: "Angular Host Application",
+					connector: "lazy module load",
+					items: [
+						{ name: "Dynamic Module Loader", detail: "On-demand Instantiation" },
+						{ name: "Component Registry", detail: "Runtime Widget Resolution" },
+						{ name: "Event Bus", detail: "Host ↔ Plugin Messaging" },
+						{ name: "Layout Engine", detail: "Widget Placement · Resize" }
+					]
+				},
+				{
+					title: "Widget Isolation Layer",
+					items: [
+						{ name: "Scoped CSS", detail: "Encapsulated Styling" },
+						{ name: "Module Boundary", detail: "Angular Compilation Unit" },
+						{ name: "Lifecycle Hooks", detail: "Mount · Update · Destroy" }
+					]
+				},
+				{
+					title: "Spring Plugin Registry",
+					connector: "metadata + config",
+					items: [
+						{ name: "Widget Catalogue", detail: "Registration · Discovery" },
+						{ name: "Semantic Versioning", detail: "Compatibility Tracking" },
+						{ name: "Config Management", detail: "Per-instance Settings" },
+						{ name: "Provisioning API", detail: "REST · Plugin Activation" }
+					]
+				},
+				{
+					title: "Shared Type Package",
+					items: [
+						{ name: "TypeScript Interfaces", detail: "Consumed by Host + SDK" },
+						{ name: "Compile-time Safety", detail: "Plugin Boundary Contract" }
+					]
+				},
+				{
+					title: "Cloud Platform",
+					items: [
+						{ name: "Widget Marketplace", detail: "Discovery · Installation" },
+						{ name: "User Permissions", detail: "Access Control per Widget" },
+						{ name: "Settings UI", detail: "Per-widget Configuration" }
+					]
+				}
+			]
+		}
 	},
 	"crypto-analytical-tools": {
 		id: "crypto-analytical-tools",
@@ -213,6 +534,94 @@ const projectsData: Record<string, ProjectDetail> = {
 			"https://media.giphy.com/media/7FBY7h5Pcyh6BbILFB/giphy.gif",
 			"https://media.giphy.com/media/l0HlJDaeqNUDhhaCt/giphy.gif"
 		]
+	},
+	"galen-cloud-platform": {
+		id: "galen-cloud-platform",
+		title: "Galen Data — Cloud Platform",
+		description: "A configurable, scalable cloud platform that lets medical devices centralise data and leverage cloud infrastructure — full-stack from architecture to UI, built for FDA-context medical environments.",
+		category: "Medical Device Cloud",
+		client: "Galen Data Inc.",
+		duration: "Feb 2023 — May 2025 · 3 Engineers",
+		technologies: ["Angular", "Spring", "Java", "AWS"],
+		overview: "Built a configurable, scalable cloud platform at Galen Data Inc. that lets medical devices centralise data and leverage cloud technology — full-stack from architecture to UI. The platform is designed for FDA-context medical infrastructure, providing device manufacturers with a production-ready cloud layer without building it themselves.",
+		challenges: [
+			"Designing a platform flexible enough to serve multiple device manufacturers with different data schemas, device types, and regulatory requirements",
+			"Building for FDA-context medical infrastructure — data integrity, audit trails, and access controls need to meet device-grade compliance standards",
+			"Full-stack ownership across Angular frontend, Spring/Java backend, and AWS infrastructure with a 3-person team",
+			"Scalable data ingestion and storage for devices that emit continuous telemetry streams across varying frequencies and payload formats"
+		],
+		solutions: [
+			"Configurable platform architecture — device manufacturers customise data schemas, dashboards, and alert rules without core-team involvement",
+			"Spring + Java backend with strict audit logging, role-based access control, and data validation at every ingestion boundary",
+			"Angular frontend built for flexibility — component library supporting per-tenant configuration of layouts, charts, and device management views",
+			"AWS-based infrastructure with scalable ingestion, storage, and API layers sized for continuous medical device telemetry"
+		],
+		features: [
+			"Configurable cloud platform — medical device manufacturers plug in their devices and customise data flows without building cloud infrastructure from scratch",
+			"Full-stack from architecture to UI — Angular frontend, Spring/Java backend, and AWS infrastructure owned end-to-end",
+			"FDA-context medical infrastructure — data integrity, audit trails, and access control designed for regulated environments",
+			"Device data centralisation — ingest, store, and query telemetry from multiple device types in a unified platform",
+			"Role-based access control — fine-grained permissions for device manufacturers, operators, and clinical users",
+			"Configurable dashboards — per-tenant layouts, chart types, and data views without code changes",
+			"Scalable AWS infrastructure — ingestion and storage layers designed for continuous device telemetry at production scale"
+		],
+		results: [
+			{ metric: "Client", value: "Galen Data Inc." },
+			{ metric: "Team", value: "3 Engineers" },
+			{ metric: "Stack", value: "Angular + Spring + AWS" },
+			{ metric: "Context", value: "FDA Medical" }
+		],
+		videoUrl: "",
+		galleryImages: [],
+		galleryGifs: [],
+		architecture: {
+			description: "Three-tier cloud platform: Angular SPA serves as the configurable frontend with per-tenant layouts and device dashboards; Spring/Java backend handles device registration, data ingestion, access control, and audit logging; AWS infrastructure provides scalable storage, compute, and API gateway. Device manufacturers integrate via a REST API — devices push telemetry to the ingestion layer, data is validated and stored, and the Angular frontend consumes it through the Spring API. Platform configuration (schemas, dashboards, alert rules) is stored as tenant metadata and applied at runtime.",
+			layers: [
+				{
+					title: "Medical Devices",
+					items: [
+						{ name: "Device Telemetry", detail: "Continuous Data Streams" },
+						{ name: "Device Registration", detail: "Manufacturer Onboarding" }
+					]
+				},
+				{
+					title: "AWS Infrastructure",
+					connector: "REST ingestion",
+					items: [
+						{ name: "API Gateway", detail: "Ingestion Entry Point" },
+						{ name: "Scalable Storage", detail: "Device Data · Time-series" },
+						{ name: "Compute", detail: "Spring App Hosting" }
+					]
+				},
+				{
+					title: "Spring / Java Backend",
+					connector: "validated data",
+					items: [
+						{ name: "Ingestion Layer", detail: "Schema Validation · Parsing" },
+						{ name: "Device API", detail: "Registration · Status" },
+						{ name: "Access Control", detail: "RBAC · Audit Logging" },
+						{ name: "Config API", detail: "Tenant Schemas · Rules" }
+					]
+				},
+				{
+					title: "Platform Configuration",
+					items: [
+						{ name: "Tenant Metadata", detail: "Schemas · Dashboards · Alerts" },
+						{ name: "Alert Rules Engine", detail: "Threshold · Notification" },
+						{ name: "Data Schema Registry", detail: "Per-device Type Config" }
+					]
+				},
+				{
+					title: "Angular Frontend",
+					items: [
+						{ name: "Device Dashboard", detail: "Configurable Layouts · Charts" },
+						{ name: "Data Explorer", detail: "Query · Filter · Export" },
+						{ name: "Admin Panel", detail: "Device Mgmt · User Roles" },
+						{ name: "Alert Centre", detail: "Notifications · History" }
+					]
+				}
+			]
+		}
 	},
 	"tread-pattern-dashboard": {
 		id: "tread-pattern-dashboard",
@@ -345,11 +754,18 @@ const projectsData: Record<string, ProjectDetail> = {
 			"/images/champspace/champspaceimage4.PNG",
 			"/images/champspace/champspaceimage5.PNG"
 		],
+		galleryImageCaptions: [
+			"Homepage — Learn-to-Earn hero with ₹500–₹50,000/month earnings promise, course discovery CTA, and live daily new-student counter",
+			"Trending Courses — curated course cards (Full Stack AI, Business Analytics, React Native) with category badges and enrollment CTAs",
+			"Course Catalogue — category filter sidebar with per-course earnings badge (₹500 on completion), lecture count, and difficulty level",
+			"Student Dashboard — learning progress tracker showing course completion percentages, Continue Learning CTA, and sidebar for earnings and certificates",
+			"Instructor Dashboard — course management hub showing live/pending course status, enrolled student count, and earnings overview with course creation tools"
+		],
 		galleryGifs: []
 	},
 	"adnow": {
 		id: "adnow",
-		title: "Adnow - Unified Ad Management Platform",
+		title: "AdNow - Unified Ad Management Platform",
 		description: "A comprehensive ad agency solution providing one-centric management for all ads across Meta, Google, Amazon, and more",
 		category: "MarTech/AdTech",
 		client: "Digital Marketing Agency",
@@ -390,46 +806,73 @@ const projectsData: Record<string, ProjectDetail> = {
 			"/images/adnow/adnowimage3.PNG",
 			"/images/adnow/adnowimage4.PNG"
 		],
+		galleryImageCaptions: [
+			"Landing Page — hero with +127% conversion lift, 45.2K reach, and ₹2.4L revenue dashboard preview; trusted by 500+ SMBs",
+			"How It Works — 3-step campaign setup: share business goals → AI generates ad creatives → review, customise, and launch",
+			"Pricing Tiers — Starter (Free), Growth (₹499/month), and Performance (₹1,299/month) with ad spend limits and AI optimisation",
+			"Footer & Contact — product, company, and support navigation with Send Message contact form and full site map"
+		],
 		galleryGifs: []
 	},
 	"curiote": {
 		id: "curiote",
-		title: "Curiote - Sentiment Analysis Tool",
-		description: "Advanced sentiment analysis tool enabling real-time market insights for stocks and crypto.",
-		category: "Fintech / Blockchain",
+		title: "Curiote - Whale Monitoring System",
+		description: "Real-time whale transaction detection across Bitcoin and Ethereum mainnet — tracking large movements of BTC, ETH, and 12+ major ERC20 tokens.",
+		category: "Blockchain / Fintech",
 		client: "Curiote",
-		duration: "5 months and Continue",
-		technologies: ["React", "typescript", "python", "django", "postgresql", "redis", "ChartIQ", "mongodb", "excel", "nginx", "linux", "NLP", "Machine Learning"],
-		overview: "Developed a powerful sentiment analysis tool that aggregates and analyzes data from various sources to provide real-time market sentiment for stocks and cryptocurrencies.",
+		duration: "Solo Build",
+		technologies: ["React", "Django", "Microservices", "Blockchain", "PostgreSQL", "WebSocket", "ZMQ", "Redis", "Telegram API", "X API", "Web3.py", "TypeScript", "GitHub Actions"],
+		overview: "Real-time whale transaction detection across Bitcoin and Ethereum mainnet — tracking large movements of BTC, ETH, and 12+ major ERC20 tokens (USDT, USDC, WBTC, DAI, LINK, and more). Set up and configured full Bitcoin Core and Ethereum (Geth) nodes from scratch with RPC, WebSocket subscriptions, ZMQ block notifications, and cookie-based auth. Built an async microservices architecture with dedicated services for ETH monitoring, BTC monitoring, price feeds, Telegram alerts, and X/Twitter alerts — each running in isolated threads with their own event loops and task queues.",
 		challenges: [
-			"Aggregating data from diverse and unstructured sources",
-			"Real-time processing of high-volume social media streams",
-			"Developing accurate sentiment scoring models",
-			"Visualizing complex sentiment trends effectively"
+			"Configuring full Bitcoin Core and Ethereum (Geth) nodes from scratch — RPC, WebSocket subscriptions, ZMQ block notifications, and cookie-based auth",
+			"Building async microservices with isolated threads, independent event loops, and per-service task queues",
+			"Transaction confirmation pipeline requiring sliding-window block tracking with full blockchain reorg detection and status rollback",
+			"Rate-limit-aware multi-platform alerting — Telegram (4096-char batching, retry-after backoff) and X/Twitter (280-char formatting, OAuth1 + API v2)"
 		],
 		solutions: [
-			"Implemented advanced NLP pipelines for text analysis",
-			"Utilized high-performance message queues for data ingestion",
-			"Trained custom ML models on financial datasets",
-			"Created interactive dashboards with dynamic charting"
+			"Implemented smart whale detection with configurable thresholds per token (e.g., 100+ BTC, 1000+ ETH, 5M+ USDT) with automatic USD conversion via live price feeds",
+			"Built 6-confirmation BTC and 12-confirmation ETH pipelines with sliding-window block tracking and full blockchain reorg detection and rollback",
+			"Live Telegram bot alerts with intelligent message batching, rate-limit handling, and retry-after backoff",
+			"Automated X/Twitter posting via OAuth1 + API v2 with 280-char formatting, rate-limit header parsing, and calculated cooldown",
+			"Real-time WebSocket streaming to the frontend via Django Channels + Redis with auto-reconnect and connection status tracking",
+			"Historical backfill on service restart — automatically detects gaps and replays missed blocks (batch of 500 for ETH, sequential for BTC) before resuming live monitoring"
 		],
 		features: [
-			"Real-time sentiment scoring",
-			"Social media trend analysis",
-			"News correlation with price action",
-			"Customizable alerts and notifications",
-			"Historical sentiment backtesting",
-			"Multi-asset support (Stocks & Crypto)",
-			"API access for algorithmic trading"
+			"Real-time whale transaction detection for BTC, ETH, and 12+ ERC20 tokens",
+			"Full Bitcoin Core and Ethereum (Geth) node management with ZMQ block notifications",
+			"Async microservices — ETH monitor, BTC monitor, price feeds, Telegram alerts, X/Twitter alerts",
+			"Configurable whale thresholds per token with automatic live USD conversion",
+			"Sliding-window confirmation pipeline with blockchain reorg detection and status rollback",
+			"React + TypeScript dashboard — live alert feed, severity filtering, date range picker, token/wallet filters, and block explorer drill-down",
+			"Multi-method auth — email/password, Google OAuth, Twitter OAuth, and Web3 wallet signing (MetaMask, WalletConnect via Reown AppKit)",
+			"Historical backfill on service restart with gap detection and batch block replay",
+			"CI/CD with GitHub Actions — automated tests on PostgreSQL 16 + Redis, SSH deployment to production"
 		],
 		results: [
-			{ metric: "Data Sources", value: "20+" },
-			{ metric: "Processing Speed", value: "<100ms" },
-			{ metric: "Accuracy", value: "85%" },
-			{ metric: "User Growth", value: "40% MoM" }
+			{ metric: "Chains Monitored", value: "2" },
+			{ metric: "Tokens Tracked", value: "14+" },
+			{ metric: "Auth Methods", value: "4" },
+			{ metric: "Confirmation Depth", value: "12 blocks" }
 		],
 		videoUrl: "",
-		galleryImages: [],
+		galleryImages: [
+			"/images/curiote/bitcoind_service.png",
+			"/images/curiote/dashboard.png",
+			"/images/curiote/datetime_filter.png",
+			"/images/curiote/geth_service.png",
+			"/images/curiote/telegram_alert.png",
+			"/images/curiote/token_filter.png",
+			"/images/curiote/transaction_detail.png"
+		],
+		galleryImageCaptions: [
+			"Bitcoin Core Node — systemd service active since Apr 26, live block sync at height 948,919 via ZMQ notifications and RPC",
+			"Live Whale Alert Feed — $178B volume tracked across 4,251 alerts with HIGH / MEDIUM severity tags and real-time CONFIRMED status",
+			"Date Range Picker — Preset shortcuts (Today through Last Year) with a dual-month calendar for custom range selection",
+			"Ethereum Geth Node — Execution client at block 25,070,970, importing chain segments every ~12s with full WebSocket subscription",
+			"Telegram Bot Alerts — Batched whale notifications with tx hash, block number, confirmation status, and full token transfer details",
+			"Token Filter — Searchable dropdown across 12+ ERC20 tokens (USDC, ETH, WBTC, DAI, LINK, 1INCH, BAT, YFI) with contract addresses",
+			"Transaction Drill-Down — $30.60M DAI / USDC transaction with 12+ ETH confirmations, Etherscan link, and full per-transfer breakdown"
+		],
 		galleryGifs: []
 	},
 	"data-engineering-datascience": {
@@ -481,6 +924,66 @@ const projectsData: Record<string, ProjectDetail> = {
 
 
 
+const ARCH_COLORS = [
+	{ bg: "rgba(59,130,246,0.08)",  border: "rgba(59,130,246,0.25)",  text: "hsl(210,100%,62%)" },
+	{ bg: "rgba(139,92,246,0.08)",  border: "rgba(139,92,246,0.25)",  text: "hsl(270,80%,70%)" },
+	{ bg: "rgba(16,185,129,0.08)",  border: "rgba(16,185,129,0.25)",  text: "hsl(160,75%,50%)" },
+	{ bg: "rgba(245,158,11,0.08)",  border: "rgba(245,158,11,0.25)",  text: "hsl(38,100%,58%)" },
+	{ bg: "rgba(6,182,212,0.08)",   border: "rgba(6,182,212,0.25)",   text: "hsl(190,90%,52%)" },
+	{ bg: "rgba(236,72,153,0.08)",  border: "rgba(236,72,153,0.25)",  text: "hsl(330,80%,65%)" },
+	{ bg: "rgba(249,115,22,0.08)",  border: "rgba(249,115,22,0.25)",  text: "hsl(24,100%,58%)" },
+	{ bg: "rgba(124,58,237,0.08)",  border: "rgba(124,58,237,0.25)",  text: "hsl(258,80%,68%)" },
+	{ bg: "rgba(244,63,94,0.08)",   border: "rgba(244,63,94,0.25)",   text: "hsl(350,85%,65%)" },
+];
+
+function ArchitectureDiagram({ layers }: { layers: ArchitectureLayer[] }) {
+	return (
+		<div className="flex flex-col items-center w-full gap-0">
+			{layers.map((layer, li) => {
+				const c = ARCH_COLORS[li % ARCH_COLORS.length];
+				return (
+					<div key={li} className="w-full flex flex-col items-center">
+						{/* Layer card */}
+						<div className="w-full rounded-2xl overflow-hidden" style={{ border: `1px solid ${c.border}` }}>
+							{/* Header */}
+							<div className="px-4 sm:px-5 py-2.5" style={{ background: c.bg, borderBottom: `1px solid ${c.border}` }}>
+								<span className="text-xs sm:text-sm font-bold tracking-widest uppercase" style={{ color: c.text }}>
+									{layer.title}
+								</span>
+							</div>
+							{/* Items */}
+							<div className="p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+								{layer.items.map((item, ii) => (
+									<div key={ii} className="rounded-xl px-3 sm:px-4 py-2.5 sm:py-3" style={{ background: c.bg, border: `1px solid ${c.border}` }}>
+										<p className="text-xs sm:text-sm font-semibold text-foreground">{item.name}</p>
+										{item.detail && (
+											<p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">{item.detail}</p>
+										)}
+									</div>
+								))}
+							</div>
+						</div>
+
+						{/* Connector */}
+						{li < layers.length - 1 && (
+							<div className="flex flex-col items-center my-2 gap-1">
+								{layer.connector && (
+									<span className="text-[11px] text-muted-foreground font-medium tracking-wide px-2 py-0.5 rounded-full bg-foreground/5 border border-border">
+										{layer.connector}
+									</span>
+								)}
+								<svg width="16" height="20" viewBox="0 0 16 20" className="text-muted-foreground/40">
+									<path d="M8 0 L8 14 M3 9 L8 14 L13 9" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+								</svg>
+							</div>
+						)}
+					</div>
+				);
+			})}
+		</div>
+	);
+}
+
 export default function ProjectDetails() {
 	const { projectId } = useParams<{ projectId: string }>();
 
@@ -505,7 +1008,7 @@ export default function ProjectDetails() {
 				description={project.description}
 			/>
 
-			<div className="w-[90%] max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+			<div className="w-[90%] max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10 sm:space-y-16">
 				{/* Project Overview */}
 				<section>
 					<PageHeading
@@ -546,7 +1049,7 @@ export default function ProjectDetails() {
 									mainTitle="Video"
 									postTitle="Demo"
 								/>
-								<div className="mt-8 rounded-xl border border-border bg-white/50 dark:bg-foreground/5 min-h-[500px] flex items-center justify-center">
+								<div className="mt-8 rounded-xl border border-border bg-white/50 dark:bg-foreground/5 min-h-[220px] sm:min-h-[400px] md:min-h-[500px] flex items-center justify-center">
 									<video
 										src={project.videoUrl}
 										controls
@@ -567,7 +1070,7 @@ export default function ProjectDetails() {
 									postTitle=""
 								/>
 								<div className="mt-8">
-									<Carousel items={project.galleryImages} type="image" />
+									<Carousel items={project.galleryImages} type="image" captions={project.galleryImageCaptions} />
 								</div>
 							</div>
 						)}
@@ -585,6 +1088,19 @@ export default function ProjectDetails() {
 								</div>
 							</div>
 						)}
+					</section>
+				)}
+
+				{/* Architecture */}
+				{project.architecture && (
+					<section>
+						<PageHeading preTitle="System" mainTitle="Architecture" postTitle="" />
+						<div className="mt-6 sm:mt-8 space-y-6 sm:space-y-8">
+							<p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+								{project.architecture.description}
+							</p>
+							<ArchitectureDiagram layers={project.architecture.layers} />
+						</div>
 					</section>
 				)}
 
@@ -612,7 +1128,7 @@ export default function ProjectDetails() {
 					<div>
 						<div className="mb-6">
 							<Indicator />
-							<h2 className="text-3xl font-bold text-foreground mt-3">Challenges</h2>
+							<h2 className="text-2xl sm:text-3xl font-bold text-foreground mt-3">Challenges</h2>
 						</div>
 						<ul className="space-y-4">
 							{project.challenges.map((challenge, idx) => (
@@ -629,7 +1145,7 @@ export default function ProjectDetails() {
 					<div>
 						<div className="mb-6">
 							<Indicator />
-							<h2 className="text-3xl font-bold text-foreground mt-3">Solutions</h2>
+							<h2 className="text-2xl sm:text-3xl font-bold text-foreground mt-3">Solutions</h2>
 						</div>
 						<ul className="space-y-4">
 							{project.solutions.map((solution, idx) => (
@@ -669,7 +1185,7 @@ export default function ProjectDetails() {
 						mainTitle="& Impact"
 						postTitle=""
 					/>
-					<div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-6">
+					<div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 						{project.results.map((result, idx) => (
 							<div
 								key={idx}

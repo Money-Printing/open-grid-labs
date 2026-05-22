@@ -4,7 +4,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CarouselProps {
 	items: string[];
-	type?: "image" | "video";
 	className?: string;
 	captions?: string[];
 }
@@ -95,6 +94,7 @@ export default function Carousel({ items, className = "", captions }: CarouselPr
 							<CarouselImage
 								src={item}
 								alt={captions?.[index] ?? `Slide ${index + 1}`}
+								priority={index === 0}
 							/>
 
 							{/* Caption overlay */}
@@ -162,7 +162,7 @@ export default function Carousel({ items, className = "", captions }: CarouselPr
 	);
 }
 
-function CarouselImage({ src, alt }: { src: string; alt: string }) {
+function CarouselImage({ src, alt, priority = false }: { src: string; alt: string; priority?: boolean }) {
 	const [isLoading, setIsLoading] = useState(true);
 	const [hasError, setHasError] = useState(false);
 
@@ -182,6 +182,9 @@ function CarouselImage({ src, alt }: { src: string; alt: string }) {
 					src={src}
 					alt={alt}
 					className="h-full w-full object-cover"
+					loading={priority ? "eager" : "lazy"}
+					decoding="async"
+					fetchPriority={priority ? "high" : "low"}
 					onLoad={() => setIsLoading(false)}
 					onError={() => { setIsLoading(false); setHasError(true); }}
 					style={{ display: isLoading ? "none" : "block" }}

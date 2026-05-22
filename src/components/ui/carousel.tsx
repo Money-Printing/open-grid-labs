@@ -26,9 +26,20 @@ export default function Carousel({ items, className = "", captions }: CarouselPr
 		};
 
 		update();
-		const ro = new ResizeObserver(update);
-		if (containerRef.current) ro.observe(containerRef.current);
-		return () => ro.disconnect();
+
+		let ro: ResizeObserver | null = null;
+
+		if (typeof ResizeObserver !== "undefined") {
+			ro = new ResizeObserver(update);
+			if (containerRef.current) ro.observe(containerRef.current);
+		} else {
+			window.addEventListener("resize", update);
+		}
+
+		return () => {
+			if (ro) ro.disconnect();
+			else window.removeEventListener("resize", update);
+		};
 	}, []);
 
 	const GAP = 16;

@@ -19,6 +19,7 @@ interface ProjectDetail {
 	category: string;
 	client: string;
 	duration: string;
+	teamSize?: string;
 	technologies: string[];
 	overview: string;
 	challenges: string[];
@@ -45,7 +46,8 @@ const projectsData: Record<string, ProjectDetail> = {
 		description: "A cloud-connected whole-slide imaging platform — renders 100+ GB microscopic scans in-browser, controls robotic scanners, and delivers AI-assisted diagnostic reporting.",
 		category: "Medical Technology",
 		client: "Morphle Labs",
-		duration: "2 Engineers",
+		duration: "1 Year",
+		teamSize: "2 Engineers",
 		technologies: ["React", "Django", "OpenLayers", "Redux", "OpenCV", "Docker", "WebSocket", "Redis", "MySQL", "AWS", "GCS"],
 		overview: "Built a cloud-connected whole-slide imaging platform for Morphle Labs — a 2D map-based viewer that renders 100+ GB microscopic scans in-browser using OpenLayers pyramid tiling, paired with full robotic scanner hardware control, a real-time collaborative annotation system, an AI-assisted analysis pipeline, and CAP-compliant diagnostic reporting.",
 		challenges: [
@@ -179,7 +181,8 @@ const projectsData: Record<string, ProjectDetail> = {
 		description: "A multi-chain whale wallet tracker covering Bitcoin (top 50), Ethereum (top 100), USDT ERC-20 (top 50), and Bitfinex cold wallets — interactive dashboard with copy-trade P&L and price impact analysis.",
 		category: "Blockchain / Analytics",
 		client: "Jarvis Labs LLC",
-		duration: "Jun 2021 — Dec 2021 · Solo",
+		duration: "Jun 2021 — Dec 2021",
+		teamSize: "Solo",
 		technologies: ["Python", "Streamlit", "Plotly", "Pandas", "Selenium", "Heroku", "Blockchair API", "Etherscan API", "Santiment API"],
 		overview: "Built a multi-chain whale wallet tracker covering Bitcoin (top 50), Ethereum (top 100), USDT ERC-20 (top 50), and Bitfinex cold storage wallets — all in a single interactive Streamlit dashboard. Integrates three blockchain data APIs with anti-detection scraping to extract top wallet lists, then overlays whale transactions on price history with copy-trade P&L analysis and multi-interval price impact calculations.",
 		challenges: [
@@ -329,7 +332,8 @@ const projectsData: Record<string, ProjectDetail> = {
 		description: "A full-stack trading simulation platform to train commodity traders through historical market scenarios with realistic order execution, risk management, and post-game analytics.",
 		category: "Fintech / Trading Education",
 		client: "ETG Commodities",
-		duration: "Solo Build",
+		duration: "6 Months",
+		teamSize: "Solo",
 		technologies: ["React", "Vite", "Django", "ChartIQ", "Redux Toolkit", "PostgreSQL", "AWS EB", "S3", "ECharts"],
 		overview: "Built a full-stack trading simulation platform to train commodity traders — traders play through historical market scenarios without seeing future prices, placing orders and managing risk under realistic constraints. Core game loop: admin creates a simulation with a date range and products, trader starts the game, places trades on a ChartIQ chart, advances time day-by-day, and finishes when done — all positions auto-close at game end and performance stats are calculated.",
 		challenges: [
@@ -396,7 +400,8 @@ const projectsData: Record<string, ProjectDetail> = {
 		description: "A scalable widget plug-in framework letting third-party developers create and integrate custom widgets into a cloud product — ecosystem-grade extensibility built solo.",
 		category: "Platform / Developer Tools",
 		client: "Matrix One",
-		duration: "Feb 2023 — Current · Solo",
+		duration: "Feb 2023 — Current",
+		teamSize: "Solo",
 		technologies: ["Angular", "Spring", "TypeScript"],
 		overview: "Built a scalable widget plug-in framework at Matrix One that lets third-party developers create and integrate custom widgets into the cloud product — accelerating feature expansion without requiring core-team involvement for every new capability. The framework defines a versioned plugin contract, handles dynamic widget registration and lifecycle management, and provides a Spring-backed registry for widget metadata, versioning, and per-instance configuration.",
 		challenges: [
@@ -541,7 +546,8 @@ const projectsData: Record<string, ProjectDetail> = {
 		description: "A configurable, scalable cloud platform that lets medical devices centralise data and leverage cloud infrastructure — full-stack from architecture to UI, built for FDA-context medical environments.",
 		category: "Medical Device Cloud",
 		client: "Galen Data Inc.",
-		duration: "Feb 2023 — May 2025 · 3 Engineers",
+		duration: "Feb 2023 — May 2025",
+		teamSize: "3 Engineers",
 		technologies: ["Angular", "Spring", "Java", "AWS"],
 		overview: "Built a configurable, scalable cloud platform at Galen Data Inc. that lets medical devices centralise data and leverage cloud technology — full-stack from architecture to UI. The platform is designed for FDA-context medical infrastructure, providing device manufacturers with a production-ready cloud layer without building it themselves.",
 		challenges: [
@@ -820,7 +826,8 @@ const projectsData: Record<string, ProjectDetail> = {
 		description: "Real-time whale transaction detection across Bitcoin and Ethereum mainnet — tracking large movements of BTC, ETH, and 12+ major ERC20 tokens.",
 		category: "Blockchain / Fintech",
 		client: "Curiote",
-		duration: "Solo Build",
+		duration: "Ongoing",
+		teamSize: "Solo",
 		technologies: ["React", "Django", "Microservices", "Blockchain", "PostgreSQL", "WebSocket", "ZMQ", "Redis", "Telegram API", "X API", "Web3.py", "TypeScript", "GitHub Actions"],
 		overview: "Real-time whale transaction detection across Bitcoin and Ethereum mainnet — tracking large movements of BTC, ETH, and 12+ major ERC20 tokens (USDT, USDC, WBTC, DAI, LINK, and more). Set up and configured full Bitcoin Core and Ethereum (Geth) nodes from scratch with RPC, WebSocket subscriptions, ZMQ block notifications, and cookie-based auth. Built an async microservices architecture with dedicated services for ETH monitoring, BTC monitoring, price feeds, Telegram alerts, and X/Twitter alerts — each running in isolated threads with their own event loops and task queues.",
 		challenges: [
@@ -1021,7 +1028,7 @@ export default function ProjectDetails() {
 							{project.overview}
 						</p>
 
-						<div className="grid md:grid-cols-3 grid-cols-1 gap-6 mt-8">
+						<div className={`grid grid-cols-1 gap-6 mt-8 ${project.teamSize ? "md:grid-cols-4" : "md:grid-cols-3"}`}>
 							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
 								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Client</h3>
 								<p className="text-xl font-semibold text-foreground">{project.client}</p>
@@ -1030,6 +1037,12 @@ export default function ProjectDetails() {
 								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Duration</h3>
 								<p className="text-xl font-semibold text-foreground">{project.duration}</p>
 							</div>
+							{project.teamSize && (
+								<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
+									<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Team</h3>
+									<p className="text-xl font-semibold text-foreground">{project.teamSize}</p>
+								</div>
+							)}
 							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
 								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Category</h3>
 								<p className="text-xl font-semibold text-foreground">{project.category}</p>
@@ -1070,7 +1083,7 @@ export default function ProjectDetails() {
 									postTitle=""
 								/>
 								<div className="mt-8">
-									<Carousel items={project.galleryImages} type="image" captions={project.galleryImageCaptions} />
+									<Carousel items={project.galleryImages} captions={project.galleryImageCaptions} />
 								</div>
 							</div>
 						)}
@@ -1084,7 +1097,7 @@ export default function ProjectDetails() {
 									postTitle=""
 								/>
 								<div className="mt-8">
-									<Carousel items={project.galleryGifs} type="image" />
+									<Carousel items={project.galleryGifs} />
 								</div>
 							</div>
 						)}

@@ -324,7 +324,7 @@ function CarouselImage({ src, alt, priority = false }: { src: string; alt: strin
 					src={src}
 					alt={alt}
 					className="h-full w-full object-cover"
-					loading={priority ? "eager" : "lazy"}
+					loading="eager"
 					decoding="async"
 					fetchPriority={priority ? "high" : "low"}
 					onLoad={() => setIsLoading(false)}

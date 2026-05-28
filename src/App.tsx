@@ -6,6 +6,7 @@ import MainLayout from "./layouts/main"
 import Clients from "./pages/clients"
 import ServicesProductEngineering from "./pages/services/product-engineering"
 import ServicesAIData from "./pages/services/ai-data"
+import ServicesAIDataDetail from "./pages/services/ai-data/service-details"
 import ServicesCloudPlatform from "./pages/services/cloud-platform"
 import ServicesLegacyModernization from "./pages/services/legacy-modernization"
 import ServicesDigitalExperience from "./pages/services/digital-experience"
@@ -32,6 +33,7 @@ function App() {
 						<Route index element={<Navigate to="/services/ai-data" replace />} />
 						<Route index path="product-engineering" element={<ServicesProductEngineering />} />
 						<Route index path="ai-data" element={<ServicesAIData />} />
+						<Route path="ai-data/:serviceId" element={<ServicesAIDataDetail />} />
 						<Route index path="cloud-platform" element={<ServicesCloudPlatform />} />
 						<Route index path="legacy-modernization" element={<ServicesLegacyModernization />} />
 						<Route index path="digital-experience" element={<ServicesDigitalExperience />} />

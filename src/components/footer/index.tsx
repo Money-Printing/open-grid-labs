@@ -11,6 +11,7 @@ const footerLinks = {
     { name: "Cloud & Platform", href: "/services/cloud-platform" },
     { name: "Modernization", href: "/services/legacy-modernization" },
     { name: "Digital Experience", href: "/services/digital-experience" },
+    { name: "BFSI & Fintech", href: "/services/bfsi-fintech" },
   ],
   About: [
     { name: "About Us", href: "/about/about-us" },

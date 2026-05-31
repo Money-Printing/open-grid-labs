@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import PageHeading from "../../../../../components/page-heading";
 
-
 const WHAT_THEY_DO = [
 	{ label: "Engineering & Development", count: 3, color: "hsl(210,100%,60%)" },
 	{ label: "Strategy & Leadership", count: 2, color: "hsl(270,80%,65%)" },
@@ -13,7 +12,7 @@ const WHAT_THEY_DO = [
 
 const SKILLS = [
 	{ label: "Full Stack Engineering", count: 2, color: "hsl(210,100%,60%)" },
-	{ label: "System Architecture", count: 2, color: "hsl(210,100%,60%)" },
+	{ label: "System Architecture", count: 2, color: "hsl(250,90%,65%)" },
 	{ label: "Machine Learning / AI", count: 1, color: "hsl(270,80%,65%)" },
 	{ label: "Test Automation / SDET", count: 1, color: "hsl(160,75%,50%)" },
 	{ label: "Digital Marketing", count: 1, color: "hsl(38,100%,55%)" },
@@ -40,18 +39,28 @@ function AnimatedBar({ pct, color, delay = 0 }: { pct: number; color: string; de
 	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		let timeoutId: number | null = null;
 		const observer = new IntersectionObserver(
 			([entry]) => {
-				if (entry.isIntersecting) {
-					setTimeout(() => setWidth(pct), delay);
+				if (entry.isIntersecting && timeoutId === null) {
+					timeoutId = window.setTimeout(() => setWidth(pct), delay);
 					observer.disconnect();
 				}
 			},
 			{ threshold: 0.2 }
 		);
 		if (ref.current) observer.observe(ref.current);
-		return () => observer.disconnect();
+		return () => {
+			observer.disconnect();
+			if (timeoutId !== null) {
+				window.clearTimeout(timeoutId);
+			}
+		};
 	}, [pct, delay]);
+
+	const shadowColor = color.startsWith("hsl")
+		? color.replace("hsl", "hsla").replace(")", ", 0.375)")
+		: `${color}60`;
 
 	return (
 		<div ref={ref} className="h-2 rounded-full bg-foreground/8 overflow-hidden">
@@ -60,8 +69,8 @@ function AnimatedBar({ pct, color, delay = 0 }: { pct: number; color: string; de
 				style={{
 					width: `${width}%`,
 					background: color,
-					transition: "width 0.8s cubic-bezier(0.16,1,0.3,1)",
-					boxShadow: `0 0 10px ${color}60`,
+					transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+					boxShadow: `0 0 10px ${shadowColor}`,
 				}}
 			/>
 		</div>
@@ -70,24 +79,30 @@ function AnimatedBar({ pct, color, delay = 0 }: { pct: number; color: string; de
 
 function StatPanel({
 	title,
+	description,
 	rows,
 	maxCount,
 	accentColor,
 }: {
 	title: string;
+	description?: string;
 	rows: { label: string; count: number; color: string }[];
 	maxCount: number;
 	accentColor: string;
 }) {
 	return (
 		<div
-			className="flex flex-col gap-6 p-6 sm:p-8 rounded-[28px] border border-black/5 dark:border-white/5 bg-white/60 dark:bg-foreground/[0.03]"
-			style={{ backdropFilter: "blur(12px)" }}
+			className="flex flex-col gap-6 p-6 sm:p-8 rounded-[28px] border border-black/5 dark:border-white/5 bg-white/60 dark:bg-foreground/[0.03] backdrop-blur-md"
 		>
 			{/* Panel header */}
-			<div className="flex items-center gap-3 pb-4 border-b border-black/5 dark:border-white/5">
-				<div className="w-1 h-6 rounded-full" style={{ background: accentColor }} />
-				<h3 className="text-sm font-bold tracking-[0.25em] uppercase text-foreground/60">{title}</h3>
+			<div className="flex flex-col gap-1 pb-4 border-b border-black/5 dark:border-white/5">
+				<div className="flex items-center gap-3">
+					<div className="w-1 h-6 rounded-full" style={{ background: accentColor }} />
+					<h3 className="text-sm font-bold tracking-[0.25em] uppercase text-foreground/60">{title}</h3>
+				</div>
+				{description && (
+					<p className="text-xs text-muted-foreground mt-1 font-medium">{description}</p>
+				)}
 			</div>
 
 			{/* Rows */}
@@ -123,6 +138,10 @@ export default function TeamSection() {
 		return () => clearTimeout(t);
 	}, []);
 
+	const maxWhatTheyDo = Math.max(...WHAT_THEY_DO.map(r => r.count));
+	const maxSkills = Math.max(...SKILLS.map(r => r.count));
+	const maxSeniority = Math.max(...SENIORITY.map(r => r.count));
+
 	return (
 		<section className="relative w-full flex flex-col items-center gap-16 py-24 overflow-hidden">
 			{/* Ambient glows */}
@@ -142,18 +161,16 @@ export default function TeamSection() {
 				}}
 			>
 				<div
-					className="w-full rounded-[28px] border border-black/5 dark:border-white/5 bg-white/60 dark:bg-foreground/[0.03]"
-					style={{ backdropFilter: "blur(12px)" }}
+					className="w-full rounded-[28px] border border-black/5 dark:border-white/5 bg-white/60 dark:bg-foreground/[0.03] backdrop-blur-md"
 				>
 					<div className="grid grid-cols-2 md:grid-cols-4">
 						{SUMMARY_STATS.map((stat, i) => (
 							<div
 								key={i}
-								className={`flex flex-col items-center justify-center py-8 sm:py-10 gap-1 ${
-									i < SUMMARY_STATS.length - 1
+								className={`flex flex-col items-center justify-center py-8 sm:py-10 gap-1 ${i < SUMMARY_STATS.length - 1
 										? "border-r border-black/5 dark:border-white/5"
 										: ""
-								}`}
+									}`}
 							>
 								<span
 									className="text-4xl sm:text-5xl font-bold tracking-tight"
@@ -187,24 +204,26 @@ export default function TeamSection() {
 			>
 				<StatPanel
 					title="What They Do"
+					description="Roles allocated (members span multiple operational functions)"
 					rows={WHAT_THEY_DO}
-					maxCount={3}
+					maxCount={maxWhatTheyDo}
 					accentColor="hsl(210,100%,60%)"
 				/>
 				<StatPanel
 					title="What They Are Skilled At"
+					description="Core expertise mapped across engineering & business domains"
 					rows={SKILLS}
-					maxCount={2}
+					maxCount={maxSkills}
 					accentColor="hsl(270,80%,65%)"
 				/>
 				<StatPanel
 					title="Team Seniority"
+					description="Headcount distribution by tier (strictly totals to 6 members)"
 					rows={SENIORITY}
-					maxCount={2}
+					maxCount={maxSeniority}
 					accentColor="hsl(160,75%,50%)"
 				/>
 			</div>
-
 		</section>
 	);
 }

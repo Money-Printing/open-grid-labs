@@ -6,14 +6,7 @@ import { ArrowRight, BrainCircuit, Database, Cpu } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { Anaconda, Jupyter, PyTorch, Tensorflow } from "../../../icons/tools";
 import { Link } from "react-router";
-
-// Slugify helper for service routes
-const slugify = (text: string) => {
-	return text
-		.toLowerCase()
-		.replace(/[^a-z0-9]+/g, "-")
-		.replace(/(^-|-$)+/g, "");
-};
+import { slugify } from "../../../utils/slugify";
 
 const aiServices = [
 	"Agentic AI", "Large Language Models", "Voice to Text Converter", "AI Strategy Consulting",

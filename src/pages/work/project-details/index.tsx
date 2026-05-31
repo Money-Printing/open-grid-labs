@@ -5,69 +5,481 @@ import SEO from "../../../components/seo";
 import { CheckCircle2 } from "lucide-react";
 import Indicator from "../../../components/ui/indicator";
 import Carousel from "../../../components/ui/carousel";
-import { projectsData } from "./data";
-import type { ArchitectureLayer } from "./data";
 
-
-const ARCH_COLORS = [
-	{ bg: "rgba(59,130,246,0.08)",  border: "rgba(59,130,246,0.25)",  text: "hsl(210,100%,62%)" },
-	{ bg: "rgba(139,92,246,0.08)",  border: "rgba(139,92,246,0.25)",  text: "hsl(270,80%,70%)" },
-	{ bg: "rgba(16,185,129,0.08)",  border: "rgba(16,185,129,0.25)",  text: "hsl(160,75%,50%)" },
-	{ bg: "rgba(245,158,11,0.08)",  border: "rgba(245,158,11,0.25)",  text: "hsl(38,100%,58%)" },
-	{ bg: "rgba(6,182,212,0.08)",   border: "rgba(6,182,212,0.25)",   text: "hsl(190,90%,52%)" },
-	{ bg: "rgba(236,72,153,0.08)",  border: "rgba(236,72,153,0.25)",  text: "hsl(330,80%,65%)" },
-	{ bg: "rgba(249,115,22,0.08)",  border: "rgba(249,115,22,0.25)",  text: "hsl(24,100%,58%)" },
-	{ bg: "rgba(124,58,237,0.08)",  border: "rgba(124,58,237,0.25)",  text: "hsl(258,80%,68%)" },
-	{ bg: "rgba(244,63,94,0.08)",   border: "rgba(244,63,94,0.25)",   text: "hsl(350,85%,65%)" },
-];
-
-function ArchitectureDiagram({ layers }: { layers: ArchitectureLayer[] }) {
-	return (
-		<div className="flex flex-col items-center w-full gap-0">
-			{layers.map((layer, li) => {
-				const c = ARCH_COLORS[li % ARCH_COLORS.length];
-				return (
-					<div key={li} className="w-full flex flex-col items-center">
-						{/* Layer card */}
-						<div className="w-full rounded-2xl overflow-hidden" style={{ border: `1px solid ${c.border}` }}>
-							{/* Header */}
-							<div className="px-4 sm:px-5 py-2.5" style={{ background: c.bg, borderBottom: `1px solid ${c.border}` }}>
-								<span className="text-xs sm:text-sm font-bold tracking-widest uppercase" style={{ color: c.text }}>
-									{layer.title}
-								</span>
-							</div>
-							{/* Items */}
-							<div className="p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
-								{layer.items.map((item, ii) => (
-									<div key={ii} className="rounded-xl px-3 sm:px-4 py-2.5 sm:py-3" style={{ background: c.bg, border: `1px solid ${c.border}` }}>
-										<p className="text-xs sm:text-sm font-semibold text-foreground">{item.name}</p>
-										{item.detail && (
-											<p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">{item.detail}</p>
-										)}
-									</div>
-								))}
-							</div>
-						</div>
-
-						{/* Connector */}
-						{li < layers.length - 1 && (
-							<div className="flex flex-col items-center my-2 gap-1">
-								{layer.connector && (
-									<span className="text-[11px] text-muted-foreground font-medium tracking-wide px-2 py-0.5 rounded-full bg-foreground/5 border border-border">
-										{layer.connector}
-									</span>
-								)}
-								<svg width="16" height="20" viewBox="0 0 16 20" className="text-muted-foreground/40">
-									<path d="M8 0 L8 14 M3 9 L8 14 L13 9" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-								</svg>
-							</div>
-						)}
-					</div>
-				);
-			})}
-		</div>
-	);
+interface ProjectDetail {
+	id: string;
+	title: string;
+	description: string;
+	category: string;
+	client: string;
+	duration: string;
+	technologies: string[];
+	overview: string;
+	challenges: string[];
+	solutions: string[];
+	features: string[];
+	results: {
+		metric: string;
+		value: string;
+	}[];
+	videoUrl?: string;
+	galleryImages?: string[];
+	galleryGifs?: string[];
 }
+
+const projectsData: Record<string, ProjectDetail> = {
+	"frontend-microscopic-scanner": {
+		id: "frontend-microscopic-scanner",
+		title: "Web application for microscopic scanner",
+		description: "A highly intuitive web application for microscopic scanner that streamlines workflows and improves accuracy.",
+		category: "Medical Technology",
+		client: "Morphle Labs",
+		duration: "1 year",
+		technologies: ["React", "javascript", "python", "django", "java", "c++", "mysql", "nginx", "linux"],
+		overview: "Developed a cutting-edge web application for microscopic scanner that enables medical professionals to analyze microscopic images with enhanced precision. The application features real-time image processing, advanced zoom capabilities, and automated detection algorithms.",
+		challenges: [
+			"Processing high-resolution medical images in real-time without performance degradation",
+			"Creating an intuitive interface for complex medical image analysis",
+			"Implementing accurate automated detection algorithms",
+			"Ensuring HIPAA compliance and data security"
+		],
+		solutions: [
+			"Implemented WebGL-based rendering for smooth, high-performance image processing",
+			"Designed a user-centric interface with customizable workflows",
+			"Integrated machine learning models for automated detection and analysis",
+			"Built a secure backend with encryption and access controls"
+		],
+		features: [
+			"Real-time image processing and analysis",
+			"Advanced zoom and pan controls",
+			"Automated cell detection and counting",
+			"Annotation and measurement tools",
+			"Report generation and export",
+			"Multi-user collaboration features",
+			"Cloud-based image storage and retrieval"
+		],
+		results: [
+			{ metric: "Processing Speed", value: "10x faster" },
+			{ metric: "User Satisfaction", value: "100%" },
+			{ metric: "Time Saved", value: "500%" }
+		],
+		videoUrl: "/videos/microscopic-scanner/scanner.mp4",
+		galleryImages: [
+			"/images/microscopic-scanner/scannerimage1.png",
+			"/images/microscopic-scanner/scannerimage2.png"
+		],
+		galleryGifs: []
+	},
+	"cloud-medical-devices": {
+		id: "cloud-medical-devices",
+		title: "Cloud Frontend/Backend for Medical Devices",
+		description: "A reliable cloud platform for managing and analyzing medical device data efficiently.",
+		category: "Healthcare Cloud",
+		client: "Healthcare Technology Company",
+		duration: "8 months",
+		technologies: ["React", "Node.js", "AWS", "PostgreSQL", "Docker", "Kubernetes", "Redis"],
+		overview: "Built a comprehensive cloud platform for managing medical device data, enabling healthcare providers to monitor patient vitals, track device performance, and analyze trends. The platform supports real-time data streaming, alerts, and comprehensive reporting.",
+		challenges: [
+			"Handling real-time data streams from thousands of medical devices",
+			"Ensuring 99.99% uptime for critical healthcare operations",
+			"Managing large volumes of sensitive patient data securely",
+			"Creating scalable architecture for growing device ecosystem"
+		],
+		solutions: [
+			"Implemented microservices architecture with containerization",
+			"Deployed on AWS with auto-scaling and load balancing",
+			"Built real-time data pipeline using WebSockets and message queues",
+			"Implemented comprehensive security measures and compliance protocols"
+		],
+		features: [
+			"Real-time device monitoring and alerts",
+			"Historical data analysis and reporting",
+			"Device management and configuration",
+			"Patient vitals dashboard",
+			"Automated alert system",
+			"Data export and integration APIs",
+			"Role-based access control"
+		],
+		results: [
+			{ metric: "Uptime", value: "99.99%" },
+			{ metric: "Devices Supported", value: "10,000+" },
+			{ metric: "Response Time", value: "<100ms" },
+			{ metric: "Data Processed", value: "5TB/day" }
+		],
+		videoUrl: "https://www.w3schools.com/html/movie.mp4",
+		galleryImages: [
+			"https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&q=80&w=2070",
+			"https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2080",
+			"https://images.unsplash.com/photo-1530497610245-94d3c16cda48?auto=format&fit=crop&q=80&w=2080"
+		],
+		galleryGifs: [
+			"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
+			"https://media.giphy.com/media/3o7abKhOpu0NwnRgE8/giphy.gif"
+		]
+	},
+	"airtrader-trading-simulator": {
+		id: "airtrader-trading-simulator",
+		title: "AirTrader – Trading Simulator Application",
+		description: "A robust and user-friendly trading simulator for strategy testing and decision-making.",
+		category: "Fintech",
+		client: "ETG commodities",
+		duration: "6 months",
+		technologies: ["React", "typescript", "python", "django", "postgresql", "redis", "ChartIQ", "mongodb", "excel", "nginx", "linux"],
+		overview: "Developed a comprehensive trading simulator that allows users to practice trading strategies with real-time market data without risking real money. Features include portfolio management, technical analysis tools, and performance analytics.",
+		challenges: [
+			"Simulating realistic market conditions and order execution",
+			"Handling real-time market data feeds efficiently",
+			"Creating accurate backtesting capabilities",
+			"Building intuitive charting and analysis tools"
+		],
+		solutions: [
+			"Integrated real-time market data APIs with caching mechanisms",
+			"Implemented realistic order matching engine",
+			"Built comprehensive backtesting framework with historical data",
+			"Developed interactive charts with technical indicators"
+		],
+		features: [
+			"Real-time market data simulation",
+			"Portfolio management and tracking",
+			"Technical analysis tools and indicators",
+			"Backtesting capabilities",
+			"Performance analytics and reports",
+			"Risk management tools",
+			"Educational resources and tutorials"
+		],
+		results: [
+			{ metric: "Active Users", value: "1000" },
+			{ metric: "Trades Simulated", value: "1m+" },
+			{ metric: "Skill Improvement", value: "200%" }
+		],
+		videoUrl: "/videos/airtrader-trading-simulator/airtraderdemo.mp4",
+		galleryImages: [
+			"/images/airtrader-trading-simulator/airtraderimage1.png",
+			"/images/airtrader-trading-simulator/airtraderimage2.png",
+			"/images/airtrader-trading-simulator/airtraderimage3.png",
+			"/images/airtrader-trading-simulator/airtraderimage4.png",
+			"/images/airtrader-trading-simulator/airtraderimage5.png",
+			"/images/airtrader-trading-simulator/airtraderimage6.png",
+			"/images/airtrader-trading-simulator/airtraderimage7.png",
+			"/images/airtrader-trading-simulator/airtraderimage8.png",
+			"/images/airtrader-trading-simulator/airtraderimage9.png",
+			"/images/airtrader-trading-simulator/airtraderimage10.png"
+		],
+		galleryGifs: []
+	},
+	"crypto-analytical-tools": {
+		id: "crypto-analytical-tools",
+		title: "Crypto Analytical Tools",
+		description: "Comprehensive crypto analysis tools providing actionable insights for investments.",
+		category: "Cryptocurrency",
+		client: "Crypto Investment Firm",
+		duration: "7 months",
+		technologies: ["React", "TypeScript", "Python", "Django", "MongoDB", "WebSocket", "D3.js"],
+		overview: "Created a sophisticated cryptocurrency analysis platform with real-time market data, advanced charting, sentiment analysis, and automated trading signals. The platform aggregates data from multiple exchanges and provides comprehensive market insights.",
+		challenges: [
+			"Aggregating data from multiple cryptocurrency exchanges",
+			"Processing high-frequency market data updates",
+			"Implementing accurate technical analysis algorithms",
+			"Creating real-time sentiment analysis from social media"
+		],
+		solutions: [
+			"Built scalable data aggregation pipeline with WebSocket connections",
+			"Implemented efficient data processing with Python and caching",
+			"Developed custom technical indicators and signals",
+			"Integrated NLP models for sentiment analysis"
+		],
+		features: [
+			"Real-time multi-exchange market data",
+			"Advanced charting with 50+ indicators",
+			"Sentiment analysis from social media",
+			"Automated trading signals",
+			"Portfolio tracking and analytics",
+			"Price alerts and notifications",
+			"Historical data analysis"
+		],
+		results: [
+			{ metric: "Markets Tracked", value: "500+" },
+			{ metric: "Data Points/Second", value: "10,000+" },
+			{ metric: "Prediction Accuracy", value: "75%" },
+			{ metric: "User ROI Improvement", value: "35%" }
+		],
+		videoUrl: "https://www.w3schools.com/html/movie.mp4",
+		galleryImages: [
+			"https://images.unsplash.com/photo-1621504450168-b8c4375b2b80?auto=format&fit=crop&q=80&w=2070",
+			"https://images.unsplash.com/photo-1622630998477-20aa696fab05?auto=format&fit=crop&q=80&w=2070",
+			"https://images.unsplash.com/photo-1605792657660-596af9009e82?auto=format&fit=crop&q=80&w=2002"
+		],
+		galleryGifs: [
+			"https://media.giphy.com/media/7FBY7h5Pcyh6BbILFB/giphy.gif",
+			"https://media.giphy.com/media/l0HlJDaeqNUDhhaCt/giphy.gif"
+		]
+	},
+	"tread-pattern-dashboard": {
+		id: "tread-pattern-dashboard",
+		title: "Tread Pattern Monitoring System POC & Analytical Dashboard",
+		description: "Advanced monitoring system and analytics dashboard to simplify complex data and enhance efficiency.",
+		category: "Industrial IoT",
+		client: "Automotive Manufacturer",
+		duration: "6 months",
+		technologies: ["React", "TypeScript", "Python", "TensorFlow", "PostgreSQL", "MQTT", "Grafana"],
+		overview: "Developed a proof-of-concept monitoring system that uses computer vision and IoT sensors to analyze tire tread patterns, predict wear, and provide maintenance recommendations. The analytical dashboard visualizes complex data and provides actionable insights.",
+		challenges: [
+			"Processing high-resolution tire images in real-time",
+			"Developing accurate tread wear prediction models",
+			"Integrating with existing manufacturing systems",
+			"Visualizing complex 3D tread pattern data"
+		],
+		solutions: [
+			"Implemented computer vision models using TensorFlow",
+			"Built edge computing solution for on-site processing",
+			"Created API integrations with manufacturing systems",
+			"Developed custom 3D visualization components"
+		],
+		features: [
+			"Real-time tread pattern analysis",
+			"Predictive maintenance alerts",
+			"3D pattern visualization",
+			"Historical trend analysis",
+			"Quality control dashboard",
+			"Automated reporting system",
+			"Integration with ERP systems"
+		],
+		results: [
+			{ metric: "Detection Accuracy", value: "98%" },
+			{ metric: "Maintenance Cost Reduction", value: "30%" },
+			{ metric: "Processing Time", value: "5 sec/tire" },
+			{ metric: "Defect Detection", value: "95%" }
+		],
+		videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+		galleryImages: [
+			"https://images.unsplash.com/photo-1487887235942-6101435aa7a1?auto=format&fit=crop&q=80&w=1974",
+			"https://images.unsplash.com/photo-1579609598045-60479b660cb8?auto=format&fit=crop&q=80&w=2070",
+			"https://images.unsplash.com/photo-1583198432859-634bb3284951?auto=format&fit=crop&q=80&w=2070"
+		],
+		galleryGifs: [
+			"https://media.giphy.com/media/Q81NcsY6YxK7jxnr4v/giphy.gif",
+			"https://media.giphy.com/media/3o7qEcqN5PjN90jNC0/giphy.gif"
+		]
+	},
+	"crypto-deribit-option-trader": {
+		id: "crypto-deribit-option-trader",
+		title: "Crypto Deribit Option Trader",
+		description: "Created the infrastructure and software that trades option strategies with fastest latency possible on Deribit exchange",
+		category: "Cryptocurrency Trading",
+		client: "Crypto Trading Firm",
+		duration: "8 months",
+		technologies: ["Python", "C++", "WebSocket", "Deribit API", "Redis", "PostgreSQL", "Linux", "Docker"],
+		overview: "Built a high-performance automated trading system for options on the Deribit exchange, leveraging ultra-low latency infrastructure and advanced option trading strategies. The system executes trades with millisecond precision, monitors market conditions in real-time, and manages risk automatically.",
+		challenges: [
+			"Achieving ultra-low latency for competitive advantage in options trading",
+			"Implementing complex option Greeks calculations and hedging strategies",
+			"Managing risk across multiple positions and strategies",
+			"Handling high-frequency data streams and order execution"
+		],
+		solutions: [
+			"Optimized backend with C++ for critical path components",
+			"Direct WebSocket connection to Deribit with custom protocol optimization",
+			"Pre-calculated Greeks and dynamic hedging algorithms",
+			"Advanced position management and risk monitoring system"
+		],
+		features: [
+			"Ultra-low latency order execution (<10ms)",
+			"Real-time Greeks calculation (Delta, Gamma, Vega, Theta)",
+			"Automated hedging and risk management",
+			"Multi-strategy support and execution",
+			"Real-time P&L tracking and analytics",
+			"Order book monitoring and optimization",
+			"Automated position closing and rebalancing"
+		],
+		results: [
+			{ metric: "Order Latency", value: "<5ms" },
+			{ metric: "Execution Success", value: "99.8%" },
+			{ metric: "Win Rate", value: "72%" },
+			{ metric: "Daily Volume", value: "$2M+" }
+		],
+		videoUrl: "",
+		galleryImages: [],
+		galleryGifs: []
+	},
+	"champspace": {
+		id: "champspace",
+		title: "Champspace - Learn & Earn Platform",
+		description: "An edtech platform where students learn through courses and earn money by completing them",
+		category: "EdTech",
+		client: "champspace.in",
+		duration: "3 months",
+		technologies: ["React", "Django", "TypeScript", "MongoDB", "Stripe", "AWS"],
+		overview: "Built a revolutionary learning management system that incentivizes education by paying students as they complete courses. The platform provides a seamless learning experience with video content, assessments, and a transparent reward mechanism that converts learning into real earnings.",
+		challenges: [
+			"Creating engaging course content delivery with video streaming",
+			"Implementing fair and transparent payment system for course completion",
+			"Building robust user progress tracking and verification",
+			"Ensuring platform scalability for thousands of concurrent learners"
+		],
+		solutions: [
+			"Developed adaptive learning interface with video streaming optimization",
+			"Integrated Stripe for secure payment processing and payouts",
+			"Built comprehensive progress verification and fraud detection system",
+			"Deployed on AWS with auto-scaling infrastructure"
+		],
+		features: [
+			"Video-based course content with progress tracking",
+			"Real-time earnings dashboard",
+			"Automated course completion verification",
+			"Secure payment and payout system",
+			"User certificates and credentials",
+			"Progress leaderboards and gamification",
+			"Instructor course management tools"
+		],
+		results: [
+			{ metric: "Active Students", value: "25,000+" },
+			{ metric: "Total Payouts", value: "$10k+" },
+			{ metric: "Course Completion", value: "78%" },
+			{ metric: "User Retention", value: "65%" }
+		],
+		videoUrl: "/videos/champspace/champspace.mp4",
+		galleryImages: [
+			"/images/champspace/champspaceimage1.PNG",
+			"/images/champspace/Champspaceimage2.PNG",
+			"/images/champspace/champspaceimage3.PNG",
+			"/images/champspace/champspaceimage4.PNG",
+			"/images/champspace/champspaceimage5.PNG"
+		],
+		galleryGifs: []
+	},
+	"adnow": {
+		id: "adnow",
+		title: "Adnow - Unified Ad Management Platform",
+		description: "A comprehensive ad agency solution providing one-centric management for all ads across Meta, Google, Amazon, and more",
+		category: "MarTech/AdTech",
+		client: "Digital Marketing Agency",
+		duration: "1 month and active",
+		technologies: ["React", "Django", "TypeScript", "Python", "PostgreSQL", "Redis", "AWS", "REST APIs"],
+		overview: "Developed a unified advertising management platform that consolidates campaign management across multiple advertising networks including Meta, Google, and Amazon. The platform provides centralized analytics, budget management, and campaign optimization across all channels from a single dashboard.",
+		challenges: [
+			"Integrating with multiple ad network APIs with different specifications",
+			"Unifying analytics data from disparate sources",
+			"Real-time bid management and budget optimization",
+			"Handling high-volume campaign data and reporting"
+		],
+		solutions: [
+			"Built abstraction layer for multi-platform ad network integration",
+			"Implemented unified analytics aggregation and normalization",
+			"Created intelligent budget allocation algorithms",
+			"Deployed data warehouse for efficient reporting"
+		],
+		features: [
+			"Unified dashboard for all advertising platforms",
+			"Multi-channel campaign creation and management",
+			"Real-time performance analytics and reporting",
+			"Intelligent budget allocation and optimization",
+			"A/B testing and experimentation framework",
+			"Automated bid management and adjustments",
+			"Comprehensive ROI and performance metrics"
+		],
+		results: [
+			{ metric: "Platforms Integrated", value: "8+" },
+			{ metric: "Monthly Campaigns", value: "500+" },
+			{ metric: "Spend Managed", value: "$10k+" },
+			{ metric: "ROAS Improvement", value: "40%" }
+		],
+		videoUrl: "/videos/adnow/adnowdemo.mp4",
+		galleryImages: [
+			"/images/adnow/adnowimage1.PNG",
+			"/images/adnow/adnowimage2.PNG",
+			"/images/adnow/adnowimage3.PNG",
+			"/images/adnow/adnowimage4.PNG"
+		],
+		galleryGifs: []
+	},
+	"curiote": {
+		id: "curiote",
+		title: "Curiote - Sentiment Analysis Tool",
+		description: "Advanced sentiment analysis tool enabling real-time market insights for stocks and crypto.",
+		category: "Fintech / Blockchain",
+		client: "Curiote",
+		duration: "5 months and Continue",
+		technologies: ["React", "typescript", "python", "django", "postgresql", "redis", "ChartIQ", "mongodb", "excel", "nginx", "linux", "NLP", "Machine Learning"],
+		overview: "Developed a powerful sentiment analysis tool that aggregates and analyzes data from various sources to provide real-time market sentiment for stocks and cryptocurrencies.",
+		challenges: [
+			"Aggregating data from diverse and unstructured sources",
+			"Real-time processing of high-volume social media streams",
+			"Developing accurate sentiment scoring models",
+			"Visualizing complex sentiment trends effectively"
+		],
+		solutions: [
+			"Implemented advanced NLP pipelines for text analysis",
+			"Utilized high-performance message queues for data ingestion",
+			"Trained custom ML models on financial datasets",
+			"Created interactive dashboards with dynamic charting"
+		],
+		features: [
+			"Real-time sentiment scoring",
+			"Social media trend analysis",
+			"News correlation with price action",
+			"Customizable alerts and notifications",
+			"Historical sentiment backtesting",
+			"Multi-asset support (Stocks & Crypto)",
+			"API access for algorithmic trading"
+		],
+		results: [
+			{ metric: "Data Sources", value: "20+" },
+			{ metric: "Processing Speed", value: "<100ms" },
+			{ metric: "Accuracy", value: "85%" },
+			{ metric: "User Growth", value: "40% MoM" }
+		],
+		videoUrl: "",
+		galleryImages: [],
+		galleryGifs: []
+	},
+	"data-engineering-datascience": {
+		id: "data-engineering-datascience",
+		title: "Data Engineering & Data Science Platform",
+		description: "End-to-end data engineering and data science solution powering scalable pipelines, advanced analytics, and ML-driven insights.",
+		category: "Data Engineering / Data Science",
+		client: "Enterprise Analytics Firm",
+		duration: "6 months and active",
+		technologies: ["Python", "Apache Spark", "Apache Airflow", "Kafka", "Snowflake", "dbt", "PostgreSQL", "AWS S3", "Redshift", "Docker", "Kubernetes", "Pandas", "Scikit-learn", "TensorFlow", "Jupyter", "Tableau", "Power BI"],
+		overview: "Designed and built a comprehensive data engineering and data science platform that unifies data ingestion, transformation, warehousing, and machine learning workflows. The platform automates ETL/ELT pipelines to process terabytes of raw data from diverse sources, transforms it into analytics-ready datasets, and powers predictive models and interactive dashboards for data-driven decision making.",
+		challenges: [
+			"Ingesting and processing data from 50+ heterogeneous sources with varying formats and schemas",
+			"Building fault-tolerant, scalable ETL pipelines that handle terabyte-scale data volumes",
+			"Ensuring data quality, lineage tracking, and governance across the entire data lifecycle",
+			"Deploying and monitoring ML models in production with minimal latency",
+			"Providing self-service analytics capabilities to non-technical stakeholders"
+		],
+		solutions: [
+			"Built modular data ingestion framework with Apache Kafka for real-time streaming and Airflow for batch orchestration",
+			"Implemented a medallion architecture (Bronze, Silver, Gold) using dbt and Snowflake for reliable data transformation",
+			"Developed automated data quality checks, schema validation, and lineage tracking with custom metadata catalog",
+			"Created ML pipeline with feature store, model registry, and automated retraining using MLflow and Kubernetes",
+			"Deployed interactive Tableau and Power BI dashboards with real-time data refresh"
+		],
+		features: [
+			"Automated ETL/ELT pipelines with Apache Airflow orchestration",
+			"Real-time data streaming and event processing with Kafka",
+			"Data warehouse with medallion architecture (Bronze/Silver/Gold layers)",
+			"ML model training, deployment, and monitoring pipeline",
+			"Feature store for reusable ML features across teams",
+			"Interactive dashboards and self-service analytics",
+			"Data quality monitoring and anomaly detection",
+			"Data lineage tracking and governance",
+			"Predictive analytics and forecasting models"
+		],
+		results: [
+			{ metric: "Data Sources Integrated", value: "50+" },
+			{ metric: "Daily Data Processed", value: "2TB+" },
+			{ metric: "Pipeline Reliability", value: "99.9%" },
+			{ metric: "ML Model Accuracy", value: "92%" },
+			{ metric: "Reporting Speed Improvement", value: "10x faster" }
+		],
+		videoUrl: "",
+		galleryImages: [],
+		galleryGifs: []
+	}
+};
+
+
 
 export default function ProjectDetails() {
 	const { projectId } = useParams<{ projectId: string }>();
@@ -93,7 +505,7 @@ export default function ProjectDetails() {
 				description={project.description}
 			/>
 
-			<div className="w-[90%] max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10 sm:space-y-16">
+			<div className="w-[90%] max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
 				{/* Project Overview */}
 				<section>
 					<PageHeading
@@ -106,7 +518,7 @@ export default function ProjectDetails() {
 							{project.overview}
 						</p>
 
-						<div className={`grid grid-cols-1 gap-6 mt-8 ${project.teamSize ? "md:grid-cols-4" : "md:grid-cols-3"}`}>
+						<div className="grid md:grid-cols-3 grid-cols-1 gap-6 mt-8">
 							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
 								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Client</h3>
 								<p className="text-xl font-semibold text-foreground">{project.client}</p>
@@ -115,12 +527,6 @@ export default function ProjectDetails() {
 								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Duration</h3>
 								<p className="text-xl font-semibold text-foreground">{project.duration}</p>
 							</div>
-							{project.teamSize && (
-								<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
-									<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Team</h3>
-									<p className="text-xl font-semibold text-foreground">{project.teamSize}</p>
-								</div>
-							)}
 							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
 								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Category</h3>
 								<p className="text-xl font-semibold text-foreground">{project.category}</p>
@@ -140,7 +546,7 @@ export default function ProjectDetails() {
 									mainTitle="Video"
 									postTitle="Demo"
 								/>
-								<div className="mt-8 rounded-xl border border-border bg-white/50 dark:bg-foreground/5 min-h-[220px] sm:min-h-[400px] md:min-h-[500px] flex items-center justify-center">
+								<div className="mt-8 rounded-xl border border-border bg-white/50 dark:bg-foreground/5 min-h-[500px] flex items-center justify-center">
 									<video
 										src={project.videoUrl}
 										controls
@@ -161,7 +567,7 @@ export default function ProjectDetails() {
 									postTitle=""
 								/>
 								<div className="mt-8">
-									<Carousel items={project.galleryImages} captions={project.galleryImageCaptions} />
+									<Carousel items={project.galleryImages} type="image" />
 								</div>
 							</div>
 						)}
@@ -175,23 +581,10 @@ export default function ProjectDetails() {
 									postTitle=""
 								/>
 								<div className="mt-8">
-									<Carousel items={project.galleryGifs} />
+									<Carousel items={project.galleryGifs} type="image" />
 								</div>
 							</div>
 						)}
-					</section>
-				)}
-
-				{/* Architecture */}
-				{project.architecture && (
-					<section>
-						<PageHeading preTitle="System" mainTitle="Architecture" postTitle="" />
-						<div className="mt-6 sm:mt-8 space-y-6 sm:space-y-8">
-							<p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-								{project.architecture.description}
-							</p>
-							<ArchitectureDiagram layers={project.architecture.layers} />
-						</div>
 					</section>
 				)}
 
@@ -219,7 +612,7 @@ export default function ProjectDetails() {
 					<div>
 						<div className="mb-6">
 							<Indicator />
-							<h2 className="text-2xl sm:text-3xl font-bold text-foreground mt-3">Challenges</h2>
+							<h2 className="text-3xl font-bold text-foreground mt-3">Challenges</h2>
 						</div>
 						<ul className="space-y-4">
 							{project.challenges.map((challenge, idx) => (
@@ -236,7 +629,7 @@ export default function ProjectDetails() {
 					<div>
 						<div className="mb-6">
 							<Indicator />
-							<h2 className="text-2xl sm:text-3xl font-bold text-foreground mt-3">Solutions</h2>
+							<h2 className="text-3xl font-bold text-foreground mt-3">Solutions</h2>
 						</div>
 						<ul className="space-y-4">
 							{project.solutions.map((solution, idx) => (
@@ -276,7 +669,7 @@ export default function ProjectDetails() {
 						mainTitle="& Impact"
 						postTitle=""
 					/>
-					<div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+					<div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-6">
 						{project.results.map((result, idx) => (
 							<div
 								key={idx}

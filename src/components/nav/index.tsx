@@ -23,7 +23,7 @@ const navItems = [
 				title: "More Services", desc: "Explore more services like Fintech experience", href: '/services#more', subDropdown: [
 					{ title: "Digital Experience", desc: "Modern UI & Performance", href: '/services/digital-experience' },
 					{ isHeading: true, title: "Industry" },
-					{ title: "BFSI & Fintech", desc: "Banking, Financial Services & Insurance", href: '/services/bfsi-fintech' }
+					{ title: "BFSI & Fintech", desc: "Banking, Financial Services & Insurance", href: '/industry/bfsi' }
 				]
 			},
 		],

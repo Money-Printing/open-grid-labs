@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ArrowRight, BrainCircuit, Database, Cpu } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { Anaconda, Jupyter, PyTorch, Tensorflow } from "../../../icons/tools";
+import { Link } from "react-router";
+import { slugify } from "../../../utils/slugify";
 
 const aiServices = [
 	"Agentic AI", "Large Language Models", "Voice to Text Converter", "AI Strategy Consulting",
@@ -253,14 +255,16 @@ function IntelligentServicesGrid() {
 
 						<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
 							{category.items.map((item, index) => (
-								<FramerParallaxCard key={index} index={index} highlight={category.highlight}>
-									<div className="flex items-center gap-3">
-										<div className="w-2 h-2 rounded-full" style={{ backgroundColor: category.highlight, boxShadow: `0 0 10px ${category.highlight}` }} />
-										<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">
-											{item}
-										</h4>
-									</div>
-								</FramerParallaxCard>
+								<Link key={index} to={`/services/ai-data/${slugify(item)}`} className="block cursor-pointer">
+									<FramerParallaxCard index={index} highlight={category.highlight}>
+										<div className="flex items-center gap-3">
+											<div className="w-2 h-2 rounded-full" style={{ backgroundColor: category.highlight, boxShadow: `0 0 10px ${category.highlight}` }} />
+											<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">
+												{item}
+											</h4>
+										</div>
+									</FramerParallaxCard>
+								</Link>
 							))}
 						</div>
 					</motion.div>

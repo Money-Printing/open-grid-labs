@@ -5,34 +5,40 @@ import { ProjectsGrid } from "./components/projects-grid";
 
 const projects = [
 	{
-		title: "Morphle Cloud & Scanners",
+		title: "Nexus - Microscopic Analysis Web Engine",
 		description:
-			"A cloud-connected whole-slide imaging platform that renders 100+ GB microscopic scans in-browser, controls robotic scanners, and delivers AI-assisted diagnostic reporting.",
+			"A highly intuitive web application for microscopic scanners that streamlines complex workflows and dramatically improves analytical accuracy.",
 		href: "/work/frontend-microscopic-scanner",
 	},
 	{
-		title: "Jarvis Labs — Whale Wallet Tracker",
+		title: "Aether - Medical Cloud Architecture",
 		description:
-			"A multi-chain whale wallet tracker covering Bitcoin, Ethereum, and USDT ERC-20 — interactive Plotly dashboard with copy-trade P&L, price impact analysis, and anti-detection scraping.",
-		href: "/work/whale-wallet-tracker",
+			"A reliable, mission-critical cloud platform engineered for managing, analyzing, and securing real-time medical device telemetry.",
+		href: "/work/cloud-medical-devices",
 	},
 	{
-		title: "AirTrader – Trader Training Simulator",
+		title: "AirTrader – Algorithmic Trading Simulator",
 		description:
-			"A full-stack trading simulation platform for commodity traders — play through historical scenarios day-by-day with realistic order execution, risk controls, and post-game performance analytics.",
+			"A robust, hyper-realistic trading simulator designed for high-frequency strategy testing and split-second decision-making.",
 		href: "/work/airtrader-trading-simulator",
 	},
 	{
-		title: "Matrix One — Widget Plug-in Framework",
+		title: "Cipher - Crypto Analytics Matrix",
 		description:
-			"A scalable widget plug-in framework letting third-party developers create and integrate custom widgets into a cloud product — ecosystem-grade extensibility from a solo build.",
-		href: "/work/widget-plugin-framework",
+			"Comprehensive cryptographic analysis tools providing real-time, actionable insights for high-stakes digital investments.",
+		href: "/work/crypto-analytical-tools",
 	},
 	{
-		title: "Galen Data — Cloud Platform",
+		title: "Tread - Predictive Telemetry Dashboard",
 		description:
-			"A configurable, scalable cloud platform that lets medical devices centralise data and leverage cloud infrastructure — full-stack from architecture to UI, built for FDA-context medical environments.",
-		href: "/work/galen-cloud-platform",
+			"Advanced monitoring system and predictive analytics dashboard designed to simplify complex mechanical data and enhance operational efficiency.",
+		href: "/work/tread-pattern-dashboard",
+	},
+	{
+		title: "Deribit - High-Frequency Option Trader",
+		description:
+			"Bespoke trading infrastructure engineered to execute complex option strategies with microsecond latency on the Deribit exchange.",
+		href: "/work/crypto-deribit-option-trader",
 	},
 	{
 		title: "Champspace - Learn-to-Earn Ecosystem",
@@ -41,16 +47,22 @@ const projects = [
 		href: "/work/champspace",
 	},
 	{
-		title: "AdNow - Unified Ad Management Platform",
+		title: "OmniAd - Unified Campaign Matrix",
 		description:
 			"A centralized ad agency command center providing seamless management for all campaigns across Meta, Google, Amazon, and emerging networks.",
 		href: "/work/adnow",
 	},
 	{
-		title: "Curiote - Whale Monitoring System",
+		title: "Curiote - Neural Sentiment Analyzer",
 		description:
-			"Real-time whale transaction detection across Bitcoin and Ethereum mainnet — tracking BTC, ETH, and 12+ ERC20 tokens with multi-platform alerts and a live React dashboard.",
+			"Advanced NLP-powered sentiment analysis tool enabling real-time global market insights for equities and cryptocurrency.",
 		href: "/work/curiote",
+	},
+	{
+		title: "DataHub - Scalable ML Pipeline",
+		description:
+			"End-to-end data engineering and machine learning solution powering hyperscale pipelines and delivering predictive, data-driven insights.",
+		href: "/work/data-engineering-datascience",
 	},
 ];
 

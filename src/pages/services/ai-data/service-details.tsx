@@ -25,6 +25,23 @@ import { generateServiceDetail } from "../../../utils/serviceDetailGenerator";
 import AIIntegrationServicesCaseStudy from "./case-studies/ai-integration-services";
 import LargeLanguageModelsCaseStudy from "./case-studies/large-language-models";
 import AIModelFineTuningCaseStudy from "./case-studies/ai-model-fine-tuning";
+import AIEthicsGovernanceCaseStudy from "./case-studies/ai-ethics-governance";
+import AIStrategyConsultingCaseStudy from "./case-studies/ai-strategy-consulting";
+import ExplainableAICaseStudy from "./case-studies/explainable-ai";
+import PromptEngineeringCaseStudy from "./case-studies/prompt-engineering";
+import TimeSeriesForecastingCaseStudy from "./case-studies/time-series-forecasting";
+import ModelOptimizationCaseStudy from "./case-studies/model-optimization";
+import FeatureEngineeringCaseStudy from "./case-studies/feature-engineering";
+import AutoMLSolutionsCaseStudy from "./case-studies/automl-solutions";
+import ABTestingMLCaseStudy from "./case-studies/a-b-testing-ml";
+import MLOpsPipelineCaseStudy from "./case-studies/mlops-pipeline";
+import ChatbotsVirtualAssistantsCaseStudy from "./case-studies/chatbots-virtual-assistants";
+import ContentGenerationCaseStudy from "./case-studies/content-generation";
+import IntentRecognitionCaseStudy from "./case-studies/intent-recognition";
+import LanguageTranslationCaseStudy from "./case-studies/language-translation";
+import NamedEntityRecognitionCaseStudy from "./case-studies/named-entity-recognition";
+import QuestionAnsweringCaseStudy from "./case-studies/question-answering";
+import SentimentAnalysisCaseStudy from "./case-studies/sentiment-analysis";
 
 const VOICE_TO_TEXT_STATS = [
 		{ value: "96%", label: "Transcription accuracy on domain audio", accent: "from-cyan-400 to-blue-500" },
@@ -3162,6 +3179,10 @@ export default function ServicesAIDataDetail() {
 		return <RAGImplementationCaseStudy />;
 	}
 
+	if (serviceId === "mlops-pipeline") {
+		return <MLOpsPipelineCaseStudy />;
+	}
+
 	if (serviceId === "voice-to-text-converter") {
 		return <VoiceToTextConverterCaseStudy />;
 	}
@@ -3184,6 +3205,70 @@ export default function ServicesAIDataDetail() {
 
 	if (serviceId === "ai-model-fine-tuning") {
 		return <AIModelFineTuningCaseStudy />;
+	}
+
+	if (serviceId === "ai-ethics-governance") {
+		return <AIEthicsGovernanceCaseStudy />;
+	}
+
+	if (serviceId === "ai-strategy-consulting") {
+		return <AIStrategyConsultingCaseStudy />;
+	}
+
+	if (serviceId === "explainable-ai") {
+		return <ExplainableAICaseStudy />;
+	}
+
+	if (serviceId === "prompt-engineering") {
+		return <PromptEngineeringCaseStudy />;
+	}
+
+	if (serviceId === "time-series-forecasting") {
+		return <TimeSeriesForecastingCaseStudy />;
+	}
+
+	if (serviceId === "model-optimization") {
+		return <ModelOptimizationCaseStudy />;
+	}
+
+	if (serviceId === "feature-engineering") {
+		return <FeatureEngineeringCaseStudy />;
+	}
+
+	if (serviceId === "automl-solutions") {
+		return <AutoMLSolutionsCaseStudy />;
+	}
+
+	if (serviceId === "a-b-testing-ml") {
+		return <ABTestingMLCaseStudy />;
+	}
+
+	if (serviceId === "chatbots-virtual-assistants") {
+		return <ChatbotsVirtualAssistantsCaseStudy />;
+	}
+
+	if (serviceId === "content-generation") {
+		return <ContentGenerationCaseStudy />;
+	}
+
+	if (serviceId === "intent-recognition") {
+		return <IntentRecognitionCaseStudy />;
+	}
+
+	if (serviceId === "language-translation") {
+		return <LanguageTranslationCaseStudy />;
+	}
+
+	if (serviceId === "named-entity-recognition") {
+		return <NamedEntityRecognitionCaseStudy />;
+	}
+
+	if (serviceId === "question-answering") {
+		return <QuestionAnsweringCaseStudy />;
+	}
+
+	if (serviceId === "sentiment-analysis") {
+		return <SentimentAnalysisCaseStudy />;
 	}
 
 	

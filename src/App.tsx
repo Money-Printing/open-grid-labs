@@ -5,6 +5,8 @@ import ProjectDetails from "./pages/work/project-details"
 import MainLayout from "./layouts/main"
 import Clients from "./pages/clients"
 import ServicesProductEngineering from "./pages/services/product-engineering"
+import ServicesProductEngineeringDetail from "./pages/services/product-engineering/service-details"
+
 import ServicesAIData from "./pages/services/ai-data"
 import ServicesAIDataDetail from "./pages/services/ai-data/service-details"
 import ServicesCloudPlatform from "./pages/services/cloud-platform"
@@ -32,6 +34,8 @@ function App() {
 					<Route path="services">
 						<Route index element={<Navigate to="/services/ai-data" replace />} />
 						<Route index path="product-engineering" element={<ServicesProductEngineering />} />
+						<Route path="product-engineering/:serviceId" element={<ServicesProductEngineeringDetail />} />
+
 						<Route index path="ai-data" element={<ServicesAIData />} />
 						<Route path="ai-data/:serviceId" element={<ServicesAIDataDetail />} />
 						<Route index path="cloud-platform" element={<ServicesCloudPlatform />} />

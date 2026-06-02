@@ -42,6 +42,22 @@ import LanguageTranslationCaseStudy from "./case-studies/language-translation";
 import NamedEntityRecognitionCaseStudy from "./case-studies/named-entity-recognition";
 import QuestionAnsweringCaseStudy from "./case-studies/question-answering";
 import SentimentAnalysisCaseStudy from "./case-studies/sentiment-analysis";
+import SpeechRecognitionCaseStudy from "./case-studies/speech-recognition";
+import TextAnalyticsCaseStudy from "./case-studies/text-analytics";
+import TextSummarizationCaseStudy from "./case-studies/text-summarization";
+import TopicModelingCaseStudy from "./case-studies/topic-modeling";
+import VoiceSynthesisCaseStudy from "./case-studies/voice-synthesis";
+import NeuralNetworksCaseStudy from "./case-studies/neural-networks";
+import ObjectDetectionCaseStudy from "./case-studies/object-detection";
+import OCRSolutionsCaseStudy from "./case-studies/ocr-solutions";
+import RNNLSTMCaseStudy from "./case-studies/rnn-lstm";
+import StyleTransferCaseStudy from "./case-studies/style-transfer";
+import TransferLearningCaseStudy from "./case-studies/transfer-learning";
+import VideoAnalyticsCaseStudy from "./case-studies/video-analytics";
+import PredictiveModelingCaseStudy from "./case-studies/predictive-modeling";
+import ClassificationSystemsCaseStudy from "./case-studies/classification-systems";
+
+
 
 const VOICE_TO_TEXT_STATS = [
 		{ value: "96%", label: "Transcription accuracy on domain audio", accent: "from-cyan-400 to-blue-500" },
@@ -3270,6 +3286,64 @@ export default function ServicesAIDataDetail() {
 	if (serviceId === "sentiment-analysis") {
 		return <SentimentAnalysisCaseStudy />;
 	}
+
+	if (serviceId === "speech-recognition") {
+		return <SpeechRecognitionCaseStudy />;
+	}
+
+	if (serviceId === "text-analytics") {
+		return <TextAnalyticsCaseStudy />;
+	}
+
+	if (serviceId === "text-summarization") {
+		return <TextSummarizationCaseStudy />;
+	}
+
+	if (serviceId === "topic-modeling") {
+		return <TopicModelingCaseStudy />;
+	}
+
+	if (serviceId === "voice-synthesis") {
+		return <VoiceSynthesisCaseStudy />;
+	}
+
+	if (serviceId === "neural-networks") {
+		return <NeuralNetworksCaseStudy />;
+	}
+
+	if (serviceId === "object-detection") {
+		return <ObjectDetectionCaseStudy />;
+	}
+
+	if (serviceId === "ocr-solutions") {
+		return <OCRSolutionsCaseStudy />;
+	}
+
+	if (serviceId === "rnn-lstm") {
+		return <RNNLSTMCaseStudy />;
+	}
+
+	if (serviceId === "style-transfer") {
+		return <StyleTransferCaseStudy />;
+	}
+
+	if (serviceId === "transfer-learning") {
+		return <TransferLearningCaseStudy />;
+	}
+
+	if (serviceId === "video-analytics") {
+		return <VideoAnalyticsCaseStudy />;
+	}
+
+	if (serviceId === "predictive-modeling") {
+		return <PredictiveModelingCaseStudy />;
+	}
+
+	if (serviceId === "classification-systems") {
+		return <ClassificationSystemsCaseStudy />;
+	}
+
+
 
 	
 

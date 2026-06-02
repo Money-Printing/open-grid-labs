@@ -4,6 +4,9 @@ import { faAws, faDocker, faJava, faPython, faReact } from "@fortawesome/free-br
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Brain, Code, Database, FileCode, LineChart, Network, PieChart, Server, Webhook, ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
+import { Link } from "react-router";
+import { slugify } from "../../../utils/slugify";
+
 
 const webAppItems = [
 	"UI/UX Design", "SPA Development", "CMS Integration", "Responsive Design",
@@ -261,13 +264,19 @@ function SoftwareServicesGrid() {
 
 						<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
 							{category.items.map((item, index) => (
-								<FramerParallaxCard key={index} index={index} highlight={category.highlight}>
-									<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">
-										{item}
-									</h4>
-								</FramerParallaxCard>
+								<Link key={index} to={`/services/product-engineering/${slugify(item)}`} className="block cursor-pointer">
+									<FramerParallaxCard index={index} highlight={category.highlight}>
+										<div className="flex items-center gap-3">
+											<div className="w-2 h-2 rounded-full" style={{ backgroundColor: category.highlight, boxShadow: `0 0 10px ${category.highlight}` }} />
+											<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">
+												{item}
+											</h4>
+										</div>
+									</FramerParallaxCard>
+								</Link>
 							))}
 						</div>
+
 					</motion.div>
 				))}
 			</div>

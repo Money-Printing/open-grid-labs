@@ -36,6 +36,16 @@ import PushNotificationsCaseStudy from "./case-studies/push-notifications";
 import ReactNativeCaseStudy from "./case-studies/react-native";
 import AdminPanelsCaseStudy from "./case-studies/admin-panels";
 import APIDevelopmentCaseStudy from "./case-studies/api-development";
+import AuthenticationCaseStudy from "./case-studies/authentication";
+import CachingSystemsCaseStudy from "./case-studies/caching-systems";
+import DatabaseDesignCaseStudy from "./case-studies/database-design";
+import FileStorageCaseStudy from "./case-studies/file-storage";
+import GraphQLCaseStudy from "./case-studies/graphql";
+import JobQueuesCaseStudy from "./case-studies/job-queues";
+import RESTfulServicesCaseStudy from "./case-studies/restful-services";
+import ServerlessFunctionsCaseStudy from "./case-studies/serverless-functions";
+import ThirdPartyIntegrationCaseStudy from "./case-studies/third-party-integration";
+import WebSocketsCaseStudy from "./case-studies/websockets";
 
 
 interface ProductDetail {
@@ -257,6 +267,46 @@ export default function ServicesProductEngineeringDetail() {
 
 	if (serviceId === "api-development") {
 		return <APIDevelopmentCaseStudy />;
+	}
+
+	if (serviceId === "authentication") {
+		return <AuthenticationCaseStudy />;
+	}
+
+	if (serviceId === "caching-systems") {
+		return <CachingSystemsCaseStudy />;
+	}
+
+	if (serviceId === "database-design") {
+		return <DatabaseDesignCaseStudy />;
+	}
+
+	if (serviceId === "file-storage") {
+		return <FileStorageCaseStudy />;
+	}
+
+	if (serviceId === "graphql") {
+		return <GraphQLCaseStudy />;
+	}
+
+	if (serviceId === "job-queues") {
+		return <JobQueuesCaseStudy />;
+	}
+
+	if (serviceId === "restful-services") {
+		return <RESTfulServicesCaseStudy />;
+	}
+
+	if (serviceId === "serverless-functions") {
+		return <ServerlessFunctionsCaseStudy />;
+	}
+
+	if (serviceId === "third-party-integration") {
+		return <ThirdPartyIntegrationCaseStudy />;
+	}
+
+	if (serviceId === "websockets") {
+		return <WebSocketsCaseStudy />;
 	}
 
 

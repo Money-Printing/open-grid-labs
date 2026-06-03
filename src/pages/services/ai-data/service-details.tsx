@@ -56,6 +56,14 @@ import TransferLearningCaseStudy from "./case-studies/transfer-learning";
 import VideoAnalyticsCaseStudy from "./case-studies/video-analytics";
 import PredictiveModelingCaseStudy from "./case-studies/predictive-modeling";
 import ClassificationSystemsCaseStudy from "./case-studies/classification-systems";
+import AnomalyDetectionCaseStudy from "./case-studies/anomaly-detection";
+import ClusteringAlgorithmsCaseStudy from "./case-studies/clustering-algorithms";
+import RecommendationEnginesCaseStudy from "./case-studies/recommendation-engines";
+import RegressionAnalysisCaseStudy from "./case-studies/regression-analysis";
+import CNNModelsCaseStudy from "./case-studies/cnn-models";
+import FaceRecognitionCaseStudy from "./case-studies/face-recognition";
+import GenerativeAICaseStudy from "./case-studies/generative-ai";
+import ImageRecognitionCaseStudy from "./case-studies/image-recognition";
 
 
 
@@ -3341,6 +3349,38 @@ export default function ServicesAIDataDetail() {
 
 	if (serviceId === "classification-systems") {
 		return <ClassificationSystemsCaseStudy />;
+	}
+
+	if (serviceId === "anomaly-detection") {
+		return <AnomalyDetectionCaseStudy />;
+	}
+
+	if (serviceId === "clustering-algorithms") {
+		return <ClusteringAlgorithmsCaseStudy />;
+	}
+
+	if (serviceId === "recommendation-engines") {
+		return <RecommendationEnginesCaseStudy />;
+	}
+
+	if (serviceId === "regression-analysis") {
+		return <RegressionAnalysisCaseStudy />;
+	}
+
+	if (serviceId === "cnn-models") {
+		return <CNNModelsCaseStudy />;
+	}
+
+	if (serviceId === "face-recognition") {
+		return <FaceRecognitionCaseStudy />;
+	}
+
+	if (serviceId === "generative-ai") {
+		return <GenerativeAICaseStudy />;
+	}
+
+	if (serviceId === "image-recognition") {
+		return <ImageRecognitionCaseStudy />;
 	}
 
 

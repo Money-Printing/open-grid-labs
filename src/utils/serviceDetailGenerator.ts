@@ -53,17 +53,17 @@ export const generateServiceDetail = (slug: string, title: string): ServiceDetai
 	];
 	
 	let category: "Artificial Intelligence" | "Machine Learning" | "Deep Learning" | "Natural Language" = "Natural Language";
-	let highlight = "hsl(150,100%,45%)"; // Emerald default
+	let highlight = "#00e673"; // Emerald default
 
 	if (aiServices.includes(title)) {
 		category = "Artificial Intelligence";
-		highlight = "hsl(180,100%,50%)"; // Cyan
+		highlight = "#00ffff"; // Cyan
 	} else if (mlServices.includes(title)) {
 		category = "Machine Learning";
-		highlight = "hsl(280,100%,65%)"; // Purple
+		highlight = "#c44dff"; // Purple
 	} else if (dlServices.includes(title)) {
 		category = "Deep Learning";
-		highlight = "hsl(330,100%,60%)"; // Pink
+		highlight = "#ff3399"; // Pink
 	}
 
 	// Category specific parameters to generate high-fidelity tailored templates

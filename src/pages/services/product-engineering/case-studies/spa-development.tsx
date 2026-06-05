@@ -253,7 +253,7 @@ export default function SPADevelopmentCaseStudy() {
 							</p>
 						</div>
 
-						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-blue-955/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
+						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-blue-950/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
 							<div className="absolute -top-12 -right-12 w-40 h-40 blur-3xl opacity-15 pointer-events-none rounded-full bg-blue-400 animate-pulse" />
 							
 							<div className="space-y-6 relative z-10">
@@ -493,7 +493,7 @@ export default function SPADevelopmentCaseStudy() {
 						</div>
 						<div className="space-y-8 relative z-10">
 							<p className="text-xl md:text-3xl italic font-light leading-relaxed text-foreground max-w-4xl mx-auto">
-								"The work made spa development feel like part of a mature product system instead of another one-off project. We shipped faster, understood user behavior better, and had a cleaner foundation for the next releases."
+								"The work made SPA development feel like part of a mature product system instead of another one-off project. We shipped faster, understood user behavior better, and had a cleaner foundation for the next releases."
 							</p>
 							<div className="w-12 h-px bg-blue-400 mx-auto" />
 							<div>
@@ -594,7 +594,7 @@ export default function SPADevelopmentCaseStudy() {
 								Ready to improve your web application with SPA Development?
 							</h2>
 							<p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-								OpenGridLabs designs and builds web application systems for spa development, combining product strategy, UI engineering, integrations, performance, QA, analytics, and launch support.
+								OpenGridLabs designs and builds web application systems for SPA development, combining product strategy, UI engineering, integrations, performance, QA, analytics, and launch support.
 							</p>
 							<div className="flex flex-col sm:flex-row justify-center items-center gap-4">
 								<Link 

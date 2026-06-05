@@ -33,10 +33,10 @@ const nlpServices = [
 ];
 
 const servicesData = [
-	{ title: 'Artificial Intelligence', items: aiServices, highlight: 'hsl(180,100%,50%)' }, // Cyan
-	{ title: 'Machine Learning', items: mlServices, highlight: 'hsl(280,100%,65%)' }, // Purple
-	{ title: 'Deep Learning', items: dlServices, highlight: 'hsl(330,100%,60%)' }, // Pink
-	{ title: 'Natural Language', items: nlpServices, highlight: 'hsl(150,100%,45%)' } // Emerald
+	{ title: 'Artificial Intelligence', items: aiServices, highlight: '#00ffff' }, // Cyan
+	{ title: 'Machine Learning', items: mlServices, highlight: '#c44dff' }, // Purple
+	{ title: 'Deep Learning', items: dlServices, highlight: '#ff3399' }, // Pink
+	{ title: 'Natural Language', items: nlpServices, highlight: '#00e673' } // Emerald
 ];
 
 const steps = [

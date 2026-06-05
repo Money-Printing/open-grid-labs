@@ -480,7 +480,7 @@ export default function APIDevelopmentCaseStudy() {
 						</div>
 						<div className="space-y-8 relative z-10">
 							<p className="text-xl md:text-3xl italic font-light leading-relaxed text-foreground max-w-4xl mx-auto">
-								"The work made api development feel like a real platform capability instead of a pile of backend fixes. We got clearer contracts, safer releases, and the visibility we needed to operate with confidence."
+								"The work made API development feel like a real platform capability instead of a pile of backend fixes. We got clearer contracts, safer releases, and the visibility we needed to operate with confidence."
 							</p>
 							<div className="w-12 h-px bg-indigo-400 mx-auto" />
 							<div>
@@ -577,7 +577,7 @@ export default function APIDevelopmentCaseStudy() {
 								Ready to strengthen your backend with API Development?
 							</h2>
 							<p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-								OpenGridLabs designs and builds backend systems for api development, combining architecture, secure service contracts, data design, integrations, testing, observability, and production rollout support.
+								OpenGridLabs designs and builds backend systems for API development, combining architecture, secure service contracts, data design, integrations, testing, observability, and production rollout support.
 							</p>
 							<div className="flex flex-col sm:flex-row justify-center items-center gap-4">
 								<Link 

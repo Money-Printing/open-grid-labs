@@ -91,17 +91,17 @@ const ALL_SERVICES = [...WEB_APP_SERVICES, ...MOBILE_APP_SERVICES, ...BACKEND_DE
 function generateProductDetail(_slug: string, title: string): ProductDetail {
 
 	let category: "Web Application" | "Mobile Application" | "Backend Development" = "Web Application";
-	let highlight = "hsl(210,100%,60%)"; // Blue
+	let highlight = "#3399ff"; // Blue
 
 	if (WEB_APP_SERVICES.includes(title)) {
 		category = "Web Application";
-		highlight = "hsl(210,100%,60%)";
+		highlight = "#3399ff";
 	} else if (MOBILE_APP_SERVICES.includes(title)) {
 		category = "Mobile Application";
-		highlight = "hsl(280,100%,65%)"; // Purple
+		highlight = "#c44dff"; // Purple
 	} else if (BACKEND_DEV_SERVICES.includes(title)) {
 		category = "Backend Development";
-		highlight = "hsl(180,100%,45%)"; // Emerald
+		highlight = "#00e6e6"; // Emerald
 	}
 
 	const categoryConfig = {

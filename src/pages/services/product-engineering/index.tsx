@@ -27,9 +27,9 @@ const backendDevItems = [
 ];
 
 const servicesData = [
-	{ title: 'Web Application', items: webAppItems, highlight: 'hsl(210,100%,60%)' },
-	{ title: 'Mobile Application', items: mobileAppItems, highlight: 'hsl(280,100%,65%)' },
-	{ title: 'Backend Development', items: backendDevItems, highlight: 'hsl(180,100%,45%)' }
+	{ title: 'Web Application', items: webAppItems, highlight: '#3399ff' },
+	{ title: 'Mobile Application', items: mobileAppItems, highlight: '#c44dff' },
+	{ title: 'Backend Development', items: backendDevItems, highlight: '#00e6e6' }
 ];
 
 const steps = [

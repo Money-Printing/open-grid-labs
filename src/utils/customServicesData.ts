@@ -5,7 +5,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"agentic-ai": {
 		title: "Agentic AI",
 		category: "Artificial Intelligence",
-		highlight: "hsl(180,100%,50%)", // Cyan
+		highlight: "#00ffff", // Cyan
 		description: "Autonomous, goal-driven AI agents that plan, execute, and collaborate to automate complex enterprise workflows.",
 		overview: "Agentic AI shifts the paradigm from passive question-answering systems to proactive, autonomous decision-makers. By utilizing advanced reasoning loops, long-term memory systems, and secure tool usage, these AI agents can independently execute end-to-end tasks, interact with legacy APIs, self-correct errors, and coordinate with other agents to accomplish complex business objectives.",
 		technologies: ["LangChain", "LangGraph", "AutoGPT", "CrewAI", "Python", "LlamaIndex", "GPT-4o / Claude 3.5 Sonnet"],
@@ -36,7 +36,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"large-language-models": {
 		title: "Large Language Models",
 		category: "Artificial Intelligence",
-		highlight: "hsl(180,100%,50%)", // Cyan
+		highlight: "#00ffff", // Cyan
 		description: "Custom-trained, quantized, and enterprise-integrated LLMs that understand and generate domain-specific intelligence.",
 		overview: "Large Language Models are the foundational engine of modern artificial intelligence. We specialize in selecting, fine-tuning, and integrating advanced open-source and proprietary models (such as Llama, Mistral, and Claude). Our services focus on aligning these models with enterprise compliance requirements, optimizing inference latency, and building secure deployment architectures.",
 		technologies: ["vLLM", "Hugging Face", "PyTorch", "TensorRT", "Llama-3", "Claude API", "DeepSpeed"],
@@ -67,7 +67,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"rag-implementation": {
 		title: "RAG Implementation",
 		category: "Artificial Intelligence",
-		highlight: "hsl(180,100%,50%)", // Cyan
+		highlight: "#00ffff", // Cyan
 		description: "Advanced Retrieval-Augmented Generation architectures to ground LLMs in your private, real-time enterprise database.",
 		overview: "Retrieval-Augmented Generation (RAG) bridges the gap between static LLM training data and active, proprietary enterprise knowledge. We design and implement robust production-grade RAG systems using advanced indexing, hybrid search (keyword + dense vector), query rewriting, reranking, and agentic routers. This eliminates hallucinations and guarantees that every generated answer is directly backed by a verifiable source.",
 		technologies: ["Pinecone", "Qdrant", "LlamaIndex", "LangChain", "Cohere Rerank", "PGVector", "OpenAI Embeddings"],
@@ -98,7 +98,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"chatbots-virtual-assistants": {
 		title: "Chatbots & Virtual Assistants",
 		category: "Natural Language",
-		highlight: "hsl(150,100%,45%)", // Emerald
+		highlight: "#00e673", // Emerald
 		description: "Next-generation conversational agents featuring emotive speech synthesis, multi-lingual capabilities, and transactional execution.",
 		overview: "Our conversational virtual assistants go far beyond simple scripted FAQs. Powered by deep natural language understanding (NLU) and generative AI, they engage in multi-turn dialogue, maintain complex conversational state, detect user emotion, and seamlessly execute transactions on behalf of users by communicating with backend systems. They provide a warm, human-like interface in over 80 languages across web, mobile, voice, and messaging platforms.",
 		technologies: ["Rasa", "Dialogflow CX", "OpenAI Assistant API", "React", "Python", "ElevenLabs (Voice)", "WebSockets"],
@@ -129,7 +129,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"content-generation": {
 		title: "Content Generation",
 		category: "Natural Language",
-		highlight: "hsl(150,100%,45%)", // Emerald
+		highlight: "#00e673", // Emerald
 		description: "Governed LLM content workflows featuring parameterised briefs, tone controls, review gates, and performance analytics to scale on-brand content production.",
 		overview: "Our Content Generation service replaces fragile, ad hoc prompting with structured, production-grade text generation pipelines. We build governed workflows that ingest product and brand reference data, apply fine-grained style controls, enforce automated compliance checks, and manage human-in-the-loop review queues. By supporting 9 distinct content formats, we reduce first-draft production time by 43% and deliver highly accurate outputs that 76% of editors accept on the first review.",
 		technologies: ["LLM Generation", "Brand Rules", "Review Gates", "Content Analytics", "Python", "LlamaIndex", "LangChain"],
@@ -160,7 +160,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"intent-recognition": {
 		title: "Intent Recognition",
 		category: "Natural Language",
-		highlight: "hsl(150,100%,45%)", // Emerald
+		highlight: "#00e673", // Emerald
 		description: "Automated message routing and triage pipelines using intent classification, CRM integrations, and confidence-based human-in-the-loop escalation.",
 		overview: "Our Intent Recognition service turns chaotic incoming customer text streams into organized, automated workflows. We construct advanced classification pipelines that automatically identify customer intent, parse key details, trigger immediate CRM responses, and route ambiguous or sensitive messages to dedicated human review queues. Supporting 31 distinct intents, our system cuts manual triage times by 49% while maintaining a verified 84% accuracy rate.",
 		technologies: ["Intent Classification", "Routing", "Confidence Scoring", "CRM Integration", "Python", "vLLM", "LlamaIndex"],
@@ -191,7 +191,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"language-translation": {
 		title: "Language Translation",
 		category: "Natural Language",
-		highlight: "hsl(150,100%,45%)", // Emerald
+		highlight: "#00e673", // Emerald
 		description: "Automated translation pipelines utilizing domain-specific glossaries, translation memories, and confidence scoring gates for multilingual operations.",
 		overview: "Our Language Translation service scales multilingual customer support and content localization without sacrificing operational speed. We build automated translation workflows that enforce domain terminology via custom glossaries, leverage translation memory to cut duplicate costs, apply confidence scores to route high-risk segments to human review, and integrate directly with global support tools. Supporting 12 languages, our pipeline reduces turnaround times by 67% and secures 94% glossary adherence.",
 		technologies: ["Translation Models", "Glossary Management", "Quality Review", "Localization Automation", "Python", "React", "vLLM"],
@@ -222,7 +222,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"named-entity-recognition": {
 		title: "Named Entity Recognition",
 		category: "Natural Language",
-		highlight: "hsl(150,100%,45%)", // Emerald
+		highlight: "#00e673", // Emerald
 		description: "Automated entity extraction and linking pipelines turning unstructured text and documents into validated systems-of-record updates.",
 		overview: "Our Named Entity Recognition (NER) service automates the capture of critical domain fields across unstructured support workflows, contracts, and internal records. We build highly precise extraction pipelines that isolate customers, product names, dates, amounts, locations, and contract parameters, linking them traceably to enterprise databases. Supporting 19 entity types, our system cuts manual data entry by 61% and achieves an 88% Reviewed Match Precision.",
 		technologies: ["NER", "Entity Linking", "Validation Rules", "Workflow APIs", "Python", "SpaCy", "vLLM"],
@@ -253,7 +253,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"question-answering": {
 		title: "Question Answering",
 		category: "Natural Language",
-		highlight: "hsl(150,100%,45%)", // Emerald
+		highlight: "#00e673", // Emerald
 		description: "Production-ready Question Answering workflows that retrieve trusted knowledge, generate grounded citation-backed answers, and route low-confidence queries for human review.",
 		overview: "Our Question Answering service unifies scattered enterprise knowledge sources to deliver reliable, citation-backed answers for employees and customers alike. By designing high-precision retrieval engines, groundable LLM generation setups, automated citation layers, and human-in-the-loop review routing queues, we cut repeated internal questions by 57% and ensure a robust 86% acceptance rate on reviewed queries.",
 		technologies: ["NLP Retrieval", "Answer Generation", "Retrieval-Augmented Generation (RAG)", "Citations", "Feedback Loop", "Python", "LlamaIndex", "vLLM"],
@@ -285,7 +285,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"sentiment-analysis": {
 		title: "Sentiment Analysis",
 		category: "Natural Language",
-		highlight: "hsl(150,100%,45%)", // Emerald
+		highlight: "#00e673", // Emerald
 		description: "Production sentiment analysis pipelines that score emotional tone across every customer channel, track trend shifts, and route high-risk conversations faster.",
 		overview: "Our Sentiment Analysis service transforms multi-channel customer language into measurable, actionable signals. We design scoring workflows that span reviews, tickets, calls, and chats—applying confidence-based routing, live dashboards, and human review for sensitive cases. By making sentiment continuous and operational rather than manual and periodic, we cut negative escalation time by 46% and achieve 82% agreement with expert-labeled samples.",
 		technologies: ["Sentiment Models", "Trend Analysis", "Routing Workflows", "Monitoring Dashboards", "Python", "vLLM", "LlamaIndex"],
@@ -317,7 +317,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"mlops-pipeline": {
 		title: "MLOps Pipeline",
 		category: "Machine Learning",
-		highlight: "hsl(280,100%,65%)", // Purple
+		highlight: "#c44dff", // Purple
 		description: "Repeatable MLOps pipelines automating model validation, training, registry approval, deployment, monitoring, and trigger-based retraining loops.",
 		overview: "Our MLOps Pipeline service turns fragile model releases into reliable, scalable production systems. We design end-to-end pipelines that connect data sources, training environments, model registries, and deployment targets under automated gates. By versioning datasets, feature libraries, training runs, and model binaries together, we reduce manual release steps by 73% and cut validation-to-deployment cycles by 45%.",
 		technologies: ["ML CI/CD", "Model Registry", "Drift Detection", "Automated Retraining", "MLflow / Kubeflow", "Kubernetes"],
@@ -348,7 +348,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"computer-vision": {
 		title: "Computer Vision",
 		category: "Deep Learning",
-		highlight: "hsl(330,100%,60%)", // Pink
+		highlight: "#ff3399", // Pink
 		description: "Advanced spatial intelligence models enabling machines to analyze, interpret, and act upon visual inputs in real-time.",
 		overview: "Our Computer Vision services deliver state-of-the-art visual processing capabilities. We build customized deep learning architectures that detect, classify, segment, and track objects in static images, high-speed camera feeds, and multi-spectral inputs. Designed for edge computers and robust cloud clusters alike, our solutions power quality control, physical security, spatial computing, and autonomous systems.",
 		technologies: ["OpenCV", "PyTorch", "YOLOv8", "TensorRT", "CUDA", "Segment Anything (SAM)", "Roboflow"],
@@ -379,7 +379,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"ai-ethics-governance": {
 		title: "AI Ethics & Governance",
 		category: "Artificial Intelligence",
-		highlight: "hsl(180,100%,50%)", // Cyan
+		highlight: "#00ffff", // Cyan
 		description: "Risk classification, policy creation, ethics review boards, and compliance roadmaps to make responsible AI repeatable and enforceable.",
 		overview: "AI Ethics & Governance operationalizes corporate values and emerging regulations like the EU AI Act into standard controls and repeatable pre-launch workflows. By building a proportionate operating model that tiers models by risk, organizes independent review boards, and maps regulatory requirements to concrete evidence templates, we help rapidly growing AI companies protect public trust and clear enterprise compliance gates without slowing down innovation speed.",
 		technologies: ["EU AI Act Framework", "NIST AI RMF", "ISO/IEC 42001", "Compliance Roadmaps", "Ethics Review Charters", "AI System Registers"],
@@ -410,7 +410,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"ai-strategy-consulting": {
 		title: "AI Strategy Consulting",
 		category: "Artificial Intelligence",
-		highlight: "hsl(180,100%,50%)", // Cyan
+		highlight: "#00ffff", // Cyan
 		description: "Maturity assessments, use-case prioritization portfolios, and governance frameworks tied to board-ready roadmaps.",
 		overview: "Our AI Strategy Consulting service guides organisations through the complex landscape of artificial intelligence, cutting through hype to deploy practical, high-ROI portfolios. By aligning technical possibilities with real business objectives, conducting honest readiness assessments, scoring use cases on value and feasibility, and designing robust risk frameworks, we enable companies to scale and innovate with absolute confidence.",
 		technologies: ["AI Maturity Assessments", "Prioritization Frameworks", "Responsible-AI Policies", "Risk Tiering Models", "Maturity Scoring", "ROI Modeling"],
@@ -441,7 +441,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"explainable-ai": {
 		title: "Explainable AI",
 		category: "Artificial Intelligence",
-		highlight: "hsl(180,100%,50%)", // Cyan
+		highlight: "#00ffff", // Cyan
 		description: "SHAP and LIME feature attributions, automated model cards, and continuous bias auditing to make high-accuracy models transparent and compliant.",
 		overview: "Our Explainable AI (XAI) service bridges the gap between high-performance black-box models and stringent auditability requirements. By engineering model-agnostic explainability wrappers using game-theoretic SHAP and local surrogate LIME attributions, automating model cards, and embedding continuous bias monitoring, we turn model outputs into transparent, regulator-approved assets without sacrificing model accuracy.",
 		technologies: ["SHAP (SHapley Additive exPlanations)", "LIME (Local Interpretable Model-agnostic Explanations)", "Automated Model Cards", "Fairness/Bias Telemetry", "Immutable Audit Trails"],
@@ -472,7 +472,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"prompt-engineering": {
 		title: "Prompt Engineering",
 		category: "Artificial Intelligence",
-		highlight: "hsl(180,100%,50%)", // Cyan
+		highlight: "#00ffff", // Cyan
 		description: "Parameterised prompt templates, version control, automated evaluations, and few-shot optimizations to make LLM outputs consistent, reliable, and cost-effective.",
 		overview: "Our Prompt Engineering service treats prompts as managed, versioned, and testable codebase assets rather than buried copy-pasted strings. By establishing systematic prompt template libraries, continuous regression test harnesses, few-shot demonstration registries, and prompt compression techniques, we help rapidly growing AI companies cut LLM output errors by 64% and reduce token expenses by 41%.",
 		technologies: ["Prompt Templates", "Automated Evaluation Harnesses", "Prompt Version Control", "Few-Shot Optimization", "Structured Output Schemas", "Prompt Compression"],
@@ -503,7 +503,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"time-series-forecasting": {
 		title: "Time Series Forecasting",
 		category: "Machine Learning",
-		highlight: "hsl(280,100%,65%)", // Purple
+		highlight: "#c44dff", // Purple
 		description: "Trend, seasonality, and hierarchical SKU forecasting models with honest walk-forward validation and calibrated prediction intervals.",
 		overview: "Our Time Series Forecasting service replaces simplistic rolling averages with structured multi-horizon model portfolios (ARIMA, Prophet, global gradient-boosted ML). By decomposing complex trends and yearly seasonality, enforcing walk-forward validation to eliminate future-leakage, generating prediction intervals for safety-stock, and reconciliating forecasts hierarchically from SKU to aggregate category levels, we help companies reduce demand-forecast error by 47% and right-size inventory levels.",
 		technologies: ["ARIMA", "Prophet", "Exponential Smoothing", "Hierarchical Reconciliation", "Walk-Forward Validation", "Prediction Intervals"],
@@ -534,7 +534,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"model-optimization": {
 		title: "Model Optimization",
 		category: "Machine Learning",
-		highlight: "hsl(280,100%,65%)", // Purple
+		highlight: "#c44dff", // Purple
 		description: "Quantization, structured pruning, and knowledge distillation pipeline making production models smaller, faster, and cheaper while preserving accuracy.",
 		overview: "Model Optimization bridges the gap between research-stage models and production realities. Our structured optimization program applies quantization, structured pruning, and knowledge distillation under a rigorous accuracy verification harness. We enable scaling companies to reduce inference costs by 68% and triple throughput on existing hardware without losing more than 0.3% accuracy.",
 		technologies: ["Quantization (INT8/FP16)", "Structured Pruning", "Knowledge Distillation", "ONNX", "TensorRT", "Kernel Fusion", "PyTorch"],
@@ -565,7 +565,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"feature-engineering": {
 		title: "Feature Engineering",
 		category: "Machine Learning",
-		highlight: "hsl(280,100%,65%)", // Purple
+		highlight: "#c44dff", // Purple
 		description: "Governed feature stores, reusable transformation pipelines, and validation systems turning messy operational data into highly predictive ML signals.",
 		overview: "Feature Engineering is where model accuracy and engineering reliability are won or lost. We design reusable feature pipelines that unify transformations across offline training and online inference. By building time-aware joins to prevent leakage, establishing standard preprocessing, and automating data quality checks, we improve model lift by 18% and cut feature iteration cycles by 42%.",
 		technologies: ["Feature Pipelines", "Validation Tests", "Feature Store", "Time-Aware Joins", "MLOps", "SQL / Python"],
@@ -596,7 +596,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"automl-solutions": {
 		title: "AutoML Solutions",
 		category: "Machine Learning",
-		highlight: "hsl(280,100%,65%)", // Purple
+		highlight: "#c44dff", // Purple
 		description: "Governed AutoML workflows automating algorithm search, hyperparameter tuning, validation, and production deployment under clear risk limits.",
 		overview: "AutoML Solutions scale machine learning impact without letting automation become a silent black box. We design structured AutoML systems that automate the highly intensive search and hyperparameter tuning phases while maintaining absolute data-science governance. By embedding clear metric scorecards, bias/fairness checks, and automatic retraining pipelines, we cut experimentation cycle times by 64% and evaluate 38% more model candidates per sprint.",
 		technologies: ["AutoML Pipelines", "Hyperparameter Tuning", "Model Registry", "Experiment Tracking", "Fairness Scans", "MLOps"],
@@ -627,7 +627,7 @@ export const customServicesData: Record<string, ServiceDetail> = {
 	"a-b-testing-ml": {
 		title: "A/B Testing ML",
 		category: "Machine Learning",
-		highlight: "hsl(280,100%,65%)", // Purple
+		highlight: "#c44dff", // Purple
 		description: "Controlled ML A/B testing frameworks measuring incremental variant uplift, tracking operational guardrails, and managing phased releases.",
 		overview: "A/B Testing ML moves model releases from offline speculation to production decisions. We design robust live-traffic experimentation pipelines that assign cohorts stably, capture true exposure logs, compute exact incremental lift, and safeguard guardrail metrics such as latency, fairness, and UX. By incorporating sequential testing rules and gradual rollout gates, we help teams scale model deployment with absolute confidence.",
 		technologies: ["Experiment Design", "Uplift Modeling", "Sequential Testing", "Exposure Logs", "Guardrail Tracking", "Staged Rollouts"],

@@ -253,7 +253,7 @@ export default function FirebaseIntegrationCaseStudy() {
 							</p>
 						</div>
 
-						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-purple-955/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
+						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-purple-950/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
 							<div className="absolute -top-12 -right-12 w-40 h-40 blur-3xl opacity-15 pointer-events-none rounded-full bg-purple-400 animate-pulse" />
 							
 							<div className="space-y-6 relative z-10">

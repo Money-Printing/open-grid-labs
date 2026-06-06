@@ -5,11 +5,14 @@ import ProjectDetails from "./pages/work/project-details"
 import MainLayout from "./layouts/main"
 import Clients from "./pages/clients"
 import ServicesProductEngineering from "./pages/services/product-engineering"
+import ServicesProductEngineeringDetail from "./pages/services/product-engineering/service-details"
+
 import ServicesAIData from "./pages/services/ai-data"
 import ServicesAIDataDetail from "./pages/services/ai-data/service-details"
 import ServicesCloudPlatform from "./pages/services/cloud-platform"
-import ServicesLegacyModernization from "./pages/services/legacy-modernization"
+import ServicesCloudPlatformDetail from "./pages/services/cloud-platform/service-details"
 import ServicesDigitalExperience from "./pages/services/digital-experience"
+import ServicesBFSI from "./pages/services/bfsi"
 import AboutUs from "./pages/about/about-us"
 import Team from "./pages/about/team"
 import Career from "./pages/about/career"
@@ -32,11 +35,14 @@ function App() {
 					<Route path="services">
 						<Route index element={<Navigate to="/services/ai-data" replace />} />
 						<Route index path="product-engineering" element={<ServicesProductEngineering />} />
+						<Route path="product-engineering/:serviceId" element={<ServicesProductEngineeringDetail />} />
+
 						<Route index path="ai-data" element={<ServicesAIData />} />
 						<Route path="ai-data/:serviceId" element={<ServicesAIDataDetail />} />
 						<Route index path="cloud-platform" element={<ServicesCloudPlatform />} />
-						<Route index path="legacy-modernization" element={<ServicesLegacyModernization />} />
+						<Route path="cloud-platform/:serviceId" element={<ServicesCloudPlatformDetail />} />
 						<Route index path="digital-experience" element={<ServicesDigitalExperience />} />
+						<Route index path="bfsi" element={<ServicesBFSI />} />
 					</Route>
 					<Route path="about">
 						<Route index element={<Navigate to="/about/about-us" replace />} />

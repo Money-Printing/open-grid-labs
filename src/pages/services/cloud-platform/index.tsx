@@ -1,32 +1,41 @@
 import React, { useRef } from "react";
 import SEO from "../../../components/seo";
-import { faAws, faDocker, faJava, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
+import { faAws, faDocker, faGitlab, faGithub, faGoogle, faJava, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Brain, Code, Database, FileCode, LineChart, Network, PieChart, Server, Webhook, ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
+import { Link } from "react-router";
+import { slugify } from "../../../utils/slugify";
 
-const webAppItems = [
-	"UI/UX Design", "SPA Development", "CMS Integration", "Responsive Design",
-	"Scalable Web Ecosystems", "SEO Optimization", "Progressive Web App", "Front-End Dev",
-	"Web Animations", "Web Security", "Code Optimization", "Real-Time Chat"
+const awsItems = [
+	"EC2 Instances", "S3 Storage", "AWS Lambda", "Amazon RDS",
+	"Elastic Kubernetes (EKS)", "CloudFront CDN", "Auto Scaling", "Load Balancing",
+	"VPC Networking", "AWS IAM", "CloudWatch", "Database Migration"
 ];
 
-const mobileAppItems = [
-	"iOS Development", "Android Development", "Flutter", "React Native",
-	"App UI/UX", "Cross-Platform Apps", "App Store Deployment", "Push Notifications",
-	"GPS & Maps", "Camera Integration", "Offline Mode", "Firebase Integration"
+const gcpItems = [
+	"Compute Engine", "Cloud Run", "BigQuery", "Google Kubernetes (GKE)",
+	"Pub/Sub Messaging", "Cloud Storage", "Cloud Functions", "Cloud SQL",
+	"Vertex AI", "Cloud Armor", "Data Pipeline", "Multi-cloud Integration"
 ];
 
-const backendDevItems = [
-	"API Development", "RESTful Services", "GraphQL", "Authentication",
-	"Database Design", "Serverless Functions", "Job Queues", "Caching Systems",
-	"File Storage", "Admin Panels", "WebSockets", "Third-party Integration"
+const azureItems = [
+	"Azure Virtual Machines", "Azure Kubernetes (AKS)", "Azure Functions", "Cosmos DB",
+	"Azure DevOps", "Container Apps", "Azure SQL Database", "App Service",
+	"Azure Active Directory", "Infrastructure as Code", "Azure Storage", "Azure Monitor"
+];
+
+const cicdItems = [
+	"GitHub Actions", "Jenkins Pipelines", "GitLab CI/CD", "ArgoCD GitOps",
+	"Terraform IaC", "Ansible Automation", "Docker Builds", "Kubernetes Deployment",
+	"Automated Testing", "Release Management", "Code Quality Gates", "Artifact Registry"
 ];
 
 const servicesData = [
-	{ title: 'Web Application', items: webAppItems, highlight: 'hsl(210,100%,60%)' },
-	{ title: 'Mobile Application', items: mobileAppItems, highlight: 'hsl(280,100%,65%)' },
-	{ title: 'Backend Development', items: backendDevItems, highlight: 'hsl(180,100%,45%)' }
+	{ title: 'AWS', items: awsItems, highlight: '#FF9900' },
+	{ title: 'GCP', items: gcpItems, highlight: '#4285F4' },
+	{ title: 'Azure', items: azureItems, highlight: '#0089D6' },
+	{ title: 'CI/CD', items: cicdItems, highlight: '#00D084' },
 ];
 
 const steps = [
@@ -49,10 +58,14 @@ const tools = [
 	{ icon: <Database className="w-8 h-8" />, name: "MongoDB" },
 	{ icon: <Database className="w-8 h-8" />, name: "Redis" },
 	{ icon: faAws, name: "AWS" },
+	{ icon: faGoogle, name: "GCP" },
+	{ icon: <Server className="w-8 h-8" />, name: "Azure" },
 	{ icon: faDocker, name: "Docker" },
 	{ icon: <Server className="w-8 h-8" />, name: "Kubernetes" },
 	{ icon: <Server className="w-8 h-8" />, name: "Nginx" },
-	{ icon: <Network className="w-8 h-8" />, name: "WebSocket" },
+	{ icon: faGithub, name: "GitHub Actions" },
+	{ icon: faGitlab, name: "GitLab CI" },
+	{ icon: <Network className="w-8 h-8" />, name: "Terraform" },
 	{ icon: <LineChart className="w-8 h-8" />, name: "ChartIQ" },
 	{ icon: <Brain className="w-8 h-8" />, name: "TensorFlow" },
 	{ icon: <PieChart className="w-8 h-8" />, name: "Grafana" },
@@ -261,11 +274,16 @@ function SoftwareServicesGrid() {
 
 						<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
 							{category.items.map((item, index) => (
-								<FramerParallaxCard key={index} index={index} highlight={category.highlight}>
-									<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">
-										{item}
-									</h4>
-								</FramerParallaxCard>
+								<Link key={index} to={`/services/cloud-platform/${slugify(item)}`} className="block cursor-pointer">
+									<FramerParallaxCard index={index} highlight={category.highlight}>
+										<div className="flex items-center gap-3">
+											<div className="w-2 h-2 rounded-full" style={{ backgroundColor: category.highlight, boxShadow: `0 0 10px ${category.highlight}` }} />
+											<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">
+												{item}
+											</h4>
+										</div>
+									</FramerParallaxCard>
+								</Link>
 							))}
 						</div>
 					</motion.div>

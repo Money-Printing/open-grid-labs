@@ -18,12 +18,11 @@ const navItems = [
 			{ title: "Product Engineering", desc: "Scalable SaaS & Platforms", href: '/services/product-engineering' },
 			{ title: "AI & Data Intelligence", desc: "GenAI & Predictive Models", href: '/services/ai-data' },
 			{ title: "Cloud Platform & Services", desc: "AWS, Azure , DevOps & CI CD", href: '/services/cloud-platform' },
-			{ title: "Legacy Modernization", desc: "Tech Debt & Migration", href: '/services/legacy-modernization' },
+			{ title: "Digital Experience", desc: "Modern UI & Performance", href: '/services/digital-experience' },
 			{
 				title: "More Services", desc: "Explore more services like Fintech experience", href: '/services#more', subDropdown: [
-					{ title: "Digital Experience", desc: "Modern UI & Performance", href: '/services/digital-experience' },
 					{ isHeading: true, title: "Industry" },
-					{ title: "BFSI & Fintech", desc: "Banking, Financial Services & Insurance", href: '/industry/bfsi' }
+					{ title: "BFSI & Fintech", desc: "Banking, Financial Services & Insurance", href: '/services/bfsi' }
 				]
 			},
 		],

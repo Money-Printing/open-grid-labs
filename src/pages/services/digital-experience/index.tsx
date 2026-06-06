@@ -25,9 +25,9 @@ const graphicServices = [
 ];
 
 const servicesData = [
-  { title: 'UI/UX Design', items: uiuxServices, highlight: 'hsl(330,100%,60%)' }, // Pink
-  { title: 'Brand Identity', items: brandServices, highlight: 'hsl(40,100%,60%)' }, // Amber
-  { title: 'Graphic Design', items: graphicServices, highlight: 'hsl(180,100%,50%)' }, // Cyan
+  { title: 'UI/UX Design', items: uiuxServices, highlight: '#ff3399' }, // Pink
+  { title: 'Brand Identity', items: brandServices, highlight: '#ffbb33' }, // Amber
+  { title: 'Graphic Design', items: graphicServices, highlight: '#00ffff' }, // Cyan
 ];
 
 const steps = [

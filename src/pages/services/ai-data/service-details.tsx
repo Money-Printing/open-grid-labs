@@ -25,6 +25,47 @@ import { generateServiceDetail } from "../../../utils/serviceDetailGenerator";
 import AIIntegrationServicesCaseStudy from "./case-studies/ai-integration-services";
 import LargeLanguageModelsCaseStudy from "./case-studies/large-language-models";
 import AIModelFineTuningCaseStudy from "./case-studies/ai-model-fine-tuning";
+import AIEthicsGovernanceCaseStudy from "./case-studies/ai-ethics-governance";
+import AIStrategyConsultingCaseStudy from "./case-studies/ai-strategy-consulting";
+import ExplainableAICaseStudy from "./case-studies/explainable-ai";
+import PromptEngineeringCaseStudy from "./case-studies/prompt-engineering";
+import TimeSeriesForecastingCaseStudy from "./case-studies/time-series-forecasting";
+import ModelOptimizationCaseStudy from "./case-studies/model-optimization";
+import FeatureEngineeringCaseStudy from "./case-studies/feature-engineering";
+import AutoMLSolutionsCaseStudy from "./case-studies/automl-solutions";
+import ABTestingMLCaseStudy from "./case-studies/a-b-testing-ml";
+import MLOpsPipelineCaseStudy from "./case-studies/mlops-pipeline";
+import ChatbotsVirtualAssistantsCaseStudy from "./case-studies/chatbots-virtual-assistants";
+import ContentGenerationCaseStudy from "./case-studies/content-generation";
+import IntentRecognitionCaseStudy from "./case-studies/intent-recognition";
+import LanguageTranslationCaseStudy from "./case-studies/language-translation";
+import NamedEntityRecognitionCaseStudy from "./case-studies/named-entity-recognition";
+import QuestionAnsweringCaseStudy from "./case-studies/question-answering";
+import SentimentAnalysisCaseStudy from "./case-studies/sentiment-analysis";
+import SpeechRecognitionCaseStudy from "./case-studies/speech-recognition";
+import TextAnalyticsCaseStudy from "./case-studies/text-analytics";
+import TextSummarizationCaseStudy from "./case-studies/text-summarization";
+import TopicModelingCaseStudy from "./case-studies/topic-modeling";
+import VoiceSynthesisCaseStudy from "./case-studies/voice-synthesis";
+import NeuralNetworksCaseStudy from "./case-studies/neural-networks";
+import ObjectDetectionCaseStudy from "./case-studies/object-detection";
+import OCRSolutionsCaseStudy from "./case-studies/ocr-solutions";
+import RNNLSTMCaseStudy from "./case-studies/rnn-lstm";
+import StyleTransferCaseStudy from "./case-studies/style-transfer";
+import TransferLearningCaseStudy from "./case-studies/transfer-learning";
+import VideoAnalyticsCaseStudy from "./case-studies/video-analytics";
+import PredictiveModelingCaseStudy from "./case-studies/predictive-modeling";
+import ClassificationSystemsCaseStudy from "./case-studies/classification-systems";
+import AnomalyDetectionCaseStudy from "./case-studies/anomaly-detection";
+import ClusteringAlgorithmsCaseStudy from "./case-studies/clustering-algorithms";
+import RecommendationEnginesCaseStudy from "./case-studies/recommendation-engines";
+import RegressionAnalysisCaseStudy from "./case-studies/regression-analysis";
+import CNNModelsCaseStudy from "./case-studies/cnn-models";
+import FaceRecognitionCaseStudy from "./case-studies/face-recognition";
+import GenerativeAICaseStudy from "./case-studies/generative-ai";
+import ImageRecognitionCaseStudy from "./case-studies/image-recognition";
+
+
 
 const VOICE_TO_TEXT_STATS = [
 		{ value: "96%", label: "Transcription accuracy on domain audio", accent: "from-cyan-400 to-blue-500" },
@@ -277,7 +318,7 @@ function VoiceToTextConverterCaseStudy() {
 							</p>
 						</div>
 
-						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-955/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
+						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-950/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
 							<div className="absolute -top-12 -right-12 w-40 h-40 blur-3xl opacity-15 pointer-events-none rounded-full bg-cyan-400 animate-pulse" />
 							
 							<div className="space-y-6 relative z-10">
@@ -896,7 +937,7 @@ function CustomAISolutionsCaseStudy() {
 							</p>
 						</div>
 
-						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-955/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
+						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-950/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
 							<div className="absolute -top-12 -right-12 w-40 h-40 blur-3xl opacity-15 pointer-events-none rounded-full bg-cyan-400 animate-pulse" />
 							
 							<div className="space-y-6 relative z-10">
@@ -1515,7 +1556,7 @@ function AIPerformanceMonitoringCaseStudy() {
 							</p>
 						</div>
 
-						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-955/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
+						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-950/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
 							<div className="absolute -top-12 -right-12 w-40 h-40 blur-3xl opacity-15 pointer-events-none rounded-full bg-cyan-400 animate-pulse" />
 							
 							<div className="space-y-6 relative z-10">
@@ -2134,7 +2175,7 @@ function RAGImplementationCaseStudy() {
 							</p>
 						</div>
 
-						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-955/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
+						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-950/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
 							<div className="absolute -top-12 -right-12 w-40 h-40 blur-3xl opacity-15 pointer-events-none rounded-full bg-cyan-400 animate-pulse" />
 							
 							<div className="space-y-6 relative z-10">
@@ -2757,7 +2798,7 @@ function AgenticAICaseStudy() {
 							</p>
 						</div>
 
-						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-955/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
+						<div className="lg:col-span-5 glass-panel p-8 md:p-12 rounded-[40px] border border-black/5 dark:border-white/5 bg-gradient-to-br from-cyan-950/20 via-background to-background shadow-2xl flex flex-col justify-center relative overflow-hidden group">
 							<div className="absolute -top-12 -right-12 w-40 h-40 blur-3xl opacity-15 pointer-events-none rounded-full bg-cyan-400 animate-pulse" />
 							
 							<div className="space-y-6 relative z-10">
@@ -3162,6 +3203,10 @@ export default function ServicesAIDataDetail() {
 		return <RAGImplementationCaseStudy />;
 	}
 
+	if (serviceId === "mlops-pipeline") {
+		return <MLOpsPipelineCaseStudy />;
+	}
+
 	if (serviceId === "voice-to-text-converter") {
 		return <VoiceToTextConverterCaseStudy />;
 	}
@@ -3185,6 +3230,160 @@ export default function ServicesAIDataDetail() {
 	if (serviceId === "ai-model-fine-tuning") {
 		return <AIModelFineTuningCaseStudy />;
 	}
+
+	if (serviceId === "ai-ethics-governance") {
+		return <AIEthicsGovernanceCaseStudy />;
+	}
+
+	if (serviceId === "ai-strategy-consulting") {
+		return <AIStrategyConsultingCaseStudy />;
+	}
+
+	if (serviceId === "explainable-ai") {
+		return <ExplainableAICaseStudy />;
+	}
+
+	if (serviceId === "prompt-engineering") {
+		return <PromptEngineeringCaseStudy />;
+	}
+
+	if (serviceId === "time-series-forecasting") {
+		return <TimeSeriesForecastingCaseStudy />;
+	}
+
+	if (serviceId === "model-optimization") {
+		return <ModelOptimizationCaseStudy />;
+	}
+
+	if (serviceId === "feature-engineering") {
+		return <FeatureEngineeringCaseStudy />;
+	}
+
+	if (serviceId === "automl-solutions") {
+		return <AutoMLSolutionsCaseStudy />;
+	}
+
+	if (serviceId === "a-b-testing-ml") {
+		return <ABTestingMLCaseStudy />;
+	}
+
+	if (serviceId === "chatbots-virtual-assistants") {
+		return <ChatbotsVirtualAssistantsCaseStudy />;
+	}
+
+	if (serviceId === "content-generation") {
+		return <ContentGenerationCaseStudy />;
+	}
+
+	if (serviceId === "intent-recognition") {
+		return <IntentRecognitionCaseStudy />;
+	}
+
+	if (serviceId === "language-translation") {
+		return <LanguageTranslationCaseStudy />;
+	}
+
+	if (serviceId === "named-entity-recognition") {
+		return <NamedEntityRecognitionCaseStudy />;
+	}
+
+	if (serviceId === "question-answering") {
+		return <QuestionAnsweringCaseStudy />;
+	}
+
+	if (serviceId === "sentiment-analysis") {
+		return <SentimentAnalysisCaseStudy />;
+	}
+
+	if (serviceId === "speech-recognition") {
+		return <SpeechRecognitionCaseStudy />;
+	}
+
+	if (serviceId === "text-analytics") {
+		return <TextAnalyticsCaseStudy />;
+	}
+
+	if (serviceId === "text-summarization") {
+		return <TextSummarizationCaseStudy />;
+	}
+
+	if (serviceId === "topic-modeling") {
+		return <TopicModelingCaseStudy />;
+	}
+
+	if (serviceId === "voice-synthesis") {
+		return <VoiceSynthesisCaseStudy />;
+	}
+
+	if (serviceId === "neural-networks") {
+		return <NeuralNetworksCaseStudy />;
+	}
+
+	if (serviceId === "object-detection") {
+		return <ObjectDetectionCaseStudy />;
+	}
+
+	if (serviceId === "ocr-solutions") {
+		return <OCRSolutionsCaseStudy />;
+	}
+
+	if (serviceId === "rnn-lstm") {
+		return <RNNLSTMCaseStudy />;
+	}
+
+	if (serviceId === "style-transfer") {
+		return <StyleTransferCaseStudy />;
+	}
+
+	if (serviceId === "transfer-learning") {
+		return <TransferLearningCaseStudy />;
+	}
+
+	if (serviceId === "video-analytics") {
+		return <VideoAnalyticsCaseStudy />;
+	}
+
+	if (serviceId === "predictive-modeling") {
+		return <PredictiveModelingCaseStudy />;
+	}
+
+	if (serviceId === "classification-systems") {
+		return <ClassificationSystemsCaseStudy />;
+	}
+
+	if (serviceId === "anomaly-detection") {
+		return <AnomalyDetectionCaseStudy />;
+	}
+
+	if (serviceId === "clustering-algorithms") {
+		return <ClusteringAlgorithmsCaseStudy />;
+	}
+
+	if (serviceId === "recommendation-engines") {
+		return <RecommendationEnginesCaseStudy />;
+	}
+
+	if (serviceId === "regression-analysis") {
+		return <RegressionAnalysisCaseStudy />;
+	}
+
+	if (serviceId === "cnn-models") {
+		return <CNNModelsCaseStudy />;
+	}
+
+	if (serviceId === "face-recognition") {
+		return <FaceRecognitionCaseStudy />;
+	}
+
+	if (serviceId === "generative-ai") {
+		return <GenerativeAICaseStudy />;
+	}
+
+	if (serviceId === "image-recognition") {
+		return <ImageRecognitionCaseStudy />;
+	}
+
+
 
 	
 

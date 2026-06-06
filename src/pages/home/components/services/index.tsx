@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import PageHeading from "../../../../components/page-heading/index.tsx";
 import ButtonLink from "../../../../components/ui/button-link.tsx";
-import { Code2, Brain, Palette, ArrowUpRight, Cloud, RefreshCw } from "lucide-react";
+import { Code2, Brain, Palette, ArrowUpRight, Cloud } from "lucide-react";
 
 // ── Service Data ──────────────────────────────────────────────
 const categories = [
@@ -70,28 +70,6 @@ const categories = [
       { name: "Microservices", detail: "Kubernetes, Docker, Serverless" },
       { name: "Infrastructure as Code", detail: "Terraform, Ansible provisioning" },
       { name: "Performance Optimization", detail: "Latency reduction & cost control" },
-    ],
-  },
-  {
-    id: "legacy-modernization",
-    label: "Modernization",
-    icon: RefreshCw,
-    color: "from-rose-500 to-pink-400",
-    glowColor: "hsla(330, 100%, 60%, 0.15)",
-    accentClass: "text-rose-600 dark:text-rose-400",
-    borderAccent: "border-rose-600/30 dark:border-rose-400/30",
-    bgAccent: "bg-rose-600/10 dark:bg-rose-400/10",
-    heading: "Legacy Modernization",
-    tagline: "Evolve. Upgrade. Future-proof.",
-    description: "We help enterprises resolve tech debt, migrate from monolithic systems to microservices, and prepare outdated codebases for the AI era.",
-    link: "/services/legacy-modernization",
-    cta: "Upgrade Systems",
-    capabilities: [
-      { name: "Tech Debt Resolution", detail: "Refactoring & architecture audits" },
-      { name: "Monolith to Microservices", detail: "Decoupled scalable systems" },
-      { name: "Database Migration", detail: "NoSQL transitions & data lakes" },
-      { name: "API Enablement", detail: "Exposing legacy functions securely" },
-      { name: "AI-Readiness", detail: "Structuring data for machine learning" },
     ],
   },
   {

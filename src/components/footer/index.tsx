@@ -9,8 +9,8 @@ const footerLinks = {
     { name: "Product Engineering", href: "/services/product-engineering" },
     { name: "AI & Data", href: "/services/ai-data" },
     { name: "Cloud & Platform", href: "/services/cloud-platform" },
-    { name: "Modernization", href: "/services/legacy-modernization" },
     { name: "Digital Experience", href: "/services/digital-experience" },
+    { name: "BFSI & Fintech", href: "/services/bfsi" },
   ],
   About: [
     { name: "About Us", href: "/about/about-us" },

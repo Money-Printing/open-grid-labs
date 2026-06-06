@@ -10,6 +10,7 @@ import ServicesProductEngineeringDetail from "./pages/services/product-engineeri
 import ServicesAIData from "./pages/services/ai-data"
 import ServicesAIDataDetail from "./pages/services/ai-data/service-details"
 import ServicesCloudPlatform from "./pages/services/cloud-platform"
+import ServicesCloudPlatformDetail from "./pages/services/cloud-platform/service-details"
 import ServicesDigitalExperience from "./pages/services/digital-experience"
 import ServicesBFSI from "./pages/services/bfsi"
 import AboutUs from "./pages/about/about-us"
@@ -39,6 +40,7 @@ function App() {
 						<Route index path="ai-data" element={<ServicesAIData />} />
 						<Route path="ai-data/:serviceId" element={<ServicesAIDataDetail />} />
 						<Route index path="cloud-platform" element={<ServicesCloudPlatform />} />
+						<Route path="cloud-platform/:serviceId" element={<ServicesCloudPlatformDetail />} />
 						<Route index path="digital-experience" element={<ServicesDigitalExperience />} />
 						<Route index path="bfsi" element={<ServicesBFSI />} />
 					</Route>

@@ -12,6 +12,30 @@ import {
 import { slugify } from "../../../utils/slugify";
 import AmazonRDSCaseStudy from "./case-studies/amazon-rds";
 import AutoScalingCaseStudy from "./case-studies/auto-scaling";
+import AnsibleAutomationCaseStudy from "./case-studies/ansible-automation";
+import ArgoCDGitOpsCaseStudy from "./case-studies/argocd-gitops";
+import ArtifactRegistryCaseStudy from "./case-studies/artifact-registry";
+import AutomatedTestingCaseStudy from "./case-studies/automated-testing";
+import CodeQualityGatesCaseStudy from "./case-studies/code-quality-gates";
+import DockerBuildsCaseStudy from "./case-studies/docker-builds";
+import GitHubActionsCaseStudy from "./case-studies/github-actions";
+import GitLabCaseStudy from "./case-studies/gitlab-ci-cd";
+import JenkinsPipelinesCaseStudy from "./case-studies/jenkins-pipelines";
+import KubernetesDeploymentCaseStudy from "./case-studies/kubernetes-deployment";
+import ReleaseManagementCaseStudy from "./case-studies/release-management";
+import TerraformIaCCaseStudy from "./case-studies/terraform-iac";
+import AppServiceCaseStudy from "./case-studies/app-service";
+import AzureActiveDirectoryCaseStudy from "./case-studies/azure-active-directory";
+import AzureDevOpsCaseStudy from "./case-studies/azure-devops";
+import AzureFunctionsCaseStudy from "./case-studies/azure-functions";
+import AzureKubernetesAKSCaseStudy from "./case-studies/azure-kubernetes-aks";
+import AzureMonitorCaseStudy from "./case-studies/azure-monitor";
+import AzureSQLDatabaseCaseStudy from "./case-studies/azure-sql-database";
+import AzureStorageCaseStudy from "./case-studies/azure-storage";
+import AzureVirtualMachinesCaseStudy from "./case-studies/azure-virtual-machines";
+import ContainerAppsCaseStudy from "./case-studies/container-apps";
+import CosmosDBCaseStudy from "./case-studies/cosmos-db";
+import InfrastructureAsCodeCaseStudy from "./case-studies/infrastructure-as-code";
 import AWSIAMCaseStudy from "./case-studies/aws-iam";
 import AWSLambdaCaseStudy from "./case-studies/aws-lambda";
 import CloudFrontCDNCaseStudy from "./case-studies/cloudfront-cdn";
@@ -170,6 +194,102 @@ export default function ServicesCloudPlatformDetail() {
 
 	if (serviceId === "amazon-rds") {
 		return <AmazonRDSCaseStudy />;
+	}
+
+	if (serviceId === "ansible-automation") {
+		return <AnsibleAutomationCaseStudy />;
+	}
+
+	if (serviceId === "argocd-gitops") {
+		return <ArgoCDGitOpsCaseStudy />;
+	}
+
+	if (serviceId === "artifact-registry") {
+		return <ArtifactRegistryCaseStudy />;
+	}
+
+	if (serviceId === "docker-builds") {
+		return <DockerBuildsCaseStudy />;
+	}
+
+	if (serviceId === "github-actions") {
+		return <GitHubActionsCaseStudy />;
+	}
+
+	if (serviceId === "gitlab-ci-cd") {
+		return <GitLabCaseStudy />;
+	}
+
+	if (serviceId === "jenkins-pipelines") {
+		return <JenkinsPipelinesCaseStudy />;
+	}
+
+	if (serviceId === "kubernetes-deployment") {
+		return <KubernetesDeploymentCaseStudy />;
+	}
+
+	if (serviceId === "release-management") {
+		return <ReleaseManagementCaseStudy />;
+	}
+
+	if (serviceId === "terraform-iac") {
+		return <TerraformIaCCaseStudy />;
+	}
+
+	if (serviceId === "app-service") {
+		return <AppServiceCaseStudy />;
+	}
+
+	if (serviceId === "azure-active-directory") {
+		return <AzureActiveDirectoryCaseStudy />;
+	}
+
+	if (serviceId === "azure-devops") {
+		return <AzureDevOpsCaseStudy />;
+	}
+
+	if (serviceId === "azure-functions") {
+		return <AzureFunctionsCaseStudy />;
+	}
+
+	if (serviceId === "azure-kubernetes-aks") {
+		return <AzureKubernetesAKSCaseStudy />;
+	}
+
+	if (serviceId === "azure-monitor") {
+		return <AzureMonitorCaseStudy />;
+	}
+
+	if (serviceId === "azure-sql-database") {
+		return <AzureSQLDatabaseCaseStudy />;
+	}
+
+	if (serviceId === "azure-storage") {
+		return <AzureStorageCaseStudy />;
+	}
+
+	if (serviceId === "azure-virtual-machines") {
+		return <AzureVirtualMachinesCaseStudy />;
+	}
+
+	if (serviceId === "container-apps") {
+		return <ContainerAppsCaseStudy />;
+	}
+
+	if (serviceId === "cosmos-db") {
+		return <CosmosDBCaseStudy />;
+	}
+
+	if (serviceId === "infrastructure-as-code") {
+		return <InfrastructureAsCodeCaseStudy />;
+	}
+
+	if (serviceId === "automated-testing") {
+		return <AutomatedTestingCaseStudy />;
+	}
+
+	if (serviceId === "code-quality-gates") {
+		return <CodeQualityGatesCaseStudy />;
 	}
 
 	if (serviceId === "auto-scaling") {

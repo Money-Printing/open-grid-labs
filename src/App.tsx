@@ -14,6 +14,7 @@ import ServicesCloudPlatformDetail from "./pages/services/cloud-platform/service
 import ServicesDigitalExperience from "./pages/services/digital-experience"
 import ServicesDigitalExperienceDetail from "./pages/services/digital-experience/service-details"
 import ServicesBFSI from "./pages/services/bfsi"
+import ServicesBFSIDetail from "./pages/services/bfsi/service-details"
 import AboutUs from "./pages/about/about-us"
 import Team from "./pages/about/team"
 import Career from "./pages/about/career"
@@ -45,6 +46,7 @@ function App() {
 						<Route index path="digital-experience" element={<ServicesDigitalExperience />} />
 						<Route path="digital-experience/:serviceId" element={<ServicesDigitalExperienceDetail />} />
 						<Route index path="bfsi" element={<ServicesBFSI />} />
+						<Route path="bfsi/:serviceId" element={<ServicesBFSIDetail />} />
 					</Route>
 					<Route path="about">
 						<Route index element={<Navigate to="/about/about-us" replace />} />

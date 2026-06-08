@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
+import { Link } from "react-router";
 import SEO from "../../../components/seo";
+import { slugify } from "../../../utils/slugify";
 import { faAws, faJava, faPython } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -231,14 +233,16 @@ function BFSIServicesGrid() {
 
 						<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
 							{category.items.map((item, index) => (
-								<FramerParallaxCard key={index} index={index} highlight={category.highlight}>
-									<div className="flex items-center gap-3">
-										<div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: category.highlight, boxShadow: `0 0 8px ${category.highlight}` }} />
-										<h4 className="text-base font-medium text-foreground/70 group-hover:text-foreground transition-colors">
-											{item}
-										</h4>
-									</div>
-								</FramerParallaxCard>
+								<Link key={index} to={`/services/bfsi/${slugify(item)}`} className="block cursor-pointer">
+									<FramerParallaxCard index={index} highlight={category.highlight}>
+										<div className="flex items-center gap-3">
+											<div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: category.highlight, boxShadow: `0 0 8px ${category.highlight}` }} />
+											<h4 className="text-base font-medium text-foreground/70 group-hover:text-foreground transition-colors">
+												{item}
+											</h4>
+										</div>
+									</FramerParallaxCard>
+								</Link>
 							))}
 						</div>
 					</motion.div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useParams, Link, Navigate } from "react-router";
+import { Link } from "react-router";
+import ServiceDetailsSwitcher from "../../../components/service-details-switcher";
 import SEO from "../../../components/seo";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -19,9 +20,7 @@ import {
 	Database,
 	Cpu
 } from "lucide-react";
-import { slugify } from "../../../utils/slugify";
 
-import { generateServiceDetail } from "../../../utils/serviceDetailGenerator";
 import AIIntegrationServicesCaseStudy from "./case-studies/ai-integration-services";
 import LargeLanguageModelsCaseStudy from "./case-studies/large-language-models";
 import AIModelFineTuningCaseStudy from "./case-studies/ai-model-fine-tuning";
@@ -3166,518 +3165,61 @@ function AgenticAICaseStudy() {
 	);
 }
 
-
-
-// Static service lists for reverse-lookup and slug matching
-const AI_SERVICES = [
-	"Agentic AI", "Large Language Models", "Voice to Text Converter", "AI Strategy Consulting",
-	"Explainable AI", "AI Ethics & Governance", "Prompt Engineering", "AI Model Fine-tuning",
-	"RAG Implementation", "AI Integration Services", "Custom AI Solutions", "AI Performance Monitoring"
-];
-const ML_SERVICES = [
-	"Predictive Modeling", "Classification Systems", "Regression Analysis", "Clustering Algorithms",
-	"Recommendation Engines", "Anomaly Detection", "Time Series Forecasting", "Feature Engineering",
-	"Model Optimization", "A/B Testing ML", "AutoML Solutions", "MLOps Pipeline"
-];
-const DL_SERVICES = [
-	"Neural Networks", "Computer Vision", "Image Recognition", "Object Detection",
-	"Face Recognition", "OCR Solutions", "Video Analytics", "Generative AI",
-	"Style Transfer", "CNN Models", "RNN/LSTM", "Transfer Learning"
-];
-const NLP_SERVICES = [
-	"Text Analytics", "Sentiment Analysis", "Chatbots & Virtual Assistants", "Language Translation",
-	"Named Entity Recognition", "Topic Modeling", "Text Summarization", "Question Answering",
-	"Intent Recognition", "Content Generation", "Speech Recognition", "Voice Synthesis"
-];
-
-const ALL_SERVICES = [...AI_SERVICES, ...ML_SERVICES, ...DL_SERVICES, ...NLP_SERVICES];
+const AIDATA_COMPONENT_MAP: Record<string, React.ComponentType> = {
+	"agentic-ai": AgenticAICaseStudy,
+	"rag-implementation": RAGImplementationCaseStudy,
+	"mlops-pipeline": MLOpsPipelineCaseStudy,
+	"voice-to-text-converter": VoiceToTextConverterCaseStudy,
+	"custom-ai-solutions": CustomAISolutionsCaseStudy,
+	"ai-performance-monitoring": AIPerformanceMonitoringCaseStudy,
+	"ai-integration-services": AIIntegrationServicesCaseStudy,
+	"large-language-models": LargeLanguageModelsCaseStudy,
+	"ai-model-fine-tuning": AIModelFineTuningCaseStudy,
+	"ai-ethics-governance": AIEthicsGovernanceCaseStudy,
+	"ai-strategy-consulting": AIStrategyConsultingCaseStudy,
+	"explainable-ai": ExplainableAICaseStudy,
+	"prompt-engineering": PromptEngineeringCaseStudy,
+	"time-series-forecasting": TimeSeriesForecastingCaseStudy,
+	"model-optimization": ModelOptimizationCaseStudy,
+	"feature-engineering": FeatureEngineeringCaseStudy,
+	"automl-solutions": AutoMLSolutionsCaseStudy,
+	"a-b-testing-ml": ABTestingMLCaseStudy,
+	"chatbots-virtual-assistants": ChatbotsVirtualAssistantsCaseStudy,
+	"content-generation": ContentGenerationCaseStudy,
+	"intent-recognition": IntentRecognitionCaseStudy,
+	"language-translation": LanguageTranslationCaseStudy,
+	"named-entity-recognition": NamedEntityRecognitionCaseStudy,
+	"question-answering": QuestionAnsweringCaseStudy,
+	"sentiment-analysis": SentimentAnalysisCaseStudy,
+	"speech-recognition": SpeechRecognitionCaseStudy,
+	"text-analytics": TextAnalyticsCaseStudy,
+	"text-summarization": TextSummarizationCaseStudy,
+	"topic-modeling": TopicModelingCaseStudy,
+	"voice-synthesis": VoiceSynthesisCaseStudy,
+	"neural-networks": NeuralNetworksCaseStudy,
+	"object-detection": ObjectDetectionCaseStudy,
+	"ocr-solutions": OCRSolutionsCaseStudy,
+	"rnn-lstm": RNNLSTMCaseStudy,
+	"style-transfer": StyleTransferCaseStudy,
+	"transfer-learning": TransferLearningCaseStudy,
+	"video-analytics": VideoAnalyticsCaseStudy,
+	"predictive-modeling": PredictiveModelingCaseStudy,
+	"classification-systems": ClassificationSystemsCaseStudy,
+	"anomaly-detection": AnomalyDetectionCaseStudy,
+	"clustering-algorithms": ClusteringAlgorithmsCaseStudy,
+	"recommendation-engines": RecommendationEnginesCaseStudy,
+	"regression-analysis": RegressionAnalysisCaseStudy,
+	"cnn-models": CNNModelsCaseStudy,
+	"face-recognition": FaceRecognitionCaseStudy,
+	"generative-ai": GenerativeAICaseStudy,
+	"image-recognition": ImageRecognitionCaseStudy,
+};
 
 export default function ServicesAIDataDetail() {
-	const { serviceId } = useParams<{ serviceId: string }>();
-
-	if (serviceId === "agentic-ai") {
-		return <AgenticAICaseStudy />;
-	}
-
-	if (serviceId === "rag-implementation") {
-		return <RAGImplementationCaseStudy />;
-	}
-
-	if (serviceId === "mlops-pipeline") {
-		return <MLOpsPipelineCaseStudy />;
-	}
-
-	if (serviceId === "voice-to-text-converter") {
-		return <VoiceToTextConverterCaseStudy />;
-	}
-
-	if (serviceId === "custom-ai-solutions") {
-		return <CustomAISolutionsCaseStudy />;
-	}
-
-	if (serviceId === "ai-performance-monitoring") {
-		return <AIPerformanceMonitoringCaseStudy />;
-	}
-
-	if (serviceId === "ai-integration-services") {
-		return <AIIntegrationServicesCaseStudy />;
-	}
-
-	if (serviceId === "large-language-models") {
-		return <LargeLanguageModelsCaseStudy />;
-	}
-
-	if (serviceId === "ai-model-fine-tuning") {
-		return <AIModelFineTuningCaseStudy />;
-	}
-
-	if (serviceId === "ai-ethics-governance") {
-		return <AIEthicsGovernanceCaseStudy />;
-	}
-
-	if (serviceId === "ai-strategy-consulting") {
-		return <AIStrategyConsultingCaseStudy />;
-	}
-
-	if (serviceId === "explainable-ai") {
-		return <ExplainableAICaseStudy />;
-	}
-
-	if (serviceId === "prompt-engineering") {
-		return <PromptEngineeringCaseStudy />;
-	}
-
-	if (serviceId === "time-series-forecasting") {
-		return <TimeSeriesForecastingCaseStudy />;
-	}
-
-	if (serviceId === "model-optimization") {
-		return <ModelOptimizationCaseStudy />;
-	}
-
-	if (serviceId === "feature-engineering") {
-		return <FeatureEngineeringCaseStudy />;
-	}
-
-	if (serviceId === "automl-solutions") {
-		return <AutoMLSolutionsCaseStudy />;
-	}
-
-	if (serviceId === "a-b-testing-ml") {
-		return <ABTestingMLCaseStudy />;
-	}
-
-	if (serviceId === "chatbots-virtual-assistants") {
-		return <ChatbotsVirtualAssistantsCaseStudy />;
-	}
-
-	if (serviceId === "content-generation") {
-		return <ContentGenerationCaseStudy />;
-	}
-
-	if (serviceId === "intent-recognition") {
-		return <IntentRecognitionCaseStudy />;
-	}
-
-	if (serviceId === "language-translation") {
-		return <LanguageTranslationCaseStudy />;
-	}
-
-	if (serviceId === "named-entity-recognition") {
-		return <NamedEntityRecognitionCaseStudy />;
-	}
-
-	if (serviceId === "question-answering") {
-		return <QuestionAnsweringCaseStudy />;
-	}
-
-	if (serviceId === "sentiment-analysis") {
-		return <SentimentAnalysisCaseStudy />;
-	}
-
-	if (serviceId === "speech-recognition") {
-		return <SpeechRecognitionCaseStudy />;
-	}
-
-	if (serviceId === "text-analytics") {
-		return <TextAnalyticsCaseStudy />;
-	}
-
-	if (serviceId === "text-summarization") {
-		return <TextSummarizationCaseStudy />;
-	}
-
-	if (serviceId === "topic-modeling") {
-		return <TopicModelingCaseStudy />;
-	}
-
-	if (serviceId === "voice-synthesis") {
-		return <VoiceSynthesisCaseStudy />;
-	}
-
-	if (serviceId === "neural-networks") {
-		return <NeuralNetworksCaseStudy />;
-	}
-
-	if (serviceId === "object-detection") {
-		return <ObjectDetectionCaseStudy />;
-	}
-
-	if (serviceId === "ocr-solutions") {
-		return <OCRSolutionsCaseStudy />;
-	}
-
-	if (serviceId === "rnn-lstm") {
-		return <RNNLSTMCaseStudy />;
-	}
-
-	if (serviceId === "style-transfer") {
-		return <StyleTransferCaseStudy />;
-	}
-
-	if (serviceId === "transfer-learning") {
-		return <TransferLearningCaseStudy />;
-	}
-
-	if (serviceId === "video-analytics") {
-		return <VideoAnalyticsCaseStudy />;
-	}
-
-	if (serviceId === "predictive-modeling") {
-		return <PredictiveModelingCaseStudy />;
-	}
-
-	if (serviceId === "classification-systems") {
-		return <ClassificationSystemsCaseStudy />;
-	}
-
-	if (serviceId === "anomaly-detection") {
-		return <AnomalyDetectionCaseStudy />;
-	}
-
-	if (serviceId === "clustering-algorithms") {
-		return <ClusteringAlgorithmsCaseStudy />;
-	}
-
-	if (serviceId === "recommendation-engines") {
-		return <RecommendationEnginesCaseStudy />;
-	}
-
-	if (serviceId === "regression-analysis") {
-		return <RegressionAnalysisCaseStudy />;
-	}
-
-	if (serviceId === "cnn-models") {
-		return <CNNModelsCaseStudy />;
-	}
-
-	if (serviceId === "face-recognition") {
-		return <FaceRecognitionCaseStudy />;
-	}
-
-	if (serviceId === "generative-ai") {
-		return <GenerativeAICaseStudy />;
-	}
-
-	if (serviceId === "image-recognition") {
-		return <ImageRecognitionCaseStudy />;
-	}
-
-
-
-	
-
-	// Find the matching service by slug
-	const matchedTitle = ALL_SERVICES.find(s => slugify(s) === serviceId);
-
-	if (!serviceId || !matchedTitle) {
-		return <Navigate to="/services/ai-data" replace />;
-	}
-
-	const service = generateServiceDetail(serviceId, matchedTitle);
-
 	return (
-		<>
-			<SEO
-				title={`${service.title} - AI & Data Services | OpenGridLabs`}
-				description={service.description}
-				canonical={`/services/ai-data/${serviceId}`}
-				keywords={`${service.title}, ${service.category}, AI solutions, data intelligence, machine learning, opengridlabs`}
-			/>
-
-			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
-				{/* Gorgeous Dynamic HSL Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-[600px] blur-[160px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
-					style={{
-						background: `radial-gradient(circle, ${service.highlight} 0%, transparent 70%)`
-					}}
-				/>
-
-				{/* Back Button & Breadcrumbs */}
-				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/ai-data" 
-						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
-					>
-						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
-						Back to AI & Data Intelligence
-					</Link>
-				</div>
-
-				{/* Main Hero Header */}
-				<section className="w-[90%] max-w-[1600px] mx-auto mt-12 relative z-10">
-					<div className="grid lg:grid-cols-12 gap-12 items-center">
-						<motion.div 
-							initial={{ opacity: 0, y: 30 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-							className="lg:col-span-8 space-y-6"
-						>
-							{/* Category Tag */}
-							<div className="flex items-center gap-3">
-								<span 
-									className="text-xs md:text-sm font-bold tracking-widest uppercase px-4 py-1.5 rounded-full border bg-opacity-10 backdrop-blur-md"
-									style={{ 
-										borderColor: `${service.highlight}30`, 
-										backgroundColor: `${service.highlight}10`,
-										color: service.highlight 
-									}}
-								>
-									{service.category}
-								</span>
-							</div>
-
-							{/* Large Service Title */}
-							<h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-br from-foreground via-foreground to-foreground/50">
-								{service.title}
-							</h1>
-
-							{/* Core Tagline */}
-							<p className="text-xl md:text-3xl font-light text-foreground/80 leading-relaxed max-w-3xl">
-								{service.description}
-							</p>
-						</motion.div>
-
-						{/* Interactive Technology Card */}
-						<motion.div 
-							initial={{ opacity: 0, scale: 0.95 }}
-							animate={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-							className="lg:col-span-4"
-						>
-							<div className="glass-panel p-8 rounded-[32px] border border-black/5 dark:border-white/5 relative overflow-hidden group shadow-2xl">
-								<div 
-									className="absolute -top-12 -right-12 w-32 h-32 blur-3xl opacity-20 pointer-events-none rounded-full" 
-									style={{ backgroundColor: service.highlight }}
-								/>
-								<div className="flex items-center gap-3 mb-6">
-									<Terminal className="w-6 h-6" style={{ color: service.highlight }} />
-									<h3 className="text-lg font-bold text-foreground">Technology Stack</h3>
-								</div>
-								<div className="flex flex-wrap gap-2">
-									{service.technologies.map((tech, idx) => (
-										<span 
-											key={idx} 
-											className="px-3.5 py-1.5 rounded-xl text-sm font-medium border border-black/5 dark:border-white/5 bg-foreground/[0.02] dark:bg-white/5 text-foreground/80"
-										>
-											{tech}
-										</span>
-									))}
-								</div>
-							</div>
-						</motion.div>
-					</div>
-				</section>
-
-				{/* In-depth Overview Section */}
-				<section className="w-[90%] max-w-[1600px] mx-auto mt-24 relative z-10">
-					<div className="glass-panel p-8 md:p-16 rounded-[40px] border border-black/5 dark:border-white/5 shadow-2xl relative overflow-hidden">
-						<div 
-							className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" 
-							style={{ backgroundImage: `linear-gradient(to right, transparent, ${service.highlight}40, transparent)` }}
-						/>
-						<div className="grid lg:grid-cols-12 gap-12">
-							<div className="lg:col-span-5 space-y-6">
-								<div className="flex items-center gap-2">
-									<BrainCircuit className="w-5 h-5 text-muted-foreground" />
-									<span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Deep Dive</span>
-								</div>
-								<h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight text-foreground">
-									Service Overview
-								</h2>
-								<div 
-									className="w-16 h-1 rounded-full" 
-									style={{ backgroundColor: service.highlight }}
-								/>
-							</div>
-							<div className="lg:col-span-7">
-								<p className="text-lg md:text-2xl font-light leading-relaxed text-foreground/80 dark:text-foreground/70">
-									{service.overview}
-								</p>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				{/* Detailed Features & Capabilities */}
-				<section className="w-[90%] max-w-[1600px] mx-auto mt-24 relative z-10">
-					<div className="mb-12">
-						<span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">System Capabilities</span>
-						<h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tight text-foreground mt-2">
-							Core Features
-						</h2>
-					</div>
-
-					<div className="grid md:grid-cols-2 gap-6">
-						{service.features.map((feature, idx) => {
-							const [titlePart, descPart] = feature.split(": ");
-							return (
-								<motion.div 
-									key={idx}
-									initial={{ opacity: 0, y: 20 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									viewport={{ once: true }}
-									transition={{ duration: 0.5, delay: idx * 0.05 }}
-									className="glass-panel p-8 rounded-3xl border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 transition-colors shadow-lg group relative overflow-hidden"
-								>
-									<div className="flex gap-4 items-start">
-										<div className="mt-1">
-											<CheckCircle2 className="w-6 h-6 flex-shrink-0" style={{ color: service.highlight }} />
-										</div>
-										<div className="space-y-2">
-											<h3 className="text-xl font-bold text-foreground">
-												{titlePart}
-											</h3>
-											{descPart && (
-												<p className="text-muted-foreground leading-relaxed">
-													{descPart}
-												</p>
-											)}
-										</div>
-									</div>
-								</motion.div>
-							);
-						})}
-					</div>
-				</section>
-
-				{/* Custom Real-world Use Cases */}
-				<section className="w-[90%] max-w-[1600px] mx-auto mt-32 relative z-10">
-					<div className="mb-12">
-						<span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Applied AI</span>
-						<h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tight text-foreground mt-2">
-							Enterprise Use Cases
-						</h2>
-					</div>
-
-					<div className="grid lg:grid-cols-2 gap-8">
-						{service.useCases.map((useCase, idx) => (
-							<motion.div 
-								key={idx}
-								initial={{ opacity: 0, scale: 0.98 }}
-								whileInView={{ opacity: 1, scale: 1 }}
-								viewport={{ once: true }}
-								transition={{ duration: 0.6 }}
-								className="glass-panel p-10 rounded-[36px] border border-black/5 dark:border-white/5 flex flex-col justify-between h-[360px] relative overflow-hidden group shadow-xl"
-							>
-								<div 
-									className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 pointer-events-none"
-									style={{ backgroundColor: service.highlight }}
-								/>
-								
-								<div className="space-y-4">
-									<span 
-										className="text-xs font-bold uppercase tracking-widest px-3.5 py-1 rounded-full border border-black/10 dark:border-white/10 bg-foreground/[0.01] text-muted-foreground"
-									>
-										{useCase.industry}
-									</span>
-									<h3 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
-										{useCase.title}
-									</h3>
-								</div>
-
-								<p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-									{useCase.desc}
-								</p>
-							</motion.div>
-						))}
-					</div>
-				</section>
-
-				{/* Results & Business Impact Section */}
-				<section className="w-[90%] max-w-[1600px] mx-auto mt-32 relative z-10">
-					<div className="mb-12">
-						<span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Strategic Value</span>
-						<h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tight text-foreground mt-2">
-							Target Impact Metrics
-						</h2>
-					</div>
-
-					<div className="grid md:grid-cols-3 gap-6">
-						{service.results.map((result, idx) => (
-							<motion.div 
-								key={idx}
-								initial={{ opacity: 0, y: 30 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true }}
-								transition={{ duration: 0.6, delay: idx * 0.1 }}
-								className="glass-panel p-8 rounded-3xl border border-black/5 dark:border-white/5 text-left relative overflow-hidden shadow-lg"
-							>
-								<div 
-									className="absolute -top-6 -right-6 w-16 h-16 rounded-full opacity-10"
-									style={{ backgroundColor: service.highlight }}
-								/>
-								<div className="space-y-4 relative z-10">
-									<span className="text-xs uppercase text-muted-foreground font-bold tracking-wider">
-										{result.metric}
-									</span>
-									<p 
-										className="text-4xl md:text-5xl font-black tracking-tight"
-										style={{ color: service.highlight }}
-									>
-										{result.value}
-									</p>
-									<p className="text-muted-foreground text-sm leading-relaxed">
-										{result.desc}
-									</p>
-								</div>
-							</motion.div>
-						))}
-					</div>
-				</section>
-
-				{/* Contact Call to Action */}
-				<section className="w-[90%] max-w-[1600px] mx-auto mt-32 relative z-10">
-					<div className="glass-panel p-8 md:p-16 rounded-[40px] border border-black/5 dark:border-white/5 shadow-2xl text-center relative overflow-hidden">
-						<div 
-							className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 blur-[120px] opacity-15 rounded-full pointer-events-none"
-							style={{ backgroundColor: service.highlight }}
-						/>
-						<div className="max-w-3xl mx-auto space-y-8 relative z-10">
-							<Sparkles className="w-10 h-10 mx-auto" style={{ color: service.highlight }} />
-							<h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tight text-foreground leading-none">
-								Ready to deploy this capability?
-							</h2>
-							<p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-								Partner with our AI and software engineering experts to custom design, validate, and integrate {service.title} inside your enterprise software platform.
-							</p>
-							<div>
-								<Link 
-									to="/contact-us"
-									className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-all duration-300 shadow-lg text-white"
-									style={{ 
-										background: `linear-gradient(135deg, ${service.highlight} 0%, hsl(280, 100%, 60%) 100%)`,
-										boxShadow: `0 10px 30px ${service.highlight}30`
-									}}
-								>
-									Get in Touch <ArrowRight className="w-5 h-5" />
-								</Link>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
-		</>
+		<ServiceDetailsSwitcher
+			componentMap={AIDATA_COMPONENT_MAP}
+			fallbackPath="/services/ai-data"
+		/>
 	);
 }

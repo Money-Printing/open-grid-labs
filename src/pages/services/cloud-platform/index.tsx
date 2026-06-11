@@ -6,6 +6,8 @@ import { Brain, Code, Database, FileCode, LineChart, Network, PieChart, Server, 
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { Link } from "react-router";
 import { slugify } from "../../../utils/slugify";
+import ServiceHero from "../../../components/service-hero";
+import FramerParallaxCard from "../../../components/framer-parallax-card";
 
 const awsItems = [
 	"EC2 Instances", "S3 Storage", "AWS Lambda", "Amazon RDS",
@@ -73,182 +75,93 @@ const tools = [
 ];
 
 // --- Simple Immersive 3D Hero ---
+const dataParticles = Array.from({ length: 20 }).map(() => ({
+	left: Math.random() * 100,
+	top: Math.random() * 100,
+	z: Math.random() * 200 - 100,
+	duration: Math.random() * 5 + 5,
+	delay: Math.random() * 5
+}));
+
 function SoftwareHero() {
-	const containerRef = useRef<HTMLDivElement>(null);
-
-	const mouseX = useMotionValue(0);
-	const mouseY = useMotionValue(0);
-	const springConfig = { damping: 30, stiffness: 100, mass: 1 };
-	const tiltX = useSpring(useTransform(mouseY, [-0.5, 0.5], [20, -20]), springConfig);
-	const tiltY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-20, 20]), springConfig);
-
-	const handleMouseMove = (e: React.MouseEvent) => {
-		if (!containerRef.current) return;
-		const rect = containerRef.current.getBoundingClientRect();
-		mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-		mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-	};
-
 	return (
-		<section
-			ref={containerRef}
-			onMouseMove={handleMouseMove}
-			onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
-			className="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex flex-col items-center justify-center bg-background perspective-[1500px]"
-		>
-			{/* Ambient Deep Space Glow */}
-			<div className="absolute inset-0 dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(29,78,216,0.15)_0%,_transparent_60%)]" />
-
-			{/* 3D Rotating Core Engine */}
-			<motion.div 
-				className="absolute top-1/2 left-1/2 w-[600px] h-[600px] pointer-events-none"
-				style={{ x: "-50%", y: "-50%", rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
-			>
-				{/* Outer Ring */}
-				<motion.div 
-					className="absolute inset-0 rounded-full border border-blue-500/20"
-					animate={{ rotateZ: 360, rotateX: [60, 70, 60], rotateY: [0, 20, 0] }}
-					transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-					style={{ transformStyle: "preserve-3d" }}
-				/>
-				{/* Inner Ring */}
-				<motion.div 
-					className="absolute inset-[10%] rounded-full border-2 border-purple-500/20 shadow-lg dark:shadow-[0_0_50px_rgba(168,85,247,0.2)_inset]"
-					animate={{ rotateZ: -360, rotateX: [40, 20, 40], rotateY: [20, -20, 20] }}
-					transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-					style={{ transformStyle: "preserve-3d" }}
-				/>
-				{/* Core Glow */}
-				<motion.div 
-					className="absolute inset-[30%] rounded-full bg-blue-500/5 blur-[100px]"
-					animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-					transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-				/>
-			</motion.div>
-
-			{/* Floating Data Particles */}
-			{Array.from({ length: 20 }).map((_, i) => (
-				<motion.div
-					key={i}
-					className="absolute w-2 h-2 rounded-full bg-foreground/30 blur-[1px]"
-					style={{
-						left: `${Math.random() * 100}%`,
-						top: `${Math.random() * 100}%`,
-						transform: `translateZ(${Math.random() * 200 - 100}px)`
-					}}
-					animate={{
-						y: [0, -500],
-						opacity: [0, 1, 0],
-					}}
-					transition={{
-						duration: Math.random() * 5 + 5,
-						repeat: Infinity,
-						delay: Math.random() * 5,
-						ease: "linear"
-					}}
-				/>
-			))}
-
-			{/* Floating Glassmorphic Content Card */}
-			<motion.div
-				className="relative z-10 flex flex-col items-center text-center p-8 md:p-16 rounded-[40px] border border-black/5 dark:border-transparent bg-foreground/[0.01] backdrop-blur-md shadow-lg dark:shadow-[0_0_100px_rgba(0,0,0,0.5)] max-w-[90%]"
-				style={{ 
-					rotateX: useTransform(tiltX, (v) => v * 0.5), 
-					rotateY: useTransform(tiltY, (v) => v * 0.5),
-					transformStyle: "preserve-3d" 
-				}}
-			>
-				{/* Top Glare */}
-				<div className="absolute top-0 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent" />
-
-				<motion.div
-					initial={{ opacity: 0, y: 30 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, ease: "easeOut" }}
-					className="flex items-center gap-4 mb-8"
-					style={{ transform: "translateZ(40px)" }}
-				>
-					<div className="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-blue-500" />
-					<span className="text-xs md:text-sm font-bold tracking-[0.5em] uppercase px-4 md:px-6 py-2 rounded-full border border-black/10 dark:border-transparent bg-white/50 dark:bg-foreground/5 text-foreground backdrop-blur-xl shadow-lg dark:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-						Cloud & Platform Engineering
-					</span>
-					<div className="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-purple-500" />
-				</motion.div>
-
-				<motion.div 
-					initial={{ opacity: 0, scale: 0.9 }}
-					animate={{ opacity: 1, scale: 1 }}
-					transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-					style={{ transformStyle: "preserve-3d" }}
-				>
-					<h1 className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/50 font-black uppercase tracking-tighter leading-none" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(80px)" }}>
-						Digital
-					</h1>
-					<h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-black uppercase tracking-tighter leading-none drop-shadow-lg dark:shadow-[0_0_60px_rgba(59,130,246,0.3)] mt-2" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(100px)" }}>
-						Ecosystems.
-					</h2>
-				</motion.div>
-
-				<motion.p 
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 1, delay: 0.4 }}
-					className="mt-10 text-lg md:text-2xl font-light leading-relaxed max-w-2xl text-foreground/70 dark:text-foreground/50"
-					style={{ transform: "translateZ(60px)" }}
-				>
+		<ServiceHero
+			tag="Cloud & Platform Engineering"
+			tagClass="border-black/10 dark:border-transparent bg-white/50 dark:bg-foreground/5 text-foreground backdrop-blur-xl shadow-lg dark:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+			tagLeftLineClass="to-blue-500"
+			tagRightLineClass="to-purple-500"
+			titleWord1="Digital"
+			titleWord2="Ecosystems."
+			titleWord2Class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 drop-shadow-lg dark:shadow-[0_0_60px_rgba(59,130,246,0.3)] mt-2"
+			description={
+				<>
 					Architecting hyper-scalable applications and mission-critical backend infrastructure for the <strong className="text-foreground font-medium">next generation of the web.</strong>
-				</motion.p>
-			</motion.div>
-			
-			<div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-		</section>
+				</>
+			}
+			ambientGlowClass="dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(29,78,216,0.15)_0%,_transparent_60%)]"
+			cardBorderClass="border-black/5 dark:border-transparent"
+			cardBlurClass="backdrop-blur-md"
+			cardGlowClass="dark:shadow-[0_0_100px_rgba(0,0,0,0.5)]"
+			topGlareClass="bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"
+			tiltMax={20}
+			contentTiltFactor={0.5}
+			renderBackground={(tiltX, tiltY) => (
+				<>
+					{/* 3D Rotating Core Engine */}
+					<motion.div
+						className="absolute top-1/2 left-1/2 w-[600px] h-[600px] pointer-events-none"
+						style={{ x: "-50%", y: "-50%", rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
+					>
+						{/* Outer Ring */}
+						<motion.div
+							className="absolute inset-0 rounded-full border border-blue-500/20"
+							animate={{ rotateZ: 360, rotateX: [60, 70, 60], rotateY: [0, 20, 0] }}
+							transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+							style={{ transformStyle: "preserve-3d" }}
+						/>
+						{/* Inner Ring */}
+						<motion.div
+							className="absolute inset-[10%] rounded-full border-2 border-purple-500/20 shadow-lg dark:shadow-[0_0_50px_rgba(168,85,247,0.2)_inset]"
+							animate={{ rotateZ: -360, rotateX: [40, 20, 40], rotateY: [20, -20, 20] }}
+							transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+							style={{ transformStyle: "preserve-3d" }}
+						/>
+						{/* Core Glow */}
+						<motion.div
+							className="absolute inset-[30%] rounded-full bg-blue-500/5 blur-[100px]"
+							animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+							transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+						/>
+					</motion.div>
+
+					{/* Floating Data Particles */}
+					{dataParticles.map((particle, i) => (
+						<motion.div
+							key={i}
+							className="absolute w-2 h-2 rounded-full bg-foreground/30 blur-[1px]"
+							style={{
+								left: `${particle.left}%`,
+								top: `${particle.top}%`,
+								transform: `translateZ(${particle.z}px)`
+							}}
+							animate={{
+								y: [0, -500],
+								opacity: [0, 1, 0],
+							}}
+							transition={{
+								duration: particle.duration,
+								repeat: Infinity,
+								delay: particle.delay,
+								ease: "linear"
+							}}
+						/>
+					))}
+				</>
+			)}
+		/>
 	);
 }
 
-// --- Framer 3D Parallax Card ---
-function FramerParallaxCard({ children, highlight, index }: { children: React.ReactNode, highlight: string, index: number }) {
-	const x = useMotionValue(0.5);
-	const y = useMotionValue(0.5);
-	const springConfig = { damping: 20, stiffness: 300, mass: 0.5 };
-	const rotateX = useSpring(useTransform(y, [0, 1], [10, -10]), springConfig);
-	const rotateY = useSpring(useTransform(x, [0, 1], [-10, 10]), springConfig);
-
-	function handleMouseMove(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-		const rect = e.currentTarget.getBoundingClientRect();
-		x.set((e.clientX - rect.left) / rect.width);
-		y.set((e.clientY - rect.top) / rect.height);
-	}
-
-	function handleMouseLeave() {
-		x.set(0.5);
-		y.set(0.5);
-	}
-
-	return (
-		<motion.div
-			initial={{ opacity: 0, rotateX: 45, y: 50 }}
-			whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-			viewport={{ once: true, margin: "-50px" }}
-			transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
-			onMouseMove={handleMouseMove}
-			onMouseLeave={handleMouseLeave}
-			style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-			className="relative group p-6 rounded-2xl border border-black/5 dark:border-transparent bg-foreground/[0.01] backdrop-blur-md overflow-hidden hover:border-black/20 dark:border-transparent transition-colors"
-		>
-			<motion.div 
-				className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-				style={{ 
-					background: useTransform(
-						[x, y], 
-						([latestX, latestY]: any) => `radial-gradient(circle at ${latestX * 100}% ${latestY * 100}%, ${highlight}30, transparent 60%)`
-					)
-				}} 
-			/>
-			<div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-transparent via-black/50 dark:via-white/50 to-transparent" />
-			<div style={{ transform: "translateZ(20px)" }}>{children}</div>
-		</motion.div>
-	);
-}
 
 function SoftwareServicesGrid() {
 	return (
@@ -275,7 +188,14 @@ function SoftwareServicesGrid() {
 						<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
 							{category.items.map((item, index) => (
 								<Link key={index} to={`/services/cloud-platform/${slugify(item)}`} className="block cursor-pointer">
-									<FramerParallaxCard index={index} highlight={category.highlight}>
+									<FramerParallaxCard
+										index={index}
+										highlight={category.highlight}
+										tiltMax={10}
+										backdropBlurClass="backdrop-blur-md"
+										roundedClass="rounded-2xl"
+										shadowClass=""
+									>
 										<div className="flex items-center gap-3">
 											<div className="w-2 h-2 rounded-full" style={{ backgroundColor: category.highlight, boxShadow: `0 0 10px ${category.highlight}` }} />
 											<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">

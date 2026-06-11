@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
+import { Link } from "react-router";
 import SEO from "../../../components/seo";
+import { slugify } from "../../../utils/slugify";
 import { faAws, faJava, faPython } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,6 +9,8 @@ import {
 	Landmark, Lock, Server, Shield, TrendingUp
 } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
+import ServiceHero from "../../../components/service-hero";
+import FramerParallaxCard from "../../../components/framer-parallax-card";
 
 const bankingItems = [
 	"Core Banking Systems", "Digital Banking Portals", "Payment Processing", "Open Banking APIs",
@@ -58,156 +62,73 @@ const tools = [
 
 // --- Hero ---
 function BFSIHero() {
-	const containerRef = useRef<HTMLDivElement>(null);
-	const mouseX = useMotionValue(0);
-	const mouseY = useMotionValue(0);
-	const springConfig = { damping: 30, stiffness: 100, mass: 1 };
-	const tiltX = useSpring(useTransform(mouseY, [-0.5, 0.5], [15, -15]), springConfig);
-	const tiltY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-15, 15]), springConfig);
-
-	const handleMouseMove = (e: React.MouseEvent) => {
-		if (!containerRef.current) return;
-		const rect = containerRef.current.getBoundingClientRect();
-		mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-		mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-	};
-
 	return (
-		<section
-			ref={containerRef}
-			onMouseMove={handleMouseMove}
-			onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
-			className="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex flex-col items-center justify-center bg-background perspective-[1500px]"
-		>
-			<div className="absolute inset-0 dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(245,158,11,0.1)_0%,_transparent_60%)]" />
-
-			{/* Floating financial shapes */}
-			<motion.div
-				className="absolute inset-0 pointer-events-none"
-				style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
-			>
-				{/* Gold ring */}
-				<motion.div
-					className="absolute top-[15%] left-[15%] w-72 h-72 rounded-full border-[40px] border-amber-400/10 backdrop-blur-xl"
-					style={{ transform: "translateZ(-120px)" }}
-					animate={{ rotateX: [0, 360], rotateY: [0, 180, 360] }}
-					transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-				/>
-				{/* Emerald block */}
-				<motion.div
-					className="absolute top-[55%] right-[12%] w-52 h-52 bg-emerald-400/5 border border-emerald-400/20 rounded-3xl backdrop-blur-2xl"
-					style={{ transform: "translateZ(80px)" }}
-					animate={{ y: [0, 60, 0], rotateZ: [0, 45, 0] }}
-					transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-				/>
-				{/* Indigo sphere */}
-				<motion.div
-					className="absolute top-[25%] right-[30%] w-36 h-36 rounded-full bg-indigo-500/8 border border-indigo-400/20 backdrop-blur-xl"
-					style={{ transform: "translateZ(40px)" }}
-					animate={{ y: [0, -40, 0], scale: [1, 1.1, 1] }}
-					transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-				/>
-				{/* Animated bar chart shapes */}
-				{[40, 65, 50, 80, 55].map((h, i) => (
-					<motion.div
-						key={i}
-						className="absolute bottom-[20%] rounded-t-lg bg-amber-400/10 border border-amber-400/20"
-						style={{
-							left: `${25 + i * 6}%`,
-							width: "3%",
-							transform: `translateZ(${30 + i * 10}px)`,
-						}}
-						animate={{ height: [`${h * 0.4}px`, `${h}px`, `${h * 0.4}px`] }}
-						transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
-					/>
-				))}
-			</motion.div>
-
-			{/* Glassmorphic content card */}
-			<motion.div
-				className="relative z-10 flex flex-col items-center text-center p-8 md:p-16 rounded-[40px] border border-black/10 dark:border-transparent bg-foreground/[0.01] backdrop-blur-2xl shadow-lg dark:shadow-[0_0_120px_rgba(0,0,0,0.7)] max-w-[90%]"
-				style={{
-					rotateX: useTransform(tiltX, (v) => v * 0.4),
-					rotateY: useTransform(tiltY, (v) => v * 0.4),
-					transformStyle: "preserve-3d"
-				}}
-			>
-				<div className="absolute top-0 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent" />
-				<div className="absolute bottom-0 left-[30%] right-[30%] h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
-
-				<motion.div
-					initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}
-					className="flex items-center gap-4 mb-8" style={{ transform: "translateZ(40px)" }}
-				>
-					<div className="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-amber-500" />
-					<span className="text-xs md:text-sm font-bold tracking-[0.5em] uppercase px-4 md:px-6 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300 backdrop-blur-xl">
-						BFSI & Fintech
-					</span>
-					<div className="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-emerald-500" />
-				</motion.div>
-
-				<motion.div
-					initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-					style={{ transformStyle: "preserve-3d" }}
-				>
-					<h1 className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/50 font-black uppercase tracking-tighter leading-none" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(80px)" }}>
-						Finance
-					</h1>
-					<h2 className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-emerald-400 to-indigo-400 font-black uppercase tracking-tighter leading-none drop-shadow-lg mt-2" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(100px)" }}>
-						Reimagined.
-					</h2>
-				</motion.div>
-
-				<motion.p
-					initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.4 }}
-					className="mt-10 text-lg md:text-2xl font-light leading-relaxed max-w-2xl text-foreground/80 dark:text-foreground/60" style={{ transform: "translateZ(60px)" }}
-				>
+		<ServiceHero
+			tag="BFSI & Fintech"
+			tagClass="border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300 backdrop-blur-xl"
+			tagLeftLineClass="to-amber-500"
+			tagRightLineClass="to-emerald-500"
+			titleWord1="Finance"
+			titleWord2="Reimagined."
+			titleWord2Class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-emerald-400 to-indigo-400 drop-shadow-lg mt-2"
+			description={
+				<>
 					Building compliant, high-performance platforms for <strong className="text-foreground font-medium">Banking, Financial Services & Insurance</strong> — engineered for trust, speed, and scale.
-				</motion.p>
-			</motion.div>
-
-			<div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-		</section>
+				</>
+			}
+			ambientGlowClass="dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(245,158,11,0.1)_0%,_transparent_60%)]"
+			cardBorderClass="border-black/10 dark:border-transparent"
+			cardBlurClass="backdrop-blur-2xl"
+			cardGlowClass="dark:shadow-[0_0_120px_rgba(0,0,0,0.7)]"
+			topGlareClass="bg-gradient-to-r from-transparent via-amber-400/50 to-transparent"
+			bottomGlareClass="bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent"
+			renderBackground={(tiltX, tiltY) => (
+				<motion.div
+					className="absolute inset-0 pointer-events-none"
+					style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
+				>
+					{/* Gold ring */}
+					<motion.div
+						className="absolute top-[15%] left-[15%] w-72 h-72 rounded-full border-[40px] border-amber-400/10 backdrop-blur-xl"
+						style={{ transform: "translateZ(-120px)" }}
+						animate={{ rotateX: [0, 360], rotateY: [0, 180, 360] }}
+						transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+					/>
+					{/* Emerald block */}
+					<motion.div
+						className="absolute top-[55%] right-[12%] w-52 h-52 bg-emerald-400/5 border border-emerald-400/20 rounded-3xl backdrop-blur-2xl"
+						style={{ transform: "translateZ(80px)" }}
+						animate={{ y: [0, 60, 0], rotateZ: [0, 45, 0] }}
+						transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+					/>
+					{/* Indigo sphere */}
+					<motion.div
+						className="absolute top-[25%] right-[30%] w-36 h-36 rounded-full bg-indigo-500/8 border border-indigo-400/20 backdrop-blur-xl"
+						style={{ transform: "translateZ(40px)" }}
+						animate={{ y: [0, -40, 0], scale: [1, 1.1, 1] }}
+						transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+					/>
+					{/* Animated bar chart shapes */}
+					{[40, 65, 50, 80, 55].map((h, i) => (
+						<motion.div
+							key={i}
+							className="absolute bottom-[20%] rounded-t-lg bg-amber-400/10 border border-amber-400/20"
+							style={{
+								left: `${25 + i * 6}%`,
+								width: "3%",
+								transform: `translateZ(${30 + i * 10}px)`,
+							}}
+							animate={{ height: [`${h * 0.4}px`, `${h}px`, `${h * 0.4}px`] }}
+							transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+						/>
+					))}
+				</motion.div>
+			)}
+		/>
 	);
 }
 
-// --- 3D Parallax Card ---
-function FramerParallaxCard({ children, highlight, index }: { children: React.ReactNode, highlight: string, index: number }) {
-	const x = useMotionValue(0.5);
-	const y = useMotionValue(0.5);
-	const springConfig = { damping: 20, stiffness: 300, mass: 0.5 };
-	const rotateX = useSpring(useTransform(y, [0, 1], [12, -12]), springConfig);
-	const rotateY = useSpring(useTransform(x, [0, 1], [-12, 12]), springConfig);
 
-	return (
-		<motion.div
-			initial={{ opacity: 0, rotateX: 45, y: 50 }}
-			whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-			viewport={{ once: true, margin: "-50px" }}
-			transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
-			onMouseMove={(e) => {
-				const rect = e.currentTarget.getBoundingClientRect();
-				x.set((e.clientX - rect.left) / rect.width);
-				y.set((e.clientY - rect.top) / rect.height);
-			}}
-			onMouseLeave={() => { x.set(0.5); y.set(0.5); }}
-			style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-			className="relative group p-6 rounded-3xl border border-black/5 dark:border-transparent bg-foreground/[0.01] backdrop-blur-xl overflow-hidden hover:border-black/20 transition-colors shadow-sm"
-		>
-			<motion.div
-				className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-				style={{
-					background: useTransform(
-						[x, y],
-						([latestX, latestY]: any) => `radial-gradient(circle at ${latestX * 100}% ${latestY * 100}%, ${highlight}30, transparent 70%)`
-					)
-				}}
-			/>
-			<div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-transparent via-black/50 dark:via-white/50 to-transparent" />
-			<div style={{ transform: "translateZ(25px)" }}>{children}</div>
-		</motion.div>
-	);
-}
 
 function BFSIServicesGrid() {
 	return (
@@ -231,14 +152,25 @@ function BFSIServicesGrid() {
 
 						<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
 							{category.items.map((item, index) => (
-								<FramerParallaxCard key={index} index={index} highlight={category.highlight}>
-									<div className="flex items-center gap-3">
-										<div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: category.highlight, boxShadow: `0 0 8px ${category.highlight}` }} />
-										<h4 className="text-base font-medium text-foreground/70 group-hover:text-foreground transition-colors">
-											{item}
-										</h4>
-									</div>
-								</FramerParallaxCard>
+								<Link key={index} to={`/services/bfsi/${slugify(item)}`} className="block cursor-pointer">
+									<FramerParallaxCard
+										index={index}
+										highlight={category.highlight}
+										tiltMax={12}
+										translateZ={25}
+										shadowClass="shadow-sm"
+										highlightOpacity="30"
+										radialRadius="70%"
+										topGlareHeightClass="h-[2px]"
+									>
+										<div className="flex items-center gap-3">
+											<div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: category.highlight, boxShadow: `0 0 8px ${category.highlight}` }} />
+											<h4 className="text-base font-medium text-foreground/70 group-hover:text-foreground transition-colors">
+												{item}
+											</h4>
+										</div>
+									</FramerParallaxCard>
+								</Link>
 							))}
 						</div>
 					</motion.div>

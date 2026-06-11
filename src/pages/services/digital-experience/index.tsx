@@ -1,10 +1,14 @@
 import React, { useRef } from "react";
+import { Link } from "react-router";
 import SEO from "../../../components/seo";
+import ServiceHero from "../../../components/service-hero";
 import { faFigma } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ArrowRight, Palette, Shapes } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { Blender, Canva, Framer, FreePik, Sketch } from "../../../icons/tools";
+import { slugify } from "../../../utils/slugify";
+import FramerParallaxCard from "../../../components/framer-parallax-card";
 
 const uiuxServices = [
   "User Research", "Wireframing", "Prototyping", "User Interface Design",
@@ -52,144 +56,58 @@ const tools = [
 
 // --- 3D Geometry Hero ---
 function DesignHero() {
-	const containerRef = useRef<HTMLDivElement>(null);
-	const mouseX = useMotionValue(0);
-	const mouseY = useMotionValue(0);
-	const springConfig = { damping: 30, stiffness: 100, mass: 1 };
-	const tiltX = useSpring(useTransform(mouseY, [-0.5, 0.5], [15, -15]), springConfig);
-	const tiltY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-15, 15]), springConfig);
-
-	const handleMouseMove = (e: React.MouseEvent) => {
-		if (!containerRef.current) return;
-		const rect = containerRef.current.getBoundingClientRect();
-		mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-		mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-	};
-
 	return (
-		<section
-			ref={containerRef}
-			onMouseMove={handleMouseMove}
-			onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
-			className="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex flex-col items-center justify-center bg-background perspective-[1500px]"
-		>
-			<div className="absolute inset-0 dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(236,72,153,0.1)_0%,_transparent_60%)]" />
-
-			{/* Floating 3D Geometric Shapes */}
-			<motion.div 
-				className="absolute inset-0 pointer-events-none"
-				style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
-			>
-				{/* Pink Sphere */}
-				<motion.div
-					className="absolute top-[20%] left-[20%] w-64 h-64 rounded-full bg-pink-500/10 backdrop-blur-3xl border border-pink-500/20 shadow-lg dark:shadow-[0_0_100px_rgba(236,72,153,0.3)_inset]"
-					style={{ transform: "translateZ(-150px)" }}
-					animate={{ y: [0, -50, 0], rotateX: [0, 180, 360], rotateY: [0, 180, 360] }}
-					transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-				/>
-				{/* Cyan Cube (Simulated) */}
-				<motion.div
-					className="absolute top-[60%] right-[15%] w-48 h-48 bg-cyan-500/10 backdrop-blur-2xl border border-cyan-500/30 shadow-lg dark:shadow-[0_0_50px_rgba(34,211,238,0.2)] rounded-3xl"
-					style={{ transform: "translateZ(100px)" }}
-					animate={{ y: [0, 60, 0], rotateX: [45, 225, 405], rotateY: [45, 225, 405] }}
-					transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-				/>
-				{/* Amber Donut (Simulated) */}
-				<motion.div
-					className="absolute top-[30%] right-[35%] w-40 h-40 rounded-full bg-transparent border-[30px] border-amber-500/10 backdrop-blur-xl shadow-lg dark:shadow-[0_0_30px_rgba(245,158,11,0.2)]"
-					style={{ transform: "translateZ(50px)" }}
-					animate={{ y: [0, -30, 0], rotateX: [0, -180, -360], rotateY: [0, -180, -360] }}
-					transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-				/>
-			</motion.div>
-
-			{/* Floating Glassmorphic Content Card */}
-			<motion.div
-				className="relative z-10 flex flex-col items-center text-center p-8 md:p-16 rounded-[40px] border border-black/10 dark:border-transparent bg-foreground/[0.02] backdrop-blur-2xl shadow-lg dark:shadow-[0_0_120px_rgba(0,0,0,0.8)] max-w-[90%]"
-				style={{ 
-					rotateX: useTransform(tiltX, (v) => v * 0.4), 
-					rotateY: useTransform(tiltY, (v) => v * 0.4),
-					transformStyle: "preserve-3d" 
-				}}
-			>
-				<div className="absolute top-0 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-pink-400/50 to-transparent" />
-				<div className="absolute bottom-0 left-[30%] right-[30%] h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent" />
-
-				<motion.div
-					initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}
-					className="flex items-center gap-4 mb-8" style={{ transform: "translateZ(40px)" }}
-				>
-					<div className="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-pink-500" />
-					<span className="text-xs md:text-sm font-bold tracking-[0.5em] uppercase px-4 md:px-6 py-2 rounded-full border border-pink-500/30 bg-pink-500/10 text-pink-700 dark:text-pink-300 backdrop-blur-xl shadow-lg dark:shadow-[0_0_30px_rgba(236,72,153,0.2)]">
-						Digital Experience
-					</span>
-					<div className="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-cyan-500" />
-				</motion.div>
-
-				<motion.div 
-					initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-					style={{ transformStyle: "preserve-3d" }}
-				>
-					<h1 className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/50 font-black uppercase tracking-tighter leading-none" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(80px)" }}>
-						Creative
-					</h1>
-					<h2 className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-amber-400 to-cyan-400 font-black uppercase tracking-tighter leading-none drop-shadow-lg dark:shadow-[0_0_60px_rgba(236,72,153,0.4)] mt-2" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(100px)" }}>
-						Visions.
-					</h2>
-				</motion.div>
-
-				<motion.p 
-					initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.4 }}
-					className="mt-10 text-lg md:text-2xl font-light leading-relaxed max-w-2xl text-foreground/80 dark:text-foreground/60" style={{ transform: "translateZ(60px)" }}
-				>
+		<ServiceHero
+			tag="Digital Experience"
+			tagClass="border-pink-500/30 bg-pink-500/10 text-pink-700 dark:text-pink-300 backdrop-blur-xl shadow-lg dark:shadow-[0_0_30px_rgba(236,72,153,0.2)]"
+			tagLeftLineClass="to-pink-500"
+			tagRightLineClass="to-cyan-500"
+			titleWord1="Creative"
+			titleWord2="Visions."
+			titleWord2Class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-amber-400 to-cyan-400 drop-shadow-lg dark:shadow-[0_0_60px_rgba(236,72,153,0.4)] mt-2"
+			description={
+				<>
 					Crafting beautiful, functional, and impactful <strong className="text-foreground font-medium">Design Solutions</strong> that elevate brands and engage users through stunning visual experiences.
-				</motion.p>
-			</motion.div>
-			
-			<div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-		</section>
+				</>
+			}
+			ambientGlowClass="dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(236,72,153,0.1)_0%,_transparent_60%)]"
+			cardBorderClass="border-black/10 dark:border-transparent"
+			cardBlurClass="backdrop-blur-2xl"
+			cardGlowClass="dark:shadow-[0_0_120px_rgba(0,0,0,0.8)]"
+			topGlareClass="bg-gradient-to-r from-transparent via-pink-400/50 to-transparent"
+			bottomGlareClass="bg-gradient-to-r from-transparent via-amber-400/30 to-transparent"
+			renderBackground={(tiltX, tiltY) => (
+				<motion.div
+					className="absolute inset-0 pointer-events-none"
+					style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
+				>
+					{/* Pink Sphere */}
+					<motion.div
+						className="absolute top-[20%] left-[20%] w-64 h-64 rounded-full bg-pink-500/10 backdrop-blur-3xl border border-pink-500/20 shadow-lg dark:shadow-[0_0_100px_rgba(236,72,153,0.3)_inset]"
+						style={{ transform: "translateZ(-150px)" }}
+						animate={{ y: [0, -50, 0], rotateX: [0, 180, 360], rotateY: [0, 180, 360] }}
+						transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+					/>
+					{/* Cyan Cube (Simulated) */}
+					<motion.div
+						className="absolute top-[60%] right-[15%] w-48 h-48 bg-cyan-500/10 backdrop-blur-2xl border border-cyan-500/30 shadow-lg dark:shadow-[0_0_50px_rgba(34,211,238,0.2)] rounded-3xl"
+						style={{ transform: "translateZ(100px)" }}
+						animate={{ y: [0, 60, 0], rotateX: [45, 225, 405], rotateY: [45, 225, 405] }}
+						transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+					/>
+					{/* Amber Donut (Simulated) */}
+					<motion.div
+						className="absolute top-[30%] right-[35%] w-40 h-40 rounded-full bg-transparent border-[30px] border-amber-500/10 backdrop-blur-xl shadow-lg dark:shadow-[0_0_30px_rgba(245,158,11,0.2)]"
+						style={{ transform: "translateZ(50px)" }}
+						animate={{ y: [0, -30, 0], rotateX: [0, -180, -360], rotateY: [0, -180, -360] }}
+						transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+					/>
+				</motion.div>
+			)}
+		/>
 	);
 }
 
-// --- Framer 3D Parallax Card ---
-function FramerParallaxCard({ children, highlight, index }: { children: React.ReactNode, highlight: string, index: number }) {
-	const x = useMotionValue(0.5);
-	const y = useMotionValue(0.5);
-	const springConfig = { damping: 20, stiffness: 300, mass: 0.5 };
-	const rotateX = useSpring(useTransform(y, [0, 1], [15, -15]), springConfig);
-	const rotateY = useSpring(useTransform(x, [0, 1], [-15, 15]), springConfig);
-
-	function handleMouseMove(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-		const rect = e.currentTarget.getBoundingClientRect();
-		x.set((e.clientX - rect.left) / rect.width);
-		y.set((e.clientY - rect.top) / rect.height);
-	}
-
-	return (
-		<motion.div
-			initial={{ opacity: 0, rotateX: 45, y: 50 }}
-			whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-			viewport={{ once: true, margin: "-50px" }}
-			transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
-			onMouseMove={handleMouseMove}
-			onMouseLeave={() => { x.set(0.5); y.set(0.5); }}
-			style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-			className="relative group p-6 rounded-3xl border border-black/5 dark:border-transparent bg-foreground/[0.01] backdrop-blur-xl overflow-hidden hover:border-black/20 dark:border-transparent transition-colors shadow-lg"
-		>
-			<motion.div 
-				className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-				style={{ 
-					background: useTransform(
-						[x, y], 
-						([latestX, latestY]: any) => `radial-gradient(circle at ${latestX * 100}% ${latestY * 100}%, ${highlight}30, transparent 70%)`
-					)
-				}} 
-			/>
-			<div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-transparent via-black/50 dark:via-white/50 to-transparent" />
-			<div style={{ transform: "translateZ(30px)" }}>{children}</div>
-		</motion.div>
-	);
-}
 
 function DesignServicesGrid() {
 	return (
@@ -213,14 +131,23 @@ function DesignServicesGrid() {
 
 						<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
 							{category.items.map((item, index) => (
-								<FramerParallaxCard key={index} index={index} highlight={category.highlight}>
-									<div className="flex items-center gap-3">
-										<div className="w-2 h-2 rounded-full" style={{ backgroundColor: category.highlight, boxShadow: `0 0 10px ${category.highlight}` }} />
-										<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">
-											{item}
-										</h4>
-									</div>
-								</FramerParallaxCard>
+								<Link key={index} to={`/services/digital-experience/${slugify(item)}`} className="block cursor-pointer">
+									<FramerParallaxCard
+										index={index}
+										highlight={category.highlight}
+										highlightOpacity="30"
+										radialRadius="70%"
+										topGlareHeightClass="h-[2px]"
+										translateZ={30}
+									>
+										<div className="flex items-center gap-3">
+											<div className="w-2 h-2 rounded-full" style={{ backgroundColor: category.highlight, boxShadow: `0 0 10px ${category.highlight}` }} />
+											<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">
+												{item}
+											</h4>
+										</div>
+									</FramerParallaxCard>
+								</Link>
 							))}
 						</div>
 					</motion.div>

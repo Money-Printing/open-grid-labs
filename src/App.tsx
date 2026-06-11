@@ -12,7 +12,9 @@ import ServicesAIDataDetail from "./pages/services/ai-data/service-details"
 import ServicesCloudPlatform from "./pages/services/cloud-platform"
 import ServicesCloudPlatformDetail from "./pages/services/cloud-platform/service-details"
 import ServicesDigitalExperience from "./pages/services/digital-experience"
+import ServicesDigitalExperienceDetail from "./pages/services/digital-experience/service-details"
 import ServicesBFSI from "./pages/services/bfsi"
+import ServicesBFSIDetail from "./pages/services/bfsi/service-details"
 import AboutUs from "./pages/about/about-us"
 import Team from "./pages/about/team"
 import Career from "./pages/about/career"
@@ -34,21 +36,23 @@ function App() {
 					<Route path="clients" element={<Clients />} />
 					<Route path="services">
 						<Route index element={<Navigate to="/services/ai-data" replace />} />
-						<Route index path="product-engineering" element={<ServicesProductEngineering />} />
+						<Route path="product-engineering" element={<ServicesProductEngineering />} />
 						<Route path="product-engineering/:serviceId" element={<ServicesProductEngineeringDetail />} />
 
-						<Route index path="ai-data" element={<ServicesAIData />} />
+						<Route path="ai-data" element={<ServicesAIData />} />
 						<Route path="ai-data/:serviceId" element={<ServicesAIDataDetail />} />
-						<Route index path="cloud-platform" element={<ServicesCloudPlatform />} />
+						<Route path="cloud-platform" element={<ServicesCloudPlatform />} />
 						<Route path="cloud-platform/:serviceId" element={<ServicesCloudPlatformDetail />} />
-						<Route index path="digital-experience" element={<ServicesDigitalExperience />} />
-						<Route index path="bfsi" element={<ServicesBFSI />} />
+						<Route path="digital-experience" element={<ServicesDigitalExperience />} />
+						<Route path="digital-experience/:serviceId" element={<ServicesDigitalExperienceDetail />} />
+						<Route path="bfsi" element={<ServicesBFSI />} />
+						<Route path="bfsi/:serviceId" element={<ServicesBFSIDetail />} />
 					</Route>
 					<Route path="about">
 						<Route index element={<Navigate to="/about/about-us" replace />} />
-						<Route index path="about-us" element={<AboutUs />} />
-						<Route index path="team" element={<Team />} />
-						<Route index path="career" element={<Career />} />
+						<Route path="about-us" element={<AboutUs />} />
+						<Route path="team" element={<Team />} />
+						<Route path="career" element={<Career />} />
 					</Route>
 					<Route path="contact-us" element={<ContactUs />} />
 					<Route path="privacy-policy" element={<PrivacyPolicy />} />

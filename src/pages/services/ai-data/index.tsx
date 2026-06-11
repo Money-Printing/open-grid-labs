@@ -7,6 +7,8 @@ import { motion, useScroll, useTransform, useSpring, useMotionValue } from "moti
 import { Anaconda, Jupyter, PyTorch, Tensorflow } from "../../../icons/tools";
 import { Link } from "react-router";
 import { slugify } from "../../../utils/slugify";
+import ServiceHero from "../../../components/service-hero";
+import FramerParallaxCard from "../../../components/framer-parallax-card";
 
 const aiServices = [
 	"Agentic AI", "Large Language Models", "Voice to Text Converter", "AI Strategy Consulting",
@@ -61,177 +63,87 @@ const tools = [
 ];
 
 // --- Neural Network 3D Hero ---
+const aiNodes = Array.from({ length: 40 }).map((_, i) => ({
+	x: Math.random() * 100,
+	y: Math.random() * 100,
+	z: Math.random() * 400 - 200,
+	size: Math.random() * 6 + 2,
+	delay: Math.random() * 5,
+	duration: Math.random() * 4 + 3,
+	color: i % 3 === 0 ? "rgba(34,211,238,0.6)" : i % 3 === 1 ? "rgba(168,85,247,0.6)" : "rgba(255,255,255,0.3)"
+}));
+
 function IntelligentHero() {
-	const containerRef = useRef<HTMLDivElement>(null);
-	const mouseX = useMotionValue(0);
-	const mouseY = useMotionValue(0);
-	const springConfig = { damping: 30, stiffness: 100, mass: 1 };
-	const tiltX = useSpring(useTransform(mouseY, [-0.5, 0.5], [15, -15]), springConfig);
-	const tiltY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-15, 15]), springConfig);
-
-	const handleMouseMove = (e: React.MouseEvent) => {
-		if (!containerRef.current) return;
-		const rect = containerRef.current.getBoundingClientRect();
-		mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-		mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-	};
-
-	// Generate nodes for the neural network background
-	const nodes = Array.from({ length: 40 }).map((_, i) => ({
-		x: Math.random() * 100,
-		y: Math.random() * 100,
-		z: Math.random() * 400 - 200,
-		size: Math.random() * 6 + 2,
-		delay: Math.random() * 5,
-		duration: Math.random() * 4 + 3,
-		color: i % 3 === 0 ? "rgba(34,211,238,0.6)" : i % 3 === 1 ? "rgba(168,85,247,0.6)" : "rgba(255,255,255,0.3)"
-	}));
-
 	return (
-		<section
-			ref={containerRef}
-			onMouseMove={handleMouseMove}
-			onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
-			className="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex flex-col items-center justify-center bg-background perspective-[1500px]"
-		>
-			<div className="absolute inset-0 dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(168,85,247,0.1)_0%,_transparent_60%)]" />
-
-			{/* 3D Neural Network Background */}
-			<motion.div 
-				className="absolute inset-0 pointer-events-none"
-				style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
-			>
-				{nodes.map((node, i) => (
-					<motion.div
-						key={i}
-						className="absolute rounded-full"
-						style={{
-							left: `${node.x}%`,
-							top: `${node.y}%`,
-							width: node.size,
-							height: node.size,
-							backgroundColor: node.color,
-							boxShadow: `0 0 ${node.size * 3}px ${node.color}`,
-							transform: `translateZ(${node.z}px)`
-						}}
-						animate={{
-							y: [0, -30, 0],
-							opacity: [0.3, 1, 0.3]
-						}}
-						transition={{
-							duration: node.duration,
-							repeat: Infinity,
-							delay: node.delay,
-							ease: "easeInOut"
-						}}
-					/>
-				))}
-				
-				{/* Simulated Connections */}
-				<svg className="absolute inset-0 w-full h-full opacity-20" style={{ transform: "translateZ(-100px)" }}>
-					{nodes.slice(0, 15).map((n1, i) => 
-						nodes.slice(i + 1, i + 3).map((n2, j) => (
-							<motion.line
-								key={`${i}-${j}`}
-								x1={`${n1.x}%`} y1={`${n1.y}%`}
-								x2={`${n2.x}%`} y2={`${n2.y}%`}
-								stroke={n1.color}
-								strokeWidth="1"
-								animate={{ opacity: [0, 0.5, 0] }}
-								transition={{ duration: 4, repeat: Infinity, delay: n1.delay, ease: "easeInOut" }}
-							/>
-						))
-					)}
-				</svg>
-			</motion.div>
-
-			{/* Floating Glassmorphic Content Card */}
-			<motion.div
-				className="relative z-10 flex flex-col items-center text-center p-8 md:p-16 rounded-[40px] border border-black/5 dark:border-transparent bg-foreground/[0.01] backdrop-blur-xl shadow-lg dark:shadow-[0_0_120px_rgba(0,0,0,0.6)] max-w-[90%]"
-				style={{ 
-					rotateX: useTransform(tiltX, (v) => v * 0.4), 
-					rotateY: useTransform(tiltY, (v) => v * 0.4),
-					transformStyle: "preserve-3d" 
-				}}
-			>
-				<div className="absolute top-0 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
-				<div className="absolute bottom-0 left-[30%] right-[30%] h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent" />
-
-				<motion.div
-					initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}
-					className="flex items-center gap-4 mb-8" style={{ transform: "translateZ(40px)" }}
-				>
-					<div className="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-cyan-400" />
-					<span className="text-xs md:text-sm font-bold tracking-[0.5em] uppercase px-4 md:px-6 py-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 text-cyan-300 backdrop-blur-xl shadow-lg dark:shadow-[0_0_30px_rgba(34,211,238,0.2)]">
-						Artificial Intelligence
-					</span>
-					<div className="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-purple-500" />
-				</motion.div>
-
-				<motion.div 
-					initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-					style={{ transformStyle: "preserve-3d" }}
-				>
-					<h1 className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/50 font-black uppercase tracking-tighter leading-none" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(80px)" }}>
-						Intelligent
-					</h1>
-					<h2 className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 font-black uppercase tracking-tighter leading-none drop-shadow-lg dark:shadow-[0_0_60px_rgba(168,85,247,0.4)] mt-2" style={{ fontSize: "clamp(3.5rem, 8vw, 8rem)", transform: "translateZ(100px)" }}>
-						Systems.
-					</h2>
-				</motion.div>
-
-				<motion.p 
-					initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.4 }}
-					className="mt-10 text-lg md:text-2xl font-light leading-relaxed max-w-2xl text-foreground/80 dark:text-foreground/60" style={{ transform: "translateZ(60px)" }}
-				>
+		<ServiceHero
+			tag="Artificial Intelligence"
+			tagClass="border-cyan-500/20 bg-cyan-500/10 text-cyan-300 shadow-lg dark:shadow-[0_0_30px_rgba(34,211,238,0.2)]"
+			tagLeftLineClass="to-cyan-400"
+			tagRightLineClass="to-purple-500"
+			titleWord1="Intelligent"
+			titleWord2="Systems."
+			titleWord2Class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 drop-shadow-lg dark:shadow-[0_0_60px_rgba(168,85,247,0.4)]"
+			description={
+				<>
 					Harnessing the power of <strong className="text-foreground font-medium">Machine Learning</strong> and <strong className="text-cyan-300 font-medium">Agentic AI</strong> to build automated, data-driven solutions that transform raw data into unprecedented intelligence.
-				</motion.p>
-			</motion.div>
-			
-			<div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-		</section>
+				</>
+			}
+			ambientGlowClass="dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(168,85,247,0.1)_0%,_transparent_60%)]"
+			cardBorderClass="border-black/5 dark:border-transparent"
+			topGlareClass="bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"
+			bottomGlareClass="bg-gradient-to-r from-transparent via-purple-400/30 to-transparent"
+			renderBackground={(tiltX, tiltY) => (
+				<motion.div
+					className="absolute inset-0 pointer-events-none"
+					style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
+				>
+					{aiNodes.map((node, i) => (
+						<motion.div
+							key={i}
+							className="absolute rounded-full"
+							style={{
+								left: `${node.x}%`,
+								top: `${node.y}%`,
+								width: node.size,
+								height: node.size,
+								backgroundColor: node.color,
+								boxShadow: `0 0 ${node.size * 3}px ${node.color}`,
+								transform: `translateZ(${node.z}px)`
+							}}
+							animate={{
+								y: [0, -30, 0],
+								opacity: [0.3, 1, 0.3]
+							}}
+							transition={{
+								duration: node.duration,
+								repeat: Infinity,
+								delay: node.delay,
+								ease: "easeInOut"
+							}}
+						/>
+					))}
+					<svg className="absolute inset-0 w-full h-full opacity-20" style={{ transform: "translateZ(-100px)" }}>
+						{aiNodes.slice(0, 15).map((n1, i) =>
+							aiNodes.slice(i + 1, i + 3).map((n2, j) => (
+								<motion.line
+									key={`${i}-${j}`}
+									x1={`${n1.x}%`} y1={`${n1.y}%`}
+									x2={`${n2.x}%`} y2={`${n2.y}%`}
+									stroke={n1.color}
+									strokeWidth="1"
+									animate={{ opacity: [0, 0.5, 0] }}
+									transition={{ duration: 4, repeat: Infinity, delay: n1.delay, ease: "easeInOut" }}
+								/>
+							))
+						)}
+					</svg>
+				</motion.div>
+			)}
+		/>
 	);
 }
 
-// --- Framer 3D Parallax Card ---
-function FramerParallaxCard({ children, highlight, index }: { children: React.ReactNode, highlight: string, index: number }) {
-	const x = useMotionValue(0.5);
-	const y = useMotionValue(0.5);
-	const springConfig = { damping: 20, stiffness: 300, mass: 0.5 };
-	const rotateX = useSpring(useTransform(y, [0, 1], [15, -15]), springConfig);
-	const rotateY = useSpring(useTransform(x, [0, 1], [-15, 15]), springConfig);
 
-	function handleMouseMove(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-		const rect = e.currentTarget.getBoundingClientRect();
-		x.set((e.clientX - rect.left) / rect.width);
-		y.set((e.clientY - rect.top) / rect.height);
-	}
-
-	return (
-		<motion.div
-			initial={{ opacity: 0, rotateX: 45, y: 50 }}
-			whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-			viewport={{ once: true, margin: "-50px" }}
-			transition={{ duration: 0.6, delay: index * 0.05, ease: "easeOut" }}
-			onMouseMove={handleMouseMove}
-			onMouseLeave={() => { x.set(0.5); y.set(0.5); }}
-			style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-			className="relative group p-6 rounded-3xl border border-black/5 dark:border-transparent bg-foreground/[0.01] backdrop-blur-xl overflow-hidden hover:border-black/20 dark:border-transparent transition-colors shadow-lg"
-		>
-			<motion.div 
-				className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-				style={{ 
-					background: useTransform(
-						[x, y], 
-						([latestX, latestY]: any) => `radial-gradient(circle at ${latestX * 100}% ${latestY * 100}%, ${highlight}30, transparent 70%)`
-					)
-				}} 
-			/>
-			<div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-transparent via-black/50 dark:via-white/50 to-transparent" />
-			<div style={{ transform: "translateZ(30px)" }}>{children}</div>
-		</motion.div>
-	);
-}
 
 function IntelligentServicesGrid() {
 	return (
@@ -256,7 +168,14 @@ function IntelligentServicesGrid() {
 						<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
 							{category.items.map((item, index) => (
 								<Link key={index} to={`/services/ai-data/${slugify(item)}`} className="block cursor-pointer">
-									<FramerParallaxCard index={index} highlight={category.highlight}>
+									<FramerParallaxCard
+										index={index}
+										highlight={category.highlight}
+										highlightOpacity="30"
+										radialRadius="70%"
+										topGlareHeightClass="h-[2px]"
+										translateZ={30}
+									>
 										<div className="flex items-center gap-3">
 											<div className="w-2 h-2 rounded-full" style={{ backgroundColor: category.highlight, boxShadow: `0 0 10px ${category.highlight}` }} />
 											<h4 className="text-lg font-medium text-foreground/70 group-hover:text-foreground transition-colors">

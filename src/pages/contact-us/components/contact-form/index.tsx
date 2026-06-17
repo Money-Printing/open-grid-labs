@@ -7,8 +7,11 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Network, Send } from "lucide-react";
 
-const services = ["UX-UI", "Web Apps", "Mobile Apps", "Web Design", "Web Flow", "Intelligence", "App UI", "Other"];
-const budgets = ["10k - 30k", "30k - 50k", "50k - 100k", ">100k"];
+const services = [
+	"AI Agents", "GenAI / LLMs", "Computer Vision", "NLP & Chatbots",
+	"ML Pipelines", "Data & Analytics", "Cloud & DevOps", "Product Engineering",
+	"BFSI & Fintech", "Digital Experience", "Web & Mobile Apps", "Other"
+];
 const domains = [
 	'Marketplace', 'Medical', 'Finance', 'Education', 'Real Estate',
 	'Trading', 'Logistics', 'Hospitality', 'Entertainment', 'Government', 'Others'
@@ -94,7 +97,6 @@ export default function ContactForm() {
 		company: '',
 		domain: '',
 		services: '',
-		budget: '',
 		comments: '',
 	})
 	const [errors, setErrors] = useState({
@@ -104,7 +106,6 @@ export default function ContactForm() {
 		company: '',
 		domain: '',
 		services: '',
-		budget: '',
 		comments: '',
 	})
 	const [loading, setLoading] = useState(false)
@@ -118,7 +119,6 @@ export default function ContactForm() {
 		if (!formData.company) newErrors.company = "Company is required";
 		if (!formData.domain) newErrors.domain = "Domain is required";
 		if (!formData.services) newErrors.services = "Services are required";
-		if (!formData.budget) newErrors.budget = "Budget is required";
 		if (!formData.comments) newErrors.comments = "Comments are required";
 
 		setErrors(newErrors);
@@ -142,7 +142,7 @@ export default function ContactForm() {
                 toast.success("Project inquiry submitted successfully!")
                 setFormData({
                     name: '', email: '', phoneNumber: '', company: '',
-                    domain: '', services: '', budget: '', comments: '',
+                    domain: '', services: '', comments: '',
                 });
             } else {
                 toast.error("Error submitting form (may be detected as spam)")
@@ -245,17 +245,6 @@ export default function ContactForm() {
                             }}
                         />
                         {errors.services && <p className="text-red-500 text-sm mt-1">{errors.services}</p>}
-                    </div>
-
-                    <div className="flex flex-col gap-4 bg-background/20 p-8 rounded-2xl border border-black/5 dark:border-transparent">
-                        <h2 className="text-foreground/80 font-semibold text-lg md:text-xl tracking-wide">Resource Allocation (USD) <span className="text-primary">*</span></h2>
-                        <RadioPills name="budget" options={budgets} value={formData.budget}
-                            setValue={(v) => {
-                                setFormData({ ...formData, budget: v })
-                                if (errors.budget) setErrors({ ...errors, budget: "" });
-                            }}
-                        />
-                        {errors.budget && <p className="text-red-500 text-sm mt-1">{errors.budget}</p>}
                     </div>
 
                     <div className="relative group">

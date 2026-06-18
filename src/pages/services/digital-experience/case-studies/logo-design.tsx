@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "3×", label: "Aided brand recognition post-launch", accent: "from-amber-500 to-orange-600" },
@@ -155,6 +156,17 @@ export default function LogoDesignCaseStudy() {
 						{ label: "Tools", value: "Illustrator · Figma · Brand strategy workshop" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="logo-design"
+									title="How a Purposeful Logo Mark Replaced an Inherited Wordmark and Tripled Brand Recognition"
+									accentColor="purple"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/logo-design/1.jpg",
+										"/images/case-studies/logo-design/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

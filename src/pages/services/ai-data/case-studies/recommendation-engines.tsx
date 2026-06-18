@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "3.4×", label: "Click-through rate vs. popularity-only", accent: "from-cyan-400 to-blue-500" },
@@ -159,6 +160,12 @@ export default function RecommendationEnginesCaseStudy() {
 						{ label: "Timeline", value: "10 weeks to production" },
 						{ label: "Stack", value: "Collaborative · Content-Based · Hybrid · Cold-Start" }
 					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="recommendation-engines"
+					title="How a Hybrid Recommendation Engine Lifted Click-Through 3.4× by Showing Every User Something Different"
+					accentColor="cyan"
 				/>
 
 				<StatsGrid 

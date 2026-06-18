@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "51%", label: "Lift in brand distinctiveness scores", accent: "from-amber-500 to-orange-600" },
@@ -155,6 +156,17 @@ export default function TypographyCaseStudy() {
 						{ label: "Deliverables", value: "Typeface system · Hierarchy · Web/print specs · Guidelines" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="typography"
+									title="How a Purposeful Typeface System Transformed a Generic Brand Voice into a Distinctive One"
+									accentColor="purple"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/typography/1.jpg",
+										"/images/case-studies/typography/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

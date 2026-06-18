@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "82%", label: "Reduction in off-brand materials produced", accent: "from-amber-500 to-orange-600" },
@@ -155,6 +156,18 @@ export default function BrandGuidelinesCaseStudy() {
 						{ label: "Format", value: "PDF guidelines + interactive brand portal + asset library" }
 					]}
 				/>
+
+
+								<CaseStudyCarousel
+									slug="brand-guidelines"
+									title="How a Comprehensive Brand Book Reduced Off-Brand Materials 82% and Let the Design Team Scale Without Adding Headcount"
+									accentColor="purple"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/brand-guidelines/1.jpg",
+										"/images/case-studies/brand-guidelines/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

@@ -251,7 +251,7 @@ function CarouselSlide({ src, index, title, config, slug }: CarouselSlideProps) 
 					{index === 0 ? (
 						<FallbackDashboard title={title} config={config} slug={slug} />
 					) : (
-						<FallbackArchitecture title={title} config={config} slug={slug} />
+						<FallbackArchitecture title={title} config={config} />
 					)}
 
 					{/* Fallback Overlay Notice */}
@@ -363,7 +363,7 @@ function FallbackDashboard({ title, config, slug }: { title: string; config: any
 }
 
 /* Beautiful SVG Vector Fallback for Slide 2 (Architecture Diagram) */
-function FallbackArchitecture({ title, config, slug }: { title: string; config: any; slug: string }) {
+function FallbackArchitecture({ title, config }: { title: string; config: any }) {
 	return (
 		<div className="w-full h-full flex flex-col p-6 md:p-10 justify-between relative z-10">
 			{/* Fake Window Chrome */}

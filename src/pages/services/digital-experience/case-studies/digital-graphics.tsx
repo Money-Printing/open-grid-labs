@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "61%", label: "Reduction in campaign asset production time", accent: "from-amber-500 to-orange-600" },
@@ -155,6 +156,17 @@ export default function DigitalGraphicsCaseStudy() {
 						{ label: "Tools", value: "Figma · Automated exports · Asset management" }
 					]}
 				/>
+
+					<CaseStudyCarousel
+									slug="digital-graphics"
+									title="How a Multi-Format Digital Graphics System Reduced Campaign Asset Production Time 61% Across 8 Channels"
+									accentColor="amber"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/digital-graphics/1.jpg",
+										"/images/case-studies/digital-graphics/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

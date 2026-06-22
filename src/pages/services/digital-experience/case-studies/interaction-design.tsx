@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "40%", label: "Reduction in perceived wait time (user study)", accent: "from-pink-500 to-rose-600" },
@@ -155,6 +156,17 @@ export default function InteractionDesignCaseStudy() {
 						{ label: "Methods", value: "Interaction audit · Motion design · Feedback loops · Perceived performance testing" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="interaction-design"
+									title="How Interaction Design Made a Slow-Feeling Product Feel 40% Faster Without Touching the Server"
+									accentColor="pink"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/interaction-design/1.jpg",
+										"/images/case-studies/interaction-design/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

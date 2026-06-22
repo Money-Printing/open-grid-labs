@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Zap,
 	Paintbrush
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "63%", label: "Lift in brand distinctiveness scores", accent: "from-amber-500 to-orange-600" },
@@ -120,8 +121,8 @@ export default function IllustrationCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(45,100%,50%) 0%, hsl(35,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function IllustrationCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function IllustrationCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Graphic Design"
 					title="How a Custom Illustration Language Made a B2B Brand Visually Distinctive in a Category Where Every Competitor Used the Same Stock Photos"
 					description="A B2B SaaS company operating in a category where every competitor used the same business-people-at-laptops stock photography decided to be visually different. OpenGridLabs developed a custom illustration language — character system, scene illustrations, UI spot illustrations, and an icon extension — that replaced stock photography entirely and gave the brand a visual identity that no competitor could replicate."
@@ -156,13 +157,24 @@ export default function IllustrationCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="illustration"
+					title="How a Custom Illustration Language Made a B2B Brand Visually Distinctive in a Category Where Every Competitor Used the Same Stock Photos"
+					accentColor="amber"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/illustration/1.jpg",
+						"/images/case-studies/illustration/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-500"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Paintbrush className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function IllustrationCaseStudy() {
 					gradientFromClass="from-indigo-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function IllustrationCaseStudy() {
 					arrowColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +223,22 @@ export default function IllustrationCaseStudy() {
 					rightColumnTitle={"Illustration Production Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A structured 14-week timeline from style guide workshops to character design and library handoff."}
-					phaseColors={[ "hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)" ]}
+					phaseColors={["hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-orange-500 to-red-500"}
 					badgeColorClass={"text-amber-500 bg-amber-500/10 border-amber-500/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Establishing a custom visual language boosted distinctiveness and cut downstream production times."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"Every competitor in our space looks the same. The moment we launched with illustrations, people were commenting on it — not because it was unusual in the world, but because it was unusual for our category. That's exactly the kind of visibility money can't easily buy."}
 					author={"VP of Marketing"}
 					subtitle={"Confidential B2B SaaS Company"}
@@ -234,7 +246,7 @@ export default function IllustrationCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function IllustrationCaseStudy() {
 					iconColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function IllustrationCaseStudy() {
 					activeChevronColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Every competitor using the same stock photography as you?"}
 					description={"OpenGridLabs develops custom illustration systems — distinctive style guides, character libraries, and scene illustrations — that give your brand a proprietary visual language no competitor can replicate."}
 					moreCaseStudiesLink={"/services/digital-experience"}

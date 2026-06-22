@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Play,
 	Film
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "52%", label: "Increase in trial sign-up rate", accent: "from-cyan-500 to-blue-600" },
@@ -120,8 +121,8 @@ export default function MotionGraphicsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Cyan-Purple Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(180,100%,50%) 0%, hsl(260,100%,60%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function MotionGraphicsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function MotionGraphicsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Graphic Design"
 					title="How an Animated Explainer Video Increased Trial Sign-Up Rate 52% by Communicating the Product's Value in 90 Seconds"
 					description="A company with a powerful but complex product was losing prospects who visited the website, read the homepage, and still didn't understand what the product did or who it was for. The complexity required a demonstration — but demonstrations required a sales call, and many prospects weren't ready to book one. OpenGridLabs produced a 90-second animated explainer video and a suite of motion graphics for social distribution that communicated the product's value clearly enough to prompt a trial without human intervention."
@@ -156,13 +157,26 @@ export default function MotionGraphicsCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+
+				<CaseStudyCarousel
+					slug="motion-graphics"
+					title="How an Animated Explainer Video Increased Trial Sign-Up Rate 52% by Communicating the Product's Value in 90 Seconds"
+					accentColor="purple"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/motion-graphics/1.jpg",
+						"/images/case-studies/motion-graphics/2.jpg"
+					]}
+				/>
+
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-cyan-500/30"
 					hoverTextClass="group-hover:text-cyan-500"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Film className="w-5 h-5" />}
@@ -183,7 +197,7 @@ export default function MotionGraphicsCaseStudy() {
 					gradientFromClass="from-cyan-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +207,7 @@ export default function MotionGraphicsCaseStudy() {
 					arrowColorClass={"text-cyan-500"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +225,22 @@ export default function MotionGraphicsCaseStudy() {
 					rightColumnTitle={"Motion Production Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A ten-week campaign roadmap from script workshops and storyboards to final social media cut exports."}
-					phaseColors={[ "hsl(180,100%,50%)", "hsl(195,100%,45%)", "hsl(210,100%,40%)" ]}
+					phaseColors={["hsl(180,100%,50%)", "hsl(195,100%,45%)", "hsl(210,100%,40%)"]}
 					axisGradientClass={"from-cyan-500 via-blue-500 to-indigo-500"}
 					badgeColorClass={"text-cyan-500 bg-cyan-500/10 border-cyan-500/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Deploying the animated explainer video directly boosted sign-ups, web session duration, and inbound prospect readiness."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"People kept booking demos and saying 'I watched your video and I think I already get it — I just want to see it in my context'. That's exactly the problem we were trying to solve. The video did the pre-qualification work that our homepage copy never could."}
 					author={"Head of Growth"}
 					subtitle={"Confidential B2B SaaS Company"}
@@ -234,7 +248,7 @@ export default function MotionGraphicsCaseStudy() {
 					iconColorClass={"text-cyan-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +256,7 @@ export default function MotionGraphicsCaseStudy() {
 					iconColorClass={"text-cyan-500"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +264,7 @@ export default function MotionGraphicsCaseStudy() {
 					activeChevronColorClass={"text-cyan-500"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Complex product that website visitors can't understand without a demo?"}
 					description={"OpenGridLabs produces motion graphics and animated explainers — script, storyboard, character animation, and social suite — that communicate your product's value in 90 seconds without a sales call."}
 					moreCaseStudiesLink={"/services/digital-experience"}

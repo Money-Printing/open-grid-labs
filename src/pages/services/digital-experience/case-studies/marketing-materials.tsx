@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "44%", label: "Lift in event lead generation", accent: "from-cyan-500 to-blue-600" },
@@ -155,6 +156,17 @@ export default function MarketingMaterialsCaseStudy() {
 						{ label: "Deliverables", value: "Digital · Print · Booth · Post-event · Digital ads" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="marketing-materials"
+									title="How a Unified Campaign Materials Suite Lifted Lead Generation 44% and Made the Brand Unmissable at Trade Shows"
+									accentColor="amber"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/marketing-materials/1.jpg",
+										"/images/case-studies/marketing-materials/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

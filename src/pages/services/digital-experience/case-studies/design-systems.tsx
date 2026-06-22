@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "78%", label: "Reduction in cross-product UI inconsistencies", accent: "from-pink-500 to-rose-600" },
@@ -155,6 +156,17 @@ export default function DesignSystemsCaseStudy() {
 						{ label: "Tools", value: "Figma · Storybook · Design Tokens · Documentation site" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="design-systems"
+									title="How a Design System Reduced UI Inconsistency 78% Across 8 Products and Halved New-Feature Design Time"
+									accentColor="pink"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/design-systems/1.jpg",
+										"/images/case-studies/design-systems/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

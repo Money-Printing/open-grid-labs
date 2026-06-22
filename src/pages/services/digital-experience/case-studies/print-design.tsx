@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "34%", label: "Reduction in press costs through correct files", accent: "from-cyan-500 to-blue-600" },
@@ -154,6 +155,17 @@ export default function PrintDesignCaseStudy() {
 						{ label: "Print Volume", value: "180,000 units across offset and large format" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+													slug="print-design"
+													title="How Production-Ready Print Design Eliminated Costly Reprints and Cut Press Costs 34% on a High-Volume Campaign"
+													accentColor="cyan"
+													aspectRatioClass="aspect-[3/2]"
+													images={[
+														"/images/case-studies/print-design/1.jpg",
+														"/images/case-studies/print-design/2.jpg"
+													]}
+												/>
 
 				<StatsGrid 
 					stats={STATS}

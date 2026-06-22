@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "67%", label: "Increase in event registration year-on-year", accent: "from-cyan-500 to-blue-600" },
@@ -155,6 +156,18 @@ export default function PosterDesignCaseStudy() {
 						{ label: "Distribution", value: "Digital, OOH, venue dressing, print collateral" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="poster-design"
+									title="How a Bold Poster Campaign Increased Event Registration 67% and Produced Posters Attendees Actually Kept"
+									accentColor="cyan"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/poster-design/1.jpg",
+										"/images/case-studies/poster-design/2.jpg"
+									]}
+								/>
+				
 
 				<StatsGrid 
 					stats={STATS}

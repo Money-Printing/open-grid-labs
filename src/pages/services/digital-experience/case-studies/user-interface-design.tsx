@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Zap,
 	Paintbrush
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "41%", label: "Lift in primary conversion rate", accent: "from-pink-500 to-rose-600" },
@@ -120,8 +121,8 @@ export default function UserInterfaceDesignCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Pink/Rose Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(330,100%,50%) 0%, hsl(320,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function UserInterfaceDesignCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function UserInterfaceDesignCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · UI/UX Design"
 					title="How a Principled UI Redesign Lifted Conversion 41% by Fixing What Users Actually Saw"
 					description="A company with a functionally sound product was seeing conversion and engagement numbers that didn't match its customer satisfaction scores — users liked the product in conversation but weren't completing key flows. OpenGridLabs diagnosed the cause as a visual design layer that was actively working against users: inconsistent hierarchy, poor contrast, ambiguous affordances, and a component library that had never been designed as a system."
@@ -156,13 +157,24 @@ export default function UserInterfaceDesignCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="user-interface-design"
+					title="How UI Design Principles Increased Conversion by 41%"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/user-interface-design/1.jpg",
+						"/images/case-studies/user-interface-design/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-pink-500/30"
 					hoverTextClass="group-hover:text-pink-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Paintbrush className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function UserInterfaceDesignCaseStudy() {
 					gradientFromClass="from-pink-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function UserInterfaceDesignCaseStudy() {
 					arrowColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +223,22 @@ export default function UserInterfaceDesignCaseStudy() {
 					rightColumnTitle={"UI Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A robust 14-week visual overhaul establishing semantic structures, code variables, and A/B test rolling."}
-					phaseColors={[ "hsl(330,100%,60%)", "hsl(280,100%,65%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(330,100%,60%)", "hsl(280,100%,65%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-pink-500 via-purple-500 to-blue-500"}
 					badgeColorClass={"text-pink-400 bg-pink-400/10 border-pink-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Deploying semantic variables and accessibility scales generated key conversion wins and reduced customer support requests."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The product always worked. It just didn't look like it worked. The redesign didn't add new features — it made the existing ones visible. The conversion lift was a direct consequence of users finally seeing what they could do."}
 					author={"VP of Product"}
 					subtitle={"Confidential E-commerce Company"}
@@ -234,7 +246,7 @@ export default function UserInterfaceDesignCaseStudy() {
 					iconColorClass={"text-pink-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function UserInterfaceDesignCaseStudy() {
 					iconColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function UserInterfaceDesignCaseStudy() {
 					activeChevronColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"A product that works but doesn't convert?"}
 					description={"OpenGridLabs designs user interfaces — typographic systems, semantic colour, component libraries, and design tokens — that communicate meaning clearly and make the right action visually obvious."}
 					moreCaseStudiesLink={"/services/digital-experience"}

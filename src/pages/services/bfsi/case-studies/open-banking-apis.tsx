@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	ShieldCheck, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	ShieldCheck,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "£2.4M", label: "New API-driven revenue in year one", accent: "from-emerald-500 to-teal-600" },
@@ -120,8 +121,8 @@ export default function OpenBankingApisCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(38,100%,50%) 0%, hsl(28,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function OpenBankingApisCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function OpenBankingApisCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Open Banking APIs"
 					title="How PSD2-Compliant Open Banking APIs Turned a Regulatory Obligation into a £2.4M New Revenue Stream"
 					description="A regional bank facing PSD2 compliance deadlines treated Open Banking as a regulatory checkbox — build the minimum required APIs, pass the compliance audit, and move on. OpenGridLabs argued for a different approach: build APIs that are genuinely excellent, publish them through a developer portal with real documentation, and position the bank as a partner to the fintech ecosystem rather than a reluctant participant. The compliance was achieved on time and the APIs generated £2.4M in new revenue in their first year."
@@ -156,13 +157,24 @@ export default function OpenBankingApisCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="open-banking-apis"
+					title="Open Banking APIs"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/open-banking-apis/1.jpg",
+						"/images/case-studies/open-banking-apis/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function OpenBankingApisCaseStudy() {
 					gradientFromClass="from-amber-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -193,7 +205,7 @@ export default function OpenBankingApisCaseStudy() {
 					arrowColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[ShieldCheck, Cpu, Database, Server]}
 					tag={"Technical Design"}
@@ -211,22 +223,22 @@ export default function OpenBankingApisCaseStudy() {
 					rightColumnTitle={"API Platform Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A phased 12-month delivery model achieving core compliance audits before initiating ecosystem monetization."}
-					phaseColors={[ "hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-emerald-500 to-indigo-500"}
 					badgeColorClass={"text-amber-400 bg-amber-400/10 border-amber-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="The developer-first approach shortened onboarding and successfully drove new revenue channels."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We went in planning to do the minimum required. OpenGridLabs made the case for doing it properly, and the revenue case proved them right in the first year. The best decision we made was treating the APIs as a product, not a compliance task."}
 					author={"Chief Operating Officer"}
 					subtitle={"Confidential Regional Bank"}
@@ -234,7 +246,7 @@ export default function OpenBankingApisCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function OpenBankingApisCaseStudy() {
 					iconColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function OpenBankingApisCaseStudy() {
 					activeChevronColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Treating Open Banking as a compliance checkbox?"}
 					description={"OpenGridLabs builds Open Banking API platforms — PSD2-compliant, developer-first, and commercially positioned — that turn a regulatory obligation into a revenue-generating partnership ecosystem."}
 					moreCaseStudiesLink={"/services/bfsi"}

@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	ShieldCheck, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	ShieldCheck,
+	Cpu,
 	Database,
 	Zap,
 	CreditCard,
@@ -22,6 +22,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "8 wk", label: "Virtual card MVP launch", accent: "from-amber-500 to-yellow-600" },
@@ -121,8 +122,8 @@ export default function CardManagementCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(38,100%,50%) 0%, hsl(28,100%,45%) 50%, transparent 100%)`
 					}}
@@ -130,8 +131,8 @@ export default function CardManagementCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -139,7 +140,7 @@ export default function CardManagementCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Card Management"
 					title="How a Modern Card Issuing Platform Launched Virtual Cards in 8 Weeks and Cut Card Fraud Losses 67%"
 					description="A fintech company needed to launch a card product for its business clients — virtual cards with granular spend controls, real-time notifications, and instant issuance. The traditional issuing route through a principal bank would take 18 months and limit product flexibility. OpenGridLabs built a card management and issuing platform using a BIN sponsor partnership, launching virtual cards in 8 weeks and cutting fraud losses 67% through tokenisation and dynamic CVV."
@@ -157,13 +158,24 @@ export default function CardManagementCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="card-management"
+					title="Virtual Card Controls and Tokenisation"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/card-management/1.jpg",
+						"/images/case-studies/card-management/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<CreditCard className="w-5 h-5" />}
@@ -184,7 +196,7 @@ export default function CardManagementCaseStudy() {
 					gradientFromClass="from-amber-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -194,7 +206,7 @@ export default function CardManagementCaseStudy() {
 					arrowColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Lock, ShieldCheck, Database]}
 					tag={"Technical Design"}
@@ -212,22 +224,22 @@ export default function CardManagementCaseStudy() {
 					rightColumnTitle={"Card Management Engine Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A phased approach separating the regulatory and network access problem from the core card management product."}
-					phaseColors={[ "hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-emerald-500 to-indigo-500"}
 					badgeColorClass={"text-amber-400 bg-amber-400/10 border-amber-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Deploying BIN sponsor platform integrations significantly cut fraud and simplified corporate spend management."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We'd been trying to launch cards for over a year. The BIN sponsor route with OpenGridLabs building the platform took eight weeks. The speed was transformational for our clients, and the fraud reduction from 3DS2 alone justified the entire platform investment."}
 					author={"CEO"}
 					subtitle={"Confidential B2B Fintech Company"}
@@ -235,7 +247,7 @@ export default function CardManagementCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -243,7 +255,7 @@ export default function CardManagementCaseStudy() {
 					iconColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -251,7 +263,7 @@ export default function CardManagementCaseStudy() {
 					activeChevronColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Card product launch stuck in 18-month bank programme timelines?"}
 					description={"OpenGridLabs builds card management platforms — BIN sponsor partnerships, instant virtual issuance, granular spend controls, and 3DS2 authentication — launching in weeks, not months."}
 					moreCaseStudiesLink={"/services/bfsi"}

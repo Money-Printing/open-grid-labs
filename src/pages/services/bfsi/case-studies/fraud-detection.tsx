@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "4.1×", label: "More fraud detected vs. rules system", accent: "from-emerald-500 to-teal-600" },
@@ -155,6 +156,17 @@ export default function FraudDetectionCaseStudy() {
 						{ label: "Stack", value: "Real-time ML · Behavioural biometrics · Device intelligence · Stream processing" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="fraud-detection"
+									title="ML-Based Fraud Detection"
+									accentColor="pink"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/fraud-detection/1.jpg",
+										"/images/case-studies/fraud-detection/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

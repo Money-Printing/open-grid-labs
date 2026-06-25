@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "4.8", label: "App Store rating, from 2.4", accent: "from-emerald-500 to-teal-600" },
@@ -119,8 +120,8 @@ export default function MobileBankingAppsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(38,100%,50%) 0%, hsl(28,100%,45%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function MobileBankingAppsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function MobileBankingAppsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Mobile Banking App"
 					title="How a Native Mobile Banking App Rebuild Achieved a 4.8 App Store Rating and Reduced Call Centre Volume 33%"
 					description="A retail bank's mobile app had a 2.4 App Store rating and was the subject of consistent negative reviews — slow, visually dated, and limited in the self-service actions it supported. Customers were downloading it to check balances and calling the branch for everything else. OpenGridLabs rebuilt the app natively for iOS and Android: biometric authentication, push-notification engagement, and a complete self-service capability that made the app the preferred channel for 71% of customers within six months."
@@ -155,13 +156,24 @@ export default function MobileBankingAppsCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="mobile-banking-apps"
+					title="Mobile Banking App"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/mobile-banking-apps/1.jpg",
+						"/images/case-studies/mobile-banking-apps/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +194,7 @@ export default function MobileBankingAppsCaseStudy() {
 					gradientFromClass="from-amber-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +204,7 @@ export default function MobileBankingAppsCaseStudy() {
 					arrowColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +222,22 @@ export default function MobileBankingAppsCaseStudy() {
 					rightColumnTitle={"Mobile Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A phased 15-month timeline establishing native core routes before initiating customer migration."}
-					phaseColors={[ "hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-emerald-500 to-indigo-500"}
 					badgeColorClass={"text-amber-400 bg-amber-400/10 border-amber-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="The native rebuild dramatically increased monthly active users while decreasing call center volume."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The 2.4 rating was a daily operational frustration — it affected app store discovery, it affected new customer confidence, and it was a constant internal reminder that we hadn't done this properly. The 4.8 after the rebuild changed the conversation entirely. The app stopped being a problem we were managing and started being an asset we were investing in."}
 					author={"Chief Digital Officer"}
 					subtitle={"Confidential Retail Bank"}
@@ -233,7 +245,7 @@ export default function MobileBankingAppsCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +253,7 @@ export default function MobileBankingAppsCaseStudy() {
 					iconColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +261,7 @@ export default function MobileBankingAppsCaseStudy() {
 					activeChevronColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Mobile banking app with a 2-star rating and no biometric support?"}
 					description={"OpenGridLabs rebuilds mobile banking apps natively — Swift, Kotlin, biometric authentication, and complete self-service — that customers rate highly and call centres appreciate."}
 					moreCaseStudiesLink={"/services/bfsi"}

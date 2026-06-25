@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "4 hr", label: "Application-to-offer time, from 5 days", accent: "from-emerald-500 to-teal-600" },
@@ -155,6 +156,18 @@ export default function LoanOriginationCaseStudy() {
 						{ label: "Stack", value: "Open banking · Credit bureau API · Rules engine · ML scoring · Digital signatures" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+													slug="loan-origination"
+													title="Loan Origination System"
+													accentColor="pink"
+													aspectRatioClass="aspect-[3/2]"
+													images={[
+														"/images/case-studies/loan-origination/1.jpg",
+														"/images/case-studies/loan-origination/2.jpg"
+													]}
+												/>
+				
 
 				<StatsGrid 
 					stats={STATS}

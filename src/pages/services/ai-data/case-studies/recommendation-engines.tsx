@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	BrainCircuit, 
-	Layers, 
-	Workflow, 
-	Cpu, 
+import {
+	ArrowLeft,
+	BrainCircuit,
+	Layers,
+	Workflow,
+	Cpu,
 	Sparkles,
 	Database
 } from "lucide-react";
@@ -21,7 +21,6 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
-import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "3.4×", label: "Click-through rate vs. popularity-only", accent: "from-cyan-400 to-blue-500" },
@@ -126,8 +125,8 @@ export default function RecommendationEnginesCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Gorgeous Dynamic HSL Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(180,100%,50%) 0%, hsl(280,100%,65%) 50%, transparent 100%)`
 					}}
@@ -135,8 +134,8 @@ export default function RecommendationEnginesCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/ai-data" 
+					<Link
+						to="/services/ai-data"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -144,7 +143,7 @@ export default function RecommendationEnginesCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Data Science & AI"
 					title="How a Hybrid Recommendation Engine Lifted Click-Through 3.4× by Showing Every User Something Different"
 					description='A fast-scaling company was showing the same "popular items" homepage to every user—and watching most of them scroll past. OpenGridLabs built a hybrid recommendation engine combining collaborative filtering, content-based methods, and cold-start handling, so each visitor sees a personalised set of items chosen for them—lifting click-through 3.4× and conversion 38%.'
@@ -162,19 +161,15 @@ export default function RecommendationEnginesCaseStudy() {
 					]}
 				/>
 
-				<CaseStudyCarousel
-					slug="recommendation-engines"
-					title="How a Hybrid Recommendation Engine Lifted Click-Through 3.4× by Showing Every User Something Different"
-					accentColor="cyan"
-				/>
 
-				<StatsGrid 
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-cyan-500/30"
 					hoverTextClass="group-hover:text-cyan-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<BrainCircuit className="w-5 h-5" />}
@@ -195,7 +190,7 @@ export default function RecommendationEnginesCaseStudy() {
 					gradientFromClass="from-cyan-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -205,7 +200,7 @@ export default function RecommendationEnginesCaseStudy() {
 					arrowColorClass={"text-cyan-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Database, Workflow, Cpu, Layers]}
 					tag={"Blueprint"}
@@ -223,22 +218,22 @@ export default function RecommendationEnginesCaseStudy() {
 					rightColumnTitle={"Recommendation Engine Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Implementation Approach"}
 					description={"The engagement ran across three structured phases designed to deliver a measurable win against the popularity baseline early, then expand and refine. OpenGridLabs embedded a team of ML and backend engineers and a recommendation specialist alongside the client's product team."}
-					phaseColors={[ "hsl(180,100%,50%)", "hsl(280,100%,65%)", "hsl(330,100%,60%)" ]}
+					phaseColors={["hsl(180,100%,50%)", "hsl(280,100%,65%)", "hsl(330,100%,60%)"]}
 					axisGradientClass={"from-cyan-400 via-purple-500 to-pink-500"}
 					badgeColorClass={"text-cyan-400 bg-cyan-400/10 border-cyan-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Outcomes were measured through a controlled A/B test against the prior popularity-based homepage."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"Our homepage used to be a museum of the same popular items. Now every visitor sees something chosen for them—and the long tail of our catalogue, which we'd basically been hiding, is finally finding the right people. The A/B test made the impact undeniable."}
 					author={"VP of Product"}
 					subtitle={"Confidential Technology Company"}
@@ -246,7 +241,7 @@ export default function RecommendationEnginesCaseStudy() {
 					iconColorClass={"text-cyan-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked: Key Success Factors"}
@@ -254,7 +249,7 @@ export default function RecommendationEnginesCaseStudy() {
 					iconColorClass={"text-cyan-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -262,7 +257,7 @@ export default function RecommendationEnginesCaseStudy() {
 					activeChevronColorClass={"text-cyan-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Showing the same thing to every user? Personalise it."}
 					description={"OpenGridLabs builds hybrid recommendation engines—collaborative filtering, content-based methods, cold-start handling, and A/B-tested ranking—so each user sees what they're most likely to want next."}
 					moreCaseStudiesLink={"/services/ai-data"}

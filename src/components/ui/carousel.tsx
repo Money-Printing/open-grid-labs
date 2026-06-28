@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useCarousel } from "../../hooks/use-carousel";
 
 interface CarouselProps {
 	items: string[];
@@ -9,19 +10,14 @@ interface CarouselProps {
 }
 
 export default function Carousel({ items, className = "" }: CarouselProps) {
-	const [currentIndex, setCurrentIndex] = useState(0);
-
-	const handleNext = () => {
-		setCurrentIndex((prevIndex) =>
-			prevIndex + 1 >= items.length ? 0 : prevIndex + 1
-		);
-	};
-
-	const handlePrevious = () => {
-		setCurrentIndex((prevIndex) =>
-			prevIndex - 1 < 0 ? items.length - 1 : prevIndex - 1
-		);
-	};
+	const {
+		currentIndex,
+		setCurrentIndex,
+		handleNext,
+		handlePrev: handlePrevious
+	} = useCarousel({
+		itemsCount: items.length
+	});
 
 	if (!items || items.length === 0) return null;
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight, Layout, BarChart3, HelpCircle } from "lucide-react";
+import { useCarousel } from "../../hooks/use-carousel";
 
 interface CaseStudyCarouselProps {
 	slug: string;
@@ -17,11 +18,6 @@ export default function CaseStudyCarousel({
 	images,
 	aspectRatioClass = "aspect-[16/9] md:aspect-[21/9]"
 }: CaseStudyCarouselProps) {
-	const [currentIndex, setCurrentIndex] = useState(0);
-	const [isHovered, setIsHovered] = useState(false);
-
-
-
 	const config = getGradientConfig(accentColor);
 
 	// Default images paths if not supplied
@@ -30,25 +26,20 @@ export default function CaseStudyCarousel({
 		`/images/case-studies/${slug}/2.png`
 	];
 
-	const handleNext = () => {
-		setCurrentIndex((prev) => (prev + 1) % carouselItems.length);
-	};
-
-	const handlePrev = () => {
-		setCurrentIndex((prev) => (prev - 1 + carouselItems.length) % carouselItems.length);
-	};
-
-	// Autoplay logic
-	useEffect(() => {
-		if (isHovered) return;
-		const interval = setInterval(() => {
-			handleNext();
-		}, 6000);
-		return () => clearInterval(interval);
-	}, [isHovered, carouselItems.length]);
+	const {
+		currentIndex,
+		setCurrentIndex,
+		setIsHovered,
+		handleNext,
+		handlePrev
+	} = useCarousel({
+		itemsCount: carouselItems.length,
+		autoplay: true,
+		autoplayInterval: 6000
+	});
 
 	return (
-		<section 
+		<section
 			className="w-[90%] max-w-[1600px] mx-auto mt-16 relative z-10"
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
@@ -75,11 +66,10 @@ export default function CaseStudyCarousel({
 							<button
 								key={index}
 								onClick={() => setCurrentIndex(index)}
-								className={`h-2 rounded-full transition-all duration-300 ${
-									currentIndex === index 
-										? `w-10 ${config.glow}` 
+								className={`h-2 rounded-full transition-all duration-300 ${currentIndex === index
+										? `w-10 ${config.glow}`
 										: "w-2 bg-white/20 dark:bg-white/10 hover:bg-white/30"
-								}`}
+									}`}
 								aria-label={`Go to slide ${index + 1}`}
 							/>
 						))}
@@ -232,9 +222,8 @@ function CarouselSlide({ src, index, title, config, slug }: CarouselSlideProps) 
 				<img
 					src={src}
 					alt={`${title} Slide ${index + 1}`}
-					className={`w-full h-full object-cover select-none transition-opacity duration-300 ${
-						imageState === "loaded" ? "opacity-100" : "opacity-0 absolute invisible"
-					}`}
+					className={`w-full h-full object-contain select-none transition-opacity duration-300 ${imageState === "loaded" ? "opacity-100" : "opacity-0 absolute invisible"
+						}`}
 					onLoad={() => setImageState("loaded")}
 					onError={() => setImageState("error")}
 				/>
@@ -259,7 +248,7 @@ function CarouselSlide({ src, index, title, config, slug }: CarouselSlideProps) 
 						<HelpCircle size={10} />
 						<span>Interactive Mockup (Image Pending Upload)</span>
 						<span className="absolute bottom-full right-0 mb-2 w-64 bg-black/90 text-[10px] normal-case text-white p-3 rounded-lg border border-white/10 hidden group-hover:block transition-all shadow-xl leading-normal">
-							Save a custom image as <code className="text-cyan-300 font-mono text-[9px]">public/images/case-studies/{slug}/{index+1}.png</code> to override this visual display.
+							Save a custom image as <code className="text-cyan-300 font-mono text-[9px]">public/images/case-studies/{slug}/{index + 1}.png</code> to override this visual display.
 						</span>
 					</div>
 				</div>

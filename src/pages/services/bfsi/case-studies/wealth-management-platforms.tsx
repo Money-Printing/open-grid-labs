@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "38%", label: "AUM growth without headcount increase", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function WealthManagementPlatformsCaseStudy() {
 						{ label: "Stack", value: "Portfolio aggregation · Advisor workbench · Client portal · Reporting engine" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="wealth-management-platforms"
+									title="Wealth Management Platforms"
+									accentColor="emerald"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/wealth-management-platforms/1.jpg",
+										"/images/case-studies/wealth-management-platforms/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	ShieldCheck, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	ShieldCheck,
+	Cpu,
 	Database,
 	Zap,
 	FileText
@@ -121,8 +121,8 @@ export default function LoanOriginationCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(38,100%,50%) 0%, hsl(28,100%,45%) 50%, transparent 100%)`
 					}}
@@ -130,8 +130,8 @@ export default function LoanOriginationCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -139,7 +139,7 @@ export default function LoanOriginationCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Loan Origination"
 					title="How Automated Loan Origination Cut Application-to-Offer Time from 5 Days to 4 Hours and Reduced Default Rates 19%"
 					description="A retail lender was processing loan applications through a workflow that mixed digital submission with manual underwriting review — creating a 5-day average from application to offer that was losing business to faster digital competitors. OpenGridLabs built an automated loan origination system: open banking-based affordability assessment, automated credit decisioning, and a digital documentation workflow that delivered offers in 4 hours for 70% of applications while improving credit quality."
@@ -158,24 +158,24 @@ export default function LoanOriginationCaseStudy() {
 				/>
 
 				<CaseStudyCarousel
-													slug="loan-origination"
-													title="Loan Origination System"
-													accentColor="pink"
-													aspectRatioClass="aspect-[3/2]"
-													images={[
-														"/images/case-studies/loan-origination/1.jpg",
-														"/images/case-studies/loan-origination/2.jpg"
-													]}
-												/>
-				
+					slug="loan-origination"
+					title="Loan Origination System"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/loan-origination/1.jpg",
+						"/images/case-studies/loan-origination/2.jpg"
+					]}
+				/>
 
-				<StatsGrid 
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<FileText className="w-5 h-5" />}
@@ -196,7 +196,7 @@ export default function LoanOriginationCaseStudy() {
 					gradientFromClass="from-amber-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -206,7 +206,7 @@ export default function LoanOriginationCaseStudy() {
 					arrowColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, ShieldCheck, Database]}
 					tag={"Technical Design"}
@@ -224,22 +224,22 @@ export default function LoanOriginationCaseStudy() {
 					rightColumnTitle={"LOS Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 9-month development roadmap delivering real-time credit metrics and automated offer logic."}
-					phaseColors={[ "hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-emerald-500 to-indigo-500"}
 					badgeColorClass={"text-amber-400 bg-amber-400/10 border-amber-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Transitioning from manual underwriting to a multi-path automated decisioning engine lowered defaults and application abandonment."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"Our underwriters were reviewing 18,000 applications a month, most of which were straightforward. They were spending 80% of their time confirming obvious approvals. The automation freed them to do the work that actually requires their expertise. The default rate improvement came from better underwriter attention to the cases that needed it."}
 					author={"Chief Risk Officer"}
 					subtitle={"Confidential Retail Lender"}
@@ -247,7 +247,7 @@ export default function LoanOriginationCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -255,7 +255,7 @@ export default function LoanOriginationCaseStudy() {
 					iconColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -263,7 +263,7 @@ export default function LoanOriginationCaseStudy() {
 					activeChevronColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Losing loan applications during a 5-day manual review process?"}
 					description={"OpenGridLabs builds loan origination systems — open banking affordability, ML credit scoring, automated decisioning, and digital documentation — that deliver offers in hours, not days."}
 					moreCaseStudiesLink={"/services/bfsi"}

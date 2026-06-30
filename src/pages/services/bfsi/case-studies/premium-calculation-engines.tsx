@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "180ms", label: "Quote latency, from 8 seconds", accent: "from-indigo-500 to-violet-600" },
@@ -154,6 +155,17 @@ export default function PremiumCalculationEnginesCaseStudy() {
 						{ label: "Stack", value: "Real-time rating engine · Tariff management · A/B testing · Actuarial APIs" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="premium-calculation-engines"
+									title="Premium Calculation Engines"
+									accentColor="indigo"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/premium-calculation-engines/1.jpg",
+										"/images/case-studies/premium-calculation-engines/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

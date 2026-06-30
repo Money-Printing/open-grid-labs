@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "3 days", label: "Quarterly reserving cycle, from 3 weeks", accent: "from-indigo-500 to-violet-600" },
@@ -119,8 +120,8 @@ export default function ActuarialAnalyticsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Indigo Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(230,80%,60%) 0%, hsl(240,80%,55%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function ActuarialAnalyticsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function ActuarialAnalyticsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Insurance Technology"
 					title="How an Actuarial Analytics Platform Reduced the Quarterly Reserving Cycle from 3 Weeks to 3 Days"
 					description="A general insurer's actuarial team was spending three weeks each quarter extracting data, running development triangles, and calculating IBNR reserves in spreadsheets — with the last week of each quarter dominated by data reconciliation rather than actuarial analysis. OpenGridLabs built an automated actuarial analytics platform: reproducible loss development, automated triangle calculation, GLM pricing model infrastructure, and a reserve audit trail — reducing the reserving cycle to 3 days and freeing the team for genuine actuarial work."
@@ -149,9 +150,20 @@ export default function ActuarialAnalyticsCaseStudy() {
 					]}
 				/>
 
+				<CaseStudyCarousel
+					slug="actuarial-analytics"
+					title="Actuarial Analytics"
+					accentColor="indigo"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/actuarial-analytics/1.jpg",
+						"/images/case-studies/actuarial-analytics/2.jpg"
+					]}
+				/>
+
 				<StatsGrid stats={STATS} />
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextIcon={<Cpu className="w-5 h-5" />}
 					contextParagraphs={[
 						"Our client is a general insurer writing across motor, home, and liability classes — seven distinct books of business requiring separate reserve calculations each quarter. The actuarial team of eight was spending the majority of each quarter on data extraction and preparation: pulling claims data from the claims system, exposure data from the policy system, and premium data from finance, reconciling the three, and preparing the run-off triangles that fed the reserving calculations. By the time the data was ready, the team had one week to do the actuarial work.",
@@ -162,7 +174,7 @@ export default function ActuarialAnalyticsCaseStudy() {
 					definitionIcon={<Zap className="w-6 h-6 animate-pulse" />}
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -172,7 +184,7 @@ export default function ActuarialAnalyticsCaseStudy() {
 					arrowColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -190,22 +202,22 @@ export default function ActuarialAnalyticsCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 3-phase roadmap leading from baseline automated pipelines to parameterisable model deployment and audit validation."}
-					phaseColors={[ "hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)" ]}
+					phaseColors={["hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)"]}
 					axisGradientClass={"from-indigo-500 via-violet-500 to-purple-500"}
 					badgeColorClass={"text-indigo-400 bg-indigo-400/10 border-indigo-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Reducing reserve close cycles, eliminating key-person code risk, and maximizing reproducible calculations."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We were actuaries doing data engineering. Three weeks of the quarter, eight people, and we spent most of it making spreadsheets talk to each other. The platform gave us our time back. Now the data is ready on day one and we spend three days doing actuarial work."}
 					author={"Chief Actuary"}
 					subtitle={"Confidential General Insurer"}
@@ -213,7 +225,7 @@ export default function ActuarialAnalyticsCaseStudy() {
 					iconColorClass={"text-indigo-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -221,7 +233,7 @@ export default function ActuarialAnalyticsCaseStudy() {
 					iconColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -229,7 +241,7 @@ export default function ActuarialAnalyticsCaseStudy() {
 					activeChevronColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Actuaries spending three weeks on data preparation for one week of analysis?"}
 					description={"OpenGridLabs builds actuarial analytics platforms — automated data pipelines, triangle engines, reproducible reserving models, and GLM infrastructure — that give actuaries their time back."}
 					moreCaseStudiesLink={"/services/bfsi"}

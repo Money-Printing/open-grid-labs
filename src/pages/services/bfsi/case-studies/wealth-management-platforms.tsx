@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -120,8 +120,8 @@ export default function WealthManagementPlatformsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Emerald Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(145,100%,40%) 0%, hsl(155,100%,35%) 50%, transparent 100%)`
 					}}
@@ -129,8 +129,8 @@ export default function WealthManagementPlatformsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +138,7 @@ export default function WealthManagementPlatformsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Financial Services"
 					title="How a Wealth Management Platform Grew AUM 38% by Making Each Advisor Three Times More Productive"
 					description="A multi-family office managing $4.8B AUM across 320 client relationships was administering its book with a combination of spreadsheets, a legacy portfolio system, and manual reporting — each advisor spending 60% of their time on administration and 40% on clients. OpenGridLabs built a unified wealth management platform: portfolio aggregation across 28 custodians, a digital advisor workbench, an automated reporting engine, and a client portal — reversing the time split and enabling the firm to grow AUM without growing headcount."
@@ -157,23 +157,23 @@ export default function WealthManagementPlatformsCaseStudy() {
 				/>
 
 				<CaseStudyCarousel
-									slug="wealth-management-platforms"
-									title="Wealth Management Platforms"
-									accentColor="emerald"
-									aspectRatioClass="aspect-[3/2]"
-									images={[
-										"/images/case-studies/wealth-management-platforms/1.jpg",
-										"/images/case-studies/wealth-management-platforms/2.jpg"
-									]}
-								/>
+					slug="wealth-management-platforms"
+					title="Wealth Management Platforms"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/wealth-management-platforms/1.jpg",
+						"/images/case-studies/wealth-management-platforms/2.jpg"
+					]}
+				/>
 
-				<StatsGrid 
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-emerald-500/30"
 					hoverTextClass="group-hover:text-emerald-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -194,7 +194,7 @@ export default function WealthManagementPlatformsCaseStudy() {
 					gradientFromClass="from-emerald-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -204,7 +204,7 @@ export default function WealthManagementPlatformsCaseStudy() {
 					arrowColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -222,22 +222,22 @@ export default function WealthManagementPlatformsCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 3-phase roadmap leading from custodian feeds setup to workbench tools and public client portals."}
-					phaseColors={[ "hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)" ]}
+					phaseColors={["hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)"]}
 					axisGradientClass={"from-emerald-500 via-teal-500 to-cyan-500"}
 					badgeColorClass={"text-emerald-400 bg-emerald-400/10 border-emerald-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Freeing up advisor capacity, automating quarterly client reporting, and maximizing portal adoption."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The platform gave our advisors their time back. They were spending half their week on administration that should have been automated. Now they spend that time with clients — and the AUM growth followed directly from the additional capacity."}
 					author={"Managing Partner"}
 					subtitle={"Confidential Multi-Family Office"}
@@ -245,7 +245,7 @@ export default function WealthManagementPlatformsCaseStudy() {
 					iconColorClass={"text-emerald-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -253,7 +253,7 @@ export default function WealthManagementPlatformsCaseStudy() {
 					iconColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -261,7 +261,7 @@ export default function WealthManagementPlatformsCaseStudy() {
 					activeChevronColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Advisors spending more time on spreadsheets than on clients?"}
 					description={"OpenGridLabs builds wealth management platforms — custodian aggregation, advisor workbench, client portal, and automated reporting — that give advisors their time back and let AUM grow."}
 					moreCaseStudiesLink={"/services/bfsi"}

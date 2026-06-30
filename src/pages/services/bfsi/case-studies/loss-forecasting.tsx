@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "23%", label: "Improvement in reserve accuracy", accent: "from-indigo-500 to-violet-600" },
@@ -154,6 +155,17 @@ export default function LossForecastingCaseStudy() {
 						{ label: "Stack", value: "ML loss forecasting · Emerging trends · Cat modelling · Reserve adequacy monitoring" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="loss-forecasting"
+									title="Loss Forecasting"
+									accentColor="indigo"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/loss-forecasting/1.jpg",
+										"/images/case-studies/loss-forecasting/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "8", label: "Workload groups covered by scaling policies", accent: "from-amber-500 to-orange-600" },
@@ -158,6 +159,17 @@ export default function AutoScalingCaseStudy() {
 						{ label: "Stack", value: "Auto Scaling · Scaling Policies · CloudWatch · Capacity Planning" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="auto-scaling"
+									title="Auto Scaling"
+									accentColor="teal"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/auto-scaling/1.jpg",
+										"/images/case-studies/auto-scaling/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

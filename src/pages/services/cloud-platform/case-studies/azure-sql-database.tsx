@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "6", label: "Azure SQL databases optimized and governed", accent: "from-emerald-500 to-teal-600" },
@@ -157,6 +158,17 @@ export default function AzureSQLDatabaseCaseStudy() {
 						{ label: "Stack", value: "Azure SQL · Query Performance · Backups · Failover" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="azure-sql-database"
+									title="Azure SQL Database"
+									accentColor="blue"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/azure-sql-database/1.jpg",
+										"/images/case-studies/azure-sql-database/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

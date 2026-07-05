@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Workflow, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Workflow,
+	Cpu,
+	Activity,
 	Database,
 	ShieldAlert
 } from "lucide-react";
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "83%", label: "Lower change failure rate", accent: "from-emerald-500 to-teal-600" },
@@ -120,8 +121,8 @@ export default function ArgoCDGitOpsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Gorgeous DevOps Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(145,100%,45%) 0%, hsl(200,100%,50%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function ArgoCDGitOpsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/cloud-platform" 
+					<Link
+						to="/services/cloud-platform"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function ArgoCDGitOpsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · DevOps & Engineering"
 					title="How ArgoCD GitOps Made Production Deployments Auditable, Self-Healing, and One Git Revert Away from Rollback"
 					description="A company running eight microservices on Kubernetes had no reliable answer to 'what is actually running in production?'. Helm deployments were triggered imperatively from pipelines, configuration drifted silently, and rollbacks required manual kubectl intervention. OpenGridLabs implemented ArgoCD GitOps, making Git the single source of truth and every cluster state automatically reconciled — and reversible."
@@ -156,13 +157,24 @@ export default function ArgoCDGitOpsCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="argocd-gitops"
+					title="ArgoCD GitOps"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/argocd-gitops/1.jpg",
+						"/images/case-studies/argocd-gitops/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-emerald-500/30"
 					hoverTextClass="group-hover:text-emerald-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function ArgoCDGitOpsCaseStudy() {
 					gradientFromClass="from-emerald-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function ArgoCDGitOpsCaseStudy() {
 					arrowColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Database, Layers, Workflow, Activity]}
 					tag={"Blueprint"}
@@ -211,22 +223,22 @@ export default function ArgoCDGitOpsCaseStudy() {
 					rightColumnTitle={"ArgoCD GitOps Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Implementation Approach"}
 					description={"An iterative roadmap migrating Helm configurations and Kubernetes workloads to a secure GitOps pipeline over nine weeks."}
-					phaseColors={[ "hsl(145,100%,45%)", "hsl(200,100%,50%)", "hsl(280,100%,60%)" ]}
+					phaseColors={["hsl(145,100%,45%)", "hsl(200,100%,50%)", "hsl(280,100%,60%)"]}
 					axisGradientClass={"from-emerald-500 via-blue-500 to-purple-500"}
 					badgeColorClass={"text-emerald-400 bg-emerald-400/10 border-emerald-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Deploying ArgoCD dramatically reduced change failure rates and simplified rollbacks down to Git operations."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"Before ArgoCD, 'what is running in production?' was a question that required checking four places. Now it's 'look at the main branch of the GitOps repo'. And if it drifts, ArgoCD fixes it before anyone notices."}
 					author={"Staff Platform Engineer"}
 					subtitle={"Confidential Technology Company"}
@@ -234,7 +246,7 @@ export default function ArgoCDGitOpsCaseStudy() {
 					iconColorClass={"text-emerald-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked: Key Success Factors"}
@@ -242,7 +254,7 @@ export default function ArgoCDGitOpsCaseStudy() {
 					iconColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function ArgoCDGitOpsCaseStudy() {
 					activeChevronColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Do you know exactly what is running in production right now?"}
 					description={"OpenGridLabs implements ArgoCD GitOps — declarative delivery, automatic drift reconciliation, and git-revert rollback — so your production state is always known and always correct."}
 					moreCaseStudiesLink={"/services/cloud-platform"}

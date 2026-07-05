@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Workflow, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Workflow,
+	Cpu,
+	Activity,
 	Database,
 	ShieldAlert
 } from "lucide-react";
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "81%", label: "Reduction in CVEs in production images", accent: "from-emerald-500 to-teal-600" },
@@ -120,8 +121,8 @@ export default function ArtifactRegistryCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Gorgeous DevOps Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(145,100%,45%) 0%, hsl(200,100%,50%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function ArtifactRegistryCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/cloud-platform" 
+					<Link
+						to="/services/cloud-platform"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function ArtifactRegistryCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · DevOps & Engineering"
 					title="How a Private Artifact Registry Secured the Software Supply Chain and Eliminated Mutable Build Artefacts"
 					description="A company was pushing all container images to Docker Hub using mutable ':latest' tags with no scanning, no signing, and no retention policy. The same tag could resolve to a different image every deploy. OpenGridLabs implemented a private registry with immutable SHA-pinned tags, automated vulnerability scanning, SBOM generation, and image signing — turning a supply chain liability into an auditable, secure build provenance system."
@@ -156,13 +157,24 @@ export default function ArtifactRegistryCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="artifact-registry"
+					title="Artifact Registry"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/artifact-registry/1.jpg",
+						"/images/case-studies/artifact-registry/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-emerald-500/30"
 					hoverTextClass="group-hover:text-emerald-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function ArtifactRegistryCaseStudy() {
 					gradientFromClass="from-emerald-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function ArtifactRegistryCaseStudy() {
 					arrowColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Workflow, Activity]}
 					tag={"Blueprint"}
@@ -211,22 +223,22 @@ export default function ArtifactRegistryCaseStudy() {
 					rightColumnTitle={"Artifact Registry Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Implementation Approach"}
 					description={"A secure migration strategy executed across three key phases, from initial repository migration to active vulnerability blocking and OIDC cryptosignatures."}
-					phaseColors={[ "hsl(145,100%,45%)", "hsl(200,100%,50%)", "hsl(280,100%,60%)" ]}
+					phaseColors={["hsl(145,100%,45%)", "hsl(200,100%,50%)", "hsl(280,100%,60%)"]}
 					axisGradientClass={"from-emerald-500 via-blue-500 to-purple-500"}
 					badgeColorClass={"text-emerald-400 bg-emerald-400/10 border-emerald-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Deploying the private registry secured production workloads against CVE exposures, standardized builds, and enabled cryptographically verifiable deployments."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We discovered we had 23 critical CVEs running in production on day one of scanning. That alone justified the project. Now every image that ships has been scanned, signed, and has a full SBOM. We can answer 'what is in that image?' in seconds."}
 					author={"Head of Security Engineering"}
 					subtitle={"Confidential Technology Company"}
@@ -234,7 +246,7 @@ export default function ArtifactRegistryCaseStudy() {
 					iconColorClass={"text-emerald-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked: Key Success Factors"}
@@ -242,7 +254,7 @@ export default function ArtifactRegistryCaseStudy() {
 					iconColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function ArtifactRegistryCaseStudy() {
 					activeChevronColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Running unknown images from a mutable ':latest' tag?"}
 					description={"OpenGridLabs implements private artifact registries — immutable tags, vulnerability scanning, image signing, and SBOM attestation — so every production image is traceable, verified, and CVE-gated."}
 					moreCaseStudiesLink={"/services/cloud-platform"}

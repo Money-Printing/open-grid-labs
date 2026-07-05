@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "60%", label: "Reduction in measurable technical debt", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function CodeQualityGatesCaseStudy() {
 						{ label: "Stack", value: "SonarQube · ESLint · Pylint · Pre-commit · CI Gates" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="code-quality-gates"
+									title="Code Quality Gates"
+									accentColor="emerald"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/code-quality-gates/1.jpg",
+										"/images/case-studies/code-quality-gates/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

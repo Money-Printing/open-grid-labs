@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "74%", label: "Reduction in pipeline build failures", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function JenkinsPipelinesCaseStudy() {
 						{ label: "Stack", value: "Jenkins · Declarative Pipeline · Groovy Libraries · Docker" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="jenkins-pipelines"
+									title="Jenkins Pipelines"
+									accentColor="emerald"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/jenkins-pipelines/1.jpg",
+										"/images/case-studies/jenkins-pipelines/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

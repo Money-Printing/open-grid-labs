@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	ShieldAlert
 } from "lucide-react";
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "68%", label: "Reduction in production bug rate", accent: "from-emerald-500 to-teal-600" },
@@ -119,8 +120,8 @@ export default function AutomatedTestingCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Gorgeous DevOps Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(145,100%,45%) 0%, hsl(200,100%,50%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function AutomatedTestingCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/cloud-platform" 
+					<Link
+						to="/services/cloud-platform"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function AutomatedTestingCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · DevOps & Engineering"
 					title="How Shift-Left Automated Testing Cut Production Bugs 68% and Made Every Engineer a Quality Owner"
 					description="A growing engineering team was shipping features fast and discovering bugs slowly — in staging, in production, and in customer tickets. Tests existed but were inconsistently written, rarely updated, and not enforced in the pipeline. OpenGridLabs built a comprehensive test strategy spanning unit, integration, contract, and E2E tests, enforced as blocking pipeline gates from the first commit."
@@ -155,13 +156,25 @@ export default function AutomatedTestingCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+
+				<CaseStudyCarousel
+					slug="automated-testing"
+					title="Automated Testing"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/automated-testing/1.jpg",
+						"/images/case-studies/automated-testing/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-emerald-500/30"
 					hoverTextClass="group-hover:text-emerald-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +195,7 @@ export default function AutomatedTestingCaseStudy() {
 					gradientFromClass="from-emerald-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -192,7 +205,7 @@ export default function AutomatedTestingCaseStudy() {
 					arrowColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Blueprint"}
@@ -210,22 +223,22 @@ export default function AutomatedTestingCaseStudy() {
 					rightColumnTitle={"Automated Testing Pipeline Stages"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Implementation Approach"}
 					description={"A ten-week quality engineering roadmap executing team training, Jest/pytest optimization, Pact API contract isolation, and Playwright E2E runs."}
-					phaseColors={[ "hsl(145,100%,45%)", "hsl(200,100%,50%)", "hsl(280,100%,60%)" ]}
+					phaseColors={["hsl(145,100%,45%)", "hsl(200,100%,50%)", "hsl(280,100%,60%)"]}
 					axisGradientClass={"from-emerald-500 via-blue-500 to-purple-500"}
 					badgeColorClass={"text-emerald-400 bg-emerald-400/10 border-emerald-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Shifting quality checks left in the pipeline reduced bug rates by 68% and cut staging regression cycles entirely."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"Bugs used to arrive as customer tickets. Now they arrive as failing CI checks. The team didn't change — the structure around them changed. Every engineer knows their PR won't merge if it breaks something."}
 					author={"Head of Engineering"}
 					subtitle={"Confidential SaaS Company"}
@@ -233,7 +246,7 @@ export default function AutomatedTestingCaseStudy() {
 					iconColorClass={"text-emerald-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked: Key Success Factors"}
@@ -241,7 +254,7 @@ export default function AutomatedTestingCaseStudy() {
 					iconColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +262,7 @@ export default function AutomatedTestingCaseStudy() {
 					activeChevronColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Discovering bugs in production rather than in CI?"}
 					description={"OpenGridLabs builds automated testing strategies — unit, integration, contract, and E2E — enforced as CI gates so quality is owned by every engineer on every commit."}
 					moreCaseStudiesLink={"/services/cloud-platform"}

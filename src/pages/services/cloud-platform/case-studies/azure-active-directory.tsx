@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "12", label: "Applications integrated with centralized SSO", accent: "from-emerald-500 to-teal-600" },
@@ -157,6 +158,17 @@ export default function AzureActiveDirectoryCaseStudy() {
 						{ label: "Stack", value: "Azure AD · SSO · Conditional Access · Access Reviews" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="azure-active-directory"
+									title="Azure Active Directory"
+									accentColor="blue"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/azure-active-directory/1.jpg",
+										"/images/case-studies/azure-active-directory/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

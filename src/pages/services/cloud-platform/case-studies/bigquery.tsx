@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Workflow, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Workflow,
+	Cpu,
+	Activity,
 	Database,
 	ShieldAlert
 } from "lucide-react";
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "14", label: "Analytics datasets modeled in BigQuery", accent: "from-blue-500 to-cyan-600" },
@@ -123,8 +124,8 @@ export default function BigQueryCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Gorgeous GCP Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(217,89%,61%) 0%, hsl(145,100%,45%) 50%, transparent 100%)`
 					}}
@@ -132,8 +133,8 @@ export default function BigQueryCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/cloud-platform" 
+					<Link
+						to="/services/cloud-platform"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -141,7 +142,7 @@ export default function BigQueryCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Google Cloud Platform"
 					title="How BigQuery Turned Fragmented Data Into Fast Analytics at Scale"
 					description="A data team had reporting spread across databases, exports, and spreadsheets, making analytics slow and expensive. OpenGridLabs built a BigQuery analytics foundation with modeled datasets, partitioning, access controls, scheduled loads, and dashboard-ready tables."
@@ -159,13 +160,24 @@ export default function BigQueryCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="bigquery"
+					title="BigQuery"
+					accentColor="blue"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/bigquery/1.jpg",
+						"/images/case-studies/bigquery/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-blue-500/30"
 					hoverTextClass="group-hover:text-blue-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -186,7 +198,7 @@ export default function BigQueryCaseStudy() {
 					gradientFromClass="from-blue-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -196,7 +208,7 @@ export default function BigQueryCaseStudy() {
 					arrowColorClass={"text-blue-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Workflow, Activity]}
 					tag={"Blueprint"}
@@ -214,22 +226,22 @@ export default function BigQueryCaseStudy() {
 					rightColumnTitle={"BigQuery Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Implementation Approach"}
 					description={"The engagement ran across three phases, moving from assessment and architecture into implementation, production rollout, and operational handoff."}
-					phaseColors={[ "hsl(217,89%,61%)", "hsl(145,100%,45%)", "hsl(280,100%,60%)" ]}
+					phaseColors={["hsl(217,89%,61%)", "hsl(145,100%,45%)", "hsl(280,100%,60%)"]}
 					axisGradientClass={"from-blue-500 via-emerald-500 to-purple-500"}
 					badgeColorClass={"text-blue-400 bg-blue-400/10 border-blue-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Results were measured after launch against the client's pre-engagement baseline. The strongest gains came from better automation, managed services, stronger security controls, and improved operational visibility."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The GCP work gave us a foundation we could actually operate. BigQuery stopped being a set of manual cloud tasks and became a reliable capability with visibility, ownership, and safer scaling."}
 					author={"Cloud Engineering Lead"}
 					subtitle={"Confidential SaaS Company"}
@@ -237,7 +249,7 @@ export default function BigQueryCaseStudy() {
 					iconColorClass={"text-blue-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked: Key Success Factors"}
@@ -245,7 +257,7 @@ export default function BigQueryCaseStudy() {
 					iconColorClass={"text-blue-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -253,7 +265,7 @@ export default function BigQueryCaseStudy() {
 					activeChevronColorClass={"text-blue-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Ready to improve your GCP foundation with BigQuery?"}
 					description={"OpenGridLabs designs and builds Google Cloud systems for bigquery, combining architecture, automation, security, monitoring, cost governance, and production rollout support."}
 					moreCaseStudiesLink={"/services/cloud-platform"}

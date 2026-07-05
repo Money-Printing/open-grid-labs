@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "58%", label: "Reduction in median build time", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function GitHubActionsCaseStudy() {
 						{ label: "Stack", value: "GitHub Actions · Docker · SAST · Reusable Workflows" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="github-actions"
+									title="GitHub Actions"
+									accentColor="emerald"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/github-actions/1.jpg",
+										"/images/case-studies/github-actions/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

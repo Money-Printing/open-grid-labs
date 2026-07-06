@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "31%", label: "Reduction in customer churn", accent: "from-emerald-400 to-teal-500" },
@@ -160,6 +161,19 @@ export default function PredictiveModelingCaseStudy() {
 						{ label: "Stack", value: "Feature Engineering · Gradient Boosting · Calibration" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="predictive-modeling"
+					title="Predictive Modeling"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/predictive-modeling/1.jpg",
+						"/images/case-studies/predictive-modeling/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

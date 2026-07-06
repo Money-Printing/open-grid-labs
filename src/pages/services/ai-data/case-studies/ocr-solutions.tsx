@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "740k", label: "Document pages processed into structured data", accent: "from-purple-500 to-indigo-500" },
@@ -158,6 +159,19 @@ export default function OCRSolutionsCaseStudy() {
 						{ label: "Stack", value: "OCR · Document AI · Field Extraction · Validation" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="ocr-solutions"
+					title="OCR Solutions"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/ocr-solutions/1.jpg",
+						"/images/case-studies/ocr-solutions/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

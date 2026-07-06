@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "64%", label: "Reduction in malformed outputs", accent: "from-cyan-400 to-blue-500" },
@@ -160,6 +161,19 @@ export default function PromptEngineeringCaseStudy() {
 						{ label: "Stack", value: "Prompt Templates · Versioning · Eval · Few-shot" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="prompt-engineering"
+					title="Prompt Engineering"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/prompt-engineering/1.jpg",
+						"/images/case-studies/prompt-engineering/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

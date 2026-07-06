@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "68%", label: "Lower inference cost per request", accent: "from-purple-500 to-indigo-500" },
@@ -160,6 +161,19 @@ export default function ModelOptimizationCaseStudy() {
 						{ label: "Stack", value: "Quantization · Pruning · Distillation · Runtime" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="model-optimization"
+					title="Model Optimization"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/model-optimization/1.jpg",
+						"/images/case-studies/model-optimization/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

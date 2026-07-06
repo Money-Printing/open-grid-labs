@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "4.7×", label: "More fraud caught vs. rule-based", accent: "from-cyan-400 to-blue-500" },
@@ -160,6 +161,19 @@ export default function AnomalyDetectionCaseStudy() {
 						{ label: "Stack", value: "Unsupervised · Supervised · Streaming · Real-time" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="anomaly-detection"
+					title="Anomaly Detection"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/anomaly-detection/1.jpg",
+						"/images/case-studies/anomaly-detection/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

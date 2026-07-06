@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "180", label: "Video streams connected to analytics workflow", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function VideoAnalyticsCaseStudy() {
 						{ label: "Stack", value: "Video Analytics · Event Detection · Frame Sampling · Alerts" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="video-analytics"
+					title="Video Analytics"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/video-analytics/1.jpg",
+						"/images/case-studies/video-analytics/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

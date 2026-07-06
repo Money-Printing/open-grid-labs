@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "3.4×", label: "Click-through rate vs. popularity-only", accent: "from-cyan-400 to-blue-500" },
@@ -160,6 +161,19 @@ export default function RecommendationEnginesCaseStudy() {
 						{ label: "Stack", value: "Collaborative · Content-Based · Hybrid · Cold-Start" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="recommendation-engines"
+					title="Recommendation Engines"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/recommendation-engines/1.jpg",
+						"/images/case-studies/recommendation-engines/2.jpg"
+					]}
+				/>
+
+				
 
 
 

@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "100%", label: "Production models with explanations", accent: "from-cyan-400 to-blue-500" },
@@ -160,6 +161,19 @@ export default function ExplainableAICaseStudy() {
 						{ label: "Stack", value: "SHAP · LIME · Model Cards · Bias Monitoring" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="explainable-ai"
+					title="Explainable AI"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/explainable-ai/1.jpg",
+						"/images/case-studies/explainable-ai/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

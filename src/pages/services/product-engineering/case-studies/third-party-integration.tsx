@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function ThirdPartyIntegrationCaseStudy() {
 						{ label: "Scope", value: "13 external systems connected" },
 						{ label: "Timeline", value: "11 weeks to production" },
 						{ label: "Stack", value: "Connectors · Webhooks · Retries · Audit Logs" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="third-party-integration"
+					title="Third-party Integration"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/third-party-integration/1.jpg",
+						"/images/case-studies/third-party-integration/2.jpg"
 					]}
 				/>
 

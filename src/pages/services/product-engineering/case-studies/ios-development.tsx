@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function IOSDevelopmentCaseStudy() {
 						{ label: "Scope", value: "9 native workflows shipped" },
 						{ label: "Timeline", value: "12 weeks to App Store release" },
 						{ label: "Stack", value: "Swift · iOS UI · Secure APIs · App Store" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="ios-development"
+					title="iOS Development"
+					accentColor="indigo"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/ios-development/1.jpg",
+						"/images/case-studies/ios-development/2.jpg"
 					]}
 				/>
 

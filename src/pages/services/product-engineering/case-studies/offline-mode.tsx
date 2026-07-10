@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function OfflineModeCaseStudy() {
 						{ label: "Scope", value: "7 offline workflows supported" },
 						{ label: "Timeline", value: "11 weeks to production" },
 						{ label: "Stack", value: "Offline Mode · Local Storage · Sync Queue · Conflict Handling" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="offline-mode"
+					title="Offline Mode"
+					accentColor="indigo"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/offline-mode/1.jpg",
+						"/images/case-studies/offline-mode/2.jpg"
 					]}
 				/>
 

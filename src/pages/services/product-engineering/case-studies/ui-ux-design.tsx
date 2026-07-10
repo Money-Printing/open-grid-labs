@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	BrainCircuit, 
-	Layers, 
-	Workflow, 
-	Cpu, 
+import {
+	ArrowLeft,
+	BrainCircuit,
+	Layers,
+	Workflow,
+	Cpu,
 	Sparkles,
 	Database
 } from "lucide-react";
@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -123,8 +124,8 @@ export default function UIUXDesignCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Gorgeous Dynamic HSL Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(210,100%,60%) 0%, hsl(260,100%,50%) 50%, transparent 100%)`
 					}}
@@ -132,8 +133,8 @@ export default function UIUXDesignCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/product-engineering" 
+					<Link
+						to="/services/product-engineering"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -141,7 +142,7 @@ export default function UIUXDesignCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Web Application"
 					title="How UI/UX Design Increased Activation With a Cleaner Product Experience"
 					description="A SaaS team had a capable product, but users struggled through onboarding, navigation, and key workflows. OpenGridLabs redesigned the UI/UX around task completion, clearer information hierarchy, and reusable design patterns that improved activation and reduced support friction."
@@ -159,13 +160,24 @@ export default function UIUXDesignCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="ui-ux-design"
+					title="UI/UX Design"
+					accentColor="blue"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/ui-ux-design/1.jpg",
+						"/images/case-studies/ui-ux-design/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-blue-500/30"
 					hoverTextClass="group-hover:text-blue-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<BrainCircuit className="w-5 h-5" />}
@@ -186,7 +198,7 @@ export default function UIUXDesignCaseStudy() {
 					gradientFromClass="from-blue-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -196,7 +208,7 @@ export default function UIUXDesignCaseStudy() {
 					arrowColorClass={"text-blue-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Database, Workflow, Cpu, Layers]}
 					tag={"Blueprint"}
@@ -214,22 +226,22 @@ export default function UIUXDesignCaseStudy() {
 					rightColumnTitle={"UI/UX Design Architecture Stages"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Implementation Approach"}
 					description={"The engagement ran across three phases, moving from discovery and architecture into implementation, rollout, and measurement."}
-					phaseColors={[ "hsl(210,100%,60%)", "hsl(280,100%,65%)", "hsl(330,100%,60%)" ]}
+					phaseColors={["hsl(210,100%,60%)", "hsl(280,100%,65%)", "hsl(330,100%,60%)"]}
 					axisGradientClass={"from-blue-500 via-purple-500 to-pink-500"}
 					badgeColorClass={"text-blue-400 bg-blue-400/10 border-blue-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Results were measured after launch against the client's pre-engagement baseline. The strongest gains came from pairing user-centered design with production-grade frontend engineering and measurable delivery practices."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The work made ui/ux design feel like part of a mature product system instead of another one-off project. We shipped faster, understood user behavior better, and had a cleaner foundation for the next releases."}
 					author={"VP of Product"}
 					subtitle={"Confidential Web Platform"}
@@ -237,7 +249,7 @@ export default function UIUXDesignCaseStudy() {
 					iconColorClass={"text-blue-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked: Key Success Factors"}
@@ -245,7 +257,7 @@ export default function UIUXDesignCaseStudy() {
 					iconColorClass={"text-blue-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -253,7 +265,7 @@ export default function UIUXDesignCaseStudy() {
 					activeChevronColorClass={"text-blue-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Ready to improve your web application with UI/UX Design?"}
 					description={"OpenGridLabs designs and builds web application systems for ui/ux design, combining product strategy, UI engineering, integrations, performance, QA, analytics, and launch support."}
 					moreCaseStudiesLink={"/services/product-engineering"}

@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "4 hr", label: "Policy issuance time, from 8 days", accent: "from-indigo-500 to-violet-600" },
@@ -119,8 +120,8 @@ export default function PolicyManagementSystemsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Indigo Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(230,80%,60%) 0%, hsl(240,80%,55%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function PolicyManagementSystemsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function PolicyManagementSystemsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Insurance Technology"
 					title="How Modernising a 22-Year-Old Policy Management System Cut Issuance from 8 Days to 4 Hours"
 					description="A mid-tier insurer was running its entire policy book on a system installed in 2002 — a COBOL-based policy administration platform that had been extended through custom scripts until every process required IT involvement and policy issuance averaged 8 business days. OpenGridLabs led a phased modernisation: event-driven microservices replacing the monolith, automated lifecycle workflows for 6 product lines, and a no-code rules engine enabling the business to manage products without IT dependency."
@@ -155,13 +156,24 @@ export default function PolicyManagementSystemsCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="policy-management-systems"
+					title="Policy Management Systems"
+					accentColor="indigo"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/policy-management-systems/1.jpg",
+						"/images/case-studies/policy-management-systems/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-indigo-500/30"
 					hoverTextClass="group-hover:text-indigo-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +194,7 @@ export default function PolicyManagementSystemsCaseStudy() {
 					gradientFromClass="from-indigo-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +204,7 @@ export default function PolicyManagementSystemsCaseStudy() {
 					arrowColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +222,22 @@ export default function PolicyManagementSystemsCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 3-phase roadmap leading from foundation motor setups to multi-product migrations and full decommission workflows."}
-					phaseColors={[ "hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)" ]}
+					phaseColors={["hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)"]}
 					axisGradientClass={"from-indigo-500 via-violet-500 to-purple-500"}
 					badgeColorClass={"text-indigo-400 bg-indigo-400/10 border-indigo-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Decimating document generation lifetimes, reducing processing costs, and maximizing structural agility indices."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We had been managing a COBOL system older than most of our staff. Every product change was a negotiation with IT. After the migration, a business analyst changed a coverage rule on a Tuesday morning and it was live by the afternoon. That was unimaginable before."}
 					author={"Chief Operating Officer"}
 					subtitle={"Confidential Mid-Tier Insurer"}
@@ -233,7 +245,7 @@ export default function PolicyManagementSystemsCaseStudy() {
 					iconColorClass={"text-indigo-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +253,7 @@ export default function PolicyManagementSystemsCaseStudy() {
 					iconColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +261,7 @@ export default function PolicyManagementSystemsCaseStudy() {
 					activeChevronColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Policy issuance taking days because of a legacy batch system?"}
 					description={"OpenGridLabs modernises policy management systems — event-driven architecture, no-code product rules, and API integration — product by product, with zero downtime throughout."}
 					moreCaseStudiesLink={"/services/bfsi"}

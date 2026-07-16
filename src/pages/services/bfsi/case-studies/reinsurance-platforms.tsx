@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "£2.1M", label: "Recovered reinsurance recoveries previously missed", accent: "from-indigo-500 to-violet-600" },
@@ -119,8 +120,8 @@ export default function ReinsurancePlatformsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Indigo Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(230,80%,60%) 0%, hsl(240,80%,55%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function ReinsurancePlatformsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function ReinsurancePlatformsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Insurance Technology"
 					title="How a Digital Reinsurance Platform Recovered £2.1M in Missed Reinsurance Recoveries"
 					description="A specialty insurer with a complex reinsurance programme was managing its treaties and facultative placements through a combination of spreadsheets and email — monthly bordereau preparation taking 3 weeks, recovery calculations performed manually, and reinsurer reporting done by the finance team rather than from a system. An audit uncovered £2.1M in legitimate recoveries that had not been claimed. OpenGridLabs built a reinsurance management platform that automated bordereau processing, automated recovery identification, and reduced the bordereau cycle from 3 weeks to 4 days."
@@ -155,13 +156,24 @@ export default function ReinsurancePlatformsCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="reinsurance-platforms"
+					title="Reinsurance Platforms"
+					accentColor="indigo"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/reinsurance-platforms/1.jpg",
+						"/images/case-studies/reinsurance-platforms/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-indigo-500/30"
 					hoverTextClass="group-hover:text-indigo-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +194,7 @@ export default function ReinsurancePlatformsCaseStudy() {
 					gradientFromClass="from-indigo-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +204,7 @@ export default function ReinsurancePlatformsCaseStudy() {
 					arrowColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +222,22 @@ export default function ReinsurancePlatformsCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 12-month delivery path starting with data migrations and culminating in self-service query workflows."}
-					phaseColors={[ "hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)" ]}
+					phaseColors={["hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)"]}
 					axisGradientClass={"from-indigo-500 via-violet-500 to-purple-500"}
 					badgeColorClass={"text-indigo-400 bg-indigo-400/10 border-indigo-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Recovering millions in previously unclaimed assets, automating data delivery times, and optimizing operational capacity."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The audit found £2.1M we hadn't claimed. The honest reason was that calculating excess-of-loss recoveries manually, across 23 reinsurers, against complex treaty terms, was an impossible task to do perfectly every month. The platform does it systematically. We haven't missed a recovery since."}
 					author={"Head of Reinsurance"}
 					subtitle={"Confidential Specialty Insurer"}
@@ -233,7 +245,7 @@ export default function ReinsurancePlatformsCaseStudy() {
 					iconColorClass={"text-indigo-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +253,7 @@ export default function ReinsurancePlatformsCaseStudy() {
 					iconColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +261,7 @@ export default function ReinsurancePlatformsCaseStudy() {
 					activeChevronColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Reinsurance team spending three weeks a month on manual bordereau preparation?"}
 					description={"OpenGridLabs builds reinsurance management platforms — automated bordereau, systematic recovery identification, and reinsurer portals — that recover what's owed and free your team for relationship management."}
 					moreCaseStudiesLink={"/services/bfsi"}

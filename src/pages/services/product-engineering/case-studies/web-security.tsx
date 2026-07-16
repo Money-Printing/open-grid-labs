@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function WebSecurityCaseStudy() {
 						{ label: "Scope", value: "47 security controls implemented" },
 						{ label: "Timeline", value: "8 weeks to production" },
 						{ label: "Stack", value: "App Security · Auth · Headers · Dependency Scanning" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="web-security"
+					title="Web Security"
+					accentColor="blue"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/web-security/1.jpg",
+						"/images/case-studies/web-security/2.jpg"
 					]}
 				/>
 

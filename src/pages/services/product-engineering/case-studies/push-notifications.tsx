@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function PushNotificationsCaseStudy() {
 						{ label: "Scope", value: "19 notification journeys launched" },
 						{ label: "Timeline", value: "8 weeks to production" },
 						{ label: "Stack", value: "Push Notifications · Segmentation · Preferences · Analytics" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="push-notifications"
+					title="Push Notifications"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/push-notifications/1.jpg",
+						"/images/case-studies/push-notifications/2.jpg"
 					]}
 				/>
 

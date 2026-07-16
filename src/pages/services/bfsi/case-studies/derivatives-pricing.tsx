@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "74%", label: "Reduction in counterparty valuation disputes", accent: "from-emerald-500 to-teal-600" },
@@ -119,8 +120,8 @@ export default function DerivativesPricingCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Emerald Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(145,100%,40%) 0%, hsl(155,100%,35%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function DerivativesPricingCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function DerivativesPricingCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Financial Services"
 					title="How a Real-Time Derivatives Pricing Engine Reduced Valuation Disputes 74% and Enabled Intraday Risk Management"
 					description="A financial services firm managing a derivatives portfolio of 40,000 instruments was valuing its book using end-of-day batch pricing — a process taking 4 hours nightly, with model inconsistencies between desks producing frequent valuation disputes with counterparties. OpenGridLabs built a real-time pricing engine: SABR volatility surface calibration, Black-Scholes and local vol models, Monte Carlo simulation for complex payoffs, and real-time Greeks calculation — reducing valuation disputes 74% and enabling intraday risk management for the first time."
@@ -155,13 +156,24 @@ export default function DerivativesPricingCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="derivatives-pricing"
+					title="Derivatives Pricing"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/derivatives-pricing/1.jpg",
+						"/images/case-studies/derivatives-pricing/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-emerald-500/30"
 					hoverTextClass="group-hover:text-emerald-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +194,7 @@ export default function DerivativesPricingCaseStudy() {
 					gradientFromClass="from-emerald-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +204,7 @@ export default function DerivativesPricingCaseStudy() {
 					arrowColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +222,22 @@ export default function DerivativesPricingCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 3-phase roadmap leading from initial library setup to real-time Greeks and live dispute workflow deployment."}
-					phaseColors={[ "hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)" ]}
+					phaseColors={["hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)"]}
 					axisGradientClass={"from-emerald-500 via-teal-500 to-cyan-500"}
 					badgeColorClass={"text-emerald-400 bg-emerald-400/10 border-emerald-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Minimizing valuation discrepancies with centralized curve calibrations and enabling real-time Greek hedging."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"Valuation disputes are expensive in time, in money, and in counterparty relationships. Most of ours were caused by inconsistent volatility surfaces — the same underlying, priced at different vols by different desks. One calibration, updated centrally, eliminated most of them immediately."}
 					author={"Head of Derivatives"}
 					subtitle={"Confidential Financial Services Firm"}
@@ -233,7 +245,7 @@ export default function DerivativesPricingCaseStudy() {
 					iconColorClass={"text-emerald-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +253,7 @@ export default function DerivativesPricingCaseStudy() {
 					iconColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +261,7 @@ export default function DerivativesPricingCaseStudy() {
 					activeChevronColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Counterparty disputes from inconsistent volatility surfaces?"}
 					description={"OpenGridLabs builds derivatives pricing engines — centralised SABR calibration, real-time Greeks, and valuation dispute resolution — that price 40,000 instruments consistently and intraday."}
 					moreCaseStudiesLink={"/services/bfsi"}

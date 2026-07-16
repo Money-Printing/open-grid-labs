@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function CodeOptimizationCaseStudy() {
 						{ label: "Scope", value: "38 code paths optimized" },
 						{ label: "Timeline", value: "7 weeks to production" },
 						{ label: "Stack", value: "Performance · Bundle Optimization · Rendering · Refactoring" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="code-optimization"
+					title="Code Optimization"
+					accentColor="blue"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/code-optimization/1.jpg",
+						"/images/case-studies/code-optimization/2.jpg"
 					]}
 				/>
 

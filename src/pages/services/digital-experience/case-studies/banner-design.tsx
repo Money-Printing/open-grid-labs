@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Zap,
 	Paintbrush
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "2.8×", label: "Click-through rate improvement", accent: "from-amber-500 to-orange-600" },
@@ -120,8 +121,8 @@ export default function BannerDesignCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(45,100%,50%) 0%, hsl(35,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function BannerDesignCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function BannerDesignCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Graphic Design"
 					title="How Creative-Led Digital Banner Design Lifted Click-Through Rate 2.8× and Cut Cost-Per-Click 61%"
 					description="A company running a display advertising campaign had optimised targeting, bidding, and audience segmentation and still couldn't move the click-through rate above a fraction of a percent. The targeting was finding the right people; the creative was not giving them a reason to click. OpenGridLabs redesigned the banner creative from scratch — 14 sizes, static and animated variants, message hierarchy built for the 1-second display context — and CTR increased 2.8× on the next campaign cycle."
@@ -156,13 +157,25 @@ export default function BannerDesignCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="banner-design"
+					title="How Creative-Led Digital Banner Design Lifted Click-Through Rate 2.8× and Cut Cost-Per-Click 61%"
+					accentColor="amber"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/banner-design/1.jpg",
+						"/images/case-studies/banner-design/2.jpg"
+					]}
+				/>
+
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-500"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Paintbrush className="w-5 h-5" />}
@@ -183,7 +196,7 @@ export default function BannerDesignCaseStudy() {
 					gradientFromClass="from-indigo-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +206,7 @@ export default function BannerDesignCaseStudy() {
 					arrowColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +224,22 @@ export default function BannerDesignCaseStudy() {
 					rightColumnTitle={"Banner Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A rapid four-week design sprint from creative briefs and concepts to production and campaign iteration."}
-					phaseColors={[ "hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)" ]}
+					phaseColors={["hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-orange-500 to-red-500"}
 					badgeColorClass={"text-amber-500 bg-amber-500/10 border-amber-500/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Measuring click-through improvements, cost-per-click reductions, and production speedups."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We'd spent six months improving the targeting and wondering why the CTR wasn't moving. Turns out we needed to fix the creative. The new banners are designed to work in a second — not a second glance, literally one second. That's what display needs."}
 					author={"Performance Marketing Manager"}
 					subtitle={"Confidential SaaS Company"}
@@ -234,7 +247,7 @@ export default function BannerDesignCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +255,7 @@ export default function BannerDesignCaseStudy() {
 					iconColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +263,7 @@ export default function BannerDesignCaseStudy() {
 					activeChevronColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Good targeting, poor creative, low CTR?"}
 					description={"OpenGridLabs designs display banner campaigns — 1-second hierarchy, animated variants, and A/B creative testing — that give the right audience a reason to click."}
 					moreCaseStudiesLink={"/services/digital-experience"}

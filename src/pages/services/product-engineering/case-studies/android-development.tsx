@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function AndroidDevelopmentCaseStudy() {
 						{ label: "Scope", value: "42 Android device profiles tested" },
 						{ label: "Timeline", value: "11 weeks to release" },
 						{ label: "Stack", value: "Kotlin · Android UI · Play Store · Device QA" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="android-development"
+					title="Android Development"
+					accentColor="purple"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/android-development/1.jpg",
+						"/images/case-studies/android-development/2.jpg"
 					]}
 				/>
 

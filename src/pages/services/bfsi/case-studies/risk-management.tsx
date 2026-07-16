@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "180 bps", label: "Estimated drawdown prevented by intraday alert", accent: "from-emerald-500 to-teal-600" },
@@ -119,8 +120,8 @@ export default function RiskManagementCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Emerald Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(145,100%,40%) 0%, hsl(155,100%,35%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function RiskManagementCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function RiskManagementCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Financial Services"
 					title="How Real-Time Risk Monitoring Caught a Concentration Risk Before the Market Moved and Prevented an Estimated 180bps Drawdown"
 					description="An asset manager's risk management process ran on end-of-day reports — risks identified overnight, reviewed the following morning. When a sector concentration built up during an intraday market movement, it wasn't visible until the next day's report. OpenGridLabs built a real-time risk system: intraday VaR, CVaR, factor risk decomposition, and live limit monitoring that surfaced a critical technology sector concentration during the trading day, before the subsequent market correction that would have produced an estimated 180bps drawdown."
@@ -155,13 +156,24 @@ export default function RiskManagementCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="risk-management"
+					title="Risk Management"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/risk-management/1.jpg",
+						"/images/case-studies/risk-management/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-emerald-500/30"
 					hoverTextClass="group-hover:text-emerald-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +194,7 @@ export default function RiskManagementCaseStudy() {
 					gradientFromClass="from-emerald-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +204,7 @@ export default function RiskManagementCaseStudy() {
 					arrowColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +222,22 @@ export default function RiskManagementCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 3-phase roadmap leading from baseline simulation engines and feed integrations to live PM dashboard tools."}
-					phaseColors={[ "hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)" ]}
+					phaseColors={["hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)"]}
 					axisGradientClass={"from-emerald-500 via-teal-500 to-cyan-500"}
 					badgeColorClass={"text-emerald-400 bg-emerald-400/10 border-emerald-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Transforming EOD models to continuous session views and automating limit alerts."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The technology sector alert came through at 2:15pm. We reduced the position before the close. The next morning the sector was down 3.4%. If we hadn't had the real-time system, we wouldn't have seen the concentration until it was too late. That one alert justified the entire investment."}
 					author={"Chief Risk Officer"}
 					subtitle={"Confidential Asset Manager"}
@@ -233,7 +245,7 @@ export default function RiskManagementCaseStudy() {
 					iconColorClass={"text-emerald-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +253,7 @@ export default function RiskManagementCaseStudy() {
 					iconColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +261,7 @@ export default function RiskManagementCaseStudy() {
 					activeChevronColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Finding out about risk concentrations the morning after they built up?"}
 					description={"OpenGridLabs builds real-time risk management systems — intraday VaR, factor risk decomposition, and automated limit alerts — that surface risks during the session, not after it."}
 					moreCaseStudiesLink={"/services/bfsi"}

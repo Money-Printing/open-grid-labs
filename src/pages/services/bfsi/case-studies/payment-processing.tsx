@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "87%", label: "Reduction in settlement failures", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function PaymentProcessingCaseStudy() {
 						{ label: "Stack", value: "Event-driven · Kafka · Idempotent APIs · ISO 20022 · Real-time reconciliation" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="payment-processing"
+									title="Payment Processing"
+									accentColor="pink"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/payment-processing/1.jpg",
+										"/images/case-studies/payment-processing/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

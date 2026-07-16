@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "11", label: "Web apps migrated to Azure App Service", accent: "from-emerald-500 to-teal-600" },
@@ -157,6 +158,17 @@ export default function AppServiceCaseStudy() {
 						{ label: "Stack", value: "App Service · Deployment Slots · Managed Identity · Autoscale" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="app-service"
+									title="App Service"
+									accentColor="blue"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/app-service/1.jpg",
+										"/images/case-studies/app-service/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

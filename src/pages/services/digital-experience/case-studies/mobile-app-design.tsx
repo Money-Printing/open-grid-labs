@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "2.9→4.6", label: "App Store rating improvement", accent: "from-pink-500 to-rose-600" },
@@ -155,6 +156,17 @@ export default function MobileAppDesignCaseStudy() {
 						{ label: "Tools", value: "Figma · Native design systems · Usability testing · Beta programme" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+													slug="mobile-app-design"
+													title="How a Native-First Mobile Redesign Lifted App Store Rating from 2.9 to 4.6"
+													accentColor="amber"
+													aspectRatioClass="aspect-[3/2]"
+													images={[
+														"/images/case-studies/mobile-app-design/1.jpg",
+														"/images/case-studies/mobile-app-design/2.jpg"
+													]}
+												/>
 
 				<StatsGrid 
 					stats={STATS}

@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "24 hr", label: "Letter of credit issuance, from 10 days", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function TradeFinanceCaseStudy() {
 						{ label: "Stack", value: "Trade portal · OCR · Document verification · Core banking integration · SWIFT MT700" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="trade-finance"
+									title="Trade Finance"
+									accentColor="pink"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/trade-finance/1.jpg",
+										"/images/case-studies/trade-finance/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "10K", label: "On-brand creative assets per day", accent: "from-emerald-400 to-teal-500" },
@@ -159,6 +160,19 @@ export default function GenerativeAICaseStudy() {
 						{ label: "Stack", value: "Diffusion Fine-tuning · Prompt Engineering · Quality Filters" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="generative-ai"
+					title="Generative AI"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/generative-ai/1.jpg",
+						"/images/case-studies/generative-ai/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

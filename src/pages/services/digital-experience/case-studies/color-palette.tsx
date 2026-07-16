@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "44%", label: "Improvement in brand colour recognition", accent: "from-amber-500 to-orange-600" },
@@ -155,6 +156,17 @@ export default function ColorPaletteCaseStudy() {
 						{ label: "Deliverables", value: "Colour strategy · Palette · Audit · Tokens" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+																	slug="color-palette"
+																	title="How a Strategic Colour System Replaced 11 Ad Hoc Colours and Made the Brand Instantly Recognisable"
+																	accentColor="purple"
+																	aspectRatioClass="aspect-[3/2]"
+																	images={[
+																		"/images/case-studies/color-palette/1.jpg",
+																		"/images/case-studies/color-palette/2.jpg"
+																	]}
+																/>
 
 				<StatsGrid 
 					stats={STATS}

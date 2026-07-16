@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "5→1", label: "Tools replaced by GitLab's platform", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function GitLabCaseStudy() {
 						{ label: "Stack", value: "GitLab CI · SAST/DAST · Environments · Protected Branches" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="gitlab-ci-cd"
+									title="GitLab CI/CD"
+									accentColor="emerald"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/gitlab-ci-cd/1.jpg",
+										"/images/case-studies/gitlab-ci-cd/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

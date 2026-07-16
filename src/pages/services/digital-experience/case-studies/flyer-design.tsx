@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Zap,
 	Paintbrush
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "3.2×", label: "Response rate increase on same audience", accent: "from-amber-500 to-orange-600" },
@@ -120,8 +121,8 @@ export default function FlyerDesignCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(45,100%,50%) 0%, hsl(35,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function FlyerDesignCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function FlyerDesignCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Graphic Design"
 					title="How a CTA-Led Flyer Redesign Increased Campaign Response Rate 3.2× on the Same Audience Without Changing the Offer"
 					description="A company distributing 50,000 promotional flyers per quarter was getting a response rate that barely justified the print and distribution spend. The flyer had a clear design, a reasonable offer, and a complete set of information. What it lacked was a hierarchy that made the call to action — the one thing it needed the reader to do — visually dominant. OpenGridLabs redesigned the flyer around the CTA as the primary visual element, and response rate tripled on the next run."
@@ -156,13 +157,24 @@ export default function FlyerDesignCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="flyer-design"
+					title="How a CTA-Led Flyer Redesign Increased Campaign Response Rate 3.2× on the Same Audience Without Changing the Offer"
+					accentColor="amber"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/flyer-design/1.jpg",
+						"/images/case-studies/flyer-design/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-500"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Paintbrush className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function FlyerDesignCaseStudy() {
 					gradientFromClass="from-indigo-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function FlyerDesignCaseStudy() {
 					arrowColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +223,22 @@ export default function FlyerDesignCaseStudy() {
 					rightColumnTitle={"Flyer Production Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A rapid three-week timeline from hierarchy briefs to final design refinement and print-ready delivery."}
-					phaseColors={[ "hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)" ]}
+					phaseColors={["hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-orange-500 to-red-500"}
 					badgeColorClass={"text-amber-500 bg-amber-500/10 border-amber-500/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Measuring response rate uplifts, cost reductions, scan metrics, and print efficiency."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We changed nothing except the design and got three times the response. Same offer, same audience, same distribution. The hierarchy was the whole answer — the old flyer wasn't bad, it just wasn't asking anyone to do anything clearly."}
 					author={"Marketing Director"}
 					subtitle={"Confidential Retail Company"}
@@ -234,7 +246,7 @@ export default function FlyerDesignCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function FlyerDesignCaseStudy() {
 					iconColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function FlyerDesignCaseStudy() {
 					activeChevronColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"50,000 flyers with a response rate that barely pays for itself?"}
 					description={"OpenGridLabs designs flyers — CTA-led hierarchy, production-efficient specifications, and 3-second impact — that give your audience one clear thing to do and make it obvious."}
 					moreCaseStudiesLink={"/services/digital-experience"}

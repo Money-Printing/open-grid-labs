@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "84%", label: "Recipients who commented on the card", accent: "from-amber-500 to-orange-600" },
@@ -155,6 +156,17 @@ export default function BusinessCardsCaseStudy() {
 						{ label: "Deliverables", value: "Design files · Print PDFs · Spec" }
 					]}
 				/>
+
+					<CaseStudyCarousel
+													slug="business-cards"
+													title="How a Premium Business Card Redesign Turned a First-Impression Liability into a Conversation Starter"
+													accentColor="purple"
+													aspectRatioClass="aspect-[3/2]"
+													images={[
+														"/images/case-studies/business-cards/1.jpg",
+														"/images/case-studies/business-cards/2.jpg"
+													]}
+												/>
 
 				<StatsGrid 
 					stats={STATS}

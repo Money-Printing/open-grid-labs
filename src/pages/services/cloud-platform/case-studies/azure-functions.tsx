@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "22", label: "Azure Functions deployed for event workloads", accent: "from-emerald-500 to-teal-600" },
@@ -157,6 +158,17 @@ export default function AzureFunctionsCaseStudy() {
 						{ label: "Stack", value: "Azure Functions · Event Grid · Storage Queues · Azure Monitor" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="azure-functions"
+									title="Azure Functions"
+									accentColor="blue"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/azure-functions/1.jpg",
+										"/images/case-studies/azure-functions/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

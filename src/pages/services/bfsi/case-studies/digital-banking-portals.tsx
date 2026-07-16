@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Landmark,
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "41%", label: "Reduction in branch visits", accent: "from-emerald-500 to-teal-600" },
@@ -120,8 +121,8 @@ export default function DigitalBankingPortalsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(38,100%,50%) 0%, hsl(28,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function DigitalBankingPortalsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function DigitalBankingPortalsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Digital Banking Portal"
 					title="How a Modern Digital Banking Portal Reduced Branch Visits 41% and Let Customers Manage Everything Without Picking Up the Phone"
 					description="A retail bank's online portal had been built in 2016 and patched repeatedly since — slow, poorly designed on mobile, and incapable of handling routine requests that still required a branch visit or a call. OpenGridLabs rebuilt the digital banking portal from the ground up: account management, payments, document upload, secure messaging, and a self-service request engine that processed 94% of routine requests without staff intervention."
@@ -156,13 +157,24 @@ export default function DigitalBankingPortalsCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="digital-banking-portals"
+					title="Digital Banking Portal Modernisation"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/digital-banking-portals/1.jpg",
+						"/images/case-studies/digital-banking-portals/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Landmark className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function DigitalBankingPortalsCaseStudy() {
 					gradientFromClass="from-amber-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -193,7 +205,7 @@ export default function DigitalBankingPortalsCaseStudy() {
 					arrowColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -211,22 +223,22 @@ export default function DigitalBankingPortalsCaseStudy() {
 					rightColumnTitle={"Omnichannel Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A phased design and integration lifecycle resolving customer-facing friction and API connectivity."}
-					phaseColors={[ "hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-emerald-500 to-indigo-500"}
 					badgeColorClass={"text-amber-400 bg-amber-400/10 border-amber-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Deploying a complete web and mobile self-service portal directly reduced branch overhead and boosted customer satisfaction."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The measure we cared about most was branch visits for things that shouldn't need a branch visit. We reduced it 41% in the first year. That's not just cost — it's customers getting an hour of their day back for something they used to have to queue for."}
 					author={"Chief Digital Officer"}
 					subtitle={"Confidential Retail Bank"}
@@ -234,7 +246,7 @@ export default function DigitalBankingPortalsCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function DigitalBankingPortalsCaseStudy() {
 					iconColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function DigitalBankingPortalsCaseStudy() {
 					activeChevronColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Customers still calling the branch for things your portal should handle?"}
 					description={"OpenGridLabs builds digital banking portals — mobile-first, self-service, and PSD2-compliant — that give customers a complete digital channel and reduce your cost-to-serve."}
 					moreCaseStudiesLink={"/services/bfsi"}

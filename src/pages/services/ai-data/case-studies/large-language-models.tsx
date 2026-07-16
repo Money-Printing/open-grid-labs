@@ -22,6 +22,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "71%", label: "Reduction in per-query inference cost", accent: "from-cyan-400 to-blue-500" },
@@ -161,6 +162,19 @@ export default function LargeLanguageModelsCaseStudy() {
 						{ label: "Stack", value: "LLM Fine-tuning · RAG · Model Routing · LLMOps" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="large-language-models"
+					title="Large Language Models"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/large-language-models/1.jpg",
+						"/images/case-studies/large-language-models/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function RESTfulServicesCaseStudy() {
 						{ label: "Scope", value: "32 REST resources standardized" },
 						{ label: "Timeline", value: "8 weeks to launch" },
 						{ label: "Stack", value: "REST · Resource Design · Pagination · Error Handling" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="restful-services"
+					title="RESTful Services"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/restful-services/1.jpg",
+						"/images/case-studies/restful-services/2.jpg"
 					]}
 				/>
 

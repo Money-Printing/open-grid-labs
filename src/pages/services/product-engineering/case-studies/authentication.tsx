@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function AuthenticationCaseStudy() {
 						{ label: "Scope", value: "7 access workflows secured" },
 						{ label: "Timeline", value: "9 weeks to production" },
 						{ label: "Stack", value: "Auth · RBAC · Sessions · Audit Logs" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="authentication"
+					title="Authentication"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/authentication/1.jpg",
+						"/images/case-studies/authentication/2.jpg"
 					]}
 				/>
 

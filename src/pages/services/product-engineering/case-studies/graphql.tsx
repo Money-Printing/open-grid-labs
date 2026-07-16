@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function GraphQLCaseStudy() {
 						{ label: "Scope", value: "74 schema types launched" },
 						{ label: "Timeline", value: "11 weeks to production" },
 						{ label: "Stack", value: "GraphQL · Schema Design · Resolvers · Query Monitoring" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="graphql"
+					title="GraphQL"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/graphql/1.jpg",
+						"/images/case-studies/graphql/2.jpg"
 					]}
 				/>
 

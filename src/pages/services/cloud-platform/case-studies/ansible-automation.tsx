@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Workflow, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Workflow,
+	Cpu,
+	Activity,
 	Database,
 	ShieldAlert
 } from "lucide-react";
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "89%", label: "Reduction in configuration drift incidents", accent: "from-emerald-500 to-teal-600" },
@@ -120,8 +121,8 @@ export default function AnsibleAutomationCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Gorgeous DevOps Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(145,100%,45%) 0%, hsl(200,100%,50%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function AnsibleAutomationCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/cloud-platform" 
+					<Link
+						to="/services/cloud-platform"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function AnsibleAutomationCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · DevOps & Engineering"
 					title="How Ansible Automation Eliminated Server Configuration Drift Across 400 Nodes"
 					description="A company managing 400 servers had accumulated years of manual SSH sessions, one-off fixes, and undocumented configuration changes. OpenGridLabs replaced the ad hoc approach with idempotent Ansible playbooks, a shared role library, and AWX-scheduled enforcement runs — making every server's state defined in code and continuously enforced."
@@ -156,13 +157,24 @@ export default function AnsibleAutomationCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="ansible-automation"
+					title="Ansible Automation"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/ansible-automation/1.jpg",
+						"/images/case-studies/ansible-automation/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-emerald-500/30"
 					hoverTextClass="group-hover:text-emerald-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function AnsibleAutomationCaseStudy() {
 					gradientFromClass="from-emerald-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function AnsibleAutomationCaseStudy() {
 					arrowColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Database, Layers, Workflow, Activity]}
 					tag={"Blueprint"}
@@ -211,22 +223,22 @@ export default function AnsibleAutomationCaseStudy() {
 					rightColumnTitle={"Ansible Automation Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Implementation Approach"}
 					description={"A systematic ten-week journey from manual, ad-hoc server configuration to strict code-defined automation and real-time drift alerting."}
-					phaseColors={[ "hsl(145,100%,45%)", "hsl(200,100%,50%)", "hsl(280,100%,60%)" ]}
+					phaseColors={["hsl(145,100%,45%)", "hsl(200,100%,50%)", "hsl(280,100%,60%)"]}
 					axisGradientClass={"from-emerald-500 via-blue-500 to-purple-500"}
 					badgeColorClass={"text-emerald-400 bg-emerald-400/10 border-emerald-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="The transition from ad-hoc manual management to declarative automation delivered immediate improvements across provisioning times, drift occurrence, and configuration traceability."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We used to joke that every server was a unique snowflake. Now they're cattle — defined in code, enforced daily, provisioned from a single playbook. The last compliance audit was the first with no configuration findings."}
 					author={"Head of Operations"}
 					subtitle={"Confidential Platform Company"}
@@ -234,7 +246,7 @@ export default function AnsibleAutomationCaseStudy() {
 					iconColorClass={"text-emerald-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked: Key Success Factors"}
@@ -242,7 +254,7 @@ export default function AnsibleAutomationCaseStudy() {
 					iconColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function AnsibleAutomationCaseStudy() {
 					activeChevronColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Still managing servers with SSH sessions?"}
 					description={"OpenGridLabs implements Ansible automation — idempotent roles, AWX scheduling, and drift detection — so every server's state is defined in code and continuously enforced."}
 					moreCaseStudiesLink={"/services/cloud-platform"}

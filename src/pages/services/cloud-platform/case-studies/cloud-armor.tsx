@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Workflow, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Workflow,
+	Cpu,
+	Activity,
 	ShieldAlert,
 	Lock
 } from "lucide-react";
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "27", label: "Cloud Armor rules and policies configured", accent: "from-blue-500 to-cyan-600" },
@@ -123,8 +124,8 @@ export default function CloudArmorCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Gorgeous Security Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(0,85%,60%) 0%, hsl(217,89%,61%) 50%, transparent 100%)`
 					}}
@@ -132,8 +133,8 @@ export default function CloudArmorCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/cloud-platform" 
+					<Link
+						to="/services/cloud-platform"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -141,7 +142,7 @@ export default function CloudArmorCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Google Cloud Platform"
 					title="How Cloud Armor Protected Public Apps With Managed Edge Security"
 					description="A public-facing platform needed stronger protection against abusive traffic, suspicious IPs, and application-layer threats. OpenGridLabs implemented Cloud Armor policies with WAF rules, rate limiting, geo controls, logging, alerting, and rollout safeguards."
@@ -159,13 +160,24 @@ export default function CloudArmorCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="cloud-armor"
+					title="Cloud Armor"
+					accentColor="red"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/cloud-armor/1.jpg",
+						"/images/case-studies/cloud-armor/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-red-500/30"
 					hoverTextClass="group-hover:text-red-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -186,7 +198,7 @@ export default function CloudArmorCaseStudy() {
 					gradientFromClass="from-red-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -196,7 +208,7 @@ export default function CloudArmorCaseStudy() {
 					arrowColorClass={"text-red-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Lock, Workflow, Activity]}
 					tag={"Blueprint"}
@@ -214,22 +226,22 @@ export default function CloudArmorCaseStudy() {
 					rightColumnTitle={"Cloud Armor Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Implementation Approach"}
 					description={"The engagement ran across three phases, moving from assessment and architecture into implementation, production rollout, and operational handoff."}
-					phaseColors={[ "hsl(217,89%,61%)", "hsl(145,100%,45%)", "hsl(280,100%,60%)" ]}
+					phaseColors={["hsl(217,89%,61%)", "hsl(145,100%,45%)", "hsl(280,100%,60%)"]}
 					axisGradientClass={"from-blue-500 via-emerald-500 to-purple-500"}
 					badgeColorClass={"text-red-400 bg-red-400/10 border-red-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Results were measured after launch against the client's pre-engagement baseline. The strongest gains came from better automation, managed services, stronger security controls, and improved operational visibility."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The GCP work gave us a foundation we could actually operate. Cloud Armor stopped being a set of manual cloud tasks and became a reliable capability with visibility, ownership, and safer scaling."}
 					author={"Cloud Engineering Lead"}
 					subtitle={"Confidential SaaS Company"}
@@ -237,7 +249,7 @@ export default function CloudArmorCaseStudy() {
 					iconColorClass={"text-red-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked: Key Success Factors"}
@@ -245,7 +257,7 @@ export default function CloudArmorCaseStudy() {
 					iconColorClass={"text-red-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -253,7 +265,7 @@ export default function CloudArmorCaseStudy() {
 					activeChevronColorClass={"text-red-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Ready to improve your GCP foundation with Cloud Armor?"}
 					description={"OpenGridLabs designs and builds Google Cloud systems for cloud armor, combining architecture, automation, security, monitoring, cost governance, and production rollout support."}
 					moreCaseStudiesLink={"/services/cloud-platform"}

@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "21%", label: "Improvement in prediction lift on priority workflows", accent: "from-purple-500 to-indigo-500" },
@@ -158,6 +159,19 @@ export default function NeuralNetworksCaseStudy() {
 						{ label: "Stack", value: "Neural Networks · Feature Pipelines · Model Serving · Monitoring" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="neural-networks"
+					title="Neural Networks"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/neural-networks/1.jpg",
+						"/images/case-studies/neural-networks/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

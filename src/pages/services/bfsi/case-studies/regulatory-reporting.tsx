@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "78%", label: "Reduction in report preparation time", accent: "from-emerald-500 to-teal-600" },
@@ -119,8 +120,8 @@ export default function RegulatoryReportingCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Emerald Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(145,100%,40%) 0%, hsl(155,100%,35%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function RegulatoryReportingCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function RegulatoryReportingCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Financial Services"
 					title="How Regulatory Reporting Automation Eliminated Manual Errors and Achieved Zero Regulatory Findings for 24 Months"
 					description="An asset manager subject to MiFID II transaction reporting, EMIR trade reporting, SFTR, and AIFMD was managing its regulatory filings through a semi-manual process — compliance analysts extracting data from multiple systems, reconciling in spreadsheets, and submitting files to trade repositories and regulators. The process was consuming 3.4 FTEs, generating recurring errors, and producing late submissions. OpenGridLabs automated the full reporting pipeline, eliminating errors and achieving zero regulatory findings for 24 consecutive months."
@@ -155,13 +156,24 @@ export default function RegulatoryReportingCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="regulatory-reporting"
+					title="Regulatory Reporting"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/regulatory-reporting/1.jpg",
+						"/images/case-studies/regulatory-reporting/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-emerald-500/30"
 					hoverTextClass="group-hover:text-emerald-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +194,7 @@ export default function RegulatoryReportingCaseStudy() {
 					gradientFromClass="from-emerald-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +204,7 @@ export default function RegulatoryReportingCaseStudy() {
 					arrowColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +222,22 @@ export default function RegulatoryReportingCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 3-phase roadmap starting from basic data frameworks to trade repository endpoints and final AIFMD rule packages."}
-					phaseColors={[ "hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)" ]}
+					phaseColors={["hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)"]}
 					axisGradientClass={"from-emerald-500 via-teal-500 to-cyan-500"}
 					badgeColorClass={"text-emerald-400 bg-emerald-400/10 border-emerald-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Minimizing report preparation time, lowering submission reject rates, and maintaining zero regulatory observations."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"Our compliance team was three-quarters data handlers and one-quarter compliance professionals. The automation inverted that. They now spend most of their time on actual compliance — reviewing exceptions, monitoring regulatory developments, advising the business. The data handling is done."}
 					author={"Head of Compliance"}
 					subtitle={"Confidential Asset Manager"}
@@ -233,7 +245,7 @@ export default function RegulatoryReportingCaseStudy() {
 					iconColorClass={"text-emerald-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +253,7 @@ export default function RegulatoryReportingCaseStudy() {
 					iconColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +261,7 @@ export default function RegulatoryReportingCaseStudy() {
 					activeChevronColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Compliance team spending 3 FTEs on regulatory data handling?"}
 					description={"OpenGridLabs automates regulatory reporting — MiFID II, EMIR, SFTR, AIFMD — with data quality monitoring at source and direct trade repository API submission that eliminates errors."}
 					moreCaseStudiesLink={"/services/bfsi"}

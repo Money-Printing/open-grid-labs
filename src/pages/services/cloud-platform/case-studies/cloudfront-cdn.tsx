@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Workflow, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Workflow,
+	Cpu,
+	Activity,
 	Database,
 	ShieldAlert
 } from "lucide-react";
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "14", label: "Regions improved with edge delivery", accent: "from-amber-500 to-orange-600" },
@@ -123,8 +124,8 @@ export default function CloudFrontCDNCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Gorgeous AWS Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(33,100%,50%) 0%, hsl(200,100%,50%) 50%, transparent 100%)`
 					}}
@@ -132,8 +133,8 @@ export default function CloudFrontCDNCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/cloud-platform" 
+					<Link
+						to="/services/cloud-platform"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -141,7 +142,7 @@ export default function CloudFrontCDNCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · AWS Cloud"
 					title="How CloudFront CDN Improved Global Performance With Edge Delivery"
 					description="A web platform had slow asset delivery and inconsistent caching across regions. OpenGridLabs implemented CloudFront CDN with origin controls, cache policies, invalidation workflows, TLS, compression, and edge monitoring for faster global experiences."
@@ -159,13 +160,24 @@ export default function CloudFrontCDNCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="cloudfront-cdn"
+					title="CloudFront CDN"
+					accentColor="teal"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/cloudfront-cdn/1.jpg",
+						"/images/case-studies/cloudfront-cdn/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-blue-500/30"
 					hoverTextClass="group-hover:text-blue-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -186,7 +198,7 @@ export default function CloudFrontCDNCaseStudy() {
 					gradientFromClass="from-blue-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -196,7 +208,7 @@ export default function CloudFrontCDNCaseStudy() {
 					arrowColorClass={"text-blue-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Workflow, Activity]}
 					tag={"Blueprint"}
@@ -214,22 +226,22 @@ export default function CloudFrontCDNCaseStudy() {
 					rightColumnTitle={"CloudFront CDN Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Implementation Approach"}
 					description={"The engagement ran across three phases, moving from assessment and architecture into implementation, production rollout, and operational handoff."}
-					phaseColors={[ "hsl(210,100%,50%)", "hsl(33,100%,50%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(210,100%,50%)", "hsl(33,100%,50%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-orange-400 via-blue-500 to-teal-500"}
 					badgeColorClass={"text-blue-400 bg-blue-400/10 border-blue-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Results were measured after launch against the client's pre-engagement baseline. The strongest gains came from better automation, right-sized infrastructure, stronger security controls, and improved operational visibility."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The AWS work gave us a foundation we could actually operate. CloudFront CDN stopped being a set of manual cloud tasks and became a reliable capability with visibility, ownership, and safer scaling."}
 					author={"Cloud Engineering Lead"}
 					subtitle={"Confidential SaaS Company"}
@@ -237,7 +249,7 @@ export default function CloudFrontCDNCaseStudy() {
 					iconColorClass={"text-blue-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked: Key Success Factors"}
@@ -245,7 +257,7 @@ export default function CloudFrontCDNCaseStudy() {
 					iconColorClass={"text-blue-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -253,7 +265,7 @@ export default function CloudFrontCDNCaseStudy() {
 					activeChevronColorClass={"text-blue-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Ready to improve your AWS foundation with CloudFront CDN?"}
 					description={"OpenGridLabs designs and builds AWS cloud systems for cloudfront cdn, combining architecture, automation, security, monitoring, cost governance, and production rollout support."}
 					moreCaseStudiesLink={"/services/cloud-platform"}

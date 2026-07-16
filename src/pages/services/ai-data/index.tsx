@@ -149,17 +149,17 @@ function IntelligentServicesGrid() {
 	return (
 		<section className="w-full flex flex-col items-center py-32 relative z-10 bg-background overflow-hidden">
 			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[800px] bg-purple-900/5 blur-[150px] pointer-events-none" />
-			
+
 			<div className="w-[90%] max-w-[1600px] flex flex-col gap-32 relative z-10 perspective-[2000px]">
 				{servicesData.map((category, idx) => (
-					<motion.div 
-						key={idx} 
+					<motion.div
+						key={idx}
 						className="w-full flex flex-col gap-12"
 						initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
 					>
 						<div className="flex items-center gap-8">
 							<div className="h-[2px] flex-1 bg-gradient-to-r from-transparent" style={{ backgroundImage: `linear-gradient(to right, transparent, ${category.highlight}60)` }} />
-						<h3 className="text-4xl md:text-6xl font-display font-bold tracking-wide text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(to right, var(--color-foreground), ${category.highlight})` }}>
+							<h3 className="text-4xl md:text-6xl font-display font-bold tracking-wide text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(to right, var(--color-foreground), ${category.highlight})` }}>
 								{category.title}
 							</h3>
 							<div className="h-[2px] flex-1 bg-gradient-to-l from-transparent" style={{ backgroundImage: `linear-gradient(to left, transparent, ${category.highlight}60)` }} />
@@ -202,7 +202,7 @@ function IntelligentProcess() {
 	return (
 		<section ref={containerRef} className="w-full flex flex-col items-center py-40 relative bg-background overflow-hidden">
 			<div className="text-center mb-32 relative z-10">
-				<motion.h2 
+				<motion.h2
 					initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
 					className="text-5xl md:text-8xl font-bold uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/40"
 				>
@@ -232,7 +232,7 @@ function IntelligentProcess() {
 								style={{ transformStyle: "preserve-3d" }}
 							>
 								<div className="absolute left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center z-20">
-									<motion.div 
+									<motion.div
 										className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-background border-4 border-background flex items-center justify-center shadow-lg dark:shadow-[0_0_30px_rgba(255,255,255,0.1)] bg-gradient-to-br ${step.accent}`}
 										whileInView={{ scale: [0.8, 1.2, 1] }} transition={{ duration: 0.5 }} viewport={{ once: true, margin: "-100px" }}
 									>
@@ -265,9 +265,9 @@ function IntelligentTechStack() {
 	return (
 		<section className="w-full flex flex-col items-center py-40 relative bg-background overflow-hidden">
 			<div className="absolute inset-0 dark:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent dark:from-purple-900/20 via-background to-background pointer-events-none" />
-			
+
 			<div className="text-center mb-32 relative z-10">
-				<motion.h2 
+				<motion.h2
 					initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
 					className="text-5xl md:text-8xl font-bold uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/40"
 				>
@@ -289,8 +289,8 @@ function IntelligentTechStack() {
 							whileHover={{ scale: 1.15, z: 60 }}
 							className="group relative flex flex-col items-center justify-center w-40 h-40 rounded-full border border-black/10 dark:border-transparent bg-foreground/[0.01] backdrop-blur-xl hover:border-purple-500/50 hover:shadow-lg dark:shadow-[0_0_50px_rgba(168,85,247,0.4)] transition-colors cursor-pointer"
 						>
-							<motion.div 
-								animate={{ y: yOffset }} 
+							<motion.div
+								animate={{ y: yOffset }}
 								transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
 								className="flex flex-col items-center justify-center w-full h-full"
 							>
@@ -331,7 +331,7 @@ function PortalCard({ title, desc, link, bgImage, color }: { title: string, desc
 			style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
 			className="group relative h-[400px] rounded-[40px] overflow-hidden border border-black/10 dark:border-transparent flex flex-col justify-end p-12 cursor-pointer shadow-2xl"
 		>
-			<motion.div 
+			<motion.div
 				className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-40 mix-blend-overlay"
 				style={{ backgroundImage: `url(${bgImage})`, transform: "translateZ(-50px)" }}
 				whileHover={{ scale: 1.1 }}
@@ -339,7 +339,7 @@ function PortalCard({ title, desc, link, bgImage, color }: { title: string, desc
 			/>
 			<div className={`absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent`} />
 			<div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br ${color} mix-blend-color`} />
-			
+
 			<div className="relative z-10" style={{ transform: "translateZ(60px)" }}>
 				<h3 className="text-5xl font-bold text-foreground mb-4 drop-shadow-xl">{title}</h3>
 				<p className="text-foreground/80 text-xl mb-8">{desc}</p>
@@ -355,17 +355,17 @@ function AIDataNextSteps() {
 	return (
 		<section className="w-full flex flex-col items-center py-40 relative bg-background overflow-hidden">
 			<div className="w-[90%] max-w-[1600px] grid md:grid-cols-2 gap-16 relative z-10 perspective-[2000px]">
-				<PortalCard 
-					title="Software Engineering" 
-					desc="Leverage the power of code." 
-					link="/services/product-engineering" 
+				<PortalCard
+					title="Software Engineering"
+					desc="Leverage the power of code."
+					link="/services/product-engineering"
 					bgImage="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop"
 					color="from-blue-600 to-indigo-600"
 				/>
-				<PortalCard 
-					title="Digital Design" 
-					desc="Design the future of tomorrow." 
-					link="/services/digital-experience" 
+				<PortalCard
+					title="Digital Design"
+					desc="Design the future of tomorrow."
+					link="/services/digital-experience"
 					bgImage="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000&auto=format&fit=crop"
 					color="from-emerald-600 to-cyan-600"
 				/>
@@ -383,7 +383,7 @@ export default function ServicesAIData() {
 				canonical="/services/ai-data"
 				keywords="AI services, machine learning, deep learning, NLP, artificial intelligence, computer vision, sentiment analysis, predictive analytics, LLM, agentic AI, RAG"
 			/>
-			
+
 			<IntelligentHero />
 			<IntelligentServicesGrid />
 			<IntelligentProcess />

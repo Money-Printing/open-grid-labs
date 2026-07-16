@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "4", label: "Knowledge sources connected to the answer workflow", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function QuestionAnsweringCaseStudy() {
 						{ label: "Stack", value: "Retrieval · Answer Generation · Citations · Feedback Loop" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="question-answering"
+					title="Question Answering"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/question-answering/1.jpg",
+						"/images/case-studies/question-answering/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

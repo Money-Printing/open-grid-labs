@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Zap,
 	BookOpen
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "19%", label: "Shorter consideration phase when brochure used", accent: "from-amber-500 to-orange-600" },
@@ -120,8 +121,8 @@ export default function BrochureDesignCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(45,100%,50%) 0%, hsl(35,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function BrochureDesignCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function BrochureDesignCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Graphic Design"
 					title="How a Redesigned Capabilities Brochure Became the Sales Team's Most-Used Asset and Shortened the Consideration Phase 19%"
 					description="A company had a capabilities brochure that the sales team rarely sent and clients rarely read. It was twelve pages of dense copy, stock photography, and a timeline of company milestones that told the company's story in the order it happened rather than the order it was useful to a prospective client. OpenGridLabs redesigned it as a sales tool with a client-facing narrative, editorial photography direction, and a grid system that made the content genuinely engaging."
@@ -156,13 +157,24 @@ export default function BrochureDesignCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="brochure-design"
+					title="How a Redesigned Capabilities Brochure Became the Sales Team's Most-Used Asset and Shortened the Consideration Phase 19%"
+					accentColor="amber"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/brochure-design/1.jpg",
+						"/images/case-studies/brochure-design/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-500"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<BookOpen className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function BrochureDesignCaseStudy() {
 					gradientFromClass="from-indigo-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function BrochureDesignCaseStudy() {
 					arrowColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +223,22 @@ export default function BrochureDesignCaseStudy() {
 					rightColumnTitle={"Brochure Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A ten-week capabilities brochure design roadmap from strategy and grid setups to final print production."}
-					phaseColors={[ "hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)" ]}
+					phaseColors={["hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-orange-500 to-red-500"}
 					badgeColorClass={"text-amber-500 bg-amber-500/10 border-amber-500/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Measuring team survey ratings, consideration timeline shifts, and layout clarity improvements."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The old brochure told them about us. The new one tells them about themselves. It starts with the problem they have, not with us. That change alone — before the design, before the photography — was the reason it started working."}
 					author={"Head of Business Development"}
 					subtitle={"Confidential Professional Services Company"}
@@ -234,7 +246,7 @@ export default function BrochureDesignCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function BrochureDesignCaseStudy() {
 					iconColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function BrochureDesignCaseStudy() {
 					activeChevronColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Sales brochure the team doesn't send?"}
 					description={"OpenGridLabs designs capabilities brochures — client-first narrative, editorial photography, and a grid system — that become sales tools rather than storage liabilities."}
 					moreCaseStudiesLink={"/services/digital-experience"}

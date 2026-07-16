@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "3×", label: "Posting frequency with same design headcount", accent: "from-cyan-500 to-blue-600" },
@@ -155,6 +156,17 @@ export default function SocialMediaGraphicsCaseStudy() {
 						{ label: "Templates", value: "72 branded templates across all platforms" }
 					]}
 				/>
+
+					<CaseStudyCarousel
+																	slug="social-media-graphics"
+																	title="How a Social Media Graphics Template System Tripled Posting Frequency and Lifted Engagement 58%"
+																	accentColor="cyan"
+																	aspectRatioClass="aspect-[3/2]"
+																	images={[
+																		"/images/case-studies/social-media-graphics/1.jpg",
+																		"/images/case-studies/social-media-graphics/2.jpg"
+																	]}
+																/>
 
 				<StatsGrid 
 					stats={STATS}

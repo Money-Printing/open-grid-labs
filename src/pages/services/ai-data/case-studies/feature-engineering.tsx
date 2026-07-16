@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "18%", label: "Improvement in model lift on priority use cases", accent: "from-purple-500 to-indigo-500" },
@@ -160,6 +161,19 @@ export default function FeatureEngineeringCaseStudy() {
 						{ label: "Stack", value: "Feature Pipelines · Validation · Feature Store · ML Ops" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="feature-engineering"
+					title="Feature Engineering"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/feature-engineering/1.jpg",
+						"/images/case-studies/feature-engineering/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

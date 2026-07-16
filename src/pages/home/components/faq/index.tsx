@@ -17,33 +17,33 @@ type HomeFaqProps = {
 const faqsData: FaqItem[] = [
 	{
 		id: 1,
-		question: "How long does a typical project take to complete?",
+		question: "Do you work with pre-funded or early-stage startups?",
 		answer:
-			"Most projects ship in 4–8 weeks, depending on scope and complexity. After an initial discovery call we give you a precise timeline with clearly defined milestones — so there are no surprises, ever.",
+			"Yes, we frequently partner with pre-seed and seed founders. We help scope a capital-efficient MVP and build interactive prototypes that are crucial for raising initial angel or VC funding.",
 	},
 	{
 		id: 2,
-		question: "Can you work with my existing brand and design system?",
+		question: "How do you help a startup scale once it gains traction?",
 		answer:
-			"Absolutely. We integrate seamlessly into your established design language, component libraries, and brand guidelines. If you have something good, we build on it. If you need a refresh, we'll propose options.",
+			"We act as your extended engineering team. We upgrade your architecture to handle massive traffic spikes, audit security, build advanced feature pipelines, and set up growth analytics to optimize onboarding.",
 	},
 	{
 		id: 3,
-		question: "What sets your engineering process apart?",
+		question: "How fast can you launch our MVP?",
 		answer:
-			"We treat every product like it's going to scale to millions of users from day one — because it might. Clean architecture, rigorous testing pipelines, code reviews, and performance budgets are non-negotiable on every engagement.",
+			"A typical MVP takes 4 to 8 weeks. We focus on hyper-focused scoping — identifying the core value proposition of your product so you can launch fast, gather feedback, and iterate.",
 	},
 	{
 		id: 4,
-		question: "Do you offer support and maintenance after launch?",
+		question: "Do you take equity, or do you work on a fee-for-service model?",
 		answer:
-			"Yes. We offer flexible post-launch retainers covering monitoring, updates, feature iterations, and hotfixes. Most clients stay with us long-term — we're invested in your growth, not just the delivery.",
+			"We primarily work on a flexible fee-for-service model (retainer or milestone-based). For selected partners with high potential, we are open to co-builder models that mix equity and fees.",
 	},
 	{
 		id: 5,
-		question: "How do you handle communication and project updates?",
+		question: "Can you help transition the product to an in-house team later?",
 		answer:
-			"You get a dedicated Slack channel, weekly async updates, and live demos at every major milestone. You're never left wondering — transparency is part of our process by design.",
+			"Absolutely. We write clean, fully-documented code and help you transition smoothly by screening, onboarding, and training your first in-house engineering hires when you are ready.",
 	},
 ];
 
@@ -120,7 +120,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 						We've Got Answers.
 					</h2>
 					<p className="text-base md:text-lg text-foreground/60 dark:text-foreground/35 max-w-lg font-light text-center leading-relaxed">
-						Everything you need to know before we start building together.
+						Everything you need to know about our co-building and growth partnerships.
 					</p>
 				</div>
 			</motion.div>
@@ -309,7 +309,7 @@ export default function HomeFaq({ faqs = faqsData }: HomeFaqProps) {
 									Let's Talk.
 								</h3>
 								<p className="text-sm md:text-base text-foreground/60 dark:text-foreground/35 font-light leading-relaxed">
-									Jump on a no-pressure call and we'll map out exactly how we can move your vision forward — no fluff, no sales pitch.
+									Book a free strategy session to discuss your startup's technical roadmap, MVP scope, or growth bottlenecks — no obligation.
 								</p>
 							</div>
 

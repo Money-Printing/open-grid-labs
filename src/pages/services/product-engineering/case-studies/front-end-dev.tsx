@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function FrontEndDevCaseStudy() {
 						{ label: "Scope", value: "22 components shipped" },
 						{ label: "Timeline", value: "9 weeks to launch" },
 						{ label: "Stack", value: "Frontend Development · Components · State Management · QA" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="front-end-dev"
+					title="Front-End Dev"
+					accentColor="blue"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/front-end-dev/1.jpg",
+						"/images/case-studies/front-end-dev/2.jpg"
 					]}
 				/>
 

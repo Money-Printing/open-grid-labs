@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Zap,
 	PaintbrushIcon
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "5 wk", label: "Brief to print-ready and digital templates", accent: "from-amber-500 to-orange-600" },
@@ -120,8 +121,8 @@ export default function LetterheadDesignCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(45,100%,50%) 0%, hsl(35,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function LetterheadDesignCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function LetterheadDesignCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Brand Identity"
 					title="How a Complete Stationery System Made Every Outbound Communication a Credible Brand Touchpoint"
 					description="A professional services firm was winning enterprise accounts on the strength of its expertise but sending follow-up letters and formal correspondence on generic letterhead downloaded from a template website five years earlier. OpenGridLabs designed a complete branded stationery system — letterhead, comp slip, envelope, and digital templates — that matched the firm's calibre and made every communication a brand-consistent touchpoint."
@@ -156,13 +157,24 @@ export default function LetterheadDesignCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="letterhead-design"
+					title="How a Complete Stationery System Made Every Outbound Communication a Credible Brand Touchpoint"
+					accentColor="purple"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/letterhead-design/1.jpg",
+						"/images/case-studies/letterhead-design/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-500"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<PaintbrushIcon className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function LetterheadDesignCaseStudy() {
 					gradientFromClass="from-indigo-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function LetterheadDesignCaseStudy() {
 					arrowColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +223,22 @@ export default function LetterheadDesignCaseStudy() {
 					rightColumnTitle={"Stationery Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A five-week design and production process from audit through print-ready files and digital template rollout."}
-					phaseColors={[ "hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)" ]}
+					phaseColors={["hsl(45,100%,50%)", "hsl(35,100%,50%)", "hsl(20,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-orange-500 to-red-500"}
 					badgeColorClass={"text-amber-500 bg-amber-500/10 border-amber-500/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Replacing generic templates with a coordinated stationery system aligned every outbound communication with the firm's elevated brand positioning."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We'd done all the work to elevate the brand, and then we were still sending letters on a template that looked like it came with Microsoft Word. The new stationery is the first thing clients mention when they receive it — and that's exactly what it should do."}
 					author={"Managing Partner"}
 					subtitle={"Confidential Professional Services Firm"}
@@ -234,7 +246,7 @@ export default function LetterheadDesignCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function LetterheadDesignCaseStudy() {
 					iconColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function LetterheadDesignCaseStudy() {
 					activeChevronColorClass={"text-amber-500"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Does your stationery match your brand?"}
 					description={"OpenGridLabs designs complete branded stationery systems — letterhead, comp slips, envelopes, and digital templates — ensuring every piece of correspondence is a confident, consistent brand expression."}
 					moreCaseStudiesLink={"/services/digital-experience"}

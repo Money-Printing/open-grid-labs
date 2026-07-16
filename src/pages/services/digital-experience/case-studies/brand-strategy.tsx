@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "34%", label: "Increase in competitive deal win rate", accent: "from-amber-500 to-orange-600" },
@@ -155,6 +156,17 @@ export default function BrandStrategyCaseStudy() {
 						{ label: "Methods", value: "Interviews · Research · Audit · Workshops" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="brand-strategy"
+									title="How an Evolutionary Brand Refresh Modernised a 12-Year Brand While Preserving 91% of Its Customer Recognition"
+									accentColor="purple"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/brand-strategy/1.jpg",
+										"/images/case-studies/brand-strategy/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

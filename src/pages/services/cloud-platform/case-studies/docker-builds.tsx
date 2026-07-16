@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "70%", label: "Reduction in container image size", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function DockerBuildsCaseStudy() {
 						{ label: "Stack", value: "Docker · Multi-stage · BuildKit · Distroless · Registry" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="docker-builds"
+									title="Docker Builds"
+									accentColor="emerald"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/docker-builds/1.jpg",
+										"/images/case-studies/docker-builds/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

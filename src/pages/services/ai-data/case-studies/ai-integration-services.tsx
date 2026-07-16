@@ -22,6 +22,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "12", label: "Manual workflows automated end to end", accent: "from-cyan-400 to-blue-500" },
@@ -161,6 +162,19 @@ export default function AIIntegrationServicesCaseStudy() {
 						{ label: "Stack", value: "Streaming ASR · Diarization · Domain Adaptation · MLOps" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="ai-integration-services"
+					title="AI Integration Services"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/ai-integration-services/1.jpg",
+						"/images/case-studies/ai-integration-services/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

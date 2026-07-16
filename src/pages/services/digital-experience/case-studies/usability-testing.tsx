@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "14/18", label: "Critical usability issues resolved pre-launch", accent: "from-pink-500 to-rose-600" },
@@ -155,6 +156,17 @@ export default function UsabilityTestingCaseStudy() {
 						{ label: "Methods", value: "Moderated sessions · SUS · Think-aloud · Rapid iteration" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="usability-testing"
+									title="How Usability Testing Found 80% of Critical Problems Before Launch"
+									accentColor="pink"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/usability-testing/1.jpg",
+										"/images/case-studies/usability-testing/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

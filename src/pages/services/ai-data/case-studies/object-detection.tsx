@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "26", label: "Object classes detected across images and frames", accent: "from-purple-500 to-indigo-500" },
@@ -158,6 +159,19 @@ export default function ObjectDetectionCaseStudy() {
 						{ label: "Stack", value: "Object Detection · Bounding Boxes · Video Frames · Alerting" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="object-detection"
+					title="Object Detection"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/object-detection/1.jpg",
+						"/images/case-studies/object-detection/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

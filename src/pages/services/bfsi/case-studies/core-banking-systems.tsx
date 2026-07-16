@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Landmark,
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "0 days", label: "Customer downtime during migration", accent: "from-emerald-500 to-teal-600" },
@@ -120,8 +121,8 @@ export default function CoreBankingSystemsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(38,100%,50%) 0%, hsl(28,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function CoreBankingSystemsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function CoreBankingSystemsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Core Banking Modernisation"
 					title="How a Mid-Tier Bank Migrated Off a 30-Year-Old Mainframe Without a Single Day of Customer Downtime"
 					description="A mid-tier bank was running its core operations on a mainframe system installed in 1994 — inflexible, expensive to maintain, and staffed by a shrinking pool of COBOL engineers. Digital feature releases took quarters, not weeks. OpenGridLabs led a phased migration using the strangler-fig pattern: new microservices replacing mainframe modules one by one, running in parallel until confidence enabled cutover, with zero customer-visible downtime across the full 18-month programme."
@@ -156,13 +157,24 @@ export default function CoreBankingSystemsCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="core-banking-systems"
+					title="Core Banking Modernisation and Migration"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/core-banking-systems/1.jpg",
+						"/images/case-studies/core-banking-systems/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Landmark className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function CoreBankingSystemsCaseStudy() {
 					gradientFromClass="from-amber-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -193,7 +205,7 @@ export default function CoreBankingSystemsCaseStudy() {
 					arrowColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Server, Cpu, Database, Layers]}
 					tag={"Technical Design"}
@@ -211,22 +223,22 @@ export default function CoreBankingSystemsCaseStudy() {
 					rightColumnTitle={"Modernisation Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"An 18-month phased migration using strangler-fig module cutovers to manage bank operational risk."}
-					phaseColors={[ "hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-emerald-500 to-indigo-500"}
 					badgeColorClass={"text-amber-400 bg-amber-400/10 border-amber-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Strangler-fig migration delivered immediate transaction cost reductions and faster feature release cadences."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We'd been told for a decade that replacing the mainframe was too risky to attempt. The strangler-fig approach proved that it could be done safely, incrementally, and without a single customer noticing. The risk was in the planning, not the execution."}
 					author={"CTO"}
 					subtitle={"Confidential Mid-Tier Bank"}
@@ -234,7 +246,7 @@ export default function CoreBankingSystemsCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function CoreBankingSystemsCaseStudy() {
 					iconColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function CoreBankingSystemsCaseStudy() {
 					activeChevronColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Core banking system becoming your biggest strategic constraint?"}
 					description={"OpenGridLabs leads core banking modernisation — strangler-fig migration, cloud-native architecture, and zero-downtime cutover — for regulated institutions that cannot afford big-bang risk."}
 					moreCaseStudiesLink={"/services/bfsi"}

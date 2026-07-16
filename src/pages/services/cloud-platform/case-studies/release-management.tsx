@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "→ Weekly", label: "Release cadence from fortnightly big-bangs", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function ReleaseManagementCaseStudy() {
 						{ label: "Stack", value: "Semantic Release · Feature Flags · Approval Gates · Changelogs" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="release-management"
+									title="Release Management"
+									accentColor="emerald"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/release-management/1.jpg",
+										"/images/case-studies/release-management/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

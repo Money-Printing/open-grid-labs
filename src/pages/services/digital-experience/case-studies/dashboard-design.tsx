@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Zap,
 	Paintbrush
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "48%", label: "Reduction in decision time for operations team", accent: "from-pink-500 to-rose-600" },
@@ -120,8 +121,8 @@ export default function DashboardDesignCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Pink/Rose Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(330,100%,50%) 0%, hsl(320,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function DashboardDesignCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function DashboardDesignCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · UI/UX Design"
 					title="How a Data-Dense Dashboard Redesign Reduced Decision Time 48% and Cut the Daily Meeting from 60 Minutes to 15"
 					description="A 200-person operations team was starting every day with a 60-minute meeting to discuss what was in their dashboard — because the dashboard showed everything but surfaced nothing. OpenGridLabs redesigned it around a single principle: a dashboard should make the most important thing obvious before the user looks for it. The result was a dashboard that reduced decision time 48% and made the daily meeting unnecessary for routine operations."
@@ -156,13 +157,25 @@ export default function DashboardDesignCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+
+				<CaseStudyCarousel
+					slug="dashboard-design"
+					title="How a Data-Dense Dashboard Redesign Reduced Decision Time 48% and Cut the Daily Meeting from 60 Minutes to 15"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/dashboard-design/1.jpg",
+						"/images/case-studies/dashboard-design/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-pink-500/30"
 					hoverTextClass="group-hover:text-pink-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Paintbrush className="w-5 h-5" />}
@@ -183,7 +196,7 @@ export default function DashboardDesignCaseStudy() {
 					gradientFromClass="from-pink-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"Visual Friction & Solutions"}
@@ -193,7 +206,7 @@ export default function DashboardDesignCaseStudy() {
 					arrowColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +224,22 @@ export default function DashboardDesignCaseStudy() {
 					rightColumnTitle={"Design Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A 12-week design iteration from client discovery to production-ready design assets."}
-					phaseColors={[ "hsl(330,100%,60%)", "hsl(280,100%,65%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(330,100%,60%)", "hsl(280,100%,65%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-pink-500 via-purple-500 to-blue-500"}
 					badgeColorClass={"text-pink-400 bg-pink-400/10 border-pink-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="A systematic decision-time study showed rapid task completion, higher user satisfaction, and minimized meeting durations."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The old dashboard showed us everything and told us nothing. The new one shows us the three things we need to act on today — and they're there before we look for them. The meeting that used to decode the dashboard is now just for exceptions."}
 					author={"VP of Operations"}
 					subtitle={"Confidential Logistics Company"}
@@ -234,7 +247,7 @@ export default function DashboardDesignCaseStudy() {
 					iconColorClass={"text-pink-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +255,7 @@ export default function DashboardDesignCaseStudy() {
 					iconColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +263,7 @@ export default function DashboardDesignCaseStudy() {
 					activeChevronColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Dashboard that shows everything but tells you nothing?"}
 					description={"OpenGridLabs designs operational dashboards — visual hierarchy, alert systems, role-based views, and progressive disclosure — that make the most important thing obvious before you look for it."}
 					moreCaseStudiesLink={"/services/digital-experience"}

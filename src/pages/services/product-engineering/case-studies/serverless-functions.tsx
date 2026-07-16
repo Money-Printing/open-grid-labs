@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function ServerlessFunctionsCaseStudy() {
 						{ label: "Scope", value: "18 functions deployed" },
 						{ label: "Timeline", value: "8 weeks to production" },
 						{ label: "Stack", value: "Serverless · Event Triggers · Retries · Cloud Functions" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="serverless-functions"
+					title="Serverless Functions"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/serverless-functions/1.jpg",
+						"/images/case-studies/serverless-functions/2.jpg"
 					]}
 				/>
 

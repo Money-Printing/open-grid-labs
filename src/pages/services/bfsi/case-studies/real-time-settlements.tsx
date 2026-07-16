@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "91%", label: "Reduction in settlement failures", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function RealTimeSettlementsCaseStudy() {
 						{ label: "Stack", value: "ISO 20022 · SWIFT MX · Faster Payments · TARGET2 · Real-time settlement engine" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="real-time-settlements"
+									title="Real Time Settlements"
+									accentColor="pink"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/real-time-settlements/1.jpg",
+										"/images/case-studies/real-time-settlements/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

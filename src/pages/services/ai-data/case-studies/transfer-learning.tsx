@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "7", label: "Domain-specific models adapted from pretrained foundations", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function TransferLearningCaseStudy() {
 						{ label: "Stack", value: "Transfer Learning · Pretrained Models · Fine-Tuning · Evaluation" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="transfer-learning"
+					title="Transfer Learning"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/transfer-learning/1.jpg",
+						"/images/case-studies/transfer-learning/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

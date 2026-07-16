@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "11", label: "Critical flow problems caught in wireframes", accent: "from-pink-500 to-rose-600" },
@@ -155,6 +156,17 @@ export default function WireframingCaseStudy() {
 						{ label: "Tools", value: "Figma · Paper sketches · Click-through prototype" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="wireframing"
+									title="How Low-Fidelity Wireframes Caught 11 Critical Flow Problems Before a Single Line of Code Was Written"
+									accentColor="pink"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/wireframing/1.jpg",
+										"/images/case-studies/wireframing/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

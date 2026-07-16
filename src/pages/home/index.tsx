@@ -11,10 +11,10 @@ export default function Home() {
 	return (
 		<>
 			<SEO
-				title="OpenGridLabs - Software Development, AI & Design Agency"
-				description="OpenGridLabs delivers innovative software development, AI/ML solutions, and design services. We build scalable web apps, mobile apps, cloud platforms, and intelligent systems for businesses worldwide."
+				title="OpenGridLabs - We Build and Scale High-Growth Startups"
+				description="OpenGridLabs is a premier startup co-builder and growth partner. We turn early-stage ideas into validated MVPs and scale existing startups into market leaders with elite engineering."
 				canonical="/"
-				keywords="software development company, AI solutions, machine learning, web development, mobile app development, cloud solutions, UI/UX design, digital transformation, IT consulting"
+				keywords="startup builder, startup growth, MVP development, venture studio, tech co-founder, software engineering, SaaS scale, fractional CTO, product development"
 			/>
 			<Hero />
 			<HomeAbout />

@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "4.2 FTE", label: "Compliance capacity freed from data handling", accent: "from-indigo-500 to-violet-600" },
@@ -154,6 +155,17 @@ export default function ComplianceReportingCaseStudy() {
 						{ label: "Stack", value: "QRT automation · IFRS 17 engine · Data quality · Regulatory submission" }
 					]}
 				/>
+
+					<CaseStudyCarousel
+									slug="compliance-reporting"
+									title="Compliance Reporting"
+									accentColor="indigo"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/compliance-reporting/1.jpg",
+										"/images/case-studies/compliance-reporting/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

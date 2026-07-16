@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Zap,
 	Paintbrush
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "35%", label: "Reduction in task completion time", accent: "from-pink-500 to-rose-600" },
@@ -120,8 +121,8 @@ export default function WebAppDesignCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Pink/Rose Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(330,100%,50%) 0%, hsl(320,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function WebAppDesignCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function WebAppDesignCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · UI/UX Design"
 					title="How a Responsive Web App Redesign Reduced Task Time 35%, Achieved WCAG AA Compliance, and Handled a 300% Mobile Traffic Increase"
 					description="A company's web application had been designed for desktop in 2018 and never fully adapted to the reality that 40% of its users were now accessing it on mobile or tablet. Complex forms were unusable on touch screens, data tables were unnavigable on narrow viewports, and WCAG compliance was failing on 34% of screens. OpenGridLabs redesigned the application as a responsive system — reducing task time 35% and achieving full WCAG AA compliance."
@@ -156,13 +157,24 @@ export default function WebAppDesignCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="web-app-design"
+					title="How Responsive Design Replaced Six Months of Wrong Assumptions with the Right Problem to Solve"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/web-app-design/1.jpg",
+						"/images/case-studies/web-app-design/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-pink-500/30"
 					hoverTextClass="group-hover:text-pink-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Paintbrush className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function WebAppDesignCaseStudy() {
 					gradientFromClass="from-pink-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function WebAppDesignCaseStudy() {
 					arrowColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +223,22 @@ export default function WebAppDesignCaseStudy() {
 					rightColumnTitle={"Web App Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"An extensive 18-week diagnostic overhaul updating responsive layouts, focus styling, and accessibility indicators."}
-					phaseColors={[ "hsl(330,100%,60%)", "hsl(280,100%,65%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(330,100%,60%)", "hsl(280,100%,65%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-pink-500 via-purple-500 to-blue-500"}
 					badgeColorClass={"text-pink-400 bg-pink-400/10 border-pink-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Redesigning desktop application workflows responsively and accessibly resolved enterprise procurement blockages and lifted mobile engagement."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We were losing enterprise deals because 'accessible product' was in every procurement checklist and we couldn't honestly say yes. The redesign fixed both the mobile problem and the accessibility problem because it turned out they had the same root cause — we hadn't designed for context."}
 					author={"CTO"}
 					subtitle={"Confidential Healthcare SaaS Company"}
@@ -234,7 +246,7 @@ export default function WebAppDesignCaseStudy() {
 					iconColorClass={"text-pink-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function WebAppDesignCaseStudy() {
 					iconColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function WebAppDesignCaseStudy() {
 					activeChevronColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Desktop-first design that's breaking on 40% of your sessions?"}
 					description={"OpenGridLabs designs responsive web applications — WCAG AA accessibility, mobile-first systems, and complex UI patterns — that work for every user on every device."}
 					moreCaseStudiesLink={"/services/digital-experience"}

@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "16", label: "Container Apps deployed for APIs and workers", accent: "from-emerald-500 to-teal-600" },
@@ -157,6 +158,17 @@ export default function ContainerAppsCaseStudy() {
 						{ label: "Stack", value: "Container Apps · Dapr · KEDA · Azure Monitor" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="container-apps"
+									title="Container Apps"
+									accentColor="blue"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/container-apps/1.jpg",
+										"/images/case-studies/container-apps/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

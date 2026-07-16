@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "64%", label: "Reduction in model experimentation cycle time", accent: "from-purple-500 to-indigo-500" },
@@ -160,6 +161,19 @@ export default function AutoMLSolutionsCaseStudy() {
 						{ label: "Stack", value: "AutoML · Tuning · Evaluation · Deployment" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="automl-solutions"
+					title="AutoML Solutions"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/automl-solutions/1.jpg",
+						"/images/case-studies/automl-solutions/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

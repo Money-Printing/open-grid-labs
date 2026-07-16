@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "31", label: "Customer intents classified and routed", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function IntentRecognitionCaseStudy() {
 						{ label: "Stack", value: "Intent Classification · Routing · Confidence Scoring · CRM Integration" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="intent-recognition"
+					title="Intent Recognition"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/intent-recognition/1.jpg",
+						"/images/case-studies/intent-recognition/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

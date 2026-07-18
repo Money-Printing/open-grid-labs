@@ -81,11 +81,11 @@ const Hero = () => {
 					from { transform: rotate(0deg); }
 					to { transform: rotate(360deg); }
 				}
-				@keyframes hero-float-up {
+				@keyframes hero-float-down {
 					0% { transform: translateY(0); opacity: 0; }
-					8% { opacity: 0.5; }
-					85% { opacity: 0.5; }
-					100% { transform: translateY(-90vh); opacity: 0; }
+					8% { opacity: 0.9; }
+					85% { opacity: 0.9; }
+					100% { transform: translateY(110vh); opacity: 0; }
 				}
 				@keyframes hero-glow-breathe {
 					0%, 100% { transform: scale(1); opacity: 0.7; }
@@ -195,15 +195,29 @@ const Hero = () => {
 				/>
 
 				{/* ─── ANIM : Floating data particles (CSS only) ─── */}
-				{[18, 35, 55, 72, 88].map((left, i) => (
+				{[
+					{ left: 8, size: 'w-4 h-4', color: 'bg-primary/65', delay: '0s', dur: '12s' },
+					{ left: 18, size: 'w-6 h-6', color: 'bg-accent/60', delay: '2s', dur: '15s' },
+					{ left: 27, size: 'w-5 h-5', color: 'bg-primary/70', delay: '4.5s', dur: '13s' },
+					{ left: 38, size: 'w-8 h-8', color: 'bg-accent/55', delay: '1s', dur: '18s' },
+					{ left: 47, size: 'w-4 h-4', color: 'bg-primary/75', delay: '6s', dur: '11s' },
+					{ left: 56, size: 'w-7 h-7', color: 'bg-accent/65', delay: '3.5s', dur: '16s' },
+					{ left: 65, size: 'w-5 h-5', color: 'bg-primary/60', delay: '8s', dur: '14s' },
+					{ left: 74, size: 'w-6 h-6', color: 'bg-accent/70', delay: '2.5s', dur: '15s' },
+					{ left: 83, size: 'w-9 h-9', color: 'bg-primary/50', delay: '5.5s', dur: '20s' },
+					{ left: 91, size: 'w-4 h-4', color: 'bg-accent/75', delay: '0.5s', dur: '12s' },
+					{ left: 15, size: 'w-5 h-5', color: 'bg-primary/65', delay: '9s', dur: '14s' },
+					{ left: 60, size: 'w-6 h-6', color: 'bg-accent/60', delay: '7s', dur: '16s' },
+				].map((sphere, i) => (
 					<div
 						key={i}
-						className="absolute w-1 h-1 rounded-full bg-primary/50 pointer-events-none"
+						className={`absolute ${sphere.size} ${sphere.color} rounded-full pointer-events-none blur-[1px]`}
 						style={{
-							left: `${left}%`,
-							bottom: '5%',
-							animation: `hero-float-up ${14 + i * 3}s linear infinite`,
-							animationDelay: `${i * 2.8}s`,
+							left: `${sphere.left}%`,
+							top: '-60px',
+							animation: `hero-float-down ${sphere.dur} linear infinite`,
+							animationDelay: sphere.delay,
+							boxShadow: '0 0 25px rgba(59,130,246,0.3)',
 						}}
 					/>
 				))}

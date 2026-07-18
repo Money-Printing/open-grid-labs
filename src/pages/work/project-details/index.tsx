@@ -1,8 +1,10 @@
+import { useState, useRef } from "react";
 import { useParams, Navigate } from "react-router";
-import PageTitle from "../../../components/page-title";
 import PageHeading from "../../../components/page-heading";
 import SEO from "../../../components/seo";
-import { CheckCircle2 } from "lucide-react";
+import { 
+	CheckCircle2, Shield, Lock, Cpu, Activity, Clock, Server, Layers 
+} from "lucide-react";
 import Indicator from "../../../components/ui/indicator";
 import Carousel from "../../../components/ui/carousel";
 
@@ -28,450 +30,52 @@ interface ProjectDetail {
 }
 
 const projectsData: Record<string, ProjectDetail> = {
-	"frontend-microscopic-scanner": {
-		id: "frontend-microscopic-scanner",
-		title: "Web application for microscopic scanner",
-		description: "A highly intuitive web application for microscopic scanner that streamlines workflows and improves accuracy.",
-		category: "Medical Technology",
-		client: "Morphle Labs",
-		duration: "1 year",
-		technologies: ["React", "javascript", "python", "django", "java", "c++", "mysql", "nginx", "linux"],
-		overview: "Developed a cutting-edge web application for microscopic scanner that enables medical professionals to analyze microscopic images with enhanced precision. The application features real-time image processing, advanced zoom capabilities, and automated detection algorithms.",
+	"safeguard": {
+		id: "safeguard",
+		title: "Safeguard.sh — Software Supply Chain Security, From Zero to Platform",
+		description: "A comprehensive software supply chain security platform built from the ground up — helping enterprises find, fix, and prevent vulnerabilities before they ever reach production.",
+		category: "Cybersecurity · DevSecOps · Enterprise SaaS",
+		client: "Safeguard.sh",
+		duration: "18 months",
+		technologies: ["React", "TypeScript", "Node.js", "Go", "Python", "PostgreSQL", "OpenSearch", "Redis", "Kubernetes", "AWS", "OCI", "Docker", "GraphQL"],
+		overview: "OpenGridLabs partnered with Safeguard from day one to design, build, and scale a full software supply chain security platform. What started as a focused SBOM (Software Bill of Materials) management tool grew into an end-to-end platform spanning vulnerability detection, automated remediation, cloud and API security posture management, compliance automation, and AI-native risk analysis — built to serve security teams at organizations that can't afford blind spots in their software supply chain. We didn't just ship a product. We architected the system that today powers everything from dependency-tree scanning to autonomous fix generation, built to meet the compliance bar of the most demanding industries, including FedRAMP High, IL7, and SOC 2 Type II.",
 		challenges: [
-			"Processing high-resolution medical images in real-time without performance degradation",
-			"Creating an intuitive interface for complex medical image analysis",
-			"Implementing accurate automated detection algorithms",
-			"Ensuring HIPAA compliance and data security"
+			"Making sense of a fractured security landscape: Security teams were juggling a dozen disconnected tools — one for SBOMs, another for cloud posture, another for API security, another for compliance evidence.",
+			"Detecting vulnerabilities before they're public knowledge: Traditional vulnerability scanning only catches what's already been disclosed as a CVE. We needed a way to surface risk earlier.",
+			"Remediation fatigue: Finding a vulnerability is only half the problem. Security teams were drowning in findings with no realistic path to fixing them, burning engineering time on false positives.",
+			"Meeting the compliance bar of regulated industries: Enterprise and government customers required audit-ready evidence, tenant isolation, and certifications like SOC 2 Type II, FedRAMP High, and IL7.",
+			"Scaling from single-tenant tool to multi-tenant platform: As the customer base grew, the architecture had to support strict tenant isolation, org hierarchies, and role-based access."
 		],
 		solutions: [
-			"Implemented WebGL-based rendering for smooth, high-performance image processing",
-			"Designed a user-centric interface with customizable workflows",
-			"Integrated machine learning models for automated detection and analysis",
-			"Built a secure backend with encryption and access controls"
+			"Built a unified data model connecting SBOMs, vulnerabilities, cloud assets, APIs, and compliance controls into a queryable graph to provide a single source of truth.",
+			"Engineered deep dependency-tree scanning that goes beyond top-level packages to surface risk buried in transitive dependencies.",
+			"Developed taint-analysis-based detection capable of surfacing zero-day-class risk before a CVE is ever assigned.",
+			"Designed autonomous remediation workflows that generate fix pull requests automatically, cutting the manual triage-to-fix cycle from days to minutes.",
+			"Cut false positives dramatically through smarter reachability and context-aware analysis.",
+			"Built compliance automation from the ground up — automated evidence collection, control mapping, and audit-ready reporting for SOC 2 Type II, FedRAMP High, and IL7.",
+			"Architected strict multi-tenant isolation, role-based access controls, and audit trails so the platform could scale to enterprise and government customers."
 		],
 		features: [
-			"Real-time image processing and analysis",
-			"Advanced zoom and pan controls",
-			"Automated cell detection and counting",
-			"Annotation and measurement tools",
-			"Report generation and export",
-			"Multi-user collaboration features",
-			"Cloud-based image storage and retrieval"
+			"Full-depth SBOM generation and dependency-tree scanning (SCA)",
+			"Pre-CVE / zero-day risk discovery via taint analysis",
+			"Autonomous, AI-generated fix pull requests",
+			"SAST, DAST, IaC, container, Kubernetes, and secrets scanning",
+			"Cloud security posture management (CSPM) across AWS, Azure, GCP",
+			"API security posture management (discovery, OWASP API Top 10 coverage)",
+			"Compliance automation across SOC 2, ISO 27001, HIPAA, PCI-DSS, NIST, GDPR, FedRAMP",
+			"AI-native security posture management (model inventory, prompt-injection check, LLM supply chain check)",
+			"Vendor and third-party risk management (TPRM)",
+			"Real-time alerting, incident workflows, and SOC-style investigation tooling",
+			"Deep integrations: GitHub, GitLab, Bitbucket, Azure DevOps, Slack, Jira, ServiceNow",
+			"MCP-based agentic access for conversational security operations querying"
 		],
 		results: [
-			{ metric: "Processing Speed", value: "10x faster" },
-			{ metric: "User Satisfaction", value: "100%" },
-			{ metric: "Time Saved", value: "500%" }
-		],
-		videoUrl: "/videos/microscopic-scanner/scanner.mp4",
-		galleryImages: [
-			"/images/microscopic-scanner/scannerimage1.png",
-			"/images/microscopic-scanner/scannerimage2.png"
-		],
-		galleryGifs: []
-	},
-	"cloud-medical-devices": {
-		id: "cloud-medical-devices",
-		title: "Cloud Frontend/Backend for Medical Devices",
-		description: "A reliable cloud platform for managing and analyzing medical device data efficiently.",
-		category: "Healthcare Cloud",
-		client: "Healthcare Technology Company",
-		duration: "8 months",
-		technologies: ["React", "Node.js", "AWS", "PostgreSQL", "Docker", "Kubernetes", "Redis"],
-		overview: "Built a comprehensive cloud platform for managing medical device data, enabling healthcare providers to monitor patient vitals, track device performance, and analyze trends. The platform supports real-time data streaming, alerts, and comprehensive reporting.",
-		challenges: [
-			"Handling real-time data streams from thousands of medical devices",
-			"Ensuring 99.99% uptime for critical healthcare operations",
-			"Managing large volumes of sensitive patient data securely",
-			"Creating scalable architecture for growing device ecosystem"
-		],
-		solutions: [
-			"Implemented microservices architecture with containerization",
-			"Deployed on AWS with auto-scaling and load balancing",
-			"Built real-time data pipeline using WebSockets and message queues",
-			"Implemented comprehensive security measures and compliance protocols"
-		],
-		features: [
-			"Real-time device monitoring and alerts",
-			"Historical data analysis and reporting",
-			"Device management and configuration",
-			"Patient vitals dashboard",
-			"Automated alert system",
-			"Data export and integration APIs",
-			"Role-based access control"
-		],
-		results: [
-			{ metric: "Uptime", value: "99.99%" },
-			{ metric: "Devices Supported", value: "10,000+" },
-			{ metric: "Response Time", value: "<100ms" },
-			{ metric: "Data Processed", value: "5TB/day" }
-		],
-		videoUrl: "https://www.w3schools.com/html/movie.mp4",
-		galleryImages: [
-			"https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&q=80&w=2070",
-			"https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2080",
-			"https://images.unsplash.com/photo-1530497610245-94d3c16cda48?auto=format&fit=crop&q=80&w=2080"
-		],
-		galleryGifs: [
-			"https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
-			"https://media.giphy.com/media/3o7abKhOpu0NwnRgE8/giphy.gif"
-		]
-	},
-	"airtrader-trading-simulator": {
-		id: "airtrader-trading-simulator",
-		title: "AirTrader – Trading Simulator Application",
-		description: "A robust and user-friendly trading simulator for strategy testing and decision-making.",
-		category: "Fintech",
-		client: "ETG commodities",
-		duration: "6 months",
-		technologies: ["React", "typescript", "python", "django", "postgresql", "redis", "ChartIQ", "mongodb", "excel", "nginx", "linux"],
-		overview: "Developed a comprehensive trading simulator that allows users to practice trading strategies with real-time market data without risking real money. Features include portfolio management, technical analysis tools, and performance analytics.",
-		challenges: [
-			"Simulating realistic market conditions and order execution",
-			"Handling real-time market data feeds efficiently",
-			"Creating accurate backtesting capabilities",
-			"Building intuitive charting and analysis tools"
-		],
-		solutions: [
-			"Integrated real-time market data APIs with caching mechanisms",
-			"Implemented realistic order matching engine",
-			"Built comprehensive backtesting framework with historical data",
-			"Developed interactive charts with technical indicators"
-		],
-		features: [
-			"Real-time market data simulation",
-			"Portfolio management and tracking",
-			"Technical analysis tools and indicators",
-			"Backtesting capabilities",
-			"Performance analytics and reports",
-			"Risk management tools",
-			"Educational resources and tutorials"
-		],
-		results: [
-			{ metric: "Active Users", value: "1000" },
-			{ metric: "Trades Simulated", value: "1m+" },
-			{ metric: "Skill Improvement", value: "200%" }
-		],
-		videoUrl: "/videos/airtrader-trading-simulator/airtraderdemo.mp4",
-		galleryImages: [
-			"/images/airtrader-trading-simulator/airtraderimage1.png",
-			"/images/airtrader-trading-simulator/airtraderimage2.png",
-			"/images/airtrader-trading-simulator/airtraderimage3.png",
-			"/images/airtrader-trading-simulator/airtraderimage4.png",
-			"/images/airtrader-trading-simulator/airtraderimage5.png",
-			"/images/airtrader-trading-simulator/airtraderimage6.png",
-			"/images/airtrader-trading-simulator/airtraderimage7.png",
-			"/images/airtrader-trading-simulator/airtraderimage8.png",
-			"/images/airtrader-trading-simulator/airtraderimage9.png",
-			"/images/airtrader-trading-simulator/airtraderimage10.png"
-		],
-		galleryGifs: []
-	},
-	"crypto-analytical-tools": {
-		id: "crypto-analytical-tools",
-		title: "Crypto Analytical Tools",
-		description: "Comprehensive crypto analysis tools providing actionable insights for investments.",
-		category: "Cryptocurrency",
-		client: "Crypto Investment Firm",
-		duration: "7 months",
-		technologies: ["React", "TypeScript", "Python", "Django", "MongoDB", "WebSocket", "D3.js"],
-		overview: "Created a sophisticated cryptocurrency analysis platform with real-time market data, advanced charting, sentiment analysis, and automated trading signals. The platform aggregates data from multiple exchanges and provides comprehensive market insights.",
-		challenges: [
-			"Aggregating data from multiple cryptocurrency exchanges",
-			"Processing high-frequency market data updates",
-			"Implementing accurate technical analysis algorithms",
-			"Creating real-time sentiment analysis from social media"
-		],
-		solutions: [
-			"Built scalable data aggregation pipeline with WebSocket connections",
-			"Implemented efficient data processing with Python and caching",
-			"Developed custom technical indicators and signals",
-			"Integrated NLP models for sentiment analysis"
-		],
-		features: [
-			"Real-time multi-exchange market data",
-			"Advanced charting with 50+ indicators",
-			"Sentiment analysis from social media",
-			"Automated trading signals",
-			"Portfolio tracking and analytics",
-			"Price alerts and notifications",
-			"Historical data analysis"
-		],
-		results: [
-			{ metric: "Markets Tracked", value: "500+" },
-			{ metric: "Data Points/Second", value: "10,000+" },
-			{ metric: "Prediction Accuracy", value: "75%" },
-			{ metric: "User ROI Improvement", value: "35%" }
-		],
-		videoUrl: "https://www.w3schools.com/html/movie.mp4",
-		galleryImages: [
-			"https://images.unsplash.com/photo-1621504450168-b8c4375b2b80?auto=format&fit=crop&q=80&w=2070",
-			"https://images.unsplash.com/photo-1622630998477-20aa696fab05?auto=format&fit=crop&q=80&w=2070",
-			"https://images.unsplash.com/photo-1605792657660-596af9009e82?auto=format&fit=crop&q=80&w=2002"
-		],
-		galleryGifs: [
-			"https://media.giphy.com/media/7FBY7h5Pcyh6BbILFB/giphy.gif",
-			"https://media.giphy.com/media/l0HlJDaeqNUDhhaCt/giphy.gif"
-		]
-	},
-	"tread-pattern-dashboard": {
-		id: "tread-pattern-dashboard",
-		title: "Tread Pattern Monitoring System POC & Analytical Dashboard",
-		description: "Advanced monitoring system and analytics dashboard to simplify complex data and enhance efficiency.",
-		category: "Industrial IoT",
-		client: "Automotive Manufacturer",
-		duration: "6 months",
-		technologies: ["React", "TypeScript", "Python", "TensorFlow", "PostgreSQL", "MQTT", "Grafana"],
-		overview: "Developed a proof-of-concept monitoring system that uses computer vision and IoT sensors to analyze tire tread patterns, predict wear, and provide maintenance recommendations. The analytical dashboard visualizes complex data and provides actionable insights.",
-		challenges: [
-			"Processing high-resolution tire images in real-time",
-			"Developing accurate tread wear prediction models",
-			"Integrating with existing manufacturing systems",
-			"Visualizing complex 3D tread pattern data"
-		],
-		solutions: [
-			"Implemented computer vision models using TensorFlow",
-			"Built edge computing solution for on-site processing",
-			"Created API integrations with manufacturing systems",
-			"Developed custom 3D visualization components"
-		],
-		features: [
-			"Real-time tread pattern analysis",
-			"Predictive maintenance alerts",
-			"3D pattern visualization",
-			"Historical trend analysis",
-			"Quality control dashboard",
-			"Automated reporting system",
-			"Integration with ERP systems"
-		],
-		results: [
-			{ metric: "Detection Accuracy", value: "98%" },
-			{ metric: "Maintenance Cost Reduction", value: "30%" },
-			{ metric: "Processing Time", value: "5 sec/tire" },
-			{ metric: "Defect Detection", value: "95%" }
-		],
-		videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-		galleryImages: [
-			"https://images.unsplash.com/photo-1487887235942-6101435aa7a1?auto=format&fit=crop&q=80&w=1974",
-			"https://images.unsplash.com/photo-1579609598045-60479b660cb8?auto=format&fit=crop&q=80&w=2070",
-			"https://images.unsplash.com/photo-1583198432859-634bb3284951?auto=format&fit=crop&q=80&w=2070"
-		],
-		galleryGifs: [
-			"https://media.giphy.com/media/Q81NcsY6YxK7jxnr4v/giphy.gif",
-			"https://media.giphy.com/media/3o7qEcqN5PjN90jNC0/giphy.gif"
-		]
-	},
-	"crypto-deribit-option-trader": {
-		id: "crypto-deribit-option-trader",
-		title: "Crypto Deribit Option Trader",
-		description: "Created the infrastructure and software that trades option strategies with fastest latency possible on Deribit exchange",
-		category: "Cryptocurrency Trading",
-		client: "Crypto Trading Firm",
-		duration: "8 months",
-		technologies: ["Python", "C++", "WebSocket", "Deribit API", "Redis", "PostgreSQL", "Linux", "Docker"],
-		overview: "Built a high-performance automated trading system for options on the Deribit exchange, leveraging ultra-low latency infrastructure and advanced option trading strategies. The system executes trades with millisecond precision, monitors market conditions in real-time, and manages risk automatically.",
-		challenges: [
-			"Achieving ultra-low latency for competitive advantage in options trading",
-			"Implementing complex option Greeks calculations and hedging strategies",
-			"Managing risk across multiple positions and strategies",
-			"Handling high-frequency data streams and order execution"
-		],
-		solutions: [
-			"Optimized backend with C++ for critical path components",
-			"Direct WebSocket connection to Deribit with custom protocol optimization",
-			"Pre-calculated Greeks and dynamic hedging algorithms",
-			"Advanced position management and risk monitoring system"
-		],
-		features: [
-			"Ultra-low latency order execution (<10ms)",
-			"Real-time Greeks calculation (Delta, Gamma, Vega, Theta)",
-			"Automated hedging and risk management",
-			"Multi-strategy support and execution",
-			"Real-time P&L tracking and analytics",
-			"Order book monitoring and optimization",
-			"Automated position closing and rebalancing"
-		],
-		results: [
-			{ metric: "Order Latency", value: "<5ms" },
-			{ metric: "Execution Success", value: "99.8%" },
-			{ metric: "Win Rate", value: "72%" },
-			{ metric: "Daily Volume", value: "$2M+" }
-		],
-		videoUrl: "",
-		galleryImages: [],
-		galleryGifs: []
-	},
-	"champspace": {
-		id: "champspace",
-		title: "Champspace - Learn & Earn Platform",
-		description: "An edtech platform where students learn through courses and earn money by completing them",
-		category: "EdTech",
-		client: "champspace.in",
-		duration: "3 months",
-		technologies: ["React", "Django", "TypeScript", "MongoDB", "Stripe", "AWS"],
-		overview: "Built a revolutionary learning management system that incentivizes education by paying students as they complete courses. The platform provides a seamless learning experience with video content, assessments, and a transparent reward mechanism that converts learning into real earnings.",
-		challenges: [
-			"Creating engaging course content delivery with video streaming",
-			"Implementing fair and transparent payment system for course completion",
-			"Building robust user progress tracking and verification",
-			"Ensuring platform scalability for thousands of concurrent learners"
-		],
-		solutions: [
-			"Developed adaptive learning interface with video streaming optimization",
-			"Integrated Stripe for secure payment processing and payouts",
-			"Built comprehensive progress verification and fraud detection system",
-			"Deployed on AWS with auto-scaling infrastructure"
-		],
-		features: [
-			"Video-based course content with progress tracking",
-			"Real-time earnings dashboard",
-			"Automated course completion verification",
-			"Secure payment and payout system",
-			"User certificates and credentials",
-			"Progress leaderboards and gamification",
-			"Instructor course management tools"
-		],
-		results: [
-			{ metric: "Active Students", value: "25,000+" },
-			{ metric: "Total Payouts", value: "$10k+" },
-			{ metric: "Course Completion", value: "78%" },
-			{ metric: "User Retention", value: "65%" }
-		],
-		videoUrl: "/videos/champspace/champspace.mp4",
-		galleryImages: [
-			"/images/champspace/champspaceimage1.PNG",
-			"/images/champspace/Champspaceimage2.PNG",
-			"/images/champspace/champspaceimage3.PNG",
-			"/images/champspace/champspaceimage4.PNG",
-			"/images/champspace/champspaceimage5.PNG"
-		],
-		galleryGifs: []
-	},
-	"adnow": {
-		id: "adnow",
-		title: "Adnow - Unified Ad Management Platform",
-		description: "A comprehensive ad agency solution providing one-centric management for all ads across Meta, Google, Amazon, and more",
-		category: "MarTech/AdTech",
-		client: "Digital Marketing Agency",
-		duration: "1 month and active",
-		technologies: ["React", "Django", "TypeScript", "Python", "PostgreSQL", "Redis", "AWS", "REST APIs"],
-		overview: "Developed a unified advertising management platform that consolidates campaign management across multiple advertising networks including Meta, Google, and Amazon. The platform provides centralized analytics, budget management, and campaign optimization across all channels from a single dashboard.",
-		challenges: [
-			"Integrating with multiple ad network APIs with different specifications",
-			"Unifying analytics data from disparate sources",
-			"Real-time bid management and budget optimization",
-			"Handling high-volume campaign data and reporting"
-		],
-		solutions: [
-			"Built abstraction layer for multi-platform ad network integration",
-			"Implemented unified analytics aggregation and normalization",
-			"Created intelligent budget allocation algorithms",
-			"Deployed data warehouse for efficient reporting"
-		],
-		features: [
-			"Unified dashboard for all advertising platforms",
-			"Multi-channel campaign creation and management",
-			"Real-time performance analytics and reporting",
-			"Intelligent budget allocation and optimization",
-			"A/B testing and experimentation framework",
-			"Automated bid management and adjustments",
-			"Comprehensive ROI and performance metrics"
-		],
-		results: [
-			{ metric: "Platforms Integrated", value: "8+" },
-			{ metric: "Monthly Campaigns", value: "500+" },
-			{ metric: "Spend Managed", value: "$10k+" },
-			{ metric: "ROAS Improvement", value: "40%" }
-		],
-		videoUrl: "/videos/adnow/adnowdemo.mp4",
-		galleryImages: [
-			"/images/adnow/adnowimage1.PNG",
-			"/images/adnow/adnowimage2.PNG",
-			"/images/adnow/adnowimage3.PNG",
-			"/images/adnow/adnowimage4.PNG"
-		],
-		galleryGifs: []
-	},
-	"curiote": {
-		id: "curiote",
-		title: "Curiote - Sentiment Analysis Tool",
-		description: "Advanced sentiment analysis tool enabling real-time market insights for stocks and crypto.",
-		category: "Fintech / Blockchain",
-		client: "Curiote",
-		duration: "5 months and Continue",
-		technologies: ["React", "typescript", "python", "django", "postgresql", "redis", "ChartIQ", "mongodb", "excel", "nginx", "linux", "NLP", "Machine Learning"],
-		overview: "Developed a powerful sentiment analysis tool that aggregates and analyzes data from various sources to provide real-time market sentiment for stocks and cryptocurrencies.",
-		challenges: [
-			"Aggregating data from diverse and unstructured sources",
-			"Real-time processing of high-volume social media streams",
-			"Developing accurate sentiment scoring models",
-			"Visualizing complex sentiment trends effectively"
-		],
-		solutions: [
-			"Implemented advanced NLP pipelines for text analysis",
-			"Utilized high-performance message queues for data ingestion",
-			"Trained custom ML models on financial datasets",
-			"Created interactive dashboards with dynamic charting"
-		],
-		features: [
-			"Real-time sentiment scoring",
-			"Social media trend analysis",
-			"News correlation with price action",
-			"Customizable alerts and notifications",
-			"Historical sentiment backtesting",
-			"Multi-asset support (Stocks & Crypto)",
-			"API access for algorithmic trading"
-		],
-		results: [
-			{ metric: "Data Sources", value: "20+" },
-			{ metric: "Processing Speed", value: "<100ms" },
-			{ metric: "Accuracy", value: "85%" },
-			{ metric: "User Growth", value: "40% MoM" }
-		],
-		videoUrl: "",
-		galleryImages: [],
-		galleryGifs: []
-	},
-	"data-engineering-datascience": {
-		id: "data-engineering-datascience",
-		title: "Data Engineering & Data Science Platform",
-		description: "End-to-end data engineering and data science solution powering scalable pipelines, advanced analytics, and ML-driven insights.",
-		category: "Data Engineering / Data Science",
-		client: "Enterprise Analytics Firm",
-		duration: "6 months and active",
-		technologies: ["Python", "Apache Spark", "Apache Airflow", "Kafka", "Snowflake", "dbt", "PostgreSQL", "AWS S3", "Redshift", "Docker", "Kubernetes", "Pandas", "Scikit-learn", "TensorFlow", "Jupyter", "Tableau", "Power BI"],
-		overview: "Designed and built a comprehensive data engineering and data science platform that unifies data ingestion, transformation, warehousing, and machine learning workflows. The platform automates ETL/ELT pipelines to process terabytes of raw data from diverse sources, transforms it into analytics-ready datasets, and powers predictive models and interactive dashboards for data-driven decision making.",
-		challenges: [
-			"Ingesting and processing data from 50+ heterogeneous sources with varying formats and schemas",
-			"Building fault-tolerant, scalable ETL pipelines that handle terabyte-scale data volumes",
-			"Ensuring data quality, lineage tracking, and governance across the entire data lifecycle",
-			"Deploying and monitoring ML models in production with minimal latency",
-			"Providing self-service analytics capabilities to non-technical stakeholders"
-		],
-		solutions: [
-			"Built modular data ingestion framework with Apache Kafka for real-time streaming and Airflow for batch orchestration",
-			"Implemented a medallion architecture (Bronze, Silver, Gold) using dbt and Snowflake for reliable data transformation",
-			"Developed automated data quality checks, schema validation, and lineage tracking with custom metadata catalog",
-			"Created ML pipeline with feature store, model registry, and automated retraining using MLflow and Kubernetes",
-			"Deployed interactive Tableau and Power BI dashboards with real-time data refresh"
-		],
-		features: [
-			"Automated ETL/ELT pipelines with Apache Airflow orchestration",
-			"Real-time data streaming and event processing with Kafka",
-			"Data warehouse with medallion architecture (Bronze/Silver/Gold layers)",
-			"ML model training, deployment, and monitoring pipeline",
-			"Feature store for reusable ML features across teams",
-			"Interactive dashboards and self-service analytics",
-			"Data quality monitoring and anomaly detection",
-			"Data lineage tracking and governance",
-			"Predictive analytics and forecasting models"
-		],
-		results: [
-			{ metric: "Data Sources Integrated", value: "50+" },
-			{ metric: "Daily Data Processed", value: "2TB+" },
-			{ metric: "Pipeline Reliability", value: "99.9%" },
-			{ metric: "ML Model Accuracy", value: "92%" },
-			{ metric: "Reporting Speed Improvement", value: "10x faster" }
+			{ metric: "MTTR Reduction", value: "-85%" },
+			{ metric: "False Positives Cut", value: "90%" },
+			{ metric: "Vulnerability Depth", value: "Full Transitive" },
+			{ metric: "Compliance Readiness", value: "FedRAMP High & IL7" },
+			{ metric: "Time to Market", value: "18 Months" },
+			{ metric: "Platform Scope", value: "Zero to Enterprise Suite" }
 		],
 		videoUrl: "",
 		galleryImages: [],
@@ -479,7 +83,233 @@ const projectsData: Record<string, ProjectDetail> = {
 	}
 };
 
+/* ── Custom Case Study 3D Hero Section ──────────────────────── */
+function ProjectDetailsHero({ project }: { project: ProjectDetail }) {
+	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+	const containerRef = useRef<HTMLDivElement>(null);
 
+	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+		if (!containerRef.current) return;
+		const rect = containerRef.current.getBoundingClientRect();
+		const x = (e.clientX - rect.left) / rect.width - 0.5;
+		const y = (e.clientY - rect.top) / rect.height - 0.5;
+		setMousePosition({ x, y });
+	};
+
+	const handleMouseLeave = () => {
+		setMousePosition({ x: 0, y: 0 });
+	};
+
+	return (
+		<section 
+			ref={containerRef}
+			onMouseMove={handleMouseMove}
+			onMouseLeave={handleMouseLeave}
+			className="relative w-[95%] max-w-[1600px] mx-auto rounded-[36px] mt-2 mb-16 overflow-hidden p-8 md:p-16 lg:p-20 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 border border-border/10 shadow-2xl transition-all duration-700 bg-transparent"
+			style={{
+				background: "var(--glass-bg)",
+				backdropFilter: "blur(24px)",
+				transform: `perspective(1000px) rotateX(${mousePosition.y * -8}deg) rotateY(${mousePosition.x * 8}deg)`,
+				willChange: "transform",
+			}}
+		>
+			{/* Local 3D Cube & Grid Styles */}
+			<style>{`
+				@keyframes rotateCube {
+					0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+					100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+				}
+				.cube-container {
+					perspective: 1200px;
+					width: min(220px, 45vw);
+					height: min(220px, 45vw);
+					position: relative;
+					transform-style: preserve-3d;
+				}
+				.cube-3d {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					transform-style: preserve-3d;
+					animation: rotateCube 20s linear infinite;
+				}
+				.cube-face {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					border: 1.5px solid rgba(59, 130, 246, 0.35);
+					background: rgba(59, 130, 246, 0.06);
+					backdrop-filter: blur(6px);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					box-shadow: inset 0 0 40px rgba(59, 130, 246, 0.15);
+					transition: border-color 0.3s ease, background-color 0.3s ease;
+				}
+				.dark .cube-face {
+					border: 1.5px solid rgba(147, 51, 234, 0.4);
+					background: rgba(147, 51, 234, 0.04);
+					box-shadow: inset 0 0 40px rgba(147, 51, 234, 0.1);
+				}
+				.face-front  { transform: rotateY(  0deg) translateZ(min(110px, 22.5vw)); }
+				.face-back   { transform: rotateY(180deg) translateZ(min(110px, 22.5vw)); }
+				.face-right  { transform: rotateY( 90deg) translateZ(min(110px, 22.5vw)); }
+				.face-left   { transform: rotateY(-90deg) translateZ(min(110px, 22.5vw)); }
+				.face-top    { transform: rotateX( 90deg) translateZ(min(110px, 22.5vw)); }
+				.face-bottom { transform: rotateX(-90deg) translateZ(min(110px, 22.5vw)); }
+
+				.holo-ring-1 {
+					position: absolute;
+					width: 320px;
+					height: 320px;
+					border-radius: 50%;
+					border: 1px dashed rgba(59, 130, 246, 0.25);
+					transform: rotateX(75deg) rotateY(15deg);
+					animation: spinRing 25s linear infinite;
+				}
+				.holo-ring-2 {
+					position: absolute;
+					width: 380px;
+					height: 380px;
+					border-radius: 50%;
+					border: 1px dotted rgba(147, 51, 234, 0.2);
+					transform: rotateX(75deg) rotateY(-15deg);
+					animation: spinRingRev 30s linear infinite;
+				}
+				@keyframes spinRing {
+					from { transform: rotateX(75deg) rotateY(15deg) rotateZ(0deg); }
+					to { transform: rotateX(75deg) rotateY(15deg) rotateZ(360deg); }
+				}
+				@keyframes spinRingRev {
+					from { transform: rotateX(70deg) rotateY(-10deg) rotateZ(360deg); }
+					to { transform: rotateX(70deg) rotateY(-10deg) rotateZ(0deg); }
+				}
+			`}</style>
+
+			{/* Perspective Grid Floor */}
+			<div className="absolute inset-0 overflow-hidden pointer-events-none z-0" style={{ perspective: "1000px" }}>
+				<div
+					className="absolute left-[-20%] right-[-20%] bottom-[-50%] h-[120%] opacity-40 dark:opacity-20"
+					style={{ 
+						transform: "rotateX(65deg)", 
+						transformOrigin: "center bottom",
+						backgroundImage: `linear-gradient(to right, rgba(59,130,246,0.1) 1px, transparent 1px),
+										  linear-gradient(to bottom, rgba(59,130,246,0.1) 1px, transparent 1px)`,
+						backgroundSize: "60px 60px"
+					}}
+				/>
+			</div>
+
+			{/* Glowing Background Ambience */}
+			<div className="absolute top-1/4 left-1/3 w-[350px] h-[350px] bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0" />
+			<div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-accent/80 dark:bg-accent/10 rounded-full blur-[150px] pointer-events-none z-0" />
+
+			{/* Content Columns */}
+			<div className="relative z-10 w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+				{/* Left Side: Dynamic Balanced Text Area */}
+				<div className="flex-1 text-left flex flex-col items-start">
+					{/* Category Badge */}
+					<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+						<span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+						<span className="text-[10px] font-bold tracking-[0.25em] uppercase text-primary">
+							{project.category}
+						</span>
+					</div>
+
+					{/* Optimized Balanced Heading */}
+					<h1 
+						className="font-extrabold text-3xl sm:text-4xl md:text-5xl tracking-tight leading-[1.2] text-foreground"
+						style={{
+							fontFamily: '"Outfit", sans-serif'
+						}}
+					>
+						<span className="block mb-2 text-foreground/45 text-lg font-bold tracking-widest uppercase">CASE STUDY</span>
+						<span className="bg-gradient-to-r from-foreground via-foreground/90 to-primary/80 bg-clip-text text-transparent dark:from-white dark:via-foreground/95 dark:to-primary/70">
+							{project.title}
+						</span>
+					</h1>
+
+					{/* Subtitle / Description */}
+					<p className="text-foreground/60 dark:text-foreground/45 text-base md:text-lg mt-6 max-w-2xl leading-relaxed font-light">
+						{project.description}
+					</p>
+
+					{/* Inline Metas Bar */}
+					<div className="flex flex-wrap gap-4 mt-8 w-full border-t border-foreground/5 pt-6">
+						<div className="flex items-center gap-3 bg-foreground/5 dark:bg-white/5 px-4 py-3 rounded-2xl border border-border/10">
+							<Server className="w-4 h-4 text-primary" />
+							<div>
+								<span className="text-[9px] uppercase tracking-wider text-muted-foreground block font-bold">Client</span>
+								<span className="text-xs font-semibold text-foreground">{project.client}</span>
+							</div>
+						</div>
+						<div className="flex items-center gap-3 bg-foreground/5 dark:bg-white/5 px-4 py-3 rounded-2xl border border-border/10">
+							<Clock className="w-4 h-4 text-accent" />
+							<div>
+								<span className="text-[9px] uppercase tracking-wider text-muted-foreground block font-bold">Duration</span>
+								<span className="text-xs font-semibold text-foreground">{project.duration}</span>
+							</div>
+						</div>
+						<div className="flex items-center gap-3 bg-foreground/5 dark:bg-white/5 px-4 py-3 rounded-2xl border border-border/10">
+							<Activity className="w-4 h-4 text-green-500" />
+							<div>
+								<span className="text-[9px] uppercase tracking-wider text-muted-foreground block font-bold">Status</span>
+								<span className="text-xs font-semibold text-foreground">Production Live</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{/* Right Side: Simple Hardware-Accelerated 3D Centerpiece */}
+				<div className="flex-shrink-0 w-full lg:w-auto flex items-center justify-center relative min-h-[340px] px-8">
+					{/* Decorative Holographic Rings */}
+					<div className="holo-ring-1" />
+					<div className="holo-ring-2" />
+
+					{/* 3D Cube Component */}
+					<div className="cube-container">
+						<div className="cube-3d">
+							{/* Front: Shield */}
+							<div className="cube-face face-front">
+								<Shield className="w-12 h-12 text-blue-500 filter drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]" />
+							</div>
+							{/* Back: Lock */}
+							<div className="cube-face face-back">
+								<Lock className="w-12 h-12 text-purple-500 filter drop-shadow-[0_0_15px_rgba(147,51,234,0.6)]" />
+							</div>
+							{/* Right: CPU */}
+							<div className="cube-face face-right">
+								<Cpu className="w-12 h-12 text-cyan-400 filter drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]" />
+							</div>
+							{/* Left: Activity */}
+							<div className="cube-face face-left">
+								<Activity className="w-12 h-12 text-green-400 filter drop-shadow-[0_0_15px_rgba(74,222,128,0.6)]" />
+							</div>
+							{/* Top: Secure label */}
+							<div className="cube-face face-top flex flex-col gap-1">
+								<Layers className="w-6 h-6 text-yellow-500" />
+								<span className="text-[9px] tracking-widest text-foreground/50 font-mono">SECURE</span>
+							</div>
+							{/* Bottom: Platform label */}
+							<div className="cube-face face-bottom flex flex-col gap-1">
+								<Server className="w-6 h-6 text-red-400" />
+								<span className="text-[9px] tracking-widest text-foreground/50 font-mono">PLATFORM</span>
+							</div>
+						</div>
+					</div>
+
+					{/* Glowing base under the cube */}
+					<div 
+						className="absolute bottom-6 w-48 h-10 rounded-full blur-[8px] opacity-60 pointer-events-none"
+						style={{
+							background: "radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.4), transparent 75%)"
+						}}
+					/>
+				</div>
+			</div>
+		</section>
+	);
+}
 
 export default function ProjectDetails() {
 	const { projectId } = useParams<{ projectId: string }>();
@@ -498,12 +328,7 @@ export default function ProjectDetails() {
 				canonical={`/work/${projectId}`}
 				keywords={project.technologies.join(", ")}
 			/>
-			<PageTitle
-				label={project.category}
-				mainTitle={project.title}
-				subTitle="Project Detail"
-				description={project.description}
-			/>
+			<ProjectDetailsHero project={project} />
 
 			<div className="w-[90%] max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
 				{/* Project Overview */}
@@ -517,21 +342,6 @@ export default function ProjectDetails() {
 						<p className="text-lg text-muted-foreground leading-relaxed">
 							{project.overview}
 						</p>
-
-						<div className="grid md:grid-cols-3 grid-cols-1 gap-6 mt-8">
-							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
-								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Client</h3>
-								<p className="text-xl font-semibold text-foreground">{project.client}</p>
-							</div>
-							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
-								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Duration</h3>
-								<p className="text-xl font-semibold text-foreground">{project.duration}</p>
-							</div>
-							<div className="bg-white/50 dark:bg-foreground/5 border border-border rounded-xl p-6">
-								<h3 className="text-sm uppercase text-muted-foreground font-semibold mb-2">Category</h3>
-								<p className="text-xl font-semibold text-foreground">{project.category}</p>
-							</div>
-						</div>
 					</div>
 				</section>
 
@@ -669,7 +479,7 @@ export default function ProjectDetails() {
 						mainTitle="& Impact"
 						postTitle=""
 					/>
-					<div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-6">
+					<div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-6">
 						{project.results.map((result, idx) => (
 							<div
 								key={idx}

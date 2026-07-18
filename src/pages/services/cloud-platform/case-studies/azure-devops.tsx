@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "14", label: "Build and release pipelines standardized", accent: "from-emerald-500 to-teal-600" },
@@ -157,6 +158,17 @@ export default function AzureDevOpsCaseStudy() {
 						{ label: "Stack", value: "Azure DevOps · Pipelines · Artifacts · Release Gates" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="azure-devops"
+									title="Azure DevOps"
+									accentColor="blue"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/azure-devops/1.jpg",
+										"/images/case-studies/azure-devops/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function CrossPlatformAppsCaseStudy() {
 						{ label: "Scope", value: "2 app stores supported" },
 						{ label: "Timeline", value: "12 weeks to production" },
 						{ label: "Stack", value: "Cross-Platform · Shared Codebase · Native Bridges · Release Automation" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="cross-platform-apps"
+					title="Cross-Platform Apps"
+					accentColor="purple"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/cross-platform-apps/1.jpg",
+						"/images/case-studies/cross-platform-apps/2.jpg"
 					]}
 				/>
 

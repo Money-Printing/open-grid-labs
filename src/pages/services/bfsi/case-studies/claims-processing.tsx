@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "58%", label: "Claims settled without human intervention", accent: "from-indigo-500 to-violet-600" },
@@ -154,6 +155,17 @@ export default function ClaimsProcessingCaseStudy() {
 						{ label: "Stack", value: "FNOL automation · ML triage · STP engine · Fraud scoring · Handler workflow" }
 					]}
 				/>
+
+					<CaseStudyCarousel
+									slug="claims-processing"
+									title="Claims Processing"
+									accentColor="indigo"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/claims-processing/1.jpg",
+										"/images/case-studies/claims-processing/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

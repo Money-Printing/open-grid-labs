@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "29%", label: "Reduction in 90-day churn", accent: "from-pink-500 to-rose-600" },
@@ -155,6 +156,18 @@ export default function UserExperienceDesignCaseStudy() {
 						{ label: "Methods", value: "Journey Mapping · Friction Audit · Experience Design · Longitudinal Testing" }
 					]}
 				/>
+
+				
+								<CaseStudyCarousel
+													slug="user-experience-design"
+													title="How Journey Mapping Uncovered the Hidden Moments That Drove Churn"
+													accentColor="pink"
+													aspectRatioClass="aspect-[3/2]"
+													images={[
+														"/images/case-studies/user-experience-design/1.jpg",
+														"/images/case-studies/user-experience-design/2.jpg"
+													]}
+												/>
 
 				<StatsGrid 
 					stats={STATS}

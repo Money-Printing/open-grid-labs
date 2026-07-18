@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "12", label: "Approved visual style families supported", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function StyleTransferCaseStudy() {
 						{ label: "Stack", value: "Style Transfer · Image Generation · Brand Rules · Asset QA" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="style-transfer"
+					title="Style Transfer"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/style-transfer/1.jpg",
+						"/images/case-studies/style-transfer/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

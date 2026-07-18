@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "Zero", label: "Downtime deployments since go-live", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function KubernetesDeploymentCaseStudy() {
 						{ label: "Stack", value: "Kubernetes · Helm · HPA · Ingress · PDB" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="kubernetes-deployment"
+									title="Kubernetes Deployment"
+									accentColor="emerald"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/kubernetes-deployment/1.jpg",
+										"/images/case-studies/kubernetes-deployment/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

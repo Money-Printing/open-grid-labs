@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "71%", label: "Straight-through bind rate", accent: "from-indigo-500 to-violet-600" },
@@ -119,8 +120,8 @@ export default function UnderwritingAutomationCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Indigo Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(230,80%,60%) 0%, hsl(240,80%,55%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function UnderwritingAutomationCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function UnderwritingAutomationCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Insurance Technology"
 					title="How Automated Underwriting Bound 71% of SME Policies Without Underwriter Review"
 					description="A commercial insurer was manually underwriting every SME policy submission — each requiring an underwriter to review the risk, check appetite, apply rating, and approve the quote. For routine risks within clear appetite, this was expert time on administrative confirmation. OpenGridLabs built an automated underwriting platform: risk scoring, appetite rule automation, enriched third-party data integration, and a straight-through bind engine — achieving a 71% straight-through bind rate and reducing referral-to-bind time from 5 days to 2 hours."
@@ -155,13 +156,24 @@ export default function UnderwritingAutomationCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="underwriting-automation"
+					title="Underwriting Automation"
+					accentColor="indigo"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/underwriting-automation/1.jpg",
+						"/images/case-studies/underwriting-automation/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-indigo-500/30"
 					hoverTextClass="group-hover:text-indigo-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +194,7 @@ export default function UnderwritingAutomationCaseStudy() {
 					gradientFromClass="from-indigo-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +204,7 @@ export default function UnderwritingAutomationCaseStudy() {
 					arrowColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +222,22 @@ export default function UnderwritingAutomationCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 10-month delivery program mapping rules, risk predictors, and straight-through bind endpoints."}
-					phaseColors={[ "hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)" ]}
+					phaseColors={["hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)"]}
 					axisGradientClass={"from-indigo-500 via-violet-500 to-purple-500"}
 					badgeColorClass={"text-indigo-400 bg-indigo-400/10 border-indigo-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Decimating delivery timeline bounds, maximizing resource capacity parameters, and keeping loss ratios stable."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"Underwriters are expensive and skilled. We were using them to confirm that a sole-trader gardener was within appetite for £1M liability — a decision any rules engine could make. Automation freed them for the risks where their judgement actually changes the outcome."}
 					author={"Head of Underwriting"}
 					subtitle={"Confidential Commercial Insurer"}
@@ -233,7 +245,7 @@ export default function UnderwritingAutomationCaseStudy() {
 					iconColorClass={"text-indigo-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +253,7 @@ export default function UnderwritingAutomationCaseStudy() {
 					iconColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +261,7 @@ export default function UnderwritingAutomationCaseStudy() {
 					activeChevronColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Underwriters spending their expertise confirming obvious risks?"}
 					description={"OpenGridLabs builds automated underwriting platforms — appetite rules, ML risk scoring, data enrichment, and straight-through bind — that redirect expert capacity to complex risks."}
 					moreCaseStudiesLink={"/services/bfsi"}

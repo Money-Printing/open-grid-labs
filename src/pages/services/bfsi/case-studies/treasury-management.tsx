@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "£180M", label: "Reduction in idle non-earning liquidity", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function TreasuryManagementCaseStudy() {
 						{ label: "Stack", value: "Real-time feeds · Cash positioning engine · Sweep automation · Regulatory reporting" }
 					]}
 				/>
+
+					<CaseStudyCarousel
+													slug="treasury-management"
+													title="Treasury Management"
+													accentColor="pink"
+													aspectRatioClass="aspect-[3/2]"
+													images={[
+														"/images/case-studies/treasury-management/1.jpg",
+														"/images/case-studies/treasury-management/2.jpg"
+													]}
+												/>
 
 				<StatsGrid 
 					stats={STATS}

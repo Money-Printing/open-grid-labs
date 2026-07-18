@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
-	Activity, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
+	Activity,
 	Database,
 	Zap,
 	Paintbrush
@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "4 wk", label: "Concept validated, not 4 months of dev", accent: "from-pink-500 to-rose-600" },
@@ -120,8 +121,8 @@ export default function PrototypingCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Pink/Rose Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(330,100%,50%) 0%, hsl(320,100%,45%) 50%, transparent 100%)`
 					}}
@@ -129,8 +130,8 @@ export default function PrototypingCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/digital-experience" 
+					<Link
+						to="/services/digital-experience"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -138,7 +139,7 @@ export default function PrototypingCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · UI/UX Design"
 					title="How Interactive Prototypes Validated a New Product Concept in 4 Weeks and Avoided 4 Months of Wasted Development"
 					description="A company was about to commit four months of engineering time to building a new product feature. OpenGridLabs built a high-fidelity interactive prototype in two weeks and tested it with real users in the next two. The core concept was validated — but a critical interaction assumption was wrong. Fixing it in the prototype took two days. Fixing it after four months of development would have taken six weeks."
@@ -156,13 +157,24 @@ export default function PrototypingCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="prototyping"
+					title="How Interactive Prototypes Validated a New Product Concept in 4 Weeks and Avoided 4 Months of Wasted Development"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/prototyping/1.jpg",
+						"/images/case-studies/prototyping/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-pink-500/30"
 					hoverTextClass="group-hover:text-pink-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Paintbrush className="w-5 h-5" />}
@@ -183,7 +195,7 @@ export default function PrototypingCaseStudy() {
 					gradientFromClass="from-pink-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Gap & The Solution"}
@@ -193,7 +205,7 @@ export default function PrototypingCaseStudy() {
 					arrowColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Database, Layers, Activity]}
 					tag={"Design Framework"}
@@ -211,22 +223,22 @@ export default function PrototypingCaseStudy() {
 					rightColumnTitle={"Prototyping Pipeline Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A compressed 4-week timeline validating core product directions with real target users."}
-					phaseColors={[ "hsl(330,100%,60%)", "hsl(280,100%,65%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(330,100%,60%)", "hsl(280,100%,65%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-pink-500 via-purple-500 to-blue-500"}
 					badgeColorClass={"text-pink-400 bg-pink-400/10 border-pink-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Validating interface flows early prevented 6 weeks of engineering rework and dramatically lifted initial task success rates."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The moment a user said 'I'd expect this button to be here' — pointing at exactly where we hadn't put it — we knew we had the right problem. Two days in the prototype. Six weeks in production. Easy call."}
 					author={"CPO"}
 					subtitle={"Confidential Consumer Technology Company"}
@@ -234,7 +246,7 @@ export default function PrototypingCaseStudy() {
 					iconColorClass={"text-pink-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -242,7 +254,7 @@ export default function PrototypingCaseStudy() {
 					iconColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -250,7 +262,7 @@ export default function PrototypingCaseStudy() {
 					activeChevronColorClass={"text-pink-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"About to commit months of development to an untested concept?"}
 					description={"OpenGridLabs builds interactive prototypes and tests them with real users — validating core assumptions before development starts so engineering effort goes to a design that works."}
 					moreCaseStudiesLink={"/services/digital-experience"}

@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "31", label: "Infrastructure modules created and documented", accent: "from-emerald-500 to-teal-600" },
@@ -157,6 +158,17 @@ export default function InfrastructureAsCodeCaseStudy() {
 						{ label: "Stack", value: "Terraform · Bicep · Policy Checks · CI/CD" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="infrastructure-as-code"
+									title="Infrastructure as Code"
+									accentColor="blue"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/infrastructure-as-code/1.jpg",
+										"/images/case-studies/infrastructure-as-code/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "22%", label: "Shorter average sales cycle post-launch", accent: "from-amber-500 to-orange-600" },
@@ -153,6 +154,17 @@ export default function BrandCollateralCaseStudy() {
 						{ label: "Scope", value: "Complete sales collateral suite" },
 						{ label: "Timeline", value: "12 weeks" },
 						{ label: "Deliverables", value: "Pitch deck · One-pager · Brochure · Email sig · Event materials" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="brand-collateral"
+					title="How a Consistent Brand Collateral Suite Shortened the Sales Cycle 22% by Making Every Touchpoint Reinforce the Same Message"
+					accentColor="purple"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/brand-collateral/1.jpg",
+						"/images/case-studies/brand-collateral/2.jpg"
 					]}
 				/>
 

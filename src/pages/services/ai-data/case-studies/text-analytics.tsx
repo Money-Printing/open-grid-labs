@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "1.8M", label: "Historical text records indexed and enriched", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function TextAnalyticsCaseStudy() {
 						{ label: "Stack", value: "NLP Pipeline · Classification · Dashboards · Search" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="text-analytics"
+					title="Text Analytics"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/text-analytics/1.jpg",
+						"/images/case-studies/text-analytics/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

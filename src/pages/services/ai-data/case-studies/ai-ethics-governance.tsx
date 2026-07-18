@@ -22,6 +22,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "60%", label: "Less time spent on AI compliance review", accent: "from-cyan-400 to-blue-500" },
@@ -161,6 +162,19 @@ export default function AIEthicsGovernanceCaseStudy() {
 						{ label: "Focus", value: "Policy · Risk Tiering · Ethics Board · Compliance" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="ai-ethics-governance"
+					title="AI Ethics & Governance"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/ai-ethics-governance/1.jpg",
+						"/images/case-studies/ai-ethics-governance/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

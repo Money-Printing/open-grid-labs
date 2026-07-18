@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function AppUIUXCaseStudy() {
 						{ label: "Scope", value: "16 app flows redesigned" },
 						{ label: "Timeline", value: "8 weeks to launch" },
 						{ label: "Stack", value: "Mobile UX · Design System · Prototypes · Usability Testing" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="app-ui-ux"
+					title="App UI/UX Design"
+					accentColor="purple"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/app-ui-ux/1.jpg",
+						"/images/case-studies/app-ui-ux/2.jpg"
 					]}
 				/>
 

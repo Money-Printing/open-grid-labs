@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "11 pts", label: "Improvement in telematics book loss ratio", accent: "from-indigo-500 to-violet-600" },
@@ -119,8 +120,8 @@ export default function TelematicsIntegrationCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Indigo Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(230,80%,60%) 0%, hsl(240,80%,55%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function TelematicsIntegrationCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function TelematicsIntegrationCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Insurance Technology"
 					title="How Telematics Integration Improved Loss Ratio 11 Points by Pricing Risk from How People Actually Drive"
 					description="A motor insurer offering a telematics product was collecting driving data from 120,000 black box policies but pricing renewals based on traditional risk factors — age, vehicle, claims history — rather than the observed driving behaviour available in the telematics data. OpenGridLabs built a telematics data platform that processed 4.5 billion data points per month, built a driving behaviour score validated against subsequent claims, and integrated it into the renewal pricing engine — improving the loss ratio 11 points through superior risk selection."
@@ -155,13 +156,24 @@ export default function TelematicsIntegrationCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="telematics-integration"
+					title="Telematics Integration"
+					accentColor="indigo"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/telematics-integration/1.jpg",
+						"/images/case-studies/telematics-integration/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-indigo-500/30"
 					hoverTextClass="group-hover:text-indigo-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +194,7 @@ export default function TelematicsIntegrationCaseStudy() {
 					gradientFromClass="from-indigo-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +204,7 @@ export default function TelematicsIntegrationCaseStudy() {
 					arrowColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +222,22 @@ export default function TelematicsIntegrationCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A structured 12-month delivery path starting with data pipeline builds and culminating in mobile feedback setups."}
-					phaseColors={[ "hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)" ]}
+					phaseColors={["hsl(230,80%,60%)", "hsl(260,80%,55%)", "hsl(280,80%,50%)"]}
 					axisGradientClass={"from-indigo-500 via-violet-500 to-purple-500"}
 					badgeColorClass={"text-indigo-400 bg-indigo-400/10 border-indigo-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Decimating loss ratios, boosting safe driver retention, and establishing data-driven UBI rating engines."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"We were collecting the most precise risk data in the industry and ignoring it at renewal. The telematics data told us exactly which drivers were safe and which weren't — and we were pricing them the same. The 11-point loss ratio improvement came directly from pricing what we knew."}
 					author={"Chief Pricing Officer"}
 					subtitle={"Confidential Motor Insurer"}
@@ -233,7 +245,7 @@ export default function TelematicsIntegrationCaseStudy() {
 					iconColorClass={"text-indigo-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +253,7 @@ export default function TelematicsIntegrationCaseStudy() {
 					iconColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +261,7 @@ export default function TelematicsIntegrationCaseStudy() {
 					activeChevronColorClass={"text-indigo-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Collecting telematics data from 120,000 policyholders and not using it in pricing?"}
 					description={"OpenGridLabs builds telematics integration platforms — behaviour scoring validated against claims, renewal pricing integration, and customer engagement — that price risk from how people actually drive."}
 					moreCaseStudiesLink={"/services/bfsi"}

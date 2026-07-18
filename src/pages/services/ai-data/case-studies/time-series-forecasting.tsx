@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "47%", label: "Lower forecast error vs. baseline", accent: "from-cyan-400 to-blue-500" },
@@ -160,6 +161,19 @@ export default function TimeSeriesForecastingCaseStudy() {
 						{ label: "Stack", value: "ARIMA · Prophet · ML · Hierarchical · Intervals" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="time-series-forecasting"
+					title="Time Series Forecasting"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/time-series-forecasting/1.jpg",
+						"/images/case-studies/time-series-forecasting/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

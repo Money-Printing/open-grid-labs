@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "67%", label: "Increase in shelf pickup rate", accent: "from-amber-500 to-orange-600" },
@@ -155,6 +156,17 @@ export default function PackageDesignCaseStudy() {
 						{ label: "Deliverables", value: "Structural brief · Dieline · Design · Print-ready files · Production oversight" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+													slug="package-design"
+													title="How New Packaging Lifted Shelf Pickup Rate 67%, Reduced Returns 31%, and Won a Retail Placement the Old Design Had Failed"
+													accentColor="purple"
+													aspectRatioClass="aspect-[3/2]"
+													images={[
+														"/images/case-studies/package-design/1.jpg",
+														"/images/case-studies/package-design/2.jpg"
+													]}
+												/>
 
 				<StatsGrid 
 					stats={STATS}

@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "52%", label: "Lower estimate error (MAPE) vs. manual", accent: "from-emerald-400 to-teal-500" },
@@ -160,6 +161,19 @@ export default function RegressionAnalysisCaseStudy() {
 						{ label: "Stack", value: "Feature Engineering · Regression · Interpretation" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="regression-analysis"
+					title="Regression Analysis"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/regression-analysis/1.jpg",
+						"/images/case-studies/regression-analysis/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

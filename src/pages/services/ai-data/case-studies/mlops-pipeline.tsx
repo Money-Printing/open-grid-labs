@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "73%", label: "Reduction in manual model release steps", accent: "from-purple-500 to-indigo-500" },
@@ -160,6 +161,19 @@ export default function MLOpsPipelineCaseStudy() {
 						{ label: "Stack", value: "ML CI/CD · Registry · Monitoring · Retraining" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="mlops-pipeline"
+					title="MLOps Pipeline"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/mlops-pipeline/1.jpg",
+						"/images/case-studies/mlops-pipeline/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function ReactNativeCaseStudy() {
 						{ label: "Scope", value: "18 shared screens delivered" },
 						{ label: "Timeline", value: "11 weeks to release" },
 						{ label: "Stack", value: "React Native · TypeScript · Native Modules · App Analytics" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="react-native"
+					title="React Native"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/react-native/1.jpg",
+						"/images/case-studies/react-native/2.jpg"
 					]}
 				/>
 

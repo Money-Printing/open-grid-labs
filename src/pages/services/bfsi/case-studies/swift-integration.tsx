@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "83%", label: "Reduction in cross-border payment failures", accent: "from-emerald-500 to-teal-600" },
@@ -119,8 +120,8 @@ export default function SwiftIntegrationCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Amber Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(38,100%,50%) 0%, hsl(28,100%,45%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function SwiftIntegrationCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function SwiftIntegrationCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Banking & Financial Technology"
 					title="How Modernised SWIFT Integration Reduced Cross-Border Payment Failures 83% and Gave Corporates End-to-End Payment Visibility"
 					description="A commercial bank was operating on ageing SWIFT Alliance Access infrastructure — expensive to maintain, requiring specialist knowledge, and unable to support SWIFT gpi for payment status tracking. Cross-border payment failures were running at 3.1%, with investigations requiring manual email chains with correspondent banks taking days to resolve. OpenGridLabs modernised the SWIFT infrastructure, implemented gpi tracking, and built a corporate client portal providing real-time cross-border payment visibility."
@@ -155,13 +156,25 @@ export default function SwiftIntegrationCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+
+				<CaseStudyCarousel
+					slug="swift-integration"
+					title="Swift Integration"
+					accentColor="pink"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/swift-integration/1.jpg",
+						"/images/case-studies/swift-integration/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-amber-500/30"
 					hoverTextClass="group-hover:text-amber-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +195,7 @@ export default function SwiftIntegrationCaseStudy() {
 					gradientFromClass="from-amber-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +205,7 @@ export default function SwiftIntegrationCaseStudy() {
 					arrowColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +223,22 @@ export default function SwiftIntegrationCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 3-phase roadmap leading from Alliance Cloud setup to portal deployment and fail management automation."}
-					phaseColors={[ "hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)" ]}
+					phaseColors={["hsl(38,100%,50%)", "hsl(145,100%,45%)", "hsl(200,100%,50%)"]}
 					axisGradientClass={"from-amber-500 via-emerald-500 to-indigo-500"}
 					badgeColorClass={"text-amber-400 bg-amber-400/10 border-amber-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Transforming opaque correspondent chains into clear status updates and automated resolution flows."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"Corporates were calling us every time an international payment didn't confirm on the day they expected it. The gpi portal gave them what they needed without a phone call. Our trade finance desk's phone volume for payment enquiries dropped 78% in the first month."}
 					author={"Head of Transaction Banking"}
 					subtitle={"Confidential Commercial Bank"}
@@ -233,7 +246,7 @@ export default function SwiftIntegrationCaseStudy() {
 					iconColorClass={"text-amber-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +254,7 @@ export default function SwiftIntegrationCaseStudy() {
 					iconColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +262,7 @@ export default function SwiftIntegrationCaseStudy() {
 					activeChevronColorClass={"text-amber-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Legacy SWIFT infrastructure approaching end-of-life with no gpi capability?"}
 					description={"OpenGridLabs modernises SWIFT infrastructure — Alliance Cloud migration, gpi tracking, ISO 20022 MX support, and corporate payment portals — that reduces failures and gives clients the visibility they expect."}
 					moreCaseStudiesLink={"/services/bfsi"}

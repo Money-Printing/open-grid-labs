@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "19", label: "Entity types extracted from text and documents", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function NamedEntityRecognitionCaseStudy() {
 						{ label: "Stack", value: "NER · Entity Linking · Validation · Workflow APIs" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="named-entity-recognition"
+					title="Named Entity Recognition"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/named-entity-recognition/1.jpg",
+						"/images/case-studies/named-entity-recognition/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

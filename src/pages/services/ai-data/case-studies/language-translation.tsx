@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "12", label: "Languages supported in the translation workflow", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function LanguageTranslationCaseStudy() {
 						{ label: "Stack", value: "Translation Models · Glossary · Quality Review · Localization" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="language-translation"
+					title="Language Translation"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/language-translation/1.jpg",
+						"/images/case-studies/language-translation/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

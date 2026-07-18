@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "220k", label: "Audio minutes processed into transcripts", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function SpeechRecognitionCaseStudy() {
 						{ label: "Stack", value: "ASR · Speaker Labels · Transcript QA · Analytics" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="speech-recognition"
+					title="Speech Recognition"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/speech-recognition/1.jpg",
+						"/images/case-studies/speech-recognition/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

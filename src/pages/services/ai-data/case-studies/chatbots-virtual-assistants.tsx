@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "27", label: "Support intents automated with safe handoff", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function ChatbotsVirtualAssistantsCaseStudy() {
 						{ label: "Stack", value: "RAG · Intent Routing · Escalation · Analytics" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="chatbots-virtual-assistants"
+					title="Chatbots & Virtual Assistants"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/chatbots-virtual-assistants/1.jpg",
+						"/images/case-studies/chatbots-virtual-assistants/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

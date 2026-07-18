@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "9", label: "Cosmos DB containers redesigned and governed", accent: "from-emerald-500 to-teal-600" },
@@ -157,6 +158,17 @@ export default function CosmosDBCaseStudy() {
 						{ label: "Stack", value: "Cosmos DB · Partition Keys · RU/s · Global Replication" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="cosmos-db"
+									title="Cosmos DB"
+									accentColor="blue"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/cosmos-db/1.jpg",
+										"/images/case-studies/cosmos-db/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

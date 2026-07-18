@@ -1,6 +1,7 @@
 import ServiceDetailsSwitcher from "../../../components/service-details-switcher";
 import DashboardDesignCaseStudy from "./case-studies/dashboard-design";
 import DesignSystemsCaseStudy from "./case-studies/design-systems";
+import InformationArchitectureCaseStudy from "./case-studies/information-architecture";
 import InteractionDesignCaseStudy from "./case-studies/interaction-design";
 import MobileAppDesignCaseStudy from "./case-studies/mobile-app-design";
 import PrototypingCaseStudy from "./case-studies/prototyping";
@@ -38,6 +39,7 @@ import SignageDesignCaseStudy from "./case-studies/signage-design";
 const EXPERIENCE_COMPONENT_MAP: Record<string, React.ComponentType> = {
 	"dashboard-design": DashboardDesignCaseStudy,
 	"design-systems": DesignSystemsCaseStudy,
+	"information-architecture": InformationArchitectureCaseStudy,
 	"interaction-design": InteractionDesignCaseStudy,
 	"mobile-app-design": MobileAppDesignCaseStudy,
 	"prototyping": PrototypingCaseStudy,

@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "34 bps", label: "Reduction in average market impact", accent: "from-emerald-500 to-teal-600" },
@@ -154,6 +155,17 @@ export default function AlgorithmicTradingCaseStudy() {
 						{ label: "Stack", value: "Low-latency execution · FIX protocol · Backtesting · Co-location · Smart order routing" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="algorithmic-trading"
+									title="Algorithmic Trading"
+									accentColor="emerald"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/algorithmic-trading/1.jpg",
+										"/images/case-studies/algorithmic-trading/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
-import { 
-	ArrowLeft, 
-	Layers, 
-	Cpu, 
+import {
+	ArrowLeft,
+	Layers,
+	Cpu,
 	Database,
 	Zap,
 	Server
@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "68%", label: "Reduction in reporting preparation time", accent: "from-emerald-500 to-teal-600" },
@@ -119,8 +120,8 @@ export default function FinancialDashboardsCaseStudy() {
 
 			<div className="bg-background min-h-screen font-sans overflow-x-hidden relative pb-32">
 				{/* Emerald Theme Ambient Glow */}
-				<div 
-					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700" 
+				<div
+					className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[700px] blur-[180px] pointer-events-none opacity-20 dark:opacity-30 transition-all duration-700"
 					style={{
 						background: `radial-gradient(circle, hsl(145,100%,40%) 0%, hsl(155,100%,35%) 50%, transparent 100%)`
 					}}
@@ -128,8 +129,8 @@ export default function FinancialDashboardsCaseStudy() {
 
 				{/* Back Button */}
 				<div className="w-[90%] max-w-[1600px] mx-auto pt-32 relative z-10">
-					<Link 
-						to="/services/bfsi" 
+					<Link
+						to="/services/bfsi"
 						className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground font-medium transition-colors group text-sm md:text-base"
 					>
 						<ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
@@ -137,7 +138,7 @@ export default function FinancialDashboardsCaseStudy() {
 					</Link>
 				</div>
 
-				<CaseStudyHero 
+				<CaseStudyHero
 					categoryTag="Case Study · Financial Services"
 					title="How Real-Time Financial Dashboards Reduced Senior Management Reporting Time 68% and Enabled Intraday Decisions"
 					description="A financial services firm was producing its senior management information through a manual process — analysts extracting data from multiple systems, building PowerPoint packs, and emailing them to the management committee the morning before each meeting. The information was accurate but stale, and the preparation was consuming 2.8 FTEs. OpenGridLabs built real-time financial dashboards for P&L, risk, fund performance, and operational metrics — replacing the manual pack with live data and reducing preparation time 68%."
@@ -155,13 +156,24 @@ export default function FinancialDashboardsCaseStudy() {
 					]}
 				/>
 
-				<StatsGrid 
+				<CaseStudyCarousel
+					slug="financial-dashboards"
+					title="Financial Dashboards"
+					accentColor="emerald"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/financial-dashboards/1.jpg",
+						"/images/case-studies/financial-dashboards/2.jpg"
+					]}
+				/>
+
+				<StatsGrid
 					stats={STATS}
 					hoverBorderClass="hover:border-emerald-500/30"
 					hoverTextClass="group-hover:text-emerald-400"
 				/>
 
-				<CaseStudyBackground 
+				<CaseStudyBackground
 					contextTag="Context"
 					contextTitle="Background"
 					contextIcon={<Cpu className="w-5 h-5" />}
@@ -182,7 +194,7 @@ export default function FinancialDashboardsCaseStudy() {
 					gradientFromClass="from-emerald-950/10"
 				/>
 
-				<ChallengesSolutions 
+				<ChallengesSolutions
 					challenges={CHALLENGES}
 					solutions={SOLUTIONS}
 					tag={"The Challenge & Solution"}
@@ -192,7 +204,7 @@ export default function FinancialDashboardsCaseStudy() {
 					arrowColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyArchitecture 
+				<CaseStudyArchitecture
 					stages={ARCHITECTURE_STAGES}
 					stageIcons={[Cpu, Layers, Database, Server]}
 					tag={"Technical Design"}
@@ -210,22 +222,22 @@ export default function FinancialDashboardsCaseStudy() {
 					rightColumnTitle={"Architecture Layers"}
 				/>
 
-				<CaseStudyTimeline 
+				<CaseStudyTimeline
 					phases={PHASES}
 					tag={"The Roadmap"}
 					title={"Engagement Approach"}
 					description={"A systematic 3-phase roadmap leading from initial database mappings to core risk reports and automated distributions."}
-					phaseColors={[ "hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)" ]}
+					phaseColors={["hsl(145,100%,40%)", "hsl(175,100%,35%)", "hsl(200,100%,40%)"]}
 					axisGradientClass={"from-emerald-500 via-teal-500 to-cyan-500"}
 					badgeColorClass={"text-emerald-400 bg-emerald-400/10 border-emerald-400/20"}
 				/>
 
-				<MeasurableResults 
+				<MeasurableResults
 					description="Minimizing manual reporting overheads, ensuring fresh daily metrics, and freeing analyst capacity."
 					results={TABLE_RESULTS}
 				/>
 
-				<CaseStudyQuote 
+				<CaseStudyQuote
 					quote={"The management committee went from reviewing yesterday's data to monitoring today's. That sounds like an obvious improvement, but the decisions it changed — cutting a losing position at 11am instead of the next morning — had direct financial impact. The 68% reduction in reporting time was almost secondary."}
 					author={"Chief Operating Officer"}
 					subtitle={"Confidential Financial Services Firm"}
@@ -233,7 +245,7 @@ export default function FinancialDashboardsCaseStudy() {
 					iconColorClass={"text-emerald-500/10"}
 				/>
 
-				<CaseStudySuccessFactors 
+				<CaseStudySuccessFactors
 					factors={SUCCESS_FACTORS}
 					tag={"Key Drivers"}
 					title={"Why This Worked"}
@@ -241,7 +253,7 @@ export default function FinancialDashboardsCaseStudy() {
 					iconColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyFaq 
+				<CaseStudyFaq
 					faqs={FAQS}
 					tag={"Learning Center"}
 					title={"Frequently Asked Questions"}
@@ -249,7 +261,7 @@ export default function FinancialDashboardsCaseStudy() {
 					activeChevronColorClass={"text-emerald-400"}
 				/>
 
-				<CaseStudyCta 
+				<CaseStudyCta
 					title={"Management committee reviewing yesterday's data for today's decisions?"}
 					description={"OpenGridLabs builds financial management dashboards — real-time P&L, risk, fund performance, and executive MI — that make intraday decisions possible and eliminate manual pack production."}
 					moreCaseStudiesLink={"/services/bfsi"}

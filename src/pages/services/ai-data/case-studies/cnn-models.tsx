@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "+11%", label: "Accuracy vs. best off-the-shelf baseline", accent: "from-emerald-400 to-teal-500" },
@@ -153,6 +154,19 @@ export default function CNNModelsCaseStudy() {
 						{ label: "Stack", value: "CNN Design · Ablation Studies · Residual · Attention" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="cnn-models"
+					title="CNN Models"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/cnn-models/1.jpg",
+						"/images/case-studies/cnn-models/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

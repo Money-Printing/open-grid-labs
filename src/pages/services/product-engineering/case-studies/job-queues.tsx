@@ -12,6 +12,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -155,6 +156,17 @@ export default function JobQueuesCaseStudy() {
 						{ label: "Scope", value: "12 async workflows queued" },
 						{ label: "Timeline", value: "9 weeks to production" },
 						{ label: "Stack", value: "Queues · Workers · Retries · Dead Letters" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="job-queues"
+					title="Job Queues"
+					accentColor="indigo"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/job-queues/1.jpg",
+						"/images/case-studies/job-queues/2.jpg"
 					]}
 				/>
 

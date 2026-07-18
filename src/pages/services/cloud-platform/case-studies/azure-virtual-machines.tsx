@@ -20,6 +20,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "36", label: "Virtual machine workloads standardized and documented", accent: "from-emerald-500 to-teal-600" },
@@ -157,6 +158,17 @@ export default function AzureVirtualMachinesCaseStudy() {
 						{ label: "Stack", value: "Virtual Machines · VM Scale Sets · Azure Monitor · Managed Disks" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+									slug="azure-virtual-machines"
+									title="Azure Virtual Machines"
+									accentColor="blue"
+									aspectRatioClass="aspect-[3/2]"
+									images={[
+										"/images/case-studies/azure-virtual-machines/1.jpg",
+										"/images/case-studies/azure-virtual-machines/2.jpg"
+									]}
+								/>
 
 				<StatsGrid 
 					stats={STATS}

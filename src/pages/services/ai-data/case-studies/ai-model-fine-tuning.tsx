@@ -22,6 +22,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "92%", label: "Lower inference cost vs. the frontier model", accent: "from-cyan-400 to-blue-500" },
@@ -161,6 +162,19 @@ export default function AIModelFineTuningCaseStudy() {
 						{ label: "Stack", value: "Dataset Curation · LoRA · Evaluation · Serving" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="ai-model-fine-tuning"
+					title="AI Model Fine-tuning"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/ai-model-fine-tuning/1.jpg",
+						"/images/case-studies/ai-model-fine-tuning/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

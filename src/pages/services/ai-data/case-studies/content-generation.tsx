@@ -21,6 +21,7 @@ import CaseStudyQuote from "../../../../components/case-study-quote";
 import CaseStudySuccessFactors from "../../../../components/case-study-success-factors";
 import CaseStudyFaq from "../../../../components/case-study-faq";
 import CaseStudyCta from "../../../../components/case-study-cta";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 
 const STATS = [
 	{ value: "9", label: "Content formats supported with reusable workflows", accent: "from-emerald-400 to-teal-500" },
@@ -158,6 +159,19 @@ export default function ContentGenerationCaseStudy() {
 						{ label: "Stack", value: "LLM Generation · Brand Rules · Review Gates · Content Analytics" }
 					]}
 				/>
+
+				<CaseStudyCarousel
+					slug="content-generation"
+					title="Content Generation"
+					accentColor="cyan"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/content-generation/1.jpg",
+						"/images/case-studies/content-generation/2.jpg"
+					]}
+				/>
+
+				
 
 				<StatsGrid 
 					stats={STATS}

@@ -13,6 +13,7 @@ import SEO from "../../../../components/seo";
 import MeasurableResults from "../../../../components/measurable-results";
 import StatsGrid from "../../../../components/stats-grid";
 import CaseStudyHero from "../../../../components/case-study-hero";
+import CaseStudyCarousel from "../../../../components/case-study-carousel";
 import ChallengesSolutions from "../../../../components/challenges-solutions";
 import CaseStudyTimeline from "../../../../components/case-study-timeline";
 import CaseStudyArchitecture from "../../../../components/case-study-architecture";
@@ -156,6 +157,17 @@ export default function RealTimeChatCaseStudy() {
 						{ label: "Scope", value: "3 chat workflows launched" },
 						{ label: "Timeline", value: "10 weeks to production" },
 						{ label: "Stack", value: "WebSockets · Presence · Notifications · Message History" }
+					]}
+				/>
+
+				<CaseStudyCarousel
+					slug="real-time-chat"
+					title="Real-Time Chat"
+					accentColor="blue"
+					aspectRatioClass="aspect-[3/2]"
+					images={[
+						"/images/case-studies/real-time-chat/1.jpg",
+						"/images/case-studies/real-time-chat/2.jpg"
 					]}
 				/>
 

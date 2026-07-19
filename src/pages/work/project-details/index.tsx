@@ -137,19 +137,19 @@ function ProjectDetailsHero({ project }: { project: ProjectDetail }) {
 					position: absolute;
 					width: 100%;
 					height: 100%;
-					border: 1.5px solid rgba(59, 130, 246, 0.35);
-					background: rgba(59, 130, 246, 0.06);
+					border: 1.5px solid rgba(0, 157, 220, 0.35);
+					background: rgba(0, 157, 220, 0.06);
 					backdrop-filter: blur(6px);
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					box-shadow: inset 0 0 40px rgba(59, 130, 246, 0.15);
+					box-shadow: inset 0 0 40px rgba(0, 157, 220, 0.15);
 					transition: border-color 0.3s ease, background-color 0.3s ease;
 				}
 				.dark .cube-face {
-					border: 1.5px solid rgba(147, 51, 234, 0.4);
-					background: rgba(147, 51, 234, 0.04);
-					box-shadow: inset 0 0 40px rgba(147, 51, 234, 0.1);
+					border: 1.5px solid rgba(0, 157, 220, 0.4);
+					background: rgba(0, 157, 220, 0.04);
+					box-shadow: inset 0 0 40px rgba(0, 157, 220, 0.1);
 				}
 				.face-front  { transform: rotateY(  0deg) translateZ(min(110px, 22.5vw)); }
 				.face-back   { transform: rotateY(180deg) translateZ(min(110px, 22.5vw)); }
@@ -163,7 +163,7 @@ function ProjectDetailsHero({ project }: { project: ProjectDetail }) {
 					width: 320px;
 					height: 320px;
 					border-radius: 50%;
-					border: 1px dashed rgba(59, 130, 246, 0.25);
+					border: 1px dashed rgba(0, 157, 220, 0.25);
 					transform: rotateX(75deg) rotateY(15deg);
 					animation: spinRing 25s linear infinite;
 				}
@@ -172,7 +172,7 @@ function ProjectDetailsHero({ project }: { project: ProjectDetail }) {
 					width: 380px;
 					height: 380px;
 					border-radius: 50%;
-					border: 1px dotted rgba(147, 51, 234, 0.2);
+					border: 1px dotted rgba(0, 157, 220, 0.2);
 					transform: rotateX(75deg) rotateY(-15deg);
 					animation: spinRingRev 30s linear infinite;
 				}
@@ -193,8 +193,8 @@ function ProjectDetailsHero({ project }: { project: ProjectDetail }) {
 					style={{ 
 						transform: "rotateX(65deg)", 
 						transformOrigin: "center bottom",
-						backgroundImage: `linear-gradient(to right, rgba(59,130,246,0.1) 1px, transparent 1px),
-										  linear-gradient(to bottom, rgba(59,130,246,0.1) 1px, transparent 1px)`,
+						backgroundImage: `linear-gradient(to right, rgba(0,157,220,0.1) 1px, transparent 1px),
+										  linear-gradient(to bottom, rgba(0,157,220,0.1) 1px, transparent 1px)`,
 						backgroundSize: "60px 60px"
 					}}
 				/>
@@ -224,7 +224,7 @@ function ProjectDetailsHero({ project }: { project: ProjectDetail }) {
 						}}
 					>
 						<span className="block mb-2 text-foreground/45 text-lg font-bold tracking-widest uppercase">CASE STUDY</span>
-						<span className="bg-gradient-to-r from-foreground via-foreground/90 to-primary/80 bg-clip-text text-transparent dark:from-white dark:via-foreground/95 dark:to-primary/70">
+						<span className="text-foreground">
 							{project.title}
 						</span>
 					</h1>
@@ -271,19 +271,19 @@ function ProjectDetailsHero({ project }: { project: ProjectDetail }) {
 						<div className="cube-3d">
 							{/* Front: Shield */}
 							<div className="cube-face face-front">
-								<Shield className="w-12 h-12 text-blue-500 filter drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]" />
+								<Shield className="w-12 h-12 text-primary filter drop-shadow-[0_0_15px_rgba(0,157,220,0.6)]" />
 							</div>
 							{/* Back: Lock */}
 							<div className="cube-face face-back">
-								<Lock className="w-12 h-12 text-purple-500 filter drop-shadow-[0_0_15px_rgba(147,51,234,0.6)]" />
+								<Lock className="w-12 h-12 text-primary filter drop-shadow-[0_0_15px_rgba(0,157,220,0.6)]" />
 							</div>
 							{/* Right: CPU */}
 							<div className="cube-face face-right">
-								<Cpu className="w-12 h-12 text-cyan-400 filter drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]" />
+								<Cpu className="w-12 h-12 text-primary filter drop-shadow-[0_0_15px_rgba(0,157,220,0.6)]" />
 							</div>
 							{/* Left: Activity */}
 							<div className="cube-face face-left">
-								<Activity className="w-12 h-12 text-green-400 filter drop-shadow-[0_0_15px_rgba(74,222,128,0.6)]" />
+								<Activity className="w-12 h-12 text-primary filter drop-shadow-[0_0_15px_rgba(0,157,220,0.6)]" />
 							</div>
 							{/* Top: Secure label */}
 							<div className="cube-face face-top flex flex-col gap-1">
@@ -302,7 +302,7 @@ function ProjectDetailsHero({ project }: { project: ProjectDetail }) {
 					<div 
 						className="absolute bottom-6 w-48 h-10 rounded-full blur-[8px] opacity-60 pointer-events-none"
 						style={{
-							background: "radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.4), transparent 75%)"
+							background: "radial-gradient(ellipse at 50% 50%, rgba(0,157,220,0.4), transparent 75%)"
 						}}
 					/>
 				</div>

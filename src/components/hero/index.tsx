@@ -107,7 +107,7 @@ const Hero = () => {
 				<div
 					className="absolute inset-0 pointer-events-none"
 					style={{
-						background: 'conic-gradient(from 180deg at 50% -5%, transparent 35%, rgba(59,130,246,0.08) 46%, rgba(139,92,246,0.05) 50%, rgba(59,130,246,0.08) 54%, transparent 65%)',
+						background: 'conic-gradient(from 180deg at 50% -5%, transparent 35%, rgba(0,157,220,0.08) 46%, rgba(0,157,220,0.05) 50%, rgba(0,157,220,0.08) 54%, transparent 65%)',
 						animation: 'hero-beam-pulse 8s ease-in-out infinite',
 					}}
 				/>
@@ -116,14 +116,14 @@ const Hero = () => {
 				<div
 					className="absolute inset-0 pointer-events-none"
 					style={{
-						background: 'linear-gradient(135deg, rgba(59,130,246,0.06) 0%, transparent 35%)',
+						background: 'linear-gradient(135deg, rgba(0,157,220,0.06) 0%, transparent 35%)',
 						animation: 'hero-beam-pulse 10s ease-in-out infinite',
 					}}
 				/>
 				<div
 					className="absolute inset-0 pointer-events-none"
 					style={{
-						background: 'linear-gradient(225deg, rgba(139,92,246,0.05) 0%, transparent 35%)',
+						background: 'linear-gradient(225deg, rgba(0,157,220,0.05) 0%, transparent 35%)',
 						animation: 'hero-beam-pulse 10s ease-in-out infinite',
 						animationDelay: '5s',
 					}}
@@ -189,7 +189,7 @@ const Hero = () => {
 					className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary/60 pointer-events-none"
 					style={{
 						top: '36%',
-						boxShadow: '0 0 25px 8px rgba(59,130,246,0.25), 0 0 60px 20px rgba(59,130,246,0.1)',
+						boxShadow: '0 0 25px 8px rgba(0,157,220,0.25), 0 0 60px 20px rgba(0,157,220,0.1)',
 						animation: 'hero-glow-breathe 4s ease-in-out infinite',
 					}}
 				/>
@@ -252,17 +252,10 @@ const Hero = () => {
 							We Co-Build
 						</motion.span>
 						<motion.span
-							className="block"
+							className="block text-primary"
 							initial={{ opacity: 0, y: 45 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.7, delay: 0.25 }}
-							style={{
-								background: 'linear-gradient(90deg, #3b82f6, #a855f7, #10b981, #3b82f6)',
-								backgroundSize: '300% 100%',
-								WebkitBackgroundClip: 'text',
-								WebkitTextFillColor: 'transparent',
-								animation: 'hero-gradient-shift 6s ease-in-out infinite',
-							}}
 						>
 							Startups.
 						</motion.span>
@@ -320,7 +313,7 @@ const Hero = () => {
 						className="flex flex-col sm:flex-row gap-5 mb-16 w-full sm:w-auto"
 					>
 						<div className="relative group">
-							<div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-emerald-400 rounded-2xl blur-lg opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+							<div className="absolute -inset-1 bg-primary rounded-2xl blur-lg opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
 							<Button
 								onClick={handleBookCall}
 								className="relative w-full sm:w-fit !bg-background border border-primary/50 !text-foreground hover:!bg-primary/10 h-14 px-10 text-base font-semibold transition-all duration-300 rounded-xl"

@@ -126,8 +126,8 @@ function StartupHero() {
 				className="absolute inset-0 pointer-events-none"
 				style={{
 					backgroundImage: `
-						linear-gradient(rgba(59,130,246,0.08) 1px, transparent 1px),
-						linear-gradient(90deg, rgba(59,130,246,0.08) 1px, transparent 1px)
+						linear-gradient(rgba(0,157,220,0.08) 1px, transparent 1px),
+						linear-gradient(90deg, rgba(0,157,220,0.08) 1px, transparent 1px)
 					`,
 					backgroundSize: "50px 50px",
 					transform: "perspective(600px) rotateX(60deg) translateY(50%)",
@@ -145,11 +145,7 @@ function StartupHero() {
 							height: `${2 + Math.random() * 3}px`,
 							left: `${Math.random() * 100}%`,
 							top: `${Math.random() * 100}%`,
-							background: i % 3 === 0
-								? "rgba(59,130,246,0.6)"
-								: i % 3 === 1
-									? "rgba(147,51,234,0.5)"
-									: "rgba(6,182,212,0.5)",
+							background: "rgba(0,157,220,0.5)",
 							animation: `float-3d ${4 + Math.random() * 6}s ease-in-out infinite`,
 							animationDelay: `${Math.random() * 5}s`,
 						}}
@@ -162,9 +158,7 @@ function StartupHero() {
 					inset: 0,
 					background: `
 						radial-gradient(ellipse 60% 45% at ${mousePos.x * 100}% ${mousePos.y * 100}%,
-							rgba(59,130,246,0.14) 0%, transparent 60%),
-						radial-gradient(ellipse 35% 25% at 20% 80%, rgba(6,182,212,0.10) 0%, transparent 50%),
-						radial-gradient(ellipse 35% 25% at 85% 15%, rgba(147,51,234,0.12) 0%, transparent 50%)
+							rgba(0,157,220,0.14) 0%, transparent 60%)
 					`,
 					transition: "background 0.15s ease",
 				}}
@@ -180,20 +174,20 @@ function StartupHero() {
 				className="absolute top-0 left-0 right-0 h-px pointer-events-none"
 				style={{
 					background:
-						"linear-gradient(90deg, transparent, rgba(59,130,246,0.7), rgba(6,182,212,0.6), rgba(147,51,234,0.7), transparent)",
+						"linear-gradient(90deg, transparent, rgba(0,157,220,0.7), transparent)",
 				}}
 			/>
 			<div className="absolute top-8 left-8 opacity-25 pointer-events-none">
-				<div className="w-16 h-16 border-l-2 border-t-2 border-blue-500/60 rounded-tl-lg" />
+				<div className="w-16 h-16 border-l-2 border-t-2 border-primary/60 rounded-tl-lg" />
 			</div>
 			<div className="absolute top-8 right-8 opacity-25 pointer-events-none">
-				<div className="w-16 h-16 border-r-2 border-t-2 border-purple-500/60 rounded-tr-lg" />
+				<div className="w-16 h-16 border-r-2 border-t-2 border-primary/60 rounded-tr-lg" />
 			</div>
 			<div className="absolute bottom-8 left-8 opacity-25 pointer-events-none">
-				<div className="w-16 h-16 border-l-2 border-b-2 border-cyan-500/60 rounded-bl-lg" />
+				<div className="w-16 h-16 border-l-2 border-b-2 border-primary/60 rounded-bl-lg" />
 			</div>
 			<div className="absolute bottom-8 right-8 opacity-25 pointer-events-none">
-				<div className="w-16 h-16 border-r-2 border-b-2 border-purple-500/60 rounded-br-lg" />
+				<div className="w-16 h-16 border-r-2 border-b-2 border-primary/60 rounded-br-lg" />
 			</div>
 			<div
 				className="absolute pointer-events-none"
@@ -203,7 +197,7 @@ function StartupHero() {
 					width: "200px",
 					height: "200px",
 					borderRadius: "50%",
-					background: "radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%)",
+					background: "radial-gradient(circle, rgba(0,157,220,0.15), transparent 70%)",
 					filter: "blur(30px)",
 					animation: "float-3d 8s ease-in-out infinite",
 				}}
@@ -216,7 +210,7 @@ function StartupHero() {
 					width: "150px",
 					height: "150px",
 					borderRadius: "50%",
-					background: "radial-gradient(circle, rgba(147,51,234,0.12), transparent 70%)",
+					background: "radial-gradient(circle, rgba(0,157,220,0.12), transparent 70%)",
 					filter: "blur(25px)",
 					animation: "float-3d 10s ease-in-out infinite",
 					animationDelay: "2s",
@@ -240,7 +234,7 @@ function StartupHero() {
 				>
 					<div
 						className="h-px w-10"
-						style={{ background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.8))" }}
+						style={{ background: "linear-gradient(90deg, transparent, rgba(0,157,220,0.8))" }}
 					/>
 					<span className="text-xs font-bold tracking-[0.35em] uppercase px-4 py-1.5 rounded-full text-primary bg-primary/10 border border-primary/25 flex items-center gap-2">
 						<Rocket className="w-3.5 h-3.5" />
@@ -248,7 +242,7 @@ function StartupHero() {
 					</span>
 					<div
 						className="h-px w-10"
-						style={{ background: "linear-gradient(90deg, rgba(147,51,234,0.8), transparent)" }}
+						style={{ background: "linear-gradient(90deg, rgba(0,157,220,0.8), transparent)" }}
 					/>
 				</div>
 				<div
@@ -264,7 +258,7 @@ function StartupHero() {
 						style={{
 							fontSize: "clamp(3rem, 10vw, 9rem)",
 							color: "transparent",
-							WebkitTextStroke: "1px rgba(59,130,246,0.12)",
+							WebkitTextStroke: "1px rgba(0,157,220,0.12)",
 							transform: "translateZ(-30px) translateX(4px) translateY(6px)",
 							filter: "blur(2px)",
 							top: 0,
@@ -275,12 +269,9 @@ function StartupHero() {
 						Building
 					</h1>
 					<h1
-						className="relative font-bold uppercase tracking-tight leading-none text-transparent bg-clip-text"
+						className="relative font-bold uppercase tracking-tight leading-none text-foreground"
 						style={{
 							fontSize: "clamp(3rem, 10vw, 9rem)",
-							backgroundImage:
-								"linear-gradient(135deg, var(--color-foreground) 0%, var(--color-foreground) 35%, hsl(210,100%,60%) 65%, hsl(170,100%,50%) 100%)",
-							filter: "drop-shadow(0 0 60px rgba(59,130,246,0.3))",
 						}}
 					>
 						Building
@@ -294,14 +285,9 @@ function StartupHero() {
 					}}
 				>
 					<h2
-						className="font-bold uppercase tracking-tight leading-none mt-1"
+						className="font-bold uppercase tracking-tight leading-none mt-1 text-primary"
 						style={{
 							fontSize: "clamp(3rem, 10vw, 9rem)",
-							background: "linear-gradient(135deg, hsl(210,100%,60%) 0%, hsl(280,100%,65%) 50%, hsl(170,100%,50%) 100%)",
-							WebkitBackgroundClip: "text",
-							WebkitTextFillColor: "transparent",
-							backgroundClip: "text",
-							filter: "drop-shadow(0 0 50px rgba(147,51,234,0.35))",
 						}}
 					>
 						Startups.
@@ -324,7 +310,7 @@ function StartupHero() {
 					className="mt-10 h-px"
 					style={{
 						width: "clamp(120px, 30vw, 300px)",
-						background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.5), rgba(6,182,212,0.5), rgba(147,51,234,0.5), transparent)",
+						background: "linear-gradient(90deg, transparent, rgba(0,157,220,0.5), transparent)",
 						opacity: mounted ? 1 : 0,
 						transition: "opacity 0.6s ease 0.45s",
 					}}
@@ -345,14 +331,7 @@ function StartupHero() {
 							className={`flex flex-col items-center justify-center py-7 group cursor-default ${i < IMPACT_STATS.length - 1 ? "border-r border-black/5 dark:border-white/5" : ""}`}
 						>
 							<span
-								className="text-3xl md:text-4xl font-bold tracking-tight"
-								style={{
-									background: `linear-gradient(135deg, ${stat.color}, hsl(280,100%,70%))`,
-									WebkitBackgroundClip: "text",
-									WebkitTextFillColor: "transparent",
-									backgroundClip: "text",
-									filter: `drop-shadow(0 0 20px ${stat.color}66)`,
-								}}
+								className="text-3xl md:text-4xl font-bold tracking-tight text-primary"
 							>
 								{stat.value}
 							</span>
@@ -406,19 +385,17 @@ function CaseStudyShowcase() {
 		<section className="w-[90%] max-w-[1600px] mx-auto py-16">
 			<div className="text-center mb-16">
 				<div className="flex items-center justify-center gap-3 mb-4">
-					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.6))" }} />
+					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(0,157,220,0.6))" }} />
 					<span className="text-xs font-bold tracking-[0.35em] uppercase text-primary/80">
 						Featured Case Study
 					</span>
-					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, rgba(147,51,234,0.6), transparent)" }} />
+					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, rgba(0,157,220,0.6), transparent)" }} />
 				</div>
 				<h2 className="text-3xl md:text-5xl font-bold tracking-tight">
 					<span className="text-foreground">From </span>
 					<span
 						style={{
-							background: "linear-gradient(135deg, hsl(210,100%,60%), hsl(280,100%,65%))",
-							WebkitBackgroundClip: "text",
-							WebkitTextFillColor: "transparent",
+							color: "var(--color-primary)",
 						}}
 					>
 						Napkin Sketch
@@ -426,9 +403,7 @@ function CaseStudyShowcase() {
 					<span className="text-foreground"> to </span>
 					<span
 						style={{
-							background: "linear-gradient(135deg, hsl(170,100%,45%), hsl(210,100%,60%))",
-							WebkitBackgroundClip: "text",
-							WebkitTextFillColor: "transparent",
+							color: "var(--color-primary)",
 						}}
 					>
 						Security Platform
@@ -460,7 +435,7 @@ function CaseStudyShowcase() {
 							className="absolute inset-0 rounded-[32px] border border-black/5 dark:border-white/[0.08]"
 							style={{
 								background: isHovered
-									? `radial-gradient(ellipse at ${glowPos.x}% ${glowPos.y}%, rgba(59,130,246,0.08) 0%, transparent 60%)`
+									? `radial-gradient(ellipse at ${glowPos.x}% ${glowPos.y}%, rgba(0,157,220,0.08) 0%, transparent 60%)`
 									: "none",
 								backgroundColor: "var(--glass-bg)",
 								backdropFilter: "blur(24px)",
@@ -471,8 +446,8 @@ function CaseStudyShowcase() {
 							style={{
 								padding: "1.5px",
 								background: isHovered
-									? "linear-gradient(135deg, hsl(210,100%,60%)55, hsl(170,100%,50%)44, hsl(280,100%,65%)55)"
-									: "linear-gradient(135deg, rgba(59,130,246,0.15), rgba(147,51,234,0.15))",
+									? "linear-gradient(135deg, var(--color-primary), var(--color-primary))"
+									: "linear-gradient(135deg, rgba(0,157,220,0.15), rgba(0,157,220,0.15))",
 								WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
 								WebkitMaskComposite: "xor",
 								maskComposite: "exclude",
@@ -487,7 +462,7 @@ function CaseStudyShowcase() {
 								width: "280px",
 								height: "280px",
 								borderRadius: "50%",
-								background: "radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%)",
+								background: "radial-gradient(circle, rgba(0,157,220,0.15), transparent 70%)",
 								filter: "blur(30px)",
 								transform: isHovered ? "translateZ(20px) scale(1.2)" : "scale(1)",
 								transition: "transform 0.5s ease",
@@ -501,7 +476,7 @@ function CaseStudyShowcase() {
 								width: "200px",
 								height: "200px",
 								borderRadius: "50%",
-								background: "radial-gradient(circle, rgba(147,51,234,0.12), transparent 70%)",
+								background: "radial-gradient(circle, rgba(0,157,220,0.12), transparent 70%)",
 								filter: "blur(25px)",
 								transform: isHovered ? "translateZ(15px) scale(1.3)" : "scale(1)",
 								transition: "transform 0.5s ease",
@@ -527,9 +502,9 @@ function CaseStudyShowcase() {
 									<span
 										className="text-xs font-bold tracking-[0.3em] uppercase px-4 py-1.5 rounded-full"
 										style={{
-											color: "hsl(210,100%,60%)",
-											background: "rgba(59,130,246,0.1)",
-											border: "1px solid rgba(59,130,246,0.25)",
+											color: "var(--color-primary)",
+											background: "rgba(0,157,220,0.1)",
+											border: "1px solid rgba(0,157,220,0.25)",
 										}}
 									>
 										Cybersecurity · DevSecOps
@@ -537,9 +512,9 @@ function CaseStudyShowcase() {
 									<span
 										className="text-xs font-bold tracking-[0.3em] uppercase px-3 py-1.5 rounded-full"
 										style={{
-											color: "hsl(40,100%,55%)",
-											background: "rgba(245,158,11,0.1)",
-											border: "1px solid rgba(245,158,11,0.25)",
+											color: "var(--color-secondary)",
+											background: "rgba(0,44,70,0.08)",
+											border: "1px solid rgba(0,44,70,0.2)",
 										}}
 									>
 										Enterprise SaaS
@@ -548,7 +523,7 @@ function CaseStudyShowcase() {
 								<h3
 									className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-2"
 									style={{
-										textShadow: isHovered ? "0 0 40px rgba(59,130,246,0.3)" : "none",
+										textShadow: isHovered ? "0 0 40px rgba(0,157,220,0.3)" : "none",
 										transition: "text-shadow 0.3s ease",
 									}}
 								>
@@ -557,9 +532,7 @@ function CaseStudyShowcase() {
 								<p
 									className="text-lg md:text-xl font-light leading-relaxed mb-6 italic"
 									style={{
-										background: "linear-gradient(135deg, #3b82f6, #a855f7)",
-										WebkitBackgroundClip: "text",
-										WebkitTextFillColor: "transparent",
+										color: "var(--color-primary)",
 									}}
 								>
 									Software Supply Chain Security, From Zero to Platform
@@ -591,13 +564,13 @@ function CaseStudyShowcase() {
 								>
 									<span
 										className="text-sm font-bold tracking-wide"
-										style={{ color: "hsl(210,100%,60%)" }}
+										style={{ color: "var(--color-primary)" }}
 									>
 										Read the full case study
 									</span>
 									<ArrowRight
 										className="w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-1"
-										style={{ color: "hsl(210,100%,60%)" }}
+										style={{ color: "var(--color-primary)" }}
 									/>
 								</div>
 							</div>
@@ -620,8 +593,8 @@ function CaseStudyShowcase() {
 									<div
 										className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full"
 										style={{
-											background: "radial-gradient(circle, rgba(59,130,246,0.4), rgba(147,51,234,0.2), transparent)",
-											boxShadow: "0 0 60px rgba(59,130,246,0.3), 0 0 120px rgba(147,51,234,0.15)",
+											background: "radial-gradient(circle, rgba(0,157,220,0.4), rgba(0,157,220,0.1), transparent)",
+											boxShadow: "0 0 60px rgba(0,157,220,0.3)",
 											animation: "pulse-glow 4s ease-in-out infinite",
 										}}
 									/>
@@ -649,9 +622,7 @@ function CaseStudyShowcase() {
 											<div
 												className="text-lg font-bold"
 												style={{
-													background: "linear-gradient(135deg, hsl(210,100%,60%), hsl(280,100%,65%))",
-													WebkitBackgroundClip: "text",
-													WebkitTextFillColor: "transparent",
+													color: "var(--color-primary)",
 												}}
 											>
 												{panel.val}
@@ -695,19 +666,17 @@ function JourneyTimeline() {
 		<section ref={sectionRef} className="w-[90%] max-w-[1600px] mx-auto py-20">
 			<div className="text-center mb-16">
 				<div className="flex items-center justify-center gap-3 mb-4">
-					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(6,182,212,0.6))" }} />
-					<span className="text-xs font-bold tracking-[0.35em] uppercase text-cyan-500/80">
+					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(0,157,220,0.6))" }} />
+					<span className="text-xs font-bold tracking-[0.35em] uppercase text-primary/80">
 						The Journey
 					</span>
-					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, rgba(6,182,212,0.6), transparent)" }} />
+					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, rgba(0,157,220,0.6), transparent)" }} />
 				</div>
 				<h2 className="text-3xl md:text-5xl font-bold tracking-tight">
 					<span className="text-foreground">How We </span>
 					<span
 						style={{
-							background: "linear-gradient(135deg, hsl(170,100%,45%), hsl(210,100%,60%))",
-							WebkitBackgroundClip: "text",
-							WebkitTextFillColor: "transparent",
+							color: "var(--color-primary)",
 						}}
 					>
 						Built It
@@ -720,9 +689,9 @@ function JourneyTimeline() {
 					className="absolute top-1/2 left-0 h-px -translate-y-1/2 hidden md:block"
 					style={{
 						width: `${((activePhase + 1) / JOURNEY_PHASES.length) * 100}%`,
-						background: "linear-gradient(90deg, hsl(210,100%,60%), hsl(170,100%,45%), hsl(280,100%,65%), hsl(40,100%,55%))",
+						background: "var(--color-primary)",
 						transition: "width 0.5s cubic-bezier(0.16,1,0.3,1)",
-						boxShadow: "0 0 20px rgba(59,130,246,0.4)",
+						boxShadow: "0 0 20px rgba(0,157,220,0.4)",
 					}}
 				/>
 				<div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
@@ -882,19 +851,17 @@ function ImpactDashboard() {
 		<section ref={sectionRef} className="w-[90%] max-w-[1600px] mx-auto py-20">
 			<div className="text-center mb-16">
 				<div className="flex items-center justify-center gap-3 mb-4">
-					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(147,51,234,0.6))" }} />
-					<span className="text-xs font-bold tracking-[0.35em] uppercase text-purple-500/80">
+					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(0,157,220,0.6))" }} />
+					<span className="text-xs font-bold tracking-[0.35em] uppercase text-primary/80">
 						The Impact
 					</span>
-					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, rgba(147,51,234,0.6), transparent)" }} />
+					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, rgba(0,157,220,0.6), transparent)" }} />
 				</div>
 				<h2 className="text-3xl md:text-5xl font-bold tracking-tight">
 					<span className="text-foreground">Results That </span>
 					<span
 						style={{
-							background: "linear-gradient(135deg, hsl(280,100%,65%), hsl(210,100%,60%))",
-							WebkitBackgroundClip: "text",
-							WebkitTextFillColor: "transparent",
+							color: "var(--color-primary)",
 						}}
 					>
 						Speak
@@ -925,14 +892,14 @@ function ImpactDashboard() {
 							<div
 								className="absolute inset-0 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
 								style={{
-									background: `radial-gradient(circle at 50% 50%, ${stat.color}10, transparent 70%)`,
-									border: `1px solid ${stat.color}30`,
+									background: `radial-gradient(circle at 50% 50%, rgba(0,157,220,0.1), transparent 70%)`,
+									border: `1px solid var(--color-primary)`,
 								}}
 							/>
 							<div
 								className="absolute top-0 left-[20%] right-[20%] h-px pointer-events-none group-hover:left-[10%] group-hover:right-[10%] transition-all duration-500"
 								style={{
-									background: `linear-gradient(90deg, transparent, ${stat.color}80, transparent)`,
+									background: `linear-gradient(90deg, transparent, rgba(0,157,220,0.8), transparent)`,
 								}}
 							/>
 							<div className="relative z-10 p-8 flex flex-col items-center text-center">
@@ -946,13 +913,7 @@ function ImpactDashboard() {
 									<Icon className="w-6 h-6" style={{ color: stat.color }} />
 								</div>
 								<span
-									className="text-4xl md:text-5xl font-bold tracking-tight mb-2"
-									style={{
-										background: `linear-gradient(135deg, ${stat.color}, hsl(280,100%,70%))`,
-										WebkitBackgroundClip: "text",
-										WebkitTextFillColor: "transparent",
-										backgroundClip: "text",
-									}}
+									className="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-primary"
 								>
 									{stat.value}
 								</span>
@@ -991,19 +952,17 @@ function TechStackOrbit() {
 		<section ref={sectionRef} className="w-[90%] max-w-[1600px] mx-auto py-20">
 			<div className="text-center mb-16">
 				<div className="flex items-center justify-center gap-3 mb-4">
-					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.6))" }} />
-					<span className="text-xs font-bold tracking-[0.35em] uppercase text-blue-500/80">
+					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(0,157,220,0.6))" }} />
+					<span className="text-xs font-bold tracking-[0.35em] uppercase text-primary/80">
 						Arsenal
 					</span>
-					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, rgba(59,130,246,0.6), transparent)" }} />
+					<div className="h-px w-12" style={{ background: "linear-gradient(90deg, rgba(0,157,220,0.6), transparent)" }} />
 				</div>
 				<h2 className="text-3xl md:text-5xl font-bold tracking-tight">
 					<span className="text-foreground">Tech </span>
 					<span
 						style={{
-							background: "linear-gradient(135deg, hsl(210,100%,60%), hsl(170,100%,45%))",
-							WebkitBackgroundClip: "text",
-							WebkitTextFillColor: "transparent",
+							color: "var(--color-primary)",
 						}}
 					>
 						Stack
@@ -1031,7 +990,7 @@ function TechStackOrbit() {
 							height: radius * 2,
 							top: `calc(50% - ${radius}px)`,
 							left: `calc(50% - ${radius}px)`,
-							border: `1px solid rgba(59,130,246,${0.08 + ri * 0.03})`,
+							border: `1px solid rgba(0,157,220,${0.08 + ri * 0.03})`,
 						}}
 					/>
 				))}
@@ -1039,8 +998,8 @@ function TechStackOrbit() {
 					<div
 						className="w-20 h-20 rounded-full flex items-center justify-center mb-3"
 						style={{
-							background: "radial-gradient(circle, rgba(59,130,246,0.2), rgba(147,51,234,0.1), transparent)",
-							boxShadow: "0 0 50px rgba(59,130,246,0.2), 0 0 100px rgba(147,51,234,0.1)",
+							background: "radial-gradient(circle, rgba(0,157,220,0.2), transparent)",
+							boxShadow: "0 0 50px rgba(0,157,220,0.2)",
 							animation: "pulse-glow 4s ease-in-out infinite",
 						}}
 					>
@@ -1133,14 +1092,14 @@ function StartupCTA() {
 				<div
 					className="absolute inset-0"
 					style={{
-						background: "linear-gradient(135deg, rgba(59,130,246,0.08), rgba(147,51,234,0.06), rgba(6,182,212,0.04))",
+						background: "rgba(0,157,220,0.08)",
 						backdropFilter: "blur(24px)",
 					}}
 				/>
 				<div
 					className="absolute inset-0 rounded-[32px]"
 					style={{
-						border: "1px solid rgba(59,130,246,0.15)",
+						border: "1px solid rgba(0,157,220,0.15)",
 					}}
 				/>
 				<div
@@ -1151,7 +1110,7 @@ function StartupCTA() {
 						width: "300px",
 						height: "300px",
 						borderRadius: "50%",
-						background: "radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%)",
+						background: "radial-gradient(circle, rgba(0,157,220,0.15), transparent 70%)",
 						filter: "blur(40px)",
 					}}
 				/>
@@ -1163,7 +1122,7 @@ function StartupCTA() {
 						width: "250px",
 						height: "250px",
 						borderRadius: "50%",
-						background: "radial-gradient(circle, rgba(147,51,234,0.12), transparent 70%)",
+						background: "radial-gradient(circle, rgba(0,157,220,0.12), transparent 70%)",
 						filter: "blur(35px)",
 					}}
 				/>
@@ -1171,9 +1130,9 @@ function StartupCTA() {
 					<div
 						className="w-16 h-16 rounded-2xl mx-auto flex items-center justify-center mb-8"
 						style={{
-							background: "rgba(59,130,246,0.12)",
-							border: "1px solid rgba(59,130,246,0.25)",
-							boxShadow: "0 0 40px rgba(59,130,246,0.2)",
+							background: "rgba(0,157,220,0.12)",
+							border: "1px solid rgba(0,157,220,0.25)",
+							boxShadow: "0 0 40px rgba(0,157,220,0.2)",
 						}}
 					>
 						<Rocket className="w-8 h-8 text-primary" />
@@ -1182,9 +1141,7 @@ function StartupCTA() {
 						<span className="text-foreground">Ready to Build </span>
 						<span
 							style={{
-								background: "linear-gradient(135deg, hsl(210,100%,60%), hsl(280,100%,65%))",
-								WebkitBackgroundClip: "text",
-								WebkitTextFillColor: "transparent",
+								color: "var(--color-primary)",
 							}}
 						>
 							Your Startup?
@@ -1198,9 +1155,9 @@ function StartupCTA() {
 						to="/contact-us"
 						className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-sm font-bold tracking-wide uppercase no-underline transition-all duration-300 group hover:scale-105"
 						style={{
-							background: "linear-gradient(135deg, hsl(210,100%,50%), hsl(280,100%,60%))",
+							background: "var(--color-primary)",
 							color: "white",
-							boxShadow: "0 8px 40px rgba(59,130,246,0.4), 0 0 0 1px rgba(59,130,246,0.2)",
+							boxShadow: "0 8px 40px rgba(0,157,220,0.4), 0 0 0 1px rgba(0,157,220,0.2)",
 						}}
 					>
 						Let's Talk

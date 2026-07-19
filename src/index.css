@@ -4,91 +4,91 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-	/* Premium Light Theme */
-	--color-background: hsl(0, 0%, 98%);
-	--color-foreground: hsl(240, 10%, 4%);
+	/* Premium Light Theme - StartupLanes Inspired */
+	--color-background: hsl(0, 0%, 100%);
+	--color-foreground: hsl(202, 100%, 14%); /* Secondary Navy text */
 	--color-card: hsl(0, 0%, 100%);
-	--color-card-foreground: hsl(240, 10%, 4%);
+	--color-card-foreground: hsl(202, 100%, 14%);
 	--color-popover: hsl(0, 0%, 100%);
-	--color-popover-foreground: hsl(240, 10%, 4%);
-	--color-primary: hsl(210, 100%, 50%); /* Neon blue */
+	--color-popover-foreground: hsl(202, 100%, 14%);
+	--color-primary: hsl(197, 100%, 43%); /* StartupLanes Blue */
 	--color-primary-foreground: hsl(0, 0%, 100%);
-	--color-secondary: hsl(240, 10%, 95%);
-	--color-secondary-foreground: hsl(240, 10%, 4%);
-	--color-muted: hsl(240, 10%, 95%);
-	--color-muted-foreground: hsl(240, 5%, 40%);
-	--color-accent: hsl(280, 100%, 60%); /* Purple accent */
-	--color-accent-foreground: hsl(0, 0%, 98%);
+	--color-secondary: hsl(202, 100%, 14%); /* StartupLanes Navy */
+	--color-secondary-foreground: hsl(0, 0%, 100%);
+	--color-muted: hsl(202, 30%, 95%);
+	--color-muted-foreground: hsl(202, 30%, 45%);
+	--color-accent: hsl(197, 100%, 43%); /* Matches primary */
+	--color-accent-foreground: hsl(0, 0%, 100%);
 	--color-destructive: hsl(0, 84.2%, 60.2%);
 	--color-destructive-foreground: hsl(0, 0%, 98%);
-	--color-border: hsl(240, 5.9%, 90%);
-	--color-input: hsl(240, 5.9%, 90%);
-	--color-ring: hsl(210, 100%, 50%);
+	--color-border: hsl(202, 20%, 90%);
+	--color-input: hsl(202, 20%, 90%);
+	--color-ring: hsl(197, 100%, 43%);
 
-	--color-sidebar-background: hsl(0, 0%, 98%);
-	--color-sidebar-foreground: hsl(240, 10%, 4%);
-	--color-sidebar-primary: hsl(210, 100%, 50%);
+	--color-sidebar-background: hsl(202, 30%, 98%);
+	--color-sidebar-foreground: hsl(202, 100%, 14%);
+	--color-sidebar-primary: hsl(197, 100%, 43%);
 	--color-sidebar-primary-foreground: hsl(0, 0%, 100%);
-	--color-sidebar-accent: hsl(240, 10%, 95%);
-	--color-sidebar-accent-foreground: hsl(240, 10%, 4%);
-	--color-sidebar-border: hsl(240, 5.9%, 90%);
-	--color-sidebar-ring: hsl(210, 100%, 50%);
+	--color-sidebar-accent: hsl(202, 20%, 94%);
+	--color-sidebar-accent-foreground: hsl(202, 100%, 14%);
+	--color-sidebar-border: hsl(202, 20%, 90%);
+	--color-sidebar-ring: hsl(197, 100%, 43%);
 
-	--gradient-primary: linear-gradient(135deg, hsl(210, 100%, 50%) 0%, hsl(280, 100%, 60%) 100%);
-	--gradient-secondary: linear-gradient(135deg, hsl(240, 10%, 95%) 0%, hsl(240, 10%, 100%) 100%);
-	--gradient-hero: linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 100%) 100%);
-    --gradient-glow: linear-gradient(90deg, rgba(59,130,246,0.3) 0%, rgba(147,51,234,0.3) 100%);
+	--gradient-primary: linear-gradient(to right, hsl(197, 100%, 43%), hsl(197, 100%, 43%));
+	--gradient-secondary: linear-gradient(to right, hsl(202, 100%, 14%), hsl(202, 100%, 14%));
+	--gradient-hero: linear-gradient(to right, var(--color-background), var(--color-background));
+	--gradient-glow: linear-gradient(to right, transparent, transparent);
 
-	--shadow-lg: 0 10px 40px -15px hsla(210, 100%, 50%, 0.1);
-	--shadow-glow: 0 0 20px hsla(210, 100%, 50%, 0.15);
-    --shadow-glass: inset 0 1px 0 0 rgba(0, 0, 0, 0.05);
+	--shadow-lg: 0 10px 40px -15px hsla(197, 100%, 43%, 0.1);
+	--shadow-glow: 0 0 20px hsla(197, 100%, 43%, 0.15);
+	--shadow-glass: inset 0 1px 0 0 rgba(0, 0, 0, 0.05);
 
-    --glass-bg: rgba(255, 255, 255, 0.6);
-    --glass-border: rgba(0, 0, 0, 0.05);
+	--glass-bg: rgba(255, 255, 255, 0.6);
+	--glass-border: rgba(0, 0, 0, 0.05);
 }
 
 .dark {
-	/* Premium Dark Theme */
-	--color-background: hsl(240, 10%, 4%);
-	--color-foreground: hsl(0, 0%, 98%);
-	--color-card: hsl(240, 10%, 6%);
-	--color-card-foreground: hsl(0, 0%, 98%);
-	--color-popover: hsl(240, 10%, 6%);
-	--color-popover-foreground: hsl(0, 0%, 98%);
-	--color-primary: hsl(210, 100%, 50%); /* Neon blue */
+	/* Premium Dark Theme - StartupLanes Inspired */
+	--color-background: hsl(202, 100%, 7%); /* Rich deep navy */
+	--color-foreground: hsl(197, 30%, 96%);
+	--color-card: hsl(202, 80%, 12%);
+	--color-card-foreground: hsl(197, 30%, 96%);
+	--color-popover: hsl(202, 80%, 12%);
+	--color-popover-foreground: hsl(197, 30%, 96%);
+	--color-primary: hsl(197, 100%, 43%); /* StartupLanes Blue */
 	--color-primary-foreground: hsl(0, 0%, 100%);
-	--color-secondary: hsl(240, 10%, 12%);
-	--color-secondary-foreground: hsl(0, 0%, 98%);
-	--color-muted: hsl(240, 10%, 12%);
-	--color-muted-foreground: hsl(240, 5%, 65%);
-	--color-accent: hsl(280, 100%, 60%); /* Purple accent */
-	--color-accent-foreground: hsl(0, 0%, 98%);
+	--color-secondary: hsl(202, 60%, 18%);
+	--color-secondary-foreground: hsl(197, 30%, 96%);
+	--color-muted: hsl(202, 50%, 14%);
+	--color-muted-foreground: hsl(202, 20%, 75%);
+	--color-accent: hsl(197, 100%, 43%); /* Matches primary */
+	--color-accent-foreground: hsl(0, 0%, 100%);
 	--color-destructive: hsl(0, 62.8%, 30.6%);
 	--color-destructive-foreground: hsl(0, 0%, 98%);
-	--color-border: hsl(240, 10%, 15%);
-	--color-input: hsl(240, 10%, 15%);
-	--color-ring: hsl(210, 100%, 50%);
+	--color-border: hsl(202, 40%, 20%);
+	--color-input: hsl(202, 40%, 20%);
+	--color-ring: hsl(197, 100%, 43%);
 
-	--color-sidebar-background: hsl(240, 10%, 6%);
-	--color-sidebar-foreground: hsl(0, 0%, 98%);
-	--color-sidebar-primary: hsl(210, 100%, 50%);
+	--color-sidebar-background: hsl(202, 80%, 10%);
+	--color-sidebar-foreground: hsl(197, 30%, 96%);
+	--color-sidebar-primary: hsl(197, 100%, 43%);
 	--color-sidebar-primary-foreground: hsl(0, 0%, 100%);
-	--color-sidebar-accent: hsl(240, 10%, 12%);
-	--color-sidebar-accent-foreground: hsl(0, 0%, 98%);
-	--color-sidebar-border: hsl(240, 10%, 15%);
-	--color-sidebar-ring: hsl(210, 100%, 50%);
+	--color-sidebar-accent: hsl(202, 60%, 16%);
+	--color-sidebar-accent-foreground: hsl(197, 30%, 96%);
+	--color-sidebar-border: hsl(202, 40%, 20%);
+	--color-sidebar-ring: hsl(197, 100%, 43%);
 
-	--gradient-primary: linear-gradient(135deg, hsl(210, 100%, 50%) 0%, hsl(280, 100%, 60%) 100%);
-	--gradient-secondary: linear-gradient(135deg, hsl(240, 10%, 10%) 0%, hsl(240, 10%, 6%) 100%);
-	--gradient-hero: linear-gradient(135deg, hsl(240, 10%, 4%) 0%, hsl(240, 10%, 8%) 100%);
-    --gradient-glow: linear-gradient(90deg, rgba(59,130,246,0.5) 0%, rgba(147,51,234,0.5) 100%);
+	--gradient-primary: linear-gradient(to right, hsl(197, 100%, 43%), hsl(197, 100%, 43%));
+	--gradient-secondary: linear-gradient(to right, hsl(202, 100%, 7%), hsl(202, 100%, 7%));
+	--gradient-hero: linear-gradient(to right, var(--color-background), var(--color-background));
+	--gradient-glow: linear-gradient(to right, transparent, transparent);
 
-	--shadow-lg: 0 10px 40px -15px hsla(210, 100%, 50%, 0.15);
-	--shadow-glow: 0 0 20px hsla(210, 100%, 50%, 0.3);
-    --shadow-glass: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+	--shadow-lg: 0 10px 40px -15px hsla(197, 100%, 43%, 0.15);
+	--shadow-glow: 0 0 20px hsla(197, 100%, 43%, 0.3);
+	--shadow-glass: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 
-    --glass-bg: rgba(20, 20, 25, 0.6);
-    --glass-border: transparent;
+	--glass-bg: rgba(20, 20, 25, 0.6);
+	--glass-border: transparent;
 }
 
 body {
@@ -131,6 +131,84 @@ body {
 	/* Font */
 	--font-outfit: Outfit, sans-serif;
     --font-poppins: "Space Grotesk", sans-serif;
+
+	/* Override standard Tailwind colors to align with our 2-color brand theme */
+	--color-blue-50: hsl(197, 100%, 96%);
+	--color-blue-100: hsl(197, 100%, 90%);
+	--color-blue-200: hsl(197, 100%, 80%);
+	--color-blue-300: hsl(197, 100%, 65%);
+	--color-blue-400: var(--color-primary);
+	--color-blue-500: var(--color-primary);
+	--color-blue-600: var(--color-primary);
+	--color-blue-700: var(--color-primary);
+	--color-blue-800: var(--color-primary);
+	--color-blue-900: var(--color-primary);
+
+	--color-purple-50: hsl(197, 100%, 96%);
+	--color-purple-100: hsl(197, 100%, 90%);
+	--color-purple-200: hsl(197, 100%, 80%);
+	--color-purple-300: hsl(197, 100%, 65%);
+	--color-purple-400: var(--color-primary);
+	--color-purple-500: var(--color-primary);
+	--color-purple-600: var(--color-primary);
+	--color-purple-700: var(--color-primary);
+	--color-purple-800: var(--color-primary);
+	--color-purple-900: var(--color-primary);
+
+	--color-pink-50: hsl(197, 100%, 96%);
+	--color-pink-100: hsl(197, 100%, 90%);
+	--color-pink-200: hsl(197, 100%, 80%);
+	--color-pink-300: hsl(197, 100%, 65%);
+	--color-pink-400: var(--color-primary);
+	--color-pink-500: var(--color-primary);
+	--color-pink-600: var(--color-primary);
+	--color-pink-700: var(--color-primary);
+	--color-pink-800: var(--color-primary);
+	--color-pink-900: var(--color-primary);
+
+	--color-cyan-50: hsl(197, 100%, 96%);
+	--color-cyan-100: hsl(197, 100%, 90%);
+	--color-cyan-200: hsl(197, 100%, 80%);
+	--color-cyan-300: hsl(197, 100%, 65%);
+	--color-cyan-400: var(--color-primary);
+	--color-cyan-500: var(--color-primary);
+	--color-cyan-600: var(--color-primary);
+	--color-cyan-700: var(--color-primary);
+	--color-cyan-800: var(--color-primary);
+	--color-cyan-900: var(--color-primary);
+
+	--color-indigo-50: hsl(197, 100%, 96%);
+	--color-indigo-100: hsl(197, 100%, 90%);
+	--color-indigo-200: hsl(197, 100%, 80%);
+	--color-indigo-300: hsl(197, 100%, 65%);
+	--color-indigo-400: var(--color-primary);
+	--color-indigo-500: var(--color-primary);
+	--color-indigo-600: var(--color-primary);
+	--color-indigo-700: var(--color-primary);
+	--color-indigo-800: var(--color-primary);
+	--color-indigo-900: var(--color-primary);
+
+	--color-violet-50: hsl(197, 100%, 96%);
+	--color-violet-100: hsl(197, 100%, 90%);
+	--color-violet-200: hsl(197, 100%, 80%);
+	--color-violet-300: hsl(197, 100%, 65%);
+	--color-violet-400: var(--color-primary);
+	--color-violet-500: var(--color-primary);
+	--color-violet-600: var(--color-primary);
+	--color-violet-700: var(--color-primary);
+	--color-violet-800: var(--color-primary);
+	--color-violet-900: var(--color-primary);
+
+	--color-amber-50: hsl(197, 100%, 96%);
+	--color-amber-100: hsl(197, 100%, 90%);
+	--color-amber-200: hsl(197, 100%, 80%);
+	--color-amber-300: hsl(197, 100%, 65%);
+	--color-amber-400: var(--color-primary);
+	--color-amber-500: var(--color-primary);
+	--color-amber-600: var(--color-primary);
+	--color-amber-700: var(--color-primary);
+	--color-amber-800: var(--color-primary);
+	--color-amber-900: var(--color-primary);
 }
 
 /* Base custom utilities */
@@ -142,10 +220,11 @@ body {
 }
 
 .text-gradient {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    color: var(--color-primary);
 }
 
 /* 3D Utilities */
@@ -212,10 +291,10 @@ body {
 
 @keyframes glow-pulse-neon {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(59,130,246,0.3), 0 0 60px rgba(59,130,246,0.1);
+    box-shadow: 0 0 20px rgba(0, 157, 220, 0.3), 0 0 60px rgba(0, 157, 220, 0.1);
   }
   50% {
-    box-shadow: 0 0 30px rgba(59,130,246,0.5), 0 0 80px rgba(147,51,234,0.2);
+    box-shadow: 0 0 30px rgba(0, 157, 220, 0.5), 0 0 80px rgba(0, 157, 220, 0.15);
   }
 }
 
@@ -247,8 +326,8 @@ body {
 }
 
 @keyframes counter-glow {
-  0%, 100% { text-shadow: 0 0 20px rgba(59,130,246,0.4); }
-  50%      { text-shadow: 0 0 40px rgba(147,51,234,0.6), 0 0 80px rgba(59,130,246,0.3); }
+  0%, 100% { text-shadow: 0 0 20px rgba(0, 157, 220, 0.4); }
+  50%      { text-shadow: 0 0 40px rgba(0, 157, 220, 0.6), 0 0 80px rgba(0, 157, 220, 0.3); }
 }
 
 @keyframes border-flow {

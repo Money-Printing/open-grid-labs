@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import PageHeading from "../../../../components/page-heading/index.tsx";
 import ButtonLink from "../../../../components/ui/button-link.tsx";
@@ -257,11 +257,8 @@ export default function HomeServices() {
                         </span>
                         
                         <div>
-                          <h4 className="text-xl md:text-2xl font-semibold text-foreground group-hover/row:text-transparent group-hover/row:bg-clip-text group-hover/row:bg-gradient-to-r transition-all duration-300" 
-                              style={{ '--tw-gradient-from': 'transparent', '--tw-gradient-to': 'transparent' } as React.CSSProperties}>
-                            <span className={`group-hover/row:text-transparent group-hover/row:bg-clip-text group-hover/row:bg-gradient-to-r ${active.color}`}>
-                              {cap.name}
-                            </span>
+                          <h4 className={`text-xl md:text-2xl font-semibold text-foreground transition-all duration-300 group-hover/row:bg-clip-text group-hover/row:text-transparent group-hover/row:bg-gradient-to-r ${active.color}`}>
+                            {cap.name}
                           </h4>
                           <p className="text-sm text-foreground/80 dark:text-foreground/60 dark:text-foreground/40 group-hover/row:text-foreground/80 dark:text-foreground/60 transition-colors mt-1">
                             {cap.detail}

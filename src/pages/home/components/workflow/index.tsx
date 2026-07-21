@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "motion/react";
 import { Search, Map, Layers, Code2, Rocket } from "lucide-react";
 import PageHeading from "../../../../components/page-heading";
@@ -12,6 +11,7 @@ const steps = [
     accent: "from-blue-500 to-cyan-400",
     glowColor: "hsla(210, 100%, 50%, 0.12)",
     accentText: "text-blue-400",
+    titleGradient: "group-hover:from-blue-600 group-hover:to-cyan-500 dark:group-hover:from-blue-400 dark:group-hover:to-cyan-300",
   },
   {
     id: 2,
@@ -21,6 +21,7 @@ const steps = [
     accent: "from-violet-500 to-fuchsia-400",
     glowColor: "hsla(280, 100%, 60%, 0.12)",
     accentText: "text-violet-400",
+    titleGradient: "group-hover:from-violet-600 group-hover:to-fuchsia-500 dark:group-hover:from-violet-400 dark:group-hover:to-fuchsia-300",
   },
   {
     id: 3,
@@ -30,6 +31,7 @@ const steps = [
     accent: "from-amber-400 to-orange-400",
     glowColor: "hsla(35, 100%, 55%, 0.12)",
     accentText: "text-amber-400",
+    titleGradient: "group-hover:from-amber-500 group-hover:to-orange-500 dark:group-hover:from-amber-400 dark:group-hover:to-orange-400",
   },
   {
     id: 4,
@@ -39,6 +41,7 @@ const steps = [
     accent: "from-emerald-400 to-teal-400",
     glowColor: "hsla(160, 80%, 50%, 0.12)",
     accentText: "text-emerald-400",
+    titleGradient: "group-hover:from-emerald-600 group-hover:to-teal-500 dark:group-hover:from-emerald-400 dark:group-hover:to-teal-300",
   },
   {
     id: 5,
@@ -48,6 +51,7 @@ const steps = [
     accent: "from-rose-400 to-pink-500",
     glowColor: "hsla(350, 90%, 60%, 0.12)",
     accentText: "text-rose-400",
+    titleGradient: "group-hover:from-rose-600 group-hover:to-pink-500 dark:group-hover:from-rose-400 dark:group-hover:to-pink-400",
   },
 ];
 
@@ -163,11 +167,8 @@ export default function HomeWorkflow() {
                              style={{ background: `linear-gradient(135deg, ${step.glowColor}, transparent)` }}>
                           <Icon size={22} className={step.accentText} />
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r transition-all duration-500"
-                            style={{ "--tw-gradient-from": "white", "--tw-gradient-to": "white" } as React.CSSProperties}>
-                          <span className={`group-hover:bg-gradient-to-r group-hover:${step.accent} group-hover:text-transparent group-hover:bg-clip-text`}>
-                            {step.title}
-                          </span>
+                        <h3 className={`text-2xl md:text-3xl font-display font-bold text-foreground transition-all duration-500 bg-gradient-to-r group-hover:bg-clip-text group-hover:text-transparent ${step.titleGradient}`}>
+                          {step.title}
                         </h3>
                       </div>
 

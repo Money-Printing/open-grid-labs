@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "motion/react";
 import { Search, Map, Layers, Code2, Rocket } from "lucide-react";
 import PageHeading from "../../../../components/page-heading";
@@ -6,48 +5,53 @@ import PageHeading from "../../../../components/page-heading";
 const steps = [
   {
     id: 1,
-    title: "Discovery",
-    desc: "We deep-dive into your goals, audience, and market landscape to uncover insights that shape every decision downstream.",
+    title: "Validate & Define",
+    desc: "We validate your startup hypothesis against real-world user metrics and define the absolute leanest MVP scope to launch fast and cost-effectively.",
     icon: Search,
     accent: "from-blue-500 to-cyan-400",
     glowColor: "hsla(210, 100%, 50%, 0.12)",
     accentText: "text-blue-400",
+    titleGradient: "group-hover:from-blue-600 group-hover:to-cyan-500 dark:group-hover:from-blue-400 dark:group-hover:to-cyan-300",
   },
   {
     id: 2,
-    title: "Strategy",
-    desc: "We architect the technical blueprint — selecting frameworks, mapping user flows, and defining the roadmap to ship fast.",
+    title: "Prototype & Design",
+    desc: "We map out frictionless user journeys and craft stunning UI/UX, producing high-fidelity clickable mockups that get early users and investors excited.",
     icon: Map,
     accent: "from-violet-500 to-fuchsia-400",
     glowColor: "hsla(280, 100%, 60%, 0.12)",
     accentText: "text-violet-400",
+    titleGradient: "group-hover:from-violet-600 group-hover:to-fuchsia-500 dark:group-hover:from-violet-400 dark:group-hover:to-fuchsia-300",
   },
   {
     id: 3,
-    title: "Prototype",
-    desc: "High-fidelity interactive prototypes are crafted so you can see, feel, and validate the product before a single line of code.",
+    title: "System Blueprint",
+    desc: "We blueprint a robust tech stack — selecting database layouts, API structures, and cloud architecture to ensure security and scale from day one.",
     icon: Layers,
     accent: "from-amber-400 to-orange-400",
     glowColor: "hsla(35, 100%, 55%, 0.12)",
     accentText: "text-amber-400",
+    titleGradient: "group-hover:from-amber-500 group-hover:to-orange-500 dark:group-hover:from-amber-400 dark:group-hover:to-orange-400",
   },
   {
     id: 4,
-    title: "Engineering",
-    desc: "Our team builds production-grade systems with clean architecture, rigorous testing, and performance baked into every commit.",
+    title: "Elite Engineering",
+    desc: "Our senior developers build your product with modular, clean-code practices, integrating analytics, payment gateways, and telemetry pipelines.",
     icon: Code2,
     accent: "from-emerald-400 to-teal-400",
     glowColor: "hsla(160, 80%, 50%, 0.12)",
     accentText: "text-emerald-400",
+    titleGradient: "group-hover:from-emerald-600 group-hover:to-teal-500 dark:group-hover:from-emerald-400 dark:group-hover:to-teal-300",
   },
   {
     id: 5,
     title: "Launch & Scale",
-    desc: "We deploy with zero-downtime strategies, monitor performance in real-time, and iterate rapidly based on live user data.",
+    desc: "We deploy your product using secure CI/CD pipelines, track activation funnels, and begin high-velocity growth iterations to find product-market fit.",
     icon: Rocket,
     accent: "from-rose-400 to-pink-500",
     glowColor: "hsla(350, 90%, 60%, 0.12)",
     accentText: "text-rose-400",
+    titleGradient: "group-hover:from-rose-600 group-hover:to-pink-500 dark:group-hover:from-rose-400 dark:group-hover:to-pink-400",
   },
 ];
 
@@ -163,11 +167,8 @@ export default function HomeWorkflow() {
                              style={{ background: `linear-gradient(135deg, ${step.glowColor}, transparent)` }}>
                           <Icon size={22} className={step.accentText} />
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r transition-all duration-500"
-                            style={{ "--tw-gradient-from": "white", "--tw-gradient-to": "white" } as React.CSSProperties}>
-                          <span className={`group-hover:bg-gradient-to-r group-hover:${step.accent} group-hover:text-transparent group-hover:bg-clip-text`}>
-                            {step.title}
-                          </span>
+                        <h3 className={`text-2xl md:text-3xl font-display font-bold text-foreground transition-all duration-500 bg-gradient-to-r group-hover:bg-clip-text group-hover:text-transparent ${step.titleGradient}`}>
+                          {step.title}
                         </h3>
                       </div>
 

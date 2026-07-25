@@ -5,28 +5,28 @@ import { Sparkles, Users, ShieldCheck, Rocket } from 'lucide-react';
 /* ── Metric Data ────────────────────────────────────────── */
 const metrics = [
 	{
-		value: 100,
+		value: 15,
 		suffix: "+",
-		label: "Projects Shipped",
-		sub: "Production-grade digital products",
+		label: "Startups Co-Built",
+		sub: "From ideation to launch & scale",
 		icon: Rocket,
 		accent: "from-blue-400 via-cyan-400 to-blue-500",
 		glow: "hsla(200, 100%, 55%, 0.35)",
 	},
 	{
-		value: 80,
-		suffix: "+",
-		label: "Clients Worldwide",
-		sub: "Across 12+ countries",
+		value: 50,
+		suffix: "M+",
+		label: "Client Capital Raised",
+		sub: "Fueled by our MVP engineering",
 		icon: Users,
 		accent: "from-violet-400 via-fuchsia-400 to-purple-500",
 		glow: "hsla(280, 100%, 60%, 0.35)",
 	},
 	{
-		value: 99.9,
+		value: 99.99,
 		suffix: "%",
-		label: "Uptime Guaranteed",
-		sub: "Enterprise-grade infrastructure",
+		label: "Infrastructure Reliability",
+		sub: "Handling millions of active requests",
 		icon: ShieldCheck,
 		accent: "from-emerald-400 via-green-400 to-teal-500",
 		glow: "hsla(155, 90%, 50%, 0.35)",
@@ -34,8 +34,8 @@ const metrics = [
 	{
 		value: 4.9,
 		suffix: "★",
-		label: "Client Rating",
-		sub: "Average across all engagements",
+		label: "Founder NPS Rating",
+		sub: "Obsessive dedication to quality",
 		icon: Sparkles,
 		accent: "from-amber-300 via-yellow-400 to-orange-400",
 		glow: "hsla(40, 100%, 55%, 0.35)",
@@ -200,7 +200,7 @@ const HomeMetric = () => {
 						transition={{ delay: 0.8, duration: 0.6 }}
 						className="text-sm md:text-base tracking-[0.35em] uppercase text-foreground/70 dark:text-foreground/50 dark:text-foreground/30 font-light mt-3"
 					>
-						Digital Products Engineered
+						Successful Launches
 					</motion.p>
 				</motion.div>
 
@@ -212,14 +212,14 @@ const HomeMetric = () => {
 					className="mt-14 md:mt-16 flex flex-col items-center gap-4 px-4"
 				>
 					<h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-foreground tracking-tight leading-tight text-center">
-						We Don't Build Websites.
+						We Don't Just Write Code.
 						<br />
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent">
-							We Engineer Experiences.
+							We Build Success Stories.
 						</span>
 					</h2>
 					<p className="text-base md:text-lg text-foreground/60 dark:text-foreground/35 max-w-lg font-light text-center leading-relaxed mt-2">
-						Every pixel, every interaction, every deployment — obsessively crafted to perform at scale.
+						From early-stage concepts to high-growth scaling, we build startups with venture velocity and production reliability.
 					</p>
 				</motion.div>
 
